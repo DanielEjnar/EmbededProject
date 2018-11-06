@@ -22,11 +22,10 @@ public:
 	void eventY(EmbeddedSystemX* context);
 	void Resume(EmbeddedSystemX* context);
 	void setCurrent(State *s);
-	State* getCurrent();
 private:
-	int versionNo;
-	char* name;
+	int _versionNo;
+	char* _name;
 	// Pointer which holds the current state
-	State* currentState;
+	State* _currentState;
 };
 

@@ -13,6 +13,11 @@ Failure::~Failure()
 {
 }
 
+void Failure::Display(int errorNo)
+{
+	std::cout << "ErrorNo: " << errorNo << "\n";
+}
+
 Failure* Failure::GetInstance()
 {
 	return (!_instance) ? _instance = new Failure : _instance;

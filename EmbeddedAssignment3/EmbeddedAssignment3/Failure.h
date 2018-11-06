@@ -7,6 +7,7 @@ public:
 	Failure();
 	~Failure();
 	static Failure* GetInstance();
+	void Display(int errorNo);
 	void SelftestOk(EmbeddedSystemX* context);
 	void Initalized(EmbeddedSystemX* context);
 	void Restart(EmbeddedSystemX* context);
@@ -25,4 +26,3 @@ public:
 private:
 	static Failure* _instance;
 };
-

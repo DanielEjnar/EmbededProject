@@ -7,8 +7,7 @@ int main()
 {
 	EmbeddedSystemX* context = new EmbeddedSystemX();
 	context->setCurrent(PowerOnSelfTest::GetInstance());
-	context->getCurrent()->SelfTestFailed(context, 999);
-	std::cout << context->getCurrent();
+	context->SelfTestFailed(context, 99);
 	getchar();
 	return 0;
 }

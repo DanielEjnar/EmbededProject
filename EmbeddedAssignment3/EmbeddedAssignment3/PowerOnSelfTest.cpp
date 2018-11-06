@@ -61,8 +61,10 @@ void PowerOnSelfTest::Resume(EmbeddedSystemX* context)
 
 void PowerOnSelfTest::SelfTestFailed(EmbeddedSystemX* context, int errorNo)
 {
-	std::cout << "SelfTestFailed. Changing to Failure";
-	context->setCurrent(Failure::GetInstance());
+	std::cout << "SelfTestFailed. Changing to Failure\n";
+	Failure* state = Failure::GetInstance();
+	state->Display(errorNo);
+	context->setCurrent(state);
 }
 
 void PowerOnSelfTest::ConfigX(EmbeddedSystemX* context)
