@@ -36,13 +36,29 @@ Optimizing traditional software algorithms using hardware acceleration, like fie
 
 \section{Methodology}
 
-SysML, UML. Which we need to make. Explain why we use them and what they show. Decide on an UML tool.
+The working methodology for this report will be combination of SysML (OMG 04-2006) and UML (OMG 08-2006). With SysML, the non-software parts of the system can be described, e.g. the synthesized mapping onto the hardware or other register-transfer level (RTL) models. UML on the other hand provides a logical and discrete description of software classes or their interaction. As we are modeling a solution based on hardware and software co-design, both methodologies are applicable and will be described in section X, architecture and design. The diagrams and models will be derived from a set of requirements put forward in section X, requirements. To quickly review the identified diagrams for this report:
+
+\begin{itemize}
+	\item Internal block diagram (IBD): To model block-specific inputs and outputs of the algorithm IP block.
+	\item Activity diagram. To show the sequence of actions of the application and which activities it goes through. These are useful to get an overall idea of the use case.
+	\item Class diagrams. Depicts the logical software classes, their dependencies and associations.
+\end{itemize}
+
+The analysis, design, development and validation phases follow the model-based codesign with UML/SysML described in X. This holistic process takes a starting point in the requirements, derives an architecture and design of the system, then proceeds to an implementation phase where high-level source code is designed, simulated and synthesized to a hardware description language (HDL). It concludes by conducting an entire system validation.
+
 \section{Requirements}
 
-Functional (use-cases/tasks) and non-functional.
+The following functional and non-functional are stated for this report as they make up the system and architectural design:
+
 \section{Architecture and design}
+
+
+
+
+\section{Theory and concepts}
 \section{Modeling in SystemC}
 \section{Simulation results}
+\section{Conclusion}
 \bibliographystyle{pl/ain}
 \bibliography{bibtex}{}
 \end{document}
