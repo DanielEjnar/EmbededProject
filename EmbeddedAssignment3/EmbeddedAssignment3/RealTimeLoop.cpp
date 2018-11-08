@@ -1,72 +1,32 @@
 #include "RealTimeLoop.h"
+#include "Ready.h"
+#include "Suspended.h"
+#include <iostream>
 
-
+RealTimeLoop* RealTimeLoop::_instance = 0;
 
 RealTimeLoop::RealTimeLoop()
 {
 }
 
-
 RealTimeLoop::~RealTimeLoop()
 {
 }
 
-void RealTimeLoop::SelftestOk(EmbeddedSystemX* context)
-{
+RealTimeLoop* RealTimeLoop::GetInstance(){
+  return (!_instance) ? _instance = new RealTimeLoop : _instance;
 }
 
-void RealTimeLoop::Initalized(EmbeddedSystemX* context)
+void RealTimeLoop::Stop(Operational* context)
 {
+  std::cout << "Stop. Changing to Ready\n";
+  Ready* state = Ready::GetInstance();
+  context->setCurrent(state);
 }
 
-void RealTimeLoop::Restart(EmbeddedSystemX* context)
+void RealTimeLoop::Suspend(Operational* context)
 {
-}
-
-void RealTimeLoop::Configure(EmbeddedSystemX* context)
-{
-}
-
-void RealTimeLoop::ConfigurationEnded(EmbeddedSystemX* context)
-{
-}
-
-void RealTimeLoop::Exit(EmbeddedSystemX* context)
-{
-}
-
-void RealTimeLoop::Stop(EmbeddedSystemX* context)
-{
-}
-
-void RealTimeLoop::Start(EmbeddedSystemX* context)
-{
-}
-
-void RealTimeLoop::Suspend(EmbeddedSystemX* context)
-{
-}
-
-void RealTimeLoop::Resume(EmbeddedSystemX* context)
-{
-}
-
-void RealTimeLoop::SelfTestFailed(EmbeddedSystemX* context, int errorNo)
-{
-}
-
-void RealTimeLoop::ConfigX(EmbeddedSystemX* context)
-{
-}
-
-void RealTimeLoop::chMode(EmbeddedSystemX* context)
-{
-}
-
-void RealTimeLoop::eventX(EmbeddedSystemX* context)
-{
-}
-
-void RealTimeLoop::eventY(EmbeddedSystemX* context)
-{
+  std::cout << "Suspend. Changing to Suspended\n";
+  Suspended* state = Suspended::GetInstance();
+  context->setCurrent(state);
 }

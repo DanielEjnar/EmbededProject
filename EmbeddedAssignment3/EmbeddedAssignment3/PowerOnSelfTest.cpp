@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Failure.h"
 #include "EmbeddedSystemX.h"
+#include "Initializing.h"
 
 PowerOnSelfTest* PowerOnSelfTest::_instance = 0;
 
@@ -21,6 +22,9 @@ PowerOnSelfTest* PowerOnSelfTest::GetInstance()
 
 void PowerOnSelfTest::SelftestOk(EmbeddedSystemX* context)
 {
+	std::cout << "SelfTestOk. Changing to Initializing\n";
+	Initializing* state = Initializing::GetInstance();
+	context->setCurrent(state);
 }
 
 void PowerOnSelfTest::SelfTestFailed(EmbeddedSystemX* context, int errorNo)

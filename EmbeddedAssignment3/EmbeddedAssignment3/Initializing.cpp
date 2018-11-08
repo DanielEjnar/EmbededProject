@@ -1,6 +1,8 @@
 #include "Initializing.h"
 #include "Operational.h"
 
+Initializing* Initializing::_instance = 0;
+
 Initializing::Initializing()
 {
 }

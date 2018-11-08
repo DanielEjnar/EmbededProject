@@ -4,7 +4,7 @@ class Initializing : public State
 {
 public:
 	static Initializing* GetInstance();
-	void Initalized(EmbeddedSystemX* context) override;
+	void Initalized(EmbeddedSystemX* context);
 	void startInitializing();
 private:
 	static Initializing* _instance;
