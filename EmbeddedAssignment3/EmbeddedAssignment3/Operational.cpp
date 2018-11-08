@@ -70,3 +70,8 @@ void Operational::eventX(EmbeddedSystemX* context)
 void Operational::eventY(EmbeddedSystemX* context)
 {
 }
+
+void Operational::setCurrent(Operational* s)
+{
+	_currentState = s;
+}

@@ -21,5 +21,7 @@ public:
 	void chMode(EmbeddedSystemX* context) override;
 	void eventX(EmbeddedSystemX* context) override;
 	void eventY(EmbeddedSystemX* context) override;
+	void setCurrent(Operational *s);
+private:
+	Operational* _currentState;
 };
-
