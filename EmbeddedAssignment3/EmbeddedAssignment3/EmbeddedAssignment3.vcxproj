@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{2DF711D8-3FA4-4D42-8A36-939AF5E274F7}</ProjectGuid>
     <RootNamespace>EmbeddedAssignment3</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -122,17 +122,35 @@
     <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Configuration.h" />
     <ClInclude Include="EmbeddedSystemX.h" />
     <ClInclude Include="Failure.h" />
+    <ClInclude Include="Initializing.h" />
+    <ClInclude Include="Mode1.h" />
+    <ClInclude Include="Mode2.h" />
+    <ClInclude Include="Mode3.h" />
+    <ClInclude Include="Operational.h" />
     <ClInclude Include="PowerOnSelfTest.h" />
+    <ClInclude Include="Ready.h" />
+    <ClInclude Include="RealTimeLoop.h" />
     <ClInclude Include="State.h" />
+    <ClInclude Include="Suspended.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Configuration.cpp" />
     <ClCompile Include="EmbeddedSystemX.cpp" />
     <ClCompile Include="Failure.cpp" />
+    <ClCompile Include="Initializing.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Mode1.cpp" />
+    <ClCompile Include="Mode2.cpp" />
+    <ClCompile Include="Mode3.cpp" />
+    <ClCompile Include="Operational.cpp" />
     <ClCompile Include="PowerOnSelfTest.cpp" />
+    <ClCompile Include="Ready.cpp" />
+    <ClCompile Include="RealTimeLoop.cpp" />
     <ClCompile Include="State.cpp" />
+    <ClCompile Include="Suspended.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
