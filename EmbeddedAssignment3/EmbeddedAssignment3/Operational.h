@@ -1,27 +1,29 @@
 #pragma once
 #include "State.h"
+class OperationalState;
+
 class Operational :
 	public State
 {
 public:
 	Operational();
 	~Operational();
-	void SelftestOk(EmbeddedSystemX* context) override;
-	void Initalized(EmbeddedSystemX* context) override;
-	void Restart(EmbeddedSystemX* context) override;
-	void Configure(EmbeddedSystemX* context) override;
-	void ConfigurationEnded(EmbeddedSystemX* context) override;
-	void Exit(EmbeddedSystemX* context) override;
-	void Stop(EmbeddedSystemX* context) override;
-	void Start(EmbeddedSystemX* context) override;
-	void Suspend(EmbeddedSystemX* context) override;
-	void Resume(EmbeddedSystemX* context) override;
-	void SelfTestFailed(EmbeddedSystemX* context, int errorNo) override;
-	void ConfigX(EmbeddedSystemX* context) override;
-	void chMode(EmbeddedSystemX* context) override;
-	void eventX(EmbeddedSystemX* context) override;
-	void eventY(EmbeddedSystemX* context) override;
-	void setCurrent(Operational *s);
+	void SelftestOk(OperationalState* context);
+	void Initalized(OperationalState* context);
+	void Restart(OperationalState* context);
+	void Configure(OperationalState* context);
+	void ConfigurationEnded(OperationalState* context);
+	void Exit(OperationalState* context);
+	void Stop(OperationalState* context);
+	void Start(OperationalState* context);
+	void Suspend(OperationalState* context);
+	void Resume(OperationalState* context);
+	void SelfTestFailed(OperationalState* context, int errorNo);
+	void ConfigX(OperationalState* context);
+	void chMode(OperationalState* context);
+	void eventX(OperationalState* context);
+	void eventY(OperationalState* context);
+	void setCurrent(OperationalState *s);
 private:
-	Operational* _currentState;
+	OperationalState* _currentState;
 };

@@ -1,6 +1,8 @@
 #pragma once
 #include "Operational.h"
-class Suspended :	public Operational
+#include "OperationalState.h"
+
+class Suspended :	public OperationalState
 {
 public:
 	static Suspended* GetInstance();

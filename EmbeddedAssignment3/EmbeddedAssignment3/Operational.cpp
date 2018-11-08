@@ -1,5 +1,5 @@
 #include "Operational.h"
-
+#include "OperationalState.h"
 
 
 Operational::Operational()
@@ -11,67 +11,82 @@ Operational::~Operational()
 {
 }
 
-void Operational::SelftestOk(EmbeddedSystemX* context)
+void Operational::SelftestOk(OperationalState* context)
 {
+	_currentState->SelftestOk(context);
 }
 
-void Operational::Initalized(EmbeddedSystemX* context)
+void Operational::Initalized(OperationalState* context)
 {
+	_currentState->Initalized(context);
 }
 
-void Operational::Restart(EmbeddedSystemX* context)
+void Operational::Restart(OperationalState* context)
 {
+	_currentState->Restart(context);
 }
 
-void Operational::Configure(EmbeddedSystemX* context)
+void Operational::Configure(OperationalState* context)
 {
+	_currentState->Configure(context);
 }
 
-void Operational::ConfigurationEnded(EmbeddedSystemX* context)
+void Operational::ConfigurationEnded(OperationalState* context)
 {
+	_currentState->ConfigurationEnded(context);
 }
 
-void Operational::Exit(EmbeddedSystemX* context)
+void Operational::Exit(OperationalState* context)
 {
+	_currentState->Exit(context);
 }
 
-void Operational::Stop(EmbeddedSystemX* context)
+void Operational::Stop(OperationalState* context)
 {
+	_currentState->Stop(context);
 }
 
-void Operational::Start(EmbeddedSystemX* context)
+void Operational::Start(OperationalState* context)
 {
+	_currentState->Start(context);
 }
 
-void Operational::Suspend(EmbeddedSystemX* context)
+void Operational::Suspend(OperationalState* context)
 {
+	_currentState->Suspend(context);
 }
 
-void Operational::Resume(EmbeddedSystemX* context)
+void Operational::Resume(OperationalState* context)
 {
+	_currentState->Resume(context);
 }
 
-void Operational::SelfTestFailed(EmbeddedSystemX* context, int errorNo)
+void Operational::SelfTestFailed(OperationalState* context, int errorNo)
 {
+	_currentState->SelfTestFailed(context, errorNo);
 }
 
-void Operational::ConfigX(EmbeddedSystemX* context)
+void Operational::ConfigX(OperationalState* context)
 {
+	_currentState->ConfigX(context);
 }
 
-void Operational::chMode(EmbeddedSystemX* context)
+void Operational::chMode(OperationalState* context)
 {
+	_currentState->chMode(context);
 }
 
-void Operational::eventX(EmbeddedSystemX* context)
+void Operational::eventX(OperationalState* context)
 {
+	_currentState->eventX(context);
 }
 
-void Operational::eventY(EmbeddedSystemX* context)
+void Operational::eventY(OperationalState* context)
 {
+	_currentState->eventY(context);
 }
 
-void Operational::setCurrent(Operational* s)
+void Operational::setCurrent(OperationalState* s)
 {
 	_currentState = s;
 }

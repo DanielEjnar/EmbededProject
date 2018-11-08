@@ -28,5 +28,5 @@ void Ready::Configure(Operational* context){
 	std::cout << "Configure. Changing to Configuration\n";
 	Configuration* state = Configuration::GetInstance();
 	state->ReadConfigurationInfo();
-  context->setCurrent(state);
+	context->setCurrent(state);
 }

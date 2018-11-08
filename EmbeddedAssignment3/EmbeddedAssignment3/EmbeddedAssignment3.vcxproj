@@ -130,9 +130,11 @@
     <ClInclude Include="Mode2.h" />
     <ClInclude Include="Mode3.h" />
     <ClInclude Include="Operational.h" />
+    <ClInclude Include="OperationalState.h" />
     <ClInclude Include="PowerOnSelfTest.h" />
     <ClInclude Include="Ready.h" />
     <ClInclude Include="RealTimeLoop.h" />
+    <ClInclude Include="RealTimeLoopState.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="Suspended.h" />
   </ItemGroup>
@@ -146,9 +148,11 @@
     <ClCompile Include="Mode2.cpp" />
     <ClCompile Include="Mode3.cpp" />
     <ClCompile Include="Operational.cpp" />
+    <ClCompile Include="OperationalState.cpp" />
     <ClCompile Include="PowerOnSelfTest.cpp" />
     <ClCompile Include="Ready.cpp" />
     <ClCompile Include="RealTimeLoop.cpp" />
+    <ClCompile Include="RealTimeLoopState.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="Suspended.cpp" />
   </ItemGroup>

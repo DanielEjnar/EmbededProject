@@ -1,5 +1,7 @@
 #include "Initializing.h"
 #include "Operational.h"
+#include "Ready.h"
+#include "EmbeddedSystemX.h"
 
 Initializing* Initializing::_instance = 0;
 
@@ -15,8 +17,8 @@ Initializing::~Initializing()
 
 void Initializing::Initalized(EmbeddedSystemX* context)
 {
-  Operational* state = Operational::GetInstance();
-  context->setCurrent(state);
+	OperationalState* state = Ready::GetInstance();
+	context->setCurrent(state);
 }
 
 Initializing* Initializing::GetInstance(){

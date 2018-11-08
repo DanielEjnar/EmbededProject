@@ -57,6 +57,12 @@
     <ClInclude Include="Mode3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="OperationalState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RealTimeLoopState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EmbeddedSystemX.cpp">
@@ -99,6 +105,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Mode3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OperationalState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RealTimeLoopState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

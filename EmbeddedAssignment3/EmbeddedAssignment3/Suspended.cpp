@@ -2,6 +2,7 @@
 #include "Ready.h"
 #include "RealTimeLoop.h"
 #include <iostream>
+#include "OperationalState.h"
 
 Suspended* Suspended::_instance = 0;
 

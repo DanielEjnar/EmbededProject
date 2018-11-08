@@ -1,6 +1,8 @@
 #pragma once
 #include "Operational.h"
-class RealTimeLoop :public Operational
+#include "OperationalState.h"
+
+class RealTimeLoop :public OperationalState
 {
 public:
 	static RealTimeLoop* GetInstance();
