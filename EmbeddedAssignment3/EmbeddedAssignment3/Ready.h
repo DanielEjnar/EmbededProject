@@ -1,7 +1,6 @@
 #include "Operational.h"
-#include "OperationalState.h"
 
-class Ready : public OperationalState
+class Ready : public Operational
 {
 public:
 	static Ready* GetInstance();

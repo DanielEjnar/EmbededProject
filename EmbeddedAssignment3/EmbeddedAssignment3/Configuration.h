@@ -1,8 +1,7 @@
 #pragma once
 #include "Operational.h"
-#include "OperationalState.h"
 
-class Configuration : public OperationalState
+class Configuration : public Operational
 {
 public:
 	static Configuration* GetInstance();

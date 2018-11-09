@@ -1,8 +1,7 @@
 #pragma once
 #include "Operational.h"
-#include "OperationalState.h"
 
-class RealTimeLoop :public OperationalState
+class RealTimeLoop :public Operational
 {
 public:
 	static RealTimeLoop* GetInstance();
@@ -12,5 +11,4 @@ private:
 	RealTimeLoop();
 	~RealTimeLoop();
 	static RealTimeLoop* _instance;
-
 };

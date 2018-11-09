@@ -14,10 +14,9 @@ Initializing::~Initializing()
 {
 }
 
-
 void Initializing::Initalized(EmbeddedSystemX* context)
 {
-	OperationalState* state = Ready::GetInstance();
+	Operational* state = Ready::GetInstance();
 	context->setCurrent(state);
 }
 

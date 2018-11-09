@@ -1,29 +1,30 @@
 #pragma once
 #include "State.h"
-class OperationalState;
+#include "EmbeddedSystemX.h"
 
-class Operational :
-	public State
+class Operational : public State
 {
 public:
 	Operational();
 	~Operational();
-	void SelftestOk(OperationalState* context);
-	void Initalized(OperationalState* context);
-	void Restart(OperationalState* context);
-	void Configure(OperationalState* context);
-	void ConfigurationEnded(OperationalState* context);
-	void Exit(OperationalState* context);
-	void Stop(OperationalState* context);
-	void Start(OperationalState* context);
-	void Suspend(OperationalState* context);
-	void Resume(OperationalState* context);
-	void SelfTestFailed(OperationalState* context, int errorNo);
-	void ConfigX(OperationalState* context);
-	void chMode(OperationalState* context);
-	void eventX(OperationalState* context);
-	void eventY(OperationalState* context);
-	void setCurrent(OperationalState *s);
+	void SelftestOk(EmbeddedSystemX* context);
+	void Initalized(EmbeddedSystemX* context);
+	void Restart(EmbeddedSystemX* context);
+	void Configure(EmbeddedSystemX* context);
+	void ConfigurationEnded(EmbeddedSystemX* context);
+	void Exit(EmbeddedSystemX* context);
+	void Stop(EmbeddedSystemX* context);
+	void Start(EmbeddedSystemX* context);
+	void Suspend(EmbeddedSystemX* context);
+	void Resume(EmbeddedSystemX* context);
+	void SelfTestFailed(EmbeddedSystemX* context, int errorNo);
+	void ConfigX(EmbeddedSystemX* context);
+	void chMode(EmbeddedSystemX* context);
+	void eventX(EmbeddedSystemX* context);
+	void eventY(EmbeddedSystemX* context);
+	void setCurrent(Operational *s);
+	static Operational* GetInstance();
 private:
-	OperationalState* _currentState;
+	static Operational* _instance;
+	Operational* _currentState;
 };

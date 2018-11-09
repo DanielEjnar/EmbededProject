@@ -1,9 +1,8 @@
 #pragma once
 #include "RealTimeLoop.h"
-#include "RealTimeLoopState.h"
 
 class Mode1 :
-	public RealTimeLoopState
+	public RealTimeLoop
 {
 public:
 	static Mode1* GetInstance();
