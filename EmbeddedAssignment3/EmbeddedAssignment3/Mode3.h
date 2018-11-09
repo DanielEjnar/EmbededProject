@@ -6,8 +6,10 @@ class Mode3 :
 	public RealTimeLoopState
 {
 public:
+	static Mode3* GetInstance();
+	void chMode(RealTimeLoop* context);
+private:
+	static Mode3* _instance;
 	Mode3();
 	~Mode3();
-	void chMode(RealTimeLoop* context);
 };
-
