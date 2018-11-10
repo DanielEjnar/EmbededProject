@@ -16,7 +16,7 @@ void EmbeddedSystemX::SelftestOk(EmbeddedSystemX* context)
 
 void EmbeddedSystemX::Initalized(EmbeddedSystemX* context)
 {
-	_currentState->Initalized(this);
+	_currentState->Initialized(this);
 }
 
 void EmbeddedSystemX::Restart(EmbeddedSystemX* context)
@@ -81,7 +81,7 @@ void EmbeddedSystemX::eventY(EmbeddedSystemX* context)
 
 void EmbeddedSystemX::Resume(EmbeddedSystemX* context)
 {
-	_currentState->Restart(this);
+	_currentState->Resume(this);
 }
 
 void EmbeddedSystemX::setCurrent(State* s)

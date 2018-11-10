@@ -1,30 +1,25 @@
 #pragma once
 #include "State.h"
-#include "EmbeddedSystemX.h"
-
-class Operational : public State
+class Operational :
+	public State
 {
 public:
 	Operational();
-	~Operational();
-	void SelftestOk(EmbeddedSystemX* context);
-	void Initalized(EmbeddedSystemX* context);
-	void Restart(EmbeddedSystemX* context);
-	void Configure(EmbeddedSystemX* context);
-	void ConfigurationEnded(EmbeddedSystemX* context);
-	void Exit(EmbeddedSystemX* context);
-	void Stop(EmbeddedSystemX* context);
-	void Start(EmbeddedSystemX* context);
-	void Suspend(EmbeddedSystemX* context);
-	void Resume(EmbeddedSystemX* context);
-	void SelfTestFailed(EmbeddedSystemX* context, int errorNo);
-	void ConfigX(EmbeddedSystemX* context);
-	void chMode(EmbeddedSystemX* context);
-	void eventX(EmbeddedSystemX* context);
-	void eventY(EmbeddedSystemX* context);
-	void setCurrent(Operational *s);
-	static Operational* GetInstance();
-private:
-	static Operational* _instance;
-	Operational* _currentState;
+	virtual ~Operational();
+	void SelftestOk(EmbeddedSystemX* context) override = 0;
+	void Initialized(EmbeddedSystemX* context) override = 0;
+	void Restart(EmbeddedSystemX* context) override = 0;
+	void Configure(EmbeddedSystemX* context) override = 0;
+	void ConfigurationEnded(EmbeddedSystemX* context) override = 0;
+	void Exit(EmbeddedSystemX* context) override = 0;
+	void Stop(EmbeddedSystemX* context) override = 0;
+	void Start(EmbeddedSystemX* context) override = 0;
+	void Suspend(EmbeddedSystemX* context) override = 0;
+	void Resume(EmbeddedSystemX* context) override = 0;
+	void SelfTestFailed(EmbeddedSystemX* context, int errorNo) override = 0;
+	void ConfigX(EmbeddedSystemX* context) override = 0;
+	void chMode(EmbeddedSystemX* context) override = 0;
+	void eventX(EmbeddedSystemX* context) override = 0;
+	void eventY(EmbeddedSystemX* context) override = 0;
 };
+

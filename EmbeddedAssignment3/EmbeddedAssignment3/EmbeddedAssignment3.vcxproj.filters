@@ -33,9 +33,6 @@
     <ClInclude Include="Initializing.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Operational.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Ready.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -43,9 +40,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Suspended.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RealTimeLoop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Mode1.h">
@@ -57,10 +51,10 @@
     <ClInclude Include="Mode3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OperationalState.h">
+    <ClInclude Include="Operational.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RealTimeLoopState.h">
+    <ClInclude Include="RealTimeLoop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -83,9 +77,6 @@
     <ClCompile Include="Initializing.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Operational.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Ready.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -93,9 +84,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Suspended.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="RealTimeLoop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Mode1.cpp">
@@ -107,10 +95,10 @@
     <ClCompile Include="Mode3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OperationalState.cpp">
+    <ClCompile Include="Operational.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RealTimeLoopState.cpp">
+    <ClCompile Include="RealTimeLoop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
