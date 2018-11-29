@@ -33,9 +33,6 @@
     <ClInclude Include="Initializing.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Operational.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Ready.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -54,25 +51,19 @@
     <ClInclude Include="Mode3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OperationalState.h">
+    <ClInclude Include="Operational.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RealTimeLoopState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SimulateRealTimeState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Simulation.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RealTimeExecution.h">
+    <ClInclude Include="RealTimeLoop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ApplicationModeSetting.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RealTimeLoop.h">
+    <ClInclude Include="SimulateRealTime.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RealTimeExecution.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -95,9 +86,6 @@
     <ClCompile Include="Initializing.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Operational.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Ready.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -116,25 +104,19 @@
     <ClCompile Include="Mode3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OperationalState.cpp">
+    <ClCompile Include="Operational.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RealTimeLoopState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SimulateRealTimeState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Simulation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="RealTimeExecution.cpp">
+    <ClCompile Include="RealTimeLoop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ApplicationModeSetting.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RealTimeLoop.cpp">
+    <ClCompile Include="SimulateRealTime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RealTimeExecution.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

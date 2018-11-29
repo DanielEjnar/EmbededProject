@@ -2,6 +2,7 @@
 #include "Operational.h"
 #include "Ready.h"
 #include "EmbeddedSystemX.h"
+#include <iostream>
 
 Initializing* Initializing::_instance = 0;
 
@@ -14,11 +15,72 @@ Initializing::~Initializing()
 {
 }
 
-
-void Initializing::Initalized(EmbeddedSystemX* context)
+void Initializing::SelftestOk(EmbeddedSystemX* context)
 {
-	OperationalState* state = Ready::GetInstance();
+}
+
+void Initializing::Restart(EmbeddedSystemX* context)
+{
+}
+
+void Initializing::Configure(EmbeddedSystemX* context)
+{
+}
+
+void Initializing::ConfigurationEnded(EmbeddedSystemX* context)
+{
+}
+
+void Initializing::Exit(EmbeddedSystemX* context)
+{
+}
+
+void Initializing::Stop(EmbeddedSystemX* context)
+{
+}
+
+void Initializing::Start(EmbeddedSystemX* context)
+{
+}
+
+void Initializing::Suspend(EmbeddedSystemX* context)
+{
+}
+
+void Initializing::Resume(EmbeddedSystemX* context)
+{
+}
+
+void Initializing::SelfTestFailed(EmbeddedSystemX* context, int errorNo)
+{
+}
+
+void Initializing::ConfigX(EmbeddedSystemX* context)
+{
+}
+
+void Initializing::chMode(EmbeddedSystemX* context)
+{
+}
+
+void Initializing::eventX(EmbeddedSystemX* context)
+{
+}
+
+void Initializing::eventY(EmbeddedSystemX* context)
+{
+}
+
+
+void Initializing::Initialized(EmbeddedSystemX* context)
+{
+	std::cout << "Initialized. Changing to Ready\n";
+	Ready* state = Ready::GetInstance();
 	context->setCurrent(state);
+}
+
+void Initializing::startInitializing()
+{
 }
 
 Initializing* Initializing::GetInstance(){

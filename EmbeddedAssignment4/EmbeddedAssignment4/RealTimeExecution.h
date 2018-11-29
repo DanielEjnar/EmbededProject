@@ -1,14 +1,12 @@
 #pragma once
-#include "SimulateRealTimeState.h"
+#include "SimulateRealTime.h"
 class RealTimeExecution :
-	public SimulateRealTimeState
+	public SimulateRealTime
 {
 public:
-	static RealTimeExecution* GetInstance();
+	virtual void RunRealTime() = 0;
+	virtual void Simulate() = 0;
 	RealTimeExecution();
-	virtual ~RealTimeExecution();
-
-private:
-	static RealTimeExecution* _state;
+	~RealTimeExecution();
 };
 
