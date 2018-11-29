@@ -45,9 +45,6 @@
     <ClInclude Include="Suspended.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RealTimeLoop.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Mode1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -61,6 +58,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RealTimeLoopState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SimulateRealTimeState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Simulation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RealTimeExecution.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ApplicationModeSetting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RealTimeLoop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -95,9 +107,6 @@
     <ClCompile Include="Suspended.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RealTimeLoop.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Mode1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -111,6 +120,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RealTimeLoopState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SimulateRealTimeState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Simulation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RealTimeExecution.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ApplicationModeSetting.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RealTimeLoop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

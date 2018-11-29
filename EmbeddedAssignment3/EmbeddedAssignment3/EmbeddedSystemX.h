@@ -1,4 +1,5 @@
 #pragma once
+#include "PowerOnSelfTest.h"
 class State;
 
 class EmbeddedSystemX
@@ -26,6 +27,6 @@ private:
 	int _versionNo;
 	char* _name;
 	// Pointer which holds the current state
-	State* _currentState;
+	State* _currentState = PowerOnSelfTest::GetInstance();
 };
 

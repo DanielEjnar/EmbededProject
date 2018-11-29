@@ -13,7 +13,63 @@ Failure::~Failure()
 {
 }
 
-void Failure::Display(int errorNo)
+void Failure::SelftestOk(EmbeddedSystemX* context)
+{
+}
+
+void Failure::Initialized(EmbeddedSystemX* context)
+{
+}
+
+void Failure::Configure(EmbeddedSystemX* context)
+{
+}
+
+void Failure::ConfigurationEnded(EmbeddedSystemX* context)
+{
+}
+
+void Failure::Exit(EmbeddedSystemX* context)
+{
+}
+
+void Failure::Stop(EmbeddedSystemX* context)
+{
+}
+
+void Failure::Start(EmbeddedSystemX* context)
+{
+}
+
+void Failure::Suspend(EmbeddedSystemX* context)
+{
+}
+
+void Failure::Resume(EmbeddedSystemX* context)
+{
+}
+
+void Failure::SelfTestFailed(EmbeddedSystemX* context, int errorNo)
+{
+}
+
+void Failure::ConfigX(EmbeddedSystemX* context)
+{
+}
+
+void Failure::chMode(EmbeddedSystemX* context)
+{
+}
+
+void Failure::eventX(EmbeddedSystemX* context)
+{
+}
+
+void Failure::eventY(EmbeddedSystemX* context)
+{
+}
+
+void Failure::display(int errorNo)
 {
 	std::cout << "ErrorNo: " << errorNo << "\n";
 }
@@ -26,5 +82,5 @@ Failure* Failure::GetInstance()
 void Failure::Restart(EmbeddedSystemX* context)
 {
 	std::cout << "Restart. Changing to PowerOnSelfTest\n";
-	context->setCurrent(Failure::GetInstance());
+	context->setCurrent(PowerOnSelfTest::GetInstance());
 }

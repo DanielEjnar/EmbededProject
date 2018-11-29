@@ -1,5 +1,5 @@
 #pragma once
-#include "RealTimeLoop.h"
+#include "ApplicationModeSetting.h"
 #include "RealTimeLoopState.h"
 
 class Mode2 :

@@ -3,7 +3,7 @@ class SimulateRealTimeState
 {
 public:
 	SimulateRealTimeState();
-	~SimulateRealTimeState();
+	virtual ~SimulateRealTimeState();
 
 private:
 	static SimulateRealTimeState* _state;

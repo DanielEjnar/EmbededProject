@@ -6,20 +6,20 @@ class State
 public:
 	State();
 	virtual ~State();
-	virtual void SelftestOk(EmbeddedSystemX* context);
-	virtual void Initalized(EmbeddedSystemX* context);
-	virtual void Restart(EmbeddedSystemX* context);
-	virtual void Configure(EmbeddedSystemX* context);
-	virtual void ConfigurationEnded(EmbeddedSystemX* context);
-	virtual void Exit(EmbeddedSystemX* context);
-	virtual void Stop(EmbeddedSystemX* context);
-	virtual void Start(EmbeddedSystemX* context);
-	virtual void Suspend(EmbeddedSystemX* context);
-	virtual void Resume(EmbeddedSystemX* context);
-	virtual void SelfTestFailed(EmbeddedSystemX* context, int errorNo);
-	virtual void ConfigX(EmbeddedSystemX* context);
-	virtual void chMode(EmbeddedSystemX* context);
-	virtual void eventX(EmbeddedSystemX* context);
-	virtual void eventY(EmbeddedSystemX* context);
+	virtual void SelftestOk(EmbeddedSystemX* context) = 0;
+	virtual void Initialized(EmbeddedSystemX* context) = 0;
+	virtual void Restart(EmbeddedSystemX* context) = 0;
+	virtual void Configure(EmbeddedSystemX* context) = 0;
+	virtual void ConfigurationEnded(EmbeddedSystemX* context) = 0;
+	virtual void Exit(EmbeddedSystemX* context) = 0;
+	virtual void Stop(EmbeddedSystemX* context) = 0;
+	virtual void Start(EmbeddedSystemX* context) = 0;
+	virtual void Suspend(EmbeddedSystemX* context) = 0;
+	virtual void Resume(EmbeddedSystemX* context) = 0;
+	virtual void SelfTestFailed(EmbeddedSystemX* context, int errorNo) = 0;
+	virtual void ConfigX(EmbeddedSystemX* context) = 0;
+	virtual void chMode(EmbeddedSystemX* context) = 0;
+	virtual void eventX(EmbeddedSystemX* context) = 0;
+	virtual void eventY(EmbeddedSystemX* context) = 0;
 };
 
