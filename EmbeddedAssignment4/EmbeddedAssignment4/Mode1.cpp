@@ -21,3 +21,7 @@ void Mode1::responseM1EventX()
 {
 	std::cout << "Event X happened. Responding with a :)\n";
 }
+
+void Mode1::responseM2EventX()
+{
+}
