@@ -1,5 +1,5 @@
 #pragma once
-#include "EmbeddedSystemX.h"
+//#include "EmbeddedSystemX.h"
 #include "RealTimeLoop.h"
 
 class ApplicationModeSetting
@@ -7,8 +7,7 @@ class ApplicationModeSetting
 public:
 	ApplicationModeSetting();
 	virtual ~ApplicationModeSetting();
-	void chMode(RealTimeLoop* context);
+	void changeMode(RealTimeLoop* context);
 private:
 	static ApplicationModeSetting* _state;
 };
-

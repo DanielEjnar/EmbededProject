@@ -97,7 +97,7 @@ void RealTimeLoop::ConfigX(EmbeddedSystemX* context)
 
 void RealTimeLoop::chMode(EmbeddedSystemX* context)
 {
-	_appState->chMode(this);
+	_appState->changeMode(this);
 }
 
 void RealTimeLoop::eventX(EmbeddedSystemX* context)

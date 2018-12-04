@@ -17,7 +17,7 @@ Mode1* Mode1::GetInstance()
 	return (!_instance) ? _instance = new Mode1 : _instance;
 }
 
-void Mode1::chMode(RealTimeLoop* context)
+void Mode1::changeMode(RealTimeLoop* context)
 {
   std::cout << "chMode Mode1. Changing to Mode2\n";
   ApplicationModeSetting* state = Mode2::GetInstance();

@@ -5,7 +5,7 @@ class Mode2 : public ApplicationModeSetting
 {
 public:
 	static Mode2* GetInstance();
-	static void chMode(RealTimeLoop* context);
+	static void changeMode(RealTimeLoop* context);
 	static void responseM2eventX();
 	static void responseM2eventY();
 private:
