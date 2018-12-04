@@ -1,13 +1,13 @@
 #pragma once
+//#include "RealTimeLoop.h"
 //#include "EmbeddedSystemX.h"
-#include "RealTimeLoop.h"
 
+class RealTimeLoop;
 class ApplicationModeSetting
 {
 public:
 	ApplicationModeSetting();
 	virtual ~ApplicationModeSetting();
-	void changeMode(RealTimeLoop* context);
 private:
 	static ApplicationModeSetting* _state;
 };

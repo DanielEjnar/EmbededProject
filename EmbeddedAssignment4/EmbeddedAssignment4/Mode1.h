@@ -5,7 +5,6 @@ class Mode1 : public ApplicationModeSetting
 {
 public:
 	static Mode1* GetInstance();
-	static void changeMode(RealTimeLoop* context);
 	static void responseM1EventX();
 private:
 	static Mode1* _instance;

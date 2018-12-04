@@ -6,13 +6,10 @@ class RealTimeExecution :
 	public SimulateRealTime
 {
 public:
-	void RunRealTime();
 	RealTimeExecution();
 	~RealTimeExecution();
+	void RunRealTime();
 	void Start();
-	//	void RunRealTime() override;
-	//	void Simulate();
-	//	void Start();
 private:
 	SimProxy* simProxy;
 };

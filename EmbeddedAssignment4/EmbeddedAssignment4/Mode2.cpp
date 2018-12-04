@@ -21,13 +21,6 @@ Mode2* Mode2::GetInstance()
 	return (!_instance) ? _instance = new Mode2 : _instance;
 }
 
-void Mode2::changeMode(RealTimeLoop* context)
-{
-  std::cout << "chMode Mode2. Changing to Mode3\n";
-  Mode3* state = Mode3::GetInstance();
-  context->setCurrent(state);
-}
-
 void Mode2::responseM2eventX()
 {
 	std::cout << "Event X happened. Responding with a :(\n";

@@ -15,11 +15,15 @@ int main()
 	context->Configure(context);
 	context->ConfigurationEnded(context);
 	context->Start(context);
-	context->Suspend(context);
-	context->Resume(context);
-	context->Suspend(context);
-	context->Stop(context);
+
+	// Start simulation
 	context->Start(context);
+	context->Start(context);
+	context->Start(context);
+	context->Start(context);
+	context->Start(context);
+
+	// Do some change modes
 	context->chMode(context);
 	context->eventX(context);
 	context->chMode(context);

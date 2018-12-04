@@ -5,15 +5,19 @@
 #include <iostream>
 #include "RealTimeExecution.h"
 #include "Mode1.h"
+#include "Mode2.h"
+#include "Mode3.h"
 
 ApplicationModeSetting* RealTimeLoop::_appState = 0;
 RealTimeExecution* RealTimeLoop::_simState = 0;
 RealTimeLoop* RealTimeLoop::_instance = 0;
 
-RealTimeLoop::RealTimeLoop() {}
+RealTimeLoop::RealTimeLoop()
+{}
 
 
-RealTimeLoop::~RealTimeLoop() {}
+RealTimeLoop::~RealTimeLoop()
+{}
 
 RealTimeLoop* RealTimeLoop::GetInstance()
 {
@@ -45,11 +49,6 @@ void RealTimeLoop::Restart(EmbeddedSystemX* context)
 void RealTimeLoop::RunRealTime()
 {}
 
-void RealTimeLoop::Simulate()
-{
-	_simState->Start();
-}
-
 void RealTimeLoop::setCurrent(ApplicationModeSetting* newAppState)
 {
 	_appState = newAppState;
@@ -73,14 +72,17 @@ void RealTimeLoop::ConfigurationEnded(EmbeddedSystemX* context)
 
 void RealTimeLoop::Stop(EmbeddedSystemX* context)
 {
+	Exit(context);
 }
 
 void RealTimeLoop::Start(EmbeddedSystemX* context)
 {
+	_simState->Start();
 }
 
 void RealTimeLoop::Suspend(EmbeddedSystemX* context)
 {
+	Exit(context);
 }
 
 void RealTimeLoop::Resume(EmbeddedSystemX* context)
@@ -97,7 +99,13 @@ void RealTimeLoop::ConfigX(EmbeddedSystemX* context)
 
 void RealTimeLoop::chMode(EmbeddedSystemX* context)
 {
-	_appState->changeMode(this);
+	// Change between the modes
+	if (typeid(_appState).name() == "Mode1")
+		_appState = Mode2::GetInstance();
+	else if (typeid(_appState).name() == "Mode2")
+		_appState = Mode3::GetInstance();
+	else if (typeid(_appState).name() == "Mode3")
+		_appState = Mode1::GetInstance();
 }
 
 void RealTimeLoop::eventX(EmbeddedSystemX* context)
