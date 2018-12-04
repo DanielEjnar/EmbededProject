@@ -23,7 +23,7 @@ public:
 	void Suspend(EmbeddedSystemX* context) override;
 	void Resume(EmbeddedSystemX* context) override;
 	void ConfigX(EmbeddedSystemX* context) override;
-	void chMode(EmbeddedSystemX* context) override;
+	void chMode(EmbeddedSystemX* context, int mode) override;
 	void eventX(EmbeddedSystemX* context) override;
 	void eventY(EmbeddedSystemX* context) override;
 };

@@ -2,11 +2,13 @@
 #include <cstddef>
 #include "Ready.h"
 #include "EmbeddedSystemX.h"
-#include <iostream>
+#include "stdio.h"
 #include "RealTimeExecution.h"
 #include "Mode1.h"
 #include "Mode2.h"
 #include "Mode3.h"
+#include <typeinfo>
+#include <string.h>
 
 ApplicationModeSetting* RealTimeLoop::_appState = 0;
 RealTimeExecution* RealTimeLoop::_simState = 0;
@@ -32,7 +34,7 @@ void RealTimeLoop::Entry()
 
 void RealTimeLoop::Exit(EmbeddedSystemX* context)
 {
-	std::cout << "Exit. Changing to Ready\n";
+	printf("Exit. Changing to Ready\n");
 	_appState = NULL;
 	_simState = NULL;
 	Ready* state = Ready::GetInstance();
@@ -41,7 +43,7 @@ void RealTimeLoop::Exit(EmbeddedSystemX* context)
 
 void RealTimeLoop::Restart(EmbeddedSystemX* context)
 {
-	std::cout << "Restart. Changing to PowerOnSelfTest\n";
+	printf("Restart. Changing to PowerOnSelfTest\n");
 	PowerOnSelfTest* state = PowerOnSelfTest::GetInstance();
 	context->setCurrent(state);
 }
@@ -77,6 +79,7 @@ void RealTimeLoop::Stop(EmbeddedSystemX* context)
 
 void RealTimeLoop::Start(EmbeddedSystemX* context)
 {
+	printf("Start called in RealTimeLoop");
 	_simState->Start();
 }
 
@@ -97,21 +100,22 @@ void RealTimeLoop::ConfigX(EmbeddedSystemX* context)
 {
 }
 
-void RealTimeLoop::chMode(EmbeddedSystemX* context)
+void RealTimeLoop::chMode(EmbeddedSystemX* context, int mode)
 {
 	// Change between the modes
-	if (typeid(_appState).name() == "Mode1")
-		_appState = Mode2::GetInstance();
-	else if (typeid(_appState).name() == "Mode2")
-		_appState = Mode3::GetInstance();
-	else if (typeid(_appState).name() == "Mode3")
-		_appState = Mode1::GetInstance();
+	printf("In RealTimeLoop.chMode\n");
+	if (mode = 1) _appState = Mode2::GetInstance();
+	else if (mode = 2) _appState = Mode3::GetInstance();
+	else if (mode = 3) _appState = Mode1::GetInstance();
+	else _appState = Mode1::GetInstance();
 }
 
 void RealTimeLoop::eventX(EmbeddedSystemX* context)
 {
+	_appState->responseEventX();
 }
 
 void RealTimeLoop::eventY(EmbeddedSystemX* context)
 {
+	_appState->responseEventY();
 }

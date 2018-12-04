@@ -2,7 +2,7 @@
 #include "Operational.h"
 #include "Ready.h"
 #include "EmbeddedSystemX.h"
-#include <iostream>
+#include "stdio.h"
 
 Initializing* Initializing::_instance = 0;
 
@@ -59,7 +59,7 @@ void Initializing::ConfigX(EmbeddedSystemX* context)
 {
 }
 
-void Initializing::chMode(EmbeddedSystemX* context)
+void Initializing::chMode(EmbeddedSystemX* context, int mode)
 {
 }
 
@@ -74,7 +74,7 @@ void Initializing::eventY(EmbeddedSystemX* context)
 
 void Initializing::Initialized(EmbeddedSystemX* context)
 {
-	std::cout << "Initialized. Changing to Ready\n";
+	printf("Initialized. Changing to Ready\n");
 	Ready* state = Ready::GetInstance();
 	context->setCurrent(state);
 }

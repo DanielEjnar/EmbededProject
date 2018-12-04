@@ -1,7 +1,8 @@
 #pragma once
 #include <queue>
 #include "Simulation.h"
-//#include "RealTimeExecution.h"
+#include "Thread.h"
+#include "Mutex.h"
 class RealTimeExecution;
 
 class SimProxy
@@ -10,10 +11,11 @@ public:
 	SimProxy();
 	~SimProxy();
 	void Push(Simulation* simObject, RealTimeExecution* rte);
+	void Execute(AbstractOS::Thread* threadPtr);
 private:
-	void Execute();
 	std::queue<Simulation*> _proxyQueue;
 	std::queue<RealTimeExecution*> _clientQueue;
-	bool _executing;
+	bool _executing = true;
+	AbstractOS::Mutex simMutex;
 };
 

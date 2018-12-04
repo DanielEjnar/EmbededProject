@@ -7,7 +7,7 @@ class ApplicationModeSetting
 {
 public:
 	ApplicationModeSetting();
+	virtual void responseEventX() = 0;
+	virtual void responseEventY() = 0;
 	virtual ~ApplicationModeSetting();
-private:
-	static ApplicationModeSetting* _state;
 };

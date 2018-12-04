@@ -5,10 +5,8 @@ class Mode1 : public ApplicationModeSetting
 {
 public:
 	static Mode1* GetInstance();
-	void responseM1EventX();
-	void responseM2EventX();
-	void responseM2EventY();
-	void responseM3EventX();
+	void responseEventX() override;
+	void responseEventY() override;
 private:
 	static Mode1* _instance;
 	Mode1();

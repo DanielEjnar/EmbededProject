@@ -22,7 +22,7 @@ public:
 	void Resume(EmbeddedSystemX* context) override;
 	void SelfTestFailed(EmbeddedSystemX* context, int errorNo) override;
 	void ConfigX(EmbeddedSystemX* context) override;
-	void chMode(EmbeddedSystemX* context) override;
+	void chMode(EmbeddedSystemX* context, int mode) override;
 	void eventX(EmbeddedSystemX* context) override;
 	void eventY(EmbeddedSystemX* context) override;
 };

@@ -1,7 +1,7 @@
 #include "Suspended.h"
 #include "Ready.h"
 #include "RealTimeLoop.h"
-#include <iostream>
+#include "stdio.h"
 #include "Operational.h"
 #include "EmbeddedSystemX.h"
 #include "RealTimeLoop.h"
@@ -54,7 +54,7 @@ void Suspended::ConfigX(EmbeddedSystemX* context)
 {
 }
 
-void Suspended::chMode(EmbeddedSystemX* context)
+void Suspended::chMode(EmbeddedSystemX* context, int mode)
 {
 }
 
@@ -71,20 +71,20 @@ Suspended* Suspended::GetInstance(){
 }
 
 void Suspended::Stop(EmbeddedSystemX* context){
-  std::cout << "Stop. Changing to Ready\n";
+  printf("Stop. Changing to Ready\n");
   Ready* state = Ready::GetInstance();
   context->setCurrent(state);
 }
 
 void Suspended::Resume(EmbeddedSystemX* context){
-  std::cout << "Resume. Changing to Mode1\n";
+  printf("Resume. Changing to Mode1\n");
   RealTimeLoop* state = RealTimeLoop::GetInstance();
   context->setCurrent(state);
 }
 
 void Suspended::Restart(EmbeddedSystemX* context)
 {
-	std::cout << "Restart. Changing to PowerOnSelfTest\n";
+	printf("Restart. Changing to PowerOnSelfTest\n");
 	PowerOnSelfTest* state = PowerOnSelfTest::GetInstance();
 	context->setCurrent(state);
 }

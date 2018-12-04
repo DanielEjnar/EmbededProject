@@ -1,7 +1,7 @@
 #pragma once
 #include "SimProxy.h"
 
-
+extern SimProxy simProxy;
 class RealTimeExecution :
 	public SimulateRealTime
 {
@@ -10,7 +10,5 @@ public:
 	~RealTimeExecution();
 	void RunRealTime();
 	void Start();
-private:
-	SimProxy* simProxy;
 };
 

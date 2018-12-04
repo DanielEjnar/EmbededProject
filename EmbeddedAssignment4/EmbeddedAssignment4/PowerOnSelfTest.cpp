@@ -1,5 +1,5 @@
 #include "PowerOnSelfTest.h"
-#include <iostream>
+#include "stdio.h"
 #include "Failure.h"
 #include "EmbeddedSystemX.h"
 #include "Initializing.h"
@@ -55,7 +55,7 @@ void PowerOnSelfTest::ConfigX(EmbeddedSystemX* context)
 {
 }
 
-void PowerOnSelfTest::chMode(EmbeddedSystemX* context)
+void PowerOnSelfTest::chMode(EmbeddedSystemX* context, int mode)
 {
 }
 
@@ -74,7 +74,7 @@ PowerOnSelfTest* PowerOnSelfTest::GetInstance()
 
 void PowerOnSelfTest::SelftestOk(EmbeddedSystemX* context)
 {
-	std::cout << "SelfTestOk. Changing to Initializing\n";
+	printf("SelfTestOk. Changing to Initializing\n");
 	Initializing* state = Initializing::GetInstance();
 	state->Initialized(context);
 	context->setCurrent(state);
@@ -82,7 +82,7 @@ void PowerOnSelfTest::SelftestOk(EmbeddedSystemX* context)
 
 void PowerOnSelfTest::SelfTestFailed(EmbeddedSystemX* context, int errorNo)
 {
-	std::cout << "SelfTestFailed. Changing to Failure\n";
+	printf("SelfTestFailed. Changing to Failure\n");
 	Failure* state = Failure::GetInstance();
 	state->display(errorNo);
 	context->setCurrent(state);
@@ -90,5 +90,5 @@ void PowerOnSelfTest::SelfTestFailed(EmbeddedSystemX* context, int errorNo)
 
 void PowerOnSelfTest::systemSelftest()
 {
-	std::cout << "Performing system self test!\n";
+	printf("Performing system self test!\n");
 }

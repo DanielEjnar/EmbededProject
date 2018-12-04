@@ -18,7 +18,7 @@ public:
 	virtual void Resume(EmbeddedSystemX* context) = 0;
 	virtual void SelfTestFailed(EmbeddedSystemX* context, int errorNo) = 0;
 	virtual void ConfigX(EmbeddedSystemX* context) = 0;
-	virtual void chMode(EmbeddedSystemX* context) = 0;
+	virtual void chMode(EmbeddedSystemX* context, int mode) = 0;
 	virtual void eventX(EmbeddedSystemX* context) = 0;
 	virtual void eventY(EmbeddedSystemX* context) = 0;
 };

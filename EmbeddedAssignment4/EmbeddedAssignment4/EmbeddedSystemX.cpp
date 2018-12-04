@@ -64,9 +64,9 @@ void EmbeddedSystemX::ConfigX(EmbeddedSystemX* context)
 	_currentState->ConfigX(this);
 }
 
-void EmbeddedSystemX::chMode(EmbeddedSystemX* context)
+void EmbeddedSystemX::chMode(EmbeddedSystemX* context, int mode)
 {
-	_currentState->chMode(this);
+	_currentState->chMode(this, mode);
 }
 
 void EmbeddedSystemX::eventX(EmbeddedSystemX* context)

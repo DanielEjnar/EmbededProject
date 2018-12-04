@@ -58,7 +58,7 @@ void Ready::ConfigX(EmbeddedSystemX* context)
 {
 }
 
-void Ready::chMode(EmbeddedSystemX* context)
+void Ready::chMode(EmbeddedSystemX* context, int mode)
 {
 }
 
@@ -71,14 +71,14 @@ void Ready::eventY(EmbeddedSystemX* context)
 }
 
 void Ready::Start(EmbeddedSystemX* context){
-	std::cout << "Start. Changing to RealTimeLoop\n";
+	printf("Start. Changing to RealTimeLoop\n");
 	RealTimeLoop* state = RealTimeLoop::GetInstance();
 	state->Entry();
 	context->setCurrent(state);
 }
 
 void Ready::Configure(EmbeddedSystemX* context){
-	std::cout << "Configure. Changing to Configuration\n";
+	printf("Configure. Changing to Configuration\n");
 	Configuration* state = Configuration::GetInstance();
 	state->ReadConfigurationInfo();
 	context->setCurrent(state);
@@ -86,7 +86,7 @@ void Ready::Configure(EmbeddedSystemX* context){
 
 void Ready::Restart(EmbeddedSystemX* context)
 {
-	std::cout << "Restart. Changing to PowerOnSelfTest\n";
+	printf("Restart. Changing to PowerOnSelfTest\n");
 	PowerOnSelfTest* state = PowerOnSelfTest::GetInstance();
 	context->setCurrent(state);
 }

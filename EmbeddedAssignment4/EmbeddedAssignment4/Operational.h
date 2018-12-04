@@ -18,7 +18,7 @@ public:
 	void Resume(EmbeddedSystemX* context) override = 0;
 	void SelfTestFailed(EmbeddedSystemX* context, int errorNo) override = 0;
 	void ConfigX(EmbeddedSystemX* context) override = 0;
-	void chMode(EmbeddedSystemX* context) override = 0;
+	void chMode(EmbeddedSystemX* context, int mode) override = 0;
 	void eventX(EmbeddedSystemX* context) override = 0;
 	void eventY(EmbeddedSystemX* context) override = 0;
 };

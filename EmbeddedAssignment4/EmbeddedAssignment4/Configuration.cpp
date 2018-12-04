@@ -1,8 +1,8 @@
 #include "Configuration.h"
 #include "Ready.h"
-#include <iostream>
 #include "EmbeddedSystemX.h"
 #include "PowerOnSelfTest.h"
+#include "stdio.h"
 
 Configuration* Configuration::_instance = 0;
 
@@ -55,7 +55,7 @@ void Configuration::ConfigX(EmbeddedSystemX* context)
 {
 }
 
-void Configuration::chMode(EmbeddedSystemX* context)
+void Configuration::chMode(EmbeddedSystemX* context, int mode)
 {
 }
 
@@ -72,23 +72,23 @@ Configuration* Configuration::GetInstance(){
 }
 
 void Configuration::ConfigurationEnded(EmbeddedSystemX* context){
-  std::cout << "ConfigurationEnded. Changing to Ready\n";
+  printf("ConfigurationEnded. Changing to Ready\n");
   Ready* state = Ready::GetInstance();
   context->setCurrent(state);
 }
 
 void Configuration::ReadConfigurationInfo(){
-	std::cout << "Reading configuration...\n";
+	printf("Reading configuration...\n");
 }
 
 void Configuration::PerformConfigurationX()
 {
-	std::cout << "Performing configuration for event x\n";
+	printf("Performing configuration for event x\n");
 }
 
 void Configuration::Restart(EmbeddedSystemX* context)
 {
-	std::cout << "Restart. Changing to PowerOnSelfTest\n";
+	printf("Restart. Changing to PowerOnSelfTest\n");
 	PowerOnSelfTest* state = PowerOnSelfTest::GetInstance();
 	context->setCurrent(state);
 }

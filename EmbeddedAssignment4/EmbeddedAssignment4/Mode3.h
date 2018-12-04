@@ -6,7 +6,8 @@ class Mode3 : public ApplicationModeSetting
 {
 public:
 	static Mode3* GetInstance();
-	static void responseM3eventX();
+	void responseEventX() override;
+	void responseEventY() override;
 private:
 	static Mode3* _instance;
 	Mode3();

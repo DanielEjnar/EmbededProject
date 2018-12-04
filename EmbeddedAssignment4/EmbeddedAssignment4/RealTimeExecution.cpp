@@ -1,26 +1,25 @@
 #include "RealTimeExecution.h"
-#include <iostream>
-
+#include <stdio.h>
 
 void RealTimeExecution::RunRealTime()
 {
-	std::cout << "Simulation finished, RealTimeExecution called" << std::endl;
+	printf("Simulation finished, RealTimeExecution called");
 }
 
 RealTimeExecution::RealTimeExecution()
 {
+	printf("In ctor RealTimeExecution");
 	// new proxy object
-	simProxy = new SimProxy;
-
 }
 
 RealTimeExecution::~RealTimeExecution()
 {
-	delete simProxy;
+
 }
 
 void RealTimeExecution::Start()
 {
-	simProxy->Push(new Simulation(), this);
+	printf("In RealTimeExecution.Start. Now pushing sim objects\n");
+	simProxy.Push(new Simulation(), this);
 }
  

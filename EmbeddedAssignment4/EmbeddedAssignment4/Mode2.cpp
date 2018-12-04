@@ -5,6 +5,7 @@
 #include "Mode1.h"
 #include "PowerOnSelfTest.h"
 #include "Suspended.h"
+#include "stdio.h"
 
 Mode2* Mode2::_instance = 0;
 
@@ -21,12 +22,13 @@ Mode2* Mode2::GetInstance()
 	return (!_instance) ? _instance = new Mode2 : _instance;
 }
 
-void Mode2::responseM2eventX()
+void Mode2::responseEventX()
 {
-	std::cout << "Event X happened. Responding with a :(\n";
+	printf("Event X happened. Responding with a :(\n");
 }
 
-void Mode2::responseM2eventY()
+void Mode2::responseEventY()
 {
-	std::cout << "Event Y happened. Responding with a :>\n";
+	printf("Event Y happened. Responding with a :>\n");
 }
+

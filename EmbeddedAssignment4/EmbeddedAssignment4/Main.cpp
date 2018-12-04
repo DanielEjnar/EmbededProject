@@ -1,38 +1,33 @@
-#include "EmbeddedSystemX.h"
-#include "PowerOnSelfTest.h"
-#include <iostream>
-#include <cstdio>
+/*
+ * Empty C++ Application
+ */
+
+/*
+ * main.cpp
+ *
+ *  Created on: 20. July 2018
+ *      Author: Kim Bjerge
+ */
+#include "UserThread.h"
+#include "SimulationThread.h"
+#include "SimProxy.h"
 
 int simCount = 0;
+SimProxy simProxy;
+
 int main()
 {
-	std::cout << "Booting ...\n";
-	EmbeddedSystemX* context = new EmbeddedSystemX();
-	context->SelfTestFailed(context, 99);
-	context->Restart(context);
-	context->SelftestOk(context);
-	context->Initalized(context);
-	context->Configure(context);
-	context->ConfigurationEnded(context);
-	context->Start(context);
+	// Threads
+	MainThread mMainThread(Thread::PRIORITY_NORMAL, "MainThread");
+	SimulationThread mSimThread(Thread::PRIORITY_NORMAL, "SimulationThread");
 
-	// Start simulation
-	context->Start(context);
-	context->Start(context);
-	context->Start(context);
-	context->Start(context);
-	context->Start(context);
+	/* Start FreeRTOS, the tasks running. */
+	vTaskStartScheduler();
 
-	// Do some change modes
-	context->chMode(context);
-	context->eventX(context);
-	context->chMode(context);
-	context->eventX(context);
-	context->eventY(context);
-	context->chMode(context);
-	context->eventX(context);
-	context->Restart(context);
-	std::cout << "Ending ...\n";
-	getchar();
-	return 0;
+	/* If all is well, the scheduler will now be running, and the following line
+	will never be reached.  If the following line does execute, then there was
+	insufficient FreeRTOS heap memory available for the idle and/or timer tasks
+	to be created.  See the memory management section on the FreeRTOS web site
+	for more details. */
+	for( ;; );
 }

@@ -18,7 +18,7 @@ public:
 	void Suspend(EmbeddedSystemX* context);
 	void SelfTestFailed(EmbeddedSystemX* context, int errorNo);
 	void ConfigX(EmbeddedSystemX* context);
-	void chMode(EmbeddedSystemX* context);
+	void chMode(EmbeddedSystemX* context, int mode);
 	void eventX(EmbeddedSystemX* context);
 	void eventY(EmbeddedSystemX* context);
 	void Resume(EmbeddedSystemX* context);

@@ -1,6 +1,7 @@
 #include "Failure.h"
 #include <iostream>
 #include "EmbeddedSystemX.h"
+#include "stdio.h"
 
 Failure* Failure::_instance = 0;
 
@@ -57,7 +58,7 @@ void Failure::ConfigX(EmbeddedSystemX* context)
 {
 }
 
-void Failure::chMode(EmbeddedSystemX* context)
+void Failure::chMode(EmbeddedSystemX* context, int mode)
 {
 }
 
@@ -71,7 +72,7 @@ void Failure::eventY(EmbeddedSystemX* context)
 
 void Failure::display(int errorNo)
 {
-	std::cout << "ErrorNo: " << errorNo << "\n";
+	printf("ErrorNo: " + errorNo);
 }
 
 Failure* Failure::GetInstance()
@@ -81,6 +82,6 @@ Failure* Failure::GetInstance()
 
 void Failure::Restart(EmbeddedSystemX* context)
 {
-	std::cout << "Restart. Changing to PowerOnSelfTest\n";
+	printf("Restart. Changing to PowerOnSelfTest\n");
 	context->setCurrent(PowerOnSelfTest::GetInstance());
 }

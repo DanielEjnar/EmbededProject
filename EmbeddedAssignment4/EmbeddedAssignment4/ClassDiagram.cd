@@ -1,94 +1,133 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="EmbeddedSystemX">
-    <Position X="5.75" Y="4" Width="1.5" />
+  <Class Name="ApplicationModeSetting" Collapsed="true">
+    <Position X="9" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAIAAAACAIAAACAABEAAgAAAAgAWIAIAAAAQhAABA=</HashCode>
-      <FileName>EmbeddedSystemX.h</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="_currentState" />
-    </ShowAsAssociation>
-  </Class>
-  <Class Name="Failure" Collapsed="true">
-    <Position X="8.75" Y="5.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>EAAEEAAAACAIAAACAABAAAAABAEAASaAIAAAAQgAAAA=</HashCode>
-      <FileName>Failure.h</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAACAAEAgAA=</HashCode>
+      <FileName>ApplicationModeSetting.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Configuration" Collapsed="true">
-    <Position X="12" Y="7.75" Width="1.5" />
+    <Position X="11" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAEEAAAACAIAAACAABAAAAABAAABSIAoAAAAQgAAAI=</HashCode>
       <FileName>Configuration.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="EmbeddedSystemX" Collapsed="true">
+    <Position X="9" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAIAAAACAIAAACAABEAAgAAAAgAWIAIAAAAQhAABA=</HashCode>
+      <FileName>EmbeddedSystemX.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Failure" Collapsed="true">
+    <Position X="12.5" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAEEAAAACAIAAACAABAAAAABAEAASaAIAAAAQgAAAA=</HashCode>
+      <FileName>Failure.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="Initializing" Collapsed="true">
-    <Position X="11.5" Y="5.75" Width="1.5" />
+    <Position X="13.5" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAEEAAAQCAIAAACAABAAAAQBAAAASIAIAAAAQoAAAA=</HashCode>
       <FileName>Initializing.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Mode1" Collapsed="true">
-    <Position X="16.75" Y="9.25" Width="1.5" />
+    <Position X="6" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EQAEEAAAACAIAAACAABAAAAABAAAASIAIAAQAQgAAAA=</HashCode>
+      <HashCode>AQAEAAAAAAAAAAAAAAAAAAAABAAQAAAAAAAQAAAAgAA=</HashCode>
       <FileName>Mode1.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Mode2" Collapsed="true">
-    <Position X="19" Y="9.25" Width="1.5" />
+    <Position X="6" Y="7.25" Width="1.5" />
+    <InheritanceLine Type="ApplicationModeSetting" FixedToPoint="true">
+      <Path>
+        <Point X="9.75" Y="6.812" />
+        <Point X="9.75" Y="7.25" />
+        <Point X="7.5" Y="7.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>EQAEEAAAACAIAAACAABAAAAABIAhASIAIAAAAQgAAAA=</HashCode>
+      <HashCode>AQAEAAAAAAAAAAAAAAAAAAAABAAwAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Mode2.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Mode3" Collapsed="true">
-    <Position X="14.5" Y="9.25" Width="1.5" />
+    <Position X="6" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EQAEEAAAACAIAAACAABAAAAABAAAASIAIAAAgQgAQAA=</HashCode>
+      <HashCode>AQAEAAAAAAAAAAAAAAAAAAAABAAQAAAAAAAAAAAAwAA=</HashCode>
       <FileName>Mode3.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Operational" Collapsed="true">
-    <Position X="14.75" Y="5.75" Width="1.5" />
+    <Position X="11" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAMAAAACAIEAACAABAAAAAAAAAASIAIAAAAQgAAAA=</HashCode>
       <FileName>Operational.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PowerOnSelfTest" Collapsed="true">
-    <Position X="17" Y="5.75" Width="1.5" />
+    <Position X="12.25" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAEEAAAASIIIAACAABAAAAABAAAASIAIAAAAQgAAAA=</HashCode>
       <FileName>PowerOnSelfTest.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Ready" Collapsed="true">
-    <Position X="22" Y="7.5" Width="1.5" />
+    <Position X="9" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>kAAEEAAAACAIAAECAABAAAAABAAAASIAIAAAAQgAAAA=</HashCode>
       <FileName>Ready.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="RealTimeLoop" Collapsed="true">
-    <Position X="16.75" Y="7.5" Width="1.5" />
+  <Class Name="RealTimeExecution" Collapsed="true">
+    <Position X="8.75" Y="11" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAEAAAACAIABACAABAAACAAAAAASIAIAAAAQgAAAA=</HashCode>
+      <HashCode>AAAAAAABACAAAAAAAAAAAAAAAAAAAAAAAQAAAEAAAAA=</HashCode>
+      <FileName>RealTimeExecution.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealTimeLoop" Collapsed="true">
+    <Position X="10.5" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAgUEAABACAIABACAABBAAiABAQAASIAIAAAAQgAAAA=</HashCode>
       <FileName>RealTimeLoop.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="SimProxy" Collapsed="true">
+    <Position X="6" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAQCAAAAAAAAQABAAAAAAAACAAAAAAAAAAgAAACAA=</HashCode>
+      <FileName>SimProxy.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimulateRealTime" Collapsed="true">
+    <Position X="6" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>SimulateRealTime.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Simulation" Collapsed="true">
+    <Position X="8.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAACAAAAAAAAAAgAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Simulation.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="State" Collapsed="true">
-    <Position X="8.75" Y="4" Width="1.5" />
+    <Position X="13" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAEAAAACAIAAACAABAAAAAAAAAASIAIAAABRgAAAA=</HashCode>
       <FileName>State.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Suspended" Collapsed="true">
-    <Position X="19.75" Y="7.5" Width="1.5" />
+    <Position X="11.5" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAEEABAACAIABACAABAAAAABAAAASIAIAAAAQgAAAA=</HashCode>
       <FileName>Suspended.h</FileName>
