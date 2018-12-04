@@ -1,12 +1,19 @@
 #pragma once
-#include "SimulateRealTime.h"
+#include "SimProxy.h"
+
+
 class RealTimeExecution :
 	public SimulateRealTime
 {
 public:
-	virtual void RunRealTime() = 0;
-	virtual void Simulate() = 0;
+	void RunRealTime();
 	RealTimeExecution();
 	~RealTimeExecution();
+	void Start();
+	//	void RunRealTime() override;
+	//	void Simulate();
+	//	void Start();
+private:
+	SimProxy* simProxy;
 };
 

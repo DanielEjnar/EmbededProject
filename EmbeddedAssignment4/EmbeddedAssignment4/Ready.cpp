@@ -72,7 +72,7 @@ void Ready::eventY(EmbeddedSystemX* context)
 
 void Ready::Start(EmbeddedSystemX* context){
 	std::cout << "Start. Changing to RealTimeLoop\n";
-	RealTimeLoop* state = Mode1::GetInstance();
+	RealTimeLoop* state = RealTimeLoop::GetInstance();
 	context->setCurrent(state);
 }
 

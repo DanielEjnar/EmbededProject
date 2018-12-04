@@ -7,17 +7,23 @@
 #include "RealTimeExecution.h"
 
 ApplicationModeSetting* RealTimeLoop::_appState = 0;
-SimulateRealTime* RealTimeLoop::_simState = 0;
+RealTimeExecution* RealTimeLoop::_simState = 0;
+RealTimeLoop* RealTimeLoop::_instance = 0;
 
 RealTimeLoop::RealTimeLoop() {}
 
 
 RealTimeLoop::~RealTimeLoop() {}
 
+RealTimeLoop* RealTimeLoop::GetInstance()
+{
+	return (!_instance) ? _instance = new RealTimeLoop : _instance;
+}
+
 void RealTimeLoop::Entry()
 {
 	_appState = Mode1::GetInstance();
-	_simState = RealTimeExecution::GetInstance();
+	_simState = new RealTimeExecution();
 }
 
 void RealTimeLoop::Exit(EmbeddedSystemX* context)
@@ -36,7 +42,67 @@ void RealTimeLoop::Restart(EmbeddedSystemX* context)
 	context->setCurrent(state);
 }
 
-void RealTimeLoop::ChMode()
+void RealTimeLoop::chMode()
 {
-	_appState->ChMode();
+	_appState->chMode();
+}
+
+void RealTimeLoop::RunRealTime()
+{}
+
+void RealTimeLoop::Simulate()
+{
+	_simState->Start();
+}
+
+void RealTimeLoop::SelftestOk(EmbeddedSystemX* context)
+{
+}
+
+void RealTimeLoop::Initialized(EmbeddedSystemX* context)
+{
+}
+
+void RealTimeLoop::Configure(EmbeddedSystemX* context)
+{
+}
+
+void RealTimeLoop::ConfigurationEnded(EmbeddedSystemX* context)
+{
+}
+
+void RealTimeLoop::Stop(EmbeddedSystemX* context)
+{
+}
+
+void RealTimeLoop::Start(EmbeddedSystemX* context)
+{
+}
+
+void RealTimeLoop::Suspend(EmbeddedSystemX* context)
+{
+}
+
+void RealTimeLoop::Resume(EmbeddedSystemX* context)
+{
+}
+
+void RealTimeLoop::SelfTestFailed(EmbeddedSystemX* context, int errorNo)
+{
+}
+
+void RealTimeLoop::ConfigX(EmbeddedSystemX* context)
+{
+}
+
+void RealTimeLoop::chMode(EmbeddedSystemX* context)
+{
+}
+
+void RealTimeLoop::eventX(EmbeddedSystemX* context)
+{
+}
+
+void RealTimeLoop::eventY(EmbeddedSystemX* context)
+{
 }

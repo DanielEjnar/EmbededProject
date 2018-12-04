@@ -78,7 +78,7 @@ void Suspended::Stop(EmbeddedSystemX* context){
 
 void Suspended::Resume(EmbeddedSystemX* context){
   std::cout << "Resume. Changing to Mode1\n";
-  RealTimeLoop* state = Mode1::GetInstance();
+  RealTimeLoop* state = RealTimeLoop::GetInstance();
   context->setCurrent(state);
 }
 
