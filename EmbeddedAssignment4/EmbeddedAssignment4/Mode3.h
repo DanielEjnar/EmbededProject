@@ -6,7 +6,7 @@ class Mode3 : public ApplicationModeSetting
 {
 public:
 	static Mode3* GetInstance();
-	void chMode(EmbeddedSystemX* context);
+	void chMode(RealTimeLoop* context);
 	static void responseM3eventX();
 private:
 	static Mode3* _instance;

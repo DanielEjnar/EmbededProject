@@ -4,6 +4,7 @@
 #include "ApplicationModeSetting.h"
 #include "SimulateRealTime.h"
 
+extern int simCount;
 class RealTimeLoop :
 	public Operational
 {
@@ -12,9 +13,9 @@ public:
 	void Entry();
 	void Exit(EmbeddedSystemX* context);
 	void Restart(EmbeddedSystemX* context);
-	void chMode();
 	void RunRealTime();
 	void Simulate();
+	void setCurrent(ApplicationModeSetting* newAppState);
 	void SelftestOk(EmbeddedSystemX* context) override;
 	void Initialized(EmbeddedSystemX* context) override;
 	void Configure(EmbeddedSystemX* context) override;
@@ -35,5 +36,3 @@ private:
 	static RealTimeExecution* _simState;
 	static RealTimeLoop* _instance;
 };
-
-int simCount = 0;

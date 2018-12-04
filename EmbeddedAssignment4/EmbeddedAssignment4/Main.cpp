@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cstdio>
 
+int simCount = 0;
 int main()
 {
 	std::cout << "Booting ...\n";

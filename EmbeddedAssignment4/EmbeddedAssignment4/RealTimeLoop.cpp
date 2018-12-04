@@ -3,8 +3,8 @@
 #include "Ready.h"
 #include "EmbeddedSystemX.h"
 #include <iostream>
-#include "Mode1.h"
 #include "RealTimeExecution.h"
+#include "Mode1.h"
 
 ApplicationModeSetting* RealTimeLoop::_appState = 0;
 RealTimeExecution* RealTimeLoop::_simState = 0;
@@ -42,17 +42,17 @@ void RealTimeLoop::Restart(EmbeddedSystemX* context)
 	context->setCurrent(state);
 }
 
-void RealTimeLoop::chMode()
-{
-	_appState->chMode();
-}
-
 void RealTimeLoop::RunRealTime()
 {}
 
 void RealTimeLoop::Simulate()
 {
 	_simState->Start();
+}
+
+void RealTimeLoop::setCurrent(ApplicationModeSetting* newAppState)
+{
+	_appState = newAppState;
 }
 
 void RealTimeLoop::SelftestOk(EmbeddedSystemX* context)
@@ -97,6 +97,7 @@ void RealTimeLoop::ConfigX(EmbeddedSystemX* context)
 
 void RealTimeLoop::chMode(EmbeddedSystemX* context)
 {
+	_appState->chMode(this);
 }
 
 void RealTimeLoop::eventX(EmbeddedSystemX* context)
