@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EmbeddedSystemX">
+    <Position X="5.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAIAAAACAIAAACAABEAAgAAAAgAWIAIAAAAQhAABA=</HashCode>
+      <FileName>EmbeddedSystemX.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_currentState" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Failure" Collapsed="true">
+    <Position X="8.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAEEAAAACAIAAACAABAAAAABAEAASaAIAAAAQgAAAA=</HashCode>
+      <FileName>Failure.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Configuration" Collapsed="true">
+    <Position X="12" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAEEAAAACAIAAACAABAAAAABAAABSIAoAAAAQgAAAI=</HashCode>
+      <FileName>Configuration.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Initializing" Collapsed="true">
+    <Position X="11.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAEEAAAQCAIAAACAABAAAAQBAAAASIAIAAAAQoAAAA=</HashCode>
+      <FileName>Initializing.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mode1" Collapsed="true">
+    <Position X="16.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQAEEAAAACAIAAACAABAAAAABAAAASIAIAAQAQgAAAA=</HashCode>
+      <FileName>Mode1.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mode2" Collapsed="true">
+    <Position X="19" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQAEEAAAACAIAAACAABAAAAABIAhASIAIAAAAQgAAAA=</HashCode>
+      <FileName>Mode2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mode3" Collapsed="true">
+    <Position X="14.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQAEEAAAACAIAAACAABAAAAABAAAASIAIAAAgQgAQAA=</HashCode>
+      <FileName>Mode3.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Operational" Collapsed="true">
+    <Position X="14.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAMAAAACAIEAACAABAAAAAAAAAASIAIAAAAQgAAAA=</HashCode>
+      <FileName>Operational.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PowerOnSelfTest" Collapsed="true">
+    <Position X="17" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAEEAAAASIIIAACAABAAAAABAAAASIAIAAAAQgAAAA=</HashCode>
+      <FileName>PowerOnSelfTest.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ready" Collapsed="true">
+    <Position X="22" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kAAEEAAAACAIAAECAABAAAAABAAAASIAIAAAAQgAAAA=</HashCode>
+      <FileName>Ready.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealTimeLoop" Collapsed="true">
+    <Position X="16.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAEAAAACAIABACAABAAACAAAAAASIAIAAAAQgAAAA=</HashCode>
+      <FileName>RealTimeLoop.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="State" Collapsed="true">
+    <Position X="8.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAEAAAACAIAAACAABAAAAAAAAAASIAIAAABRgAAAA=</HashCode>
+      <FileName>State.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Suspended" Collapsed="true">
+    <Position X="19.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAEEABAACAIABACAABAAAAABAAAASIAIAAAAQgAAAA=</HashCode>
+      <FileName>Suspended.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
