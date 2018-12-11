@@ -22,6 +22,8 @@ sc_uint<RANDOM_WIDTH> GenerationGenerator::trueRandom(void) {
 }
 
 void GenerationGenerator::generateGeneration(void) {
+	while(true) {
+	wait();
 	sc_int<16> fitness[16];
 
 	// get the fitness and previous generation_in
@@ -32,6 +34,8 @@ void GenerationGenerator::generateGeneration(void) {
 		fitness[i] = generation_fitness[i]->read();
 		previousGeneration[i] = generation_in[i]->read();
 	}
+
+	//std::cout << "Previous gen is: " << previousGeneration[0] << std::endl;
 
 	sc_int<16> largest = 0, largestIndex = 0, secondLargest = 0, secondLargestIndex = 0;
 	// Find indexes of two most fit chromosomes
@@ -61,7 +65,7 @@ void GenerationGenerator::generateGeneration(void) {
 	sc_uint<CHROMOSOME_WIDTH> zero = 0;
 	sc_uint<CHROMOSOME_WIDTH> bitMask1 = ((~zero) >> point1) & (~(~zero) >> point2);
 	sc_uint<CHROMOSOME_WIDTH> bitMask2 = ~bitMask1;
-
+	
 	sc_uint<CHROMOSOME_WIDTH> previousLargest = previousGeneration[largestIndex];
 	sc_uint<CHROMOSOME_WIDTH> previousSecondLargest = previousGeneration[secondLargestIndex];
 
@@ -86,5 +90,7 @@ void GenerationGenerator::generateGeneration(void) {
 	// set generation_out
 	for(int i = 0; i < GENERATION_SIZE; i++) {
 		generation_out[i]->write(childArray[i]);
+		//std::cout << "Value is: " << generation_out[i].read() << std::endl;
+	}
 	}
 }

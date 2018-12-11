@@ -25,8 +25,8 @@ SC_MODULE(GenerationGenerator) {
 	void generateGeneration(void);
 
 	SC_CTOR(GenerationGenerator) {
-	  SC_CTHREAD(consumeRandom, clk.pos());
-	  reset_signal_is(reset, false);
+	  SC_CTHREAD(generateGeneration, clk.pos());
+	  //reset_signal_is(reset, false);
   }
 };
 #endif

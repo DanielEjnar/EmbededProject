@@ -22,6 +22,7 @@ SC_MODULE(Stim)
 		}
 		mutation_probability->write(pow(2, 23));
 		random->write(pow(2, 16));
+		wait(1, SC_MS);
 	}
 
 	SC_CTOR(Stim)

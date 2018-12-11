@@ -10,28 +10,30 @@ int sc_main(int argc, char* argv[]) {
 	Stim Stim("Stim");
 
 	sc_clock clock("clock", sc_time(CLK_PERIODE, SC_NS)); // 50 MHz
+	sc_signal<bool> reset("reset");
 
 	sc_signal<sc_uint<CHROMOSOME_WIDTH>> generation_in_channel[GENERATION_SIZE];
 	sc_signal<sc_int<FITNESS_WIDTH>> generation_fitness_in_channel[GENERATION_SIZE];
 	sc_signal<sc_uint<CHROMOSOME_WIDTH>> generation_out_channel[GENERATION_SIZE];
-	sc_signal<sc_uint<RANDOM_WIDTH>> mutation_probability_in_channel;
-	sc_signal<sc_uint<RANDOM_WIDTH>> random_channel;
+	sc_signal<sc_uint<RANDOM_WIDTH>> mutation_probability_in_channel("mutation_probability_in_channel");
+	sc_signal<sc_uint<RANDOM_WIDTH>> random_channel("random_channel");
 
 	// Wire GenerationGenerator
-	for (int i = 0; i < GENERATION_SIZE - 1; i++) {
+	for (int i = 0; i < GENERATION_SIZE; i++) {
 		GenerationGenerator.generation_fitness[i](generation_fitness_in_channel[i]);
 	}
 
-	for (int i = 0; i < GENERATION_SIZE - 1; i++) {
+	for (int i = 0; i < GENERATION_SIZE; i++) {
 		GenerationGenerator.generation_in[i](generation_in_channel[i]);
 		GenerationGenerator.generation_out[i](generation_out_channel[i]);
 	}
 	GenerationGenerator.clk(clock);
 	GenerationGenerator.mutation_probability(mutation_probability_in_channel);
 	GenerationGenerator.random(random_channel);
+	GenerationGenerator.reset(reset);
 
 	// Wire Stim
-	for (int i = 0; i < GENERATION_SIZE - 1; i++) {
+	for (int i = 0; i < GENERATION_SIZE; i++) {
 		Stim.generation_in[i](generation_in_channel[i]);
 		Stim.generation_fitness[i](generation_fitness_in_channel[i]);
 	}
@@ -48,6 +50,8 @@ int sc_main(int argc, char* argv[]) {
 	sc_trace(tf, generation_out_channel[0], "generation_out_channel");
 	sc_trace(tf, mutation_probability_in_channel, "mutation_probability_in_channel");
 	sc_trace(tf, random_channel, "random_in_channel");
+
+	reset = false;
 
 	sc_start(2000,SC_NS);
 	sc_close_vcd_trace_file(tf);
