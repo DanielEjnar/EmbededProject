@@ -33,7 +33,7 @@ void GenerationGenerator::generateGeneration(void) {
 		previousGeneration[i] = generation_in[i]->read();
 	}
 
-	int largest = 0, largestIndex = 0, secondLargest = 0, secondLargestIndex = 0;
+	sc_int<16> largest = 0, largestIndex = 0, secondLargest = 0, secondLargestIndex = 0;
 	// Find indexes of two most fit chromosomes
 	for (int i = 0; i<GENERATION_SIZE; i++) {
 		if (fitness[i] > largest) {

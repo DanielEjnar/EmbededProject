@@ -2,7 +2,7 @@
 #define GENERATIONGENERATOR_H
 #include <systemc.h>
 
-#define CHROMOSOME_WIDTH 64
+#define CHROMOSOME_WIDTH 16
 #define GENERATION_SIZE 10
 #define RANDOM_WIDTH 24
 #define FITNESS_WIDTH 16
