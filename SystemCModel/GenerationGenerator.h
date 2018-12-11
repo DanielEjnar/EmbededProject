@@ -5,22 +5,28 @@
 #define CHROMOSOME_WIDTH 64
 #define GENERATION_SIZE 10
 #define RANDOM_WIDTH 24
+#define FITNESS_WIDTH 16
 
 SC_MODULE(GenerationGenerator) {
-  SC_CTOR(GenerationGenerator) {
-    SC_CTHREAD(consumeRandom,clk.pos());
-    reset_is << reset; //not sure
+	sc_in<bool> clk;
+	sc_in<bool> reset;
+	sc_in<sc_uint<CHROMOSOME_WIDTH> > generation_in[GENERATION_SIZE];
+	sc_in<sc_int<FITNESS_WIDTH>> generation_fitness[GENERATION_SIZE];
+	sc_out<sc_uint<CHROMOSOME_WIDTH> > generation_out[GENERATION_SIZE];
+	sc_in<sc_uint<RANDOM_WIDTH>> mutation_probability;
+	sc_in<sc_uint<RANDOM_WIDTH>> random;
 
+	sc_uint<RANDOM_WIDTH> randomNumberIndex = 0;
+	sc_uint<RANDOM_WIDTH> trueRandomIndex = 0;
+	sc_uint<RANDOM_WIDTH> randomNumbers[GENERATION_SIZE * 2];
+
+	void consumeRandom(void);
+	sc_uint<RANDOM_WIDTH> trueRandom(void);
+	void generateGeneration(void);
+
+	SC_CTOR(GenerationGenerator) {
+	  SC_CTHREAD(consumeRandom, clk.pos());
+	  reset_signal_is(reset, false);
   }
-  sc_in<bool> clk;
-  sc_in<bool> reset;
-  sc_in<sc_uint<CHROMOSOME_WIDTH> > generation_in[GENERATION_SIZE];
-  sc_out<sc_uint<CHROMOSOME_WIDTH> > generation_out[GENERATION_SIZE];
-  sc_in<sc_uint<RANDOM_WIDTH> > randomNumber
-
-  sc_uint<RANDOM_WIDTH> randomNumbers[GENERATION_SIZE*2]
-
-  void consumeRandom(void);
-  void generateGeneration(void);
 };
 #endif
