@@ -31,30 +31,23 @@ void GenerationGenerator::generateGeneration(void) {
 	std::cout << "generateGeneration called" << std::endl;
 
 	// get the fitness and previous generation_in
-	sc_uint<CHROMOSOME_WIDTH> previousGeneration[GENERATION_SIZE];
+	sc_uint<CHROMOSOME_WIDTH> parent1 = generation_parent1->read();
+	sc_uint<CHROMOSOME_WIDTH> parent2 = generation_parent2->read();
 
-	for(int i = 0; i < GENERATION_SIZE; i++)
-	{
-		fitness[i] = generation_fitness[i]->read();
-		previousGeneration[i] = generation_in[i]->read();
-	}
-
-	std::cout << "Previous gen is: " << previousGeneration[0] << std::endl;
-
-	sc_int<16> largest = 0, largestIndex = 0, secondLargest = 0, secondLargestIndex = 0;
-	// Find indexes of two most fit chromosomes
-	for (int i = 0; i<GENERATION_SIZE; i++) {
-		if (fitness[i] > largest) {
-			secondLargest = largest;
-			secondLargestIndex = largestIndex;
-			largest = fitness[i];
-			largestIndex = i;
-		}
-		else if (fitness[i] > secondLargest) {
-			secondLargest = fitness[i];
-			secondLargestIndex = i;
-		}
-	}
+	//sc_int<16> largest = 0, largestIndex = 0, secondLargest = 0, secondLargestIndex = 0;
+	//// Find indexes of two most fit chromosomes
+	//for (int i = 0; i<GENERATION_SIZE; i++) {
+	//	if (fitness[i] > largest) {
+	//		secondLargest = largest;
+	//		secondLargestIndex = largestIndex;
+	//		largest = fitness[i];
+	//		largestIndex = i;
+	//	}
+	//	else if (fitness[i] > secondLargest) {
+	//		secondLargest = fitness[i];
+	//		secondLargestIndex = i;
+	//	}
+	//}
 
 	//int index = std::distance(fitness, std::max_element(fitness, fitness + 16));
 
@@ -62,72 +55,73 @@ void GenerationGenerator::generateGeneration(void) {
 	// X = 16 bits, y = 16 bits
 	// chromosome = XY
 
-	// crossover - need to set number of crossoverpoints?
+	// crossover
 	// Make crossover points
 	sc_uint<CHROMOSOME_WIDTH> notZero = pow(2, CHROMOSOME_WIDTH) - 1;
-	sc_uint<CHROMOSOME_WIDTH> childArray[GENERATION_SIZE];
-	for(int i = 0; i < GENERATION_SIZE >> 1; i++)
-	{
-			std::cout << "Making two children" << std::endl;
-			sc_uint<RANDOM_WIDTH> point1 = trueRandom();
-			sc_uint<RANDOM_WIDTH> point2 = trueRandom();
+	//sc_uint<CHROMOSOME_WIDTH> childArray[GENERATION_SIZE];
 
-			std::cout << "Point1: " << point1 << std::endl;
-			std::cout << "Point2: " << point2 << std::endl;
+	std::cout << "Making two children" << std::endl;
+	sc_uint<RANDOM_WIDTH> point1 = trueRandom();
+	sc_uint<RANDOM_WIDTH> point2 = trueRandom();
 
-			//0-2^24
-			//0-CHROMOSOME_WIDTH
-			//Scale
-			point1 = (sc_uint<RANDOM_WIDTH + CHROMOSOME_WIDTH>) (point1 * (CHROMOSOME_WIDTH - 1)) >> RANDOM_WIDTH;
-			point2 = (sc_uint<RANDOM_WIDTH + CHROMOSOME_WIDTH>) (point2 * (CHROMOSOME_WIDTH - 1)) >> RANDOM_WIDTH;
+	std::cout << "Point1: " << point1 << std::endl;
+	std::cout << "Point2: " << point2 << std::endl;
 
-			std::cout << "Point1 after shift: " << point1 << std::endl;
-			std::cout << "Point2 after shift: " << point2 << std::endl;
+	//0-2^24
+	//0-CHROMOSOME_WIDTH
+	//Scale
+	point1 = (sc_uint<RANDOM_WIDTH + CHROMOSOME_WIDTH>) (point1 * (CHROMOSOME_WIDTH - 1)) >> RANDOM_WIDTH;
+	point2 = (sc_uint<RANDOM_WIDTH + CHROMOSOME_WIDTH>) (point2 * (CHROMOSOME_WIDTH - 1)) >> RANDOM_WIDTH;
 
-			// Sort high and low number
-			sc_uint<RANDOM_WIDTH> highNum;
-			sc_uint<RANDOM_WIDTH> lowNum;
-			if(point1 > point2) {
-				highNum = point1;
-				lowNum = point2;
-			} else {
-				highNum = point2;
-				lowNum = point1;
-			}
+	std::cout << "Point1 after shift: " << point1 << std::endl;
+	std::cout << "Point2 after shift: " << point2 << std::endl;
 
-			sc_uint<CHROMOSOME_WIDTH> bitMask1 = notZero >> lowNum & ~notZero >> highNum;
-			sc_uint<CHROMOSOME_WIDTH> bitMask2 = ~bitMask1;
-	
-			sc_uint<CHROMOSOME_WIDTH> previousLargest = previousGeneration[largestIndex];
-			sc_uint<CHROMOSOME_WIDTH> previousSecondLargest = previousGeneration[secondLargestIndex];
-
-			sc_uint<CHROMOSOME_WIDTH> child1 = (previousLargest & bitMask1) + (bitMask2 & previousSecondLargest);
-			sc_uint<CHROMOSOME_WIDTH> child2 = (previousLargest & bitMask2) + (bitMask1 & previousSecondLargest);
-
-			std::cout << "Bitmask for child1: " << std::bitset<16>(bitMask1) << std::endl;
-			std::cout << "Bitmask for child2: " << std::bitset<16>(bitMask2) << std::endl;
-			childArray[2*i] = child1;
-			childArray[2*i+1] = child2;
+	// Sort high and low number
+	sc_uint<RANDOM_WIDTH> highNum;
+	sc_uint<RANDOM_WIDTH> lowNum;
+	if(point1 > point2) {
+		highNum = point1;
+		lowNum = point2;
+	} else {
+		highNum = point2;
+		lowNum = point1;
 	}
+
+	sc_uint<CHROMOSOME_WIDTH> bitMask1 = notZero >> lowNum & ~notZero >> highNum;
+	sc_uint<CHROMOSOME_WIDTH> bitMask2 = ~bitMask1;
+
+	sc_uint<CHROMOSOME_WIDTH> child1 = (parent1 & bitMask1) + (bitMask2 & parent2);
+	sc_uint<CHROMOSOME_WIDTH> child2 = (parent1 & bitMask2) + (bitMask1 & parent2);
+
+	std::cout << "Bitmask for child1: " << std::bitset<16>(bitMask1) << std::endl;
+	std::cout << "Bitmask for child2: " << std::bitset<16>(bitMask2) << std::endl;
+	//childArray[2*i] = child1;
+	//childArray[2*i+1] = child2;
 
 	// mutate - get random positions to mutate OR get a random number per bit and see if it mutates
 	sc_uint<RANDOM_WIDTH> randomMutationProb = mutation_probability.read();
-	for(int i = 0; i < GENERATION_SIZE; i++)
+
+	// Mutating child 1
+	for (int j = 0; j < CHROMOSOME_WIDTH; j++)
 	{
-		std::cout << "Calling true random() once for: " << i << std::endl;
-		for(int j = 0; j < CHROMOSOME_WIDTH; j++)
-		{
-			if (trueRandom() < randomMutationProb) {
-				std::cout << "Mutating!" << randomMutationProb << std::endl;
-				childArray[i] ^= (1 << j);
-			}
+		if (trueRandom() < randomMutationProb) {
+			std::cout << "Mutating!" << randomMutationProb << std::endl;
+			child1 ^= (1 << j);
+		}
+	}
+
+	// Mutating child 2
+	for (int j = 0; j < CHROMOSOME_WIDTH; j++)
+	{
+		if (trueRandom() < randomMutationProb) {
+			std::cout << "Mutating!" << randomMutationProb << std::endl;
+			child2 ^= (1 << j);
 		}
 	}
 
 	// set generation_out
-	for(int i = 0; i < GENERATION_SIZE; i++) {
-		generation_out[i]->write(childArray[i]);
-		std::cout << "Value is: " << std::bitset<16>(childArray[i]) << std::endl;
-	}
-	//}
+	generation_child1->write(child1);
+	generation_child2->write(child2);
+	std::cout << "Child1 is " << std::bitset<16>(child1) << std::endl;
+	std::cout << "Child2 is " << std::bitset<16>(child2) << std::endl;
 }

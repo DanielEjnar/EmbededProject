@@ -7,10 +7,10 @@
 SC_MODULE(Stim)
 {
 	sc_in<bool> clk;
-	sc_out<sc_uint<CHROMOSOME_WIDTH>> generation_in[GENERATION_SIZE];
-	sc_out<sc_int<FITNESS_WIDTH>> generation_fitness[GENERATION_SIZE];
-	sc_out<sc_uint<RANDOM_WIDTH>> mutation_probability;
-	sc_out<sc_uint<RANDOM_WIDTH>> random;
+	sc_out<sc_uint<CHROMOSOME_WIDTH> > generation_parent1;
+	sc_out<sc_uint<CHROMOSOME_WIDTH> > generation_parent2;
+	sc_out<sc_uint<RANDOM_WIDTH> > mutation_probability;
+	sc_out<sc_uint<RANDOM_WIDTH> > random;
 
 	void stimGen() {
 		wait(10, SC_NS);
@@ -21,10 +21,8 @@ SC_MODULE(Stim)
 			random->write(rand()*RAND_MAX);
 			wait(1, SC_NS);
 		}
-		for (int i = 0; i < GENERATION_SIZE; i++) {
-			generation_in[i]->write(rand()*2);
-			generation_fitness[i]->write(i + 5);
-		}
+		generation_parent1->write(rand() * 2);
+		generation_parent2->write(rand() * 2);
 		wait(1, SC_MS);
 	}
 

@@ -10,14 +10,15 @@
 SC_MODULE(GenerationGenerator) {
 	sc_in<bool> clk;
 	sc_in<bool> reset;
-	sc_in<sc_uint<CHROMOSOME_WIDTH> > generation_in[GENERATION_SIZE];
-	sc_in<sc_int<FITNESS_WIDTH>> generation_fitness[GENERATION_SIZE];
-	sc_out<sc_uint<CHROMOSOME_WIDTH> > generation_out[GENERATION_SIZE];
-	sc_in<sc_uint<RANDOM_WIDTH>> mutation_probability;
-	sc_in<sc_uint<RANDOM_WIDTH>> random;
+	sc_in<sc_uint<CHROMOSOME_WIDTH> > generation_parent1;
+	sc_in<sc_uint<CHROMOSOME_WIDTH> > generation_parent2;
+	sc_out<sc_uint<CHROMOSOME_WIDTH> > generation_child1;
+	sc_out<sc_uint<CHROMOSOME_WIDTH> > generation_child2;
+	sc_in<sc_uint<RANDOM_WIDTH> > mutation_probability;
+	sc_in<sc_uint<RANDOM_WIDTH> > random;
 
-	sc_uint<RANDOM_WIDTH> randomNumberIndex = 0;
-	sc_uint<RANDOM_WIDTH> trueRandomIndex = 0;
+	sc_uint<RANDOM_WIDTH> randomNumberIndex;
+	sc_uint<RANDOM_WIDTH> trueRandomIndex;;
 	sc_uint<RANDOM_WIDTH> randomNumbers[GENERATION_SIZE * 16];
 
 	void consumeRandom(void);
@@ -25,9 +26,12 @@ SC_MODULE(GenerationGenerator) {
 	void generateGeneration(void);
 
 	SC_CTOR(GenerationGenerator) {
+	  randomNumberIndex = 0;
+	  trueRandomIndex = 0;
 	  //SC_CTHREAD(generateGeneration, clk.pos());
 	  SC_METHOD(generateGeneration);
-	  sensitive << generation_in[0];
+	  sensitive << generation_parent1;
+	  sensitive << generation_parent2;
 	  SC_METHOD(consumeRandom);
 	  sensitive << random;
 	  //reset_signal_is(reset, false);
