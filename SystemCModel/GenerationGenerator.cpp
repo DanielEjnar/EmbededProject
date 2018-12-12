@@ -1,7 +1,6 @@
 #ifdef _MSC_VER
 	#include "stdafx.h"
 #endif
-
 #include "GenerationGenerator.h"
 #include <bitset>
 
