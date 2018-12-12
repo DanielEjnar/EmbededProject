@@ -1,5 +1,7 @@
 #pragma once
-#include "stdafx.h"
+#ifdef _MSC_VER
+	#include "stdafx.h"
+#endif
 #include "systemc.h"
 #include "GenerationGenerator.h"
 #include "iostream"
