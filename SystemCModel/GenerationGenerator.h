@@ -18,14 +18,18 @@ SC_MODULE(GenerationGenerator) {
 
 	sc_uint<RANDOM_WIDTH> randomNumberIndex = 0;
 	sc_uint<RANDOM_WIDTH> trueRandomIndex = 0;
-	sc_uint<RANDOM_WIDTH> randomNumbers[GENERATION_SIZE * 2];
+	sc_uint<RANDOM_WIDTH> randomNumbers[GENERATION_SIZE * 16];
 
 	void consumeRandom(void);
 	sc_uint<RANDOM_WIDTH> trueRandom(void);
 	void generateGeneration(void);
 
 	SC_CTOR(GenerationGenerator) {
-	  SC_CTHREAD(generateGeneration, clk.pos());
+	  //SC_CTHREAD(generateGeneration, clk.pos());
+	  SC_METHOD(generateGeneration);
+	  sensitive << generation_in[0];
+	  SC_METHOD(consumeRandom);
+	  sensitive << random;
 	  //reset_signal_is(reset, false);
   }
 };
