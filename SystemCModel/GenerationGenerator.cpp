@@ -35,14 +35,14 @@ sc_uint<RANDOM_WIDTH> GenerationGenerator::trueRandom(void) {
 }
 
 void GenerationGenerator::generateGeneration(void) {
-	#pragma HLS resource core=AXI4LiteS metadata"-bus_bundle slv0" variable=generation_parent1
-	#pragma HLS resource core=AXI4LiteS metadata"-bus_bundle slv0" variable=generation_parent2
-	#pragma HLS resource core=AXI4LiteS metadata"-bus_bundle slv0" variable=generation_child1
-	#pragma HLS resource core=AXI4LiteS metadata"-bus_bundle slv0" variable=generation_child2
-	#pragma HLS resource core=AXI4LiteS metadata"-bus_bundle slv0" variable=generation_parent1
-	#pragma HLS resource core=AXI4LiteS metadata"-bus_bundle slv0" variable=mutation_probability
-	#pragma HLS resource core=AXI4LiteS metadata"-bus_bundle slv0" variable=startGenerating
-	#pragma HLS resource core=AXI4LiteS metadata"-bus_bundle slv0" variable=generatingDone
+	#pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=generation_parent1
+	#pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=generation_parent2
+	#pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=generation_child1
+	#pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=generation_child2
+	#pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=generation_parent1
+	#pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=mutation_probability
+	#pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=startGenerating
+	#pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=generatingDone
 
 	while(true) {
 		wait();
