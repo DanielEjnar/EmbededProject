@@ -41,7 +41,7 @@ void GenerationGenerator::generateGeneration(void) {
 
 	while(true) {
 		wait();
-		while(startGenerating->read() == false){}
+		while (startGenerating->read() == false) { wait(); }
 		//sc_int<16> fitness[16];
 		generatingDone->write(false);
 		std::cout << "generateGeneration called" << std::endl;
