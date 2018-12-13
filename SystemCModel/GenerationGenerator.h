@@ -34,7 +34,7 @@ SC_MODULE(GenerationGenerator) {
 		reset_signal_is(reset,false);
 	  //sensitive << generation_parent1;
 	  //sensitive << generation_parent2;
-	  SC_CTHREAD(consumeRandom,randomClk.pos());
+	  SC_CTHREAD(consumeRandom, clk.pos());
 		reset_signal_is(reset,false);
 	  //sensitive << random;
 	  //reset_signal_is(reset, false);
