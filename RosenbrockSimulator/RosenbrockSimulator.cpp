@@ -2,6 +2,7 @@
 #include <string.h>
 #include <math.h>
 #include <bitset>
+#include <iostream>
 
 void RosenbrockSimulator::simulateRosenbrock(){
   sc_uint<CHROMOSOME_WIDTH> notZero = pow(2, CHROMOSOME_WIDTH) - 1;
@@ -14,7 +15,7 @@ void RosenbrockSimulator::simulateRosenbrock(){
     sc_uint<CHROMOSOME_WIDTH/2 > x = 10, y = 10;
     x = tmpChromosome >> ( CHROMOSOME_WIDTH >> 1 );
 	y = tmpChromosome;
-	
+
   	//std::cout << "yBitmask: " << std::bitset<64>(~((1 << (sc_uint<CHROMOSOME_WIDTH>)((CHROMOSOME_WIDTH >> 1)) - 1))) << std::endl;
 	//y = tmpChromosome & (sc_uint<CHROMOSOME_WIDTH>)~((1 << (sc_uint<CHROMOSOME_WIDTH>)((CHROMOSOME_WIDTH >> 1))-1));
 	//std::cout << "ybitmask: " << std::bitset<64>((sc_uint<CHROMOSOME_WIDTH>)(pow(2, CHROMOSOME_WIDTH + 1) - 1)) << std::endl;
@@ -28,12 +29,40 @@ void RosenbrockSimulator::simulateRosenbrock(){
 	std::cout << "X nat: " << x << std::endl;
 	std::cout << "Y nat: " << y << std::endl;
 
-	float x_double = 10, y_double = 10;
-    //memcpy(&x_double, &x,CHROMOSOME_WIDTH/2);
-    //memcpy(&y_double, &y,CHROMOSOME_WIDTH/2);
+	float x_double, y_double;
 
-	x_double = *((float *)&x);
-	y_double = *((float *)&y);
+  //converting uint32 to float by implementing IEEE-754
+  int sign = 0;
+  if((0x80000000&x) > 0){
+    sign = 1;
+  }
+  int exponent = (x>>23)&(0x000000FF);
+  int mantissa = x&0x007FFFFF;
+  float mantissaSum = 0.0;
+  for(int i = 0; i < 23; i++){
+	   if(((1<<(23-i))&mantissa) > 0){
+		  mantissaSum += pow(2,-i);
+	   }
+  }
+  x_double = pow(-1,sign)*pow(2,exponent-127)*(1+mantissaSum);
+	std::cout << "xSign: " << sign << " xExponent:" << exponent <<" xMantissaSum: "<< mantissaSum  <<std::endl;
+
+  sign = 0;
+  if((0x80000000&y) > 0){
+    sign = 1;
+  }
+  exponent = (y>>23)&(0x000000FF);
+  mantissa = y&0x007FFFFF;
+  mantissaSum = 0.0;
+  for(int i = 0; i < 23; i++){
+    if(((1<<(23-i))&mantissa) > 0){
+  	   mantissaSum += pow(2,-i);
+    }
+  }
+  y_double = pow(-1,sign)*pow(2,exponent-127)*(1+mantissaSum);
+  std::cout << "ySign: " << sign << " yExponent:" << exponent <<" xMantissaSum: "<< mantissaSum  <<std::endl;
+
+
 
 	std::cout << "Xflout: " << x_double << std::endl;
 	std::cout << "Yflout: " << y_double << std::endl;
