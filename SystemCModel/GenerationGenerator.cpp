@@ -10,7 +10,7 @@ void GenerationGenerator::consumeRandom(void) {
 	while(true){
 		wait();
 		tmpRnd = random.read();
-		if(tmpRnd == randomNumbers[((randomNumberIndex-1) < 0) ? RANDOM_WIDTH-1 : randomNumberIndex-1]){
+		if(tmpRnd == randomNumbers[((randomNumberIndex-1) > RANDOM_WIDTH) ? RANDOM_WIDTH-1 : randomNumberIndex-1]){
 			randomNumbers[randomNumberIndex] = tmpRnd;
 			//std::cout << "New random number: " << randomNumbers[randomNumberIndex] << std::endl;
 			if(randomNumberIndex == RANDOM_WIDTH-1) {
