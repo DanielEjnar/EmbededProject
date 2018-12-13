@@ -20,8 +20,8 @@ int sc_main(int argc, char* argv[]) {
 	sc_signal<sc_uint<CHROMOSOME_WIDTH> > generation_child2_out_channel;
 	sc_signal<sc_uint<RANDOM_WIDTH> > mutation_probability_in_channel("mutation_probability_in_channel");
 	sc_signal<sc_uint<RANDOM_WIDTH> > random_channel("random_channel");
-	sc_signal<bool> > generatingDone;
-	sc_signal<bool> > startGenerating;
+	sc_signal<bool> generatingDone;
+	sc_signal<bool> startGenerating;
 
 	// Wire GenerationGeneraton
 	GenerationGenerator.generation_parent1(generation_parent1_in_channel);
@@ -34,6 +34,7 @@ int sc_main(int argc, char* argv[]) {
 	GenerationGenerator.reset(reset);
 	GenerationGenerator.startGenerating(startGenerating);
 	GenerationGenerator.generatingDone(generatingDone);
+	GenerationGenerator.randomClk(clock);
 
 	// Wire Stim
 	Stim.generation_parent1(generation_parent1_in_channel);

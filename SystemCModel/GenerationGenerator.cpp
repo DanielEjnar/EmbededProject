@@ -141,4 +141,5 @@ void GenerationGenerator::generateGeneration(void) {
 		std::cout << "Child1 is " << std::bitset<16>(child1) << std::endl;
 		std::cout << "Child2 is " << std::bitset<16>(child2) << std::endl;
 		generatingDone->write(true);
+	}
 }
