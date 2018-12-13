@@ -20,8 +20,10 @@ int sc_main(int argc, char* argv[]) {
 	sc_signal<sc_uint<CHROMOSOME_WIDTH> > generation_child2_out_channel;
 	sc_signal<sc_uint<RANDOM_WIDTH> > mutation_probability_in_channel("mutation_probability_in_channel");
 	sc_signal<sc_uint<RANDOM_WIDTH> > random_channel("random_channel");
+	sc_signal<bool> > generatingDone;
+	sc_signal<bool> > startGenerating;
 
-	// Wire GenerationGenerator
+	// Wire GenerationGeneraton
 	GenerationGenerator.generation_parent1(generation_parent1_in_channel);
 	GenerationGenerator.generation_parent2(generation_parent2_in_channel);
 	GenerationGenerator.generation_child1(generation_child1_out_channel);
@@ -30,6 +32,8 @@ int sc_main(int argc, char* argv[]) {
 	GenerationGenerator.mutation_probability(mutation_probability_in_channel);
 	GenerationGenerator.random(random_channel);
 	GenerationGenerator.reset(reset);
+	GenerationGenerator.startGenerating(startGenerating);
+	GenerationGenerator.generatingDone(generatingDone);
 
 	// Wire Stim
 	Stim.generation_parent1(generation_parent1_in_channel);
@@ -37,6 +41,8 @@ int sc_main(int argc, char* argv[]) {
 	Stim.clk(clock);
 	Stim.mutation_probability(mutation_probability_in_channel);
 	Stim.random(random_channel);
+	Stim.startGenerating(startGenerating);
+	Stim.generatingDone(generatingDone);
 
 	// Open VCD file
 	sc_trace_file *tf = sc_create_vcd_trace_file("GenerationGenerator");
@@ -49,7 +55,7 @@ int sc_main(int argc, char* argv[]) {
 	sc_trace(tf, mutation_probability_in_channel, "mutation_probability_in_channel");
 	sc_trace(tf, random_channel, "random_in_channel");
 
-	reset = false;
+	reset = true;
 
 	sc_start(2000,SC_NS);
 	sc_close_vcd_trace_file(tf);

@@ -11,4 +11,5 @@ void Stim::stimGen() {
 	}
 	mutation_probability = pow(2, 23);
 	random = pow(2, 16);
+	
 }

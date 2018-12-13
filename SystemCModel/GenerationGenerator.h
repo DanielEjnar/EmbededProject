@@ -32,9 +32,11 @@ SC_MODULE(GenerationGenerator) {
 	  randomNumberIndex = 0;
 	  trueRandomIndex = 0;
 	  SC_CTHREAD(generateGeneration, clk.pos());
+		reset_signal_is(reset,false);
 	  //sensitive << generation_parent1;
 	  //sensitive << generation_parent2;
 	  SC_CTHREAD(consumeRandom,randomClk.pos());
+		reset_signal_is(reset,false);
 	  //sensitive << random;
 	  //reset_signal_is(reset, false);
   }
