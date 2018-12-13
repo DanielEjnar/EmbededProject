@@ -5,14 +5,19 @@
 #include <bitset>
 
 void GenerationGenerator::consumeRandom(void) {
+  sc_uint<RANDOM_WIDTH> tmpRnd;
+
 	while(true){
 		wait();
-		randomNumbers[randomNumberIndex] = random.read();
-		std::cout << "New random number: " << randomNumbers[randomNumberIndex] << std::endl;
-		if(randomNumberIndex == RANDOM_WIDTH-1) {
-			randomNumberIndex = 0;
-		} else {
-			randomNumberIndex = randomNumberIndex + 1;
+		tmpRnd = random.read();
+		if(tmpRnd == randomNumbers[((randomNumberIndex-1) < 0) ? RANDOM_WIDTH-1 : randomNumberIndex-1]){
+			randomNumbers[randomNumberIndex] = tmpRnd;
+			std::cout << "New random number: " << randomNumbers[randomNumberIndex] << std::endl;
+			if(randomNumberIndex == RANDOM_WIDTH-1) {
+				randomNumberIndex = 0;
+			} else {
+				randomNumberIndex = randomNumberIndex + 1;
+			}
 		}
 	}
 }
