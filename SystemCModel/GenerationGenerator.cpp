@@ -2,7 +2,7 @@
 	#include "stdafx.h"
 #endif
 #include "GenerationGenerator.h"
-#include <bitset>
+//#include <bitset>
 
 void GenerationGenerator::consumeRandom(void) {
   sc_uint<RANDOM_WIDTH> tmpRnd;

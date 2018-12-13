@@ -4,7 +4,7 @@
 #endif
 #include "systemc.h"
 #include "GenerationGenerator.h"
-#include "iostream"
+//#include "iostream"
 
 SC_MODULE(Stim)
 {
@@ -18,7 +18,7 @@ SC_MODULE(Stim)
 
 	void stimGen() {
 		wait(10, SC_NS);
-		std::cout << "generate started - time: " << sc_time_stamp() << std::endl;
+		//std::cout << "generate started - time: " << sc_time_stamp() << std::endl;
 		mutation_probability->write(255);
 		for(int i = 0; i < 160; i++)
 		{
