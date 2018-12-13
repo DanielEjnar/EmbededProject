@@ -5,8 +5,8 @@
 //#include <bitset>
 
 void GenerationGenerator::consumeRandom(void) {
+#pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv1" variable=random
   sc_uint<RANDOM_WIDTH> tmpRnd;
-
 	while(true){
 		wait();
 		tmpRnd = random.read();
@@ -84,7 +84,6 @@ void GenerationGenerator::generateGeneration(void) {
 		//std::cout << "Making two children" << std::endl;
 		sc_uint<RANDOM_WIDTH> point1 = trueRandom();
 		sc_uint<RANDOM_WIDTH> point2 = trueRandom();
-
 		//std::cout << "Point1: " << point1 << std::endl;
 		//std::cout << "Point2: " << point2 << std::endl;
 
