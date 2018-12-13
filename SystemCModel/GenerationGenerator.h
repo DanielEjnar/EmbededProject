@@ -9,7 +9,10 @@
 
 SC_MODULE(GenerationGenerator) {
 	sc_in<bool> clk;
+	sc_in<bool> randomClk;
 	sc_in<bool> reset;
+	sc_in<bool> startGenerating;
+	sc_out<bool> generatingDone;
 	sc_in<sc_uint<CHROMOSOME_WIDTH> > generation_parent1;
 	sc_in<sc_uint<CHROMOSOME_WIDTH> > generation_parent2;
 	sc_out<sc_uint<CHROMOSOME_WIDTH> > generation_child1;
@@ -28,12 +31,11 @@ SC_MODULE(GenerationGenerator) {
 	SC_CTOR(GenerationGenerator) {
 	  randomNumberIndex = 0;
 	  trueRandomIndex = 0;
-	  //SC_CTHREAD(generateGeneration, clk.pos());
-	  SC_METHOD(generateGeneration);
-	  sensitive << generation_parent1;
-	  sensitive << generation_parent2;
-	  SC_METHOD(consumeRandom);
-	  sensitive << random;
+	  SC_CTHREAD(generateGeneration, clk.pos());
+	  //sensitive << generation_parent1;
+	  //sensitive << generation_parent2;
+	  SC_CTHREAD(consumeRandom,randomClk.pos());
+	  //sensitive << random;
 	  //reset_signal_is(reset, false);
   }
 };
