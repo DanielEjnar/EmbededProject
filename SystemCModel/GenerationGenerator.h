@@ -9,7 +9,6 @@
 
 SC_MODULE(GenerationGenerator) {
 	sc_in<bool> clk;
-	sc_in<bool> randomClk;
 	sc_in<bool> reset;
 	sc_in<bool> startGenerating;
 	sc_out<bool> generatingDone;

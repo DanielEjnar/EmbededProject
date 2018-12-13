@@ -34,7 +34,6 @@ int sc_main(int argc, char* argv[]) {
 	GenerationGenerator.reset(reset);
 	GenerationGenerator.startGenerating(startGenerating);
 	GenerationGenerator.generatingDone(generatingDone);
-	GenerationGenerator.randomClk(clock);
 
 	// Wire Stim
 	Stim.generation_parent1(generation_parent1_in_channel);
