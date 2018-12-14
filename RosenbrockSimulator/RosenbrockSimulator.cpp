@@ -32,8 +32,8 @@ void RosenbrockSimulator::simulateRosenbrock(){
 
 	float x_double, y_double;
 
-  x_double = uint32ToFloat(x);
-  y_double = uint32ToFloat(y);
+  x_double = uint32ToFloat((uint32_t)x);
+  y_double = uint32ToFloat((uint32_t)y);
 
 	std::cout << "Xflout: " << x_double << std::endl;
 	std::cout << "Yflout: " << y_double << std::endl;
