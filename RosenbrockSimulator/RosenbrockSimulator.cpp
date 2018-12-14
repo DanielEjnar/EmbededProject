@@ -32,8 +32,13 @@ void RosenbrockSimulator::simulateRosenbrock(){
 
 	float x_double, y_double;
 
+<<<<<<< HEAD
 	x_double = uint32ToFloat(x);
 	y_double = uint32ToFloat(y);
+=======
+  x_double = uint32ToFloat((uint32_t)x);
+  y_double = uint32ToFloat((uint32_t)y);
+>>>>>>> ff167961357d1e196b6738cf30f20c78c2917dbd
 
 	//std::cout << "Xflout: " << x_double << std::endl;
 	//std::cout << "Yflout: " << y_double << std::endl;
@@ -42,9 +47,13 @@ void RosenbrockSimulator::simulateRosenbrock(){
     a_local = a->read();
     b_local = b->read();
 
-    result = pow((a_local-x_double),2)+b_local*pow((y_double-pow(x_double,2)),2);
+    result = floatToUint32_t(pow((a_local-x_double),2)+b_local*pow((y_double-pow(x_double,2)),2));
     fitness->write(result);
+<<<<<<< HEAD
     //std::cout << "fitness: " << result << std::endl;
+=======
+	  std::cout << "fitness: " << result << std::endl;
+>>>>>>> ff167961357d1e196b6738cf30f20c78c2917dbd
     simulationDone->write(true);
   }
 }
