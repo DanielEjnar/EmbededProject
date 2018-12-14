@@ -1,0 +1,15 @@
+﻿  stdafx.cpp
+  UserApp.cpp
+  State.cpp
+  Simulate.cpp
+  Setup.cpp
+  Save.cpp
+  Optimize.cpp
+  Action.cpp
+  Idle.cpp
+  GenerateGeneration.cpp
+  Context.cpp
+  Generating Code...
+c:\users\cml\desktop\embededproject\userapp\userapp\generategeneration.cpp(30): warning C4715: 'GenerateGeneration::HandleAction': not all control paths return a value
+  UserApp.vcxproj -> C:\Users\cml\Desktop\EmbededProject\UserApp\Debug\UserApp.exe
+  UserApp.vcxproj -> C:\Users\cml\Desktop\EmbededProject\UserApp\Debug\UserApp.pdb (Partial PDB)
