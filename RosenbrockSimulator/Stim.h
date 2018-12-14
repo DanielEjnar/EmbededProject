@@ -19,24 +19,14 @@ SC_MODULE(Stim)
 
 	void stimGen() {
 		wait(10, SC_NS);
-<<<<<<< HEAD
 		//std::cout << "simulation started - time: " << sc_time_stamp() << std::endl;
-		a->write(1);
-		b->write(100);
-=======
-		std::cout << "simulation started - time: " << sc_time_stamp() << std::endl;
 		a->write(floatToUint32_t(1));
 		b->write(floatToUint32_t(100));
->>>>>>> ff167961357d1e196b6738cf30f20c78c2917dbd
 		chromosome_in->write(0x7f7fffff7f7fffff);
 		wait(1, SC_NS);
 		startSimulation->write(true);
 		wait(10, SC_MS);
-<<<<<<< HEAD
-		//std::cout << "simulation ended with fitness: " << fitness->read() << std::endl;
-=======
-		std::cout << "simulation ended with fitness: " << uint32ToFloat(fitness->read()) << std::endl;
->>>>>>> ff167961357d1e196b6738cf30f20c78c2917dbd
+		//std::cout << "simulation ended with fitness: " << uint32ToFloat(fitness->read()) << std::endl;
 		wait(1, SC_MS);
 	}
 

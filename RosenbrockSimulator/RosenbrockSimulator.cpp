@@ -6,8 +6,8 @@
 #include "ieee754float.h"
 
 void RosenbrockSimulator::simulateRosenbrock(){
-  sc_uint<CHROMOSOME_WIDTH> notZero = pow(2, CHROMOSOME_WIDTH) - 1;
   while (true) {
+	sc_uint<CHROMOSOME_WIDTH> notZero = pow(2, CHROMOSOME_WIDTH) - 1;
     wait();
     while(startSimulation->read()==false){ wait(); }
     simulationDone->write(false);
@@ -32,28 +32,23 @@ void RosenbrockSimulator::simulateRosenbrock(){
 
 	float x_double, y_double;
 
-<<<<<<< HEAD
-	x_double = uint32ToFloat(x);
-	y_double = uint32ToFloat(y);
-=======
-  x_double = uint32ToFloat((uint32_t)x);
-  y_double = uint32ToFloat((uint32_t)y);
->>>>>>> ff167961357d1e196b6738cf30f20c78c2917dbd
+	x_double = uint32ToFloat((uint32_t)x);
+  	y_double = uint32ToFloat((uint32_t)y);
 
 	//std::cout << "Xflout: " << x_double << std::endl;
 	//std::cout << "Yflout: " << y_double << std::endl;
 
 	float result,a_local,b_local;
-    a_local = a->read();
-    b_local = b->read();
+    a_local = uint32ToFloat(a->read());
+    b_local = uint32ToFloat(b->read());
 
-    result = floatToUint32_t(pow((a_local-x_double),2)+b_local*pow((y_double-pow(x_double,2)),2));
+    float part1 = pow((a_local-x_double),2);
+    float part2 = y_double-pow(x_double,2);
+    float part3 = b_local*pow(part2,2);
+    result = floatToUint32_t(part1+part3);
+
     fitness->write(result);
-<<<<<<< HEAD
     //std::cout << "fitness: " << result << std::endl;
-=======
-	  std::cout << "fitness: " << result << std::endl;
->>>>>>> ff167961357d1e196b6738cf30f20c78c2917dbd
     simulationDone->write(true);
   }
 }
