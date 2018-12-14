@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Thu Dec 13 12:11:39 2018
+# Process ID: 45256
+# Current directory: C:/Users/cml/Desktop/GeneticAlgo/solution1/impl/ip
+# Command line: vivado.exe -notrace -mode batch -source run_ippack.tcl
+# Log file: C:/Users/cml/Desktop/GeneticAlgo/solution1/impl/ip/vivado.log
+# Journal file: C:/Users/cml/Desktop/GeneticAlgo/solution1/impl/ip\vivado.jou
+#-----------------------------------------------------------
+source run_ippack.tcl -notrace
+INFO: [Common 17-206] Exiting Vivado at Thu Dec 13 12:11:46 2018...
