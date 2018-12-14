@@ -3,6 +3,7 @@
 #include <math.h>
 #include <bitset>
 #include <iostream>
+#include "ieee754float.h"
 
 void RosenbrockSimulator::simulateRosenbrock(){
   sc_uint<CHROMOSOME_WIDTH> notZero = pow(2, CHROMOSOME_WIDTH) - 1;
@@ -31,38 +32,8 @@ void RosenbrockSimulator::simulateRosenbrock(){
 
 	float x_double, y_double;
 
-  //converting uint32 to float by implementing IEEE-754
-  int sign = 0;
-  if((0x80000000&x) > 0){
-    sign = 1;
-  }
-  int exponent = (x>>23)&(0x000000FF);
-  int mantissa = x&0x007FFFFF;
-  float mantissaSum = 0.0;
-  for(int i = 0; i < 23; i++){
-	   if(((1<<(23-i))&mantissa) > 0){
-		  mantissaSum += pow(2,-i);
-	   }
-  }
-  x_double = pow(-1,sign)*pow(2,exponent-127)*(1+mantissaSum);
-	std::cout << "xSign: " << sign << " xExponent:" << exponent <<" xMantissaSum: "<< mantissaSum  <<std::endl;
-
-  sign = 0;
-  if((0x80000000&y) > 0){
-    sign = 1;
-  }
-  exponent = (y>>23)&(0x000000FF);
-  mantissa = y&0x007FFFFF;
-  mantissaSum = 0.0;
-  for(int i = 0; i < 23; i++){
-    if(((1<<(23-i))&mantissa) > 0){
-  	   mantissaSum += pow(2,-i);
-    }
-  }
-  y_double = pow(-1,sign)*pow(2,exponent-127)*(1+mantissaSum);
-  std::cout << "ySign: " << sign << " yExponent:" << exponent <<" xMantissaSum: "<< mantissaSum  <<std::endl;
-
-
+  x_double = uint32ToFloat(x);
+  y_double = uint32ToFloat(y);
 
 	std::cout << "Xflout: " << x_double << std::endl;
 	std::cout << "Yflout: " << y_double << std::endl;
