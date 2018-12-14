@@ -38,11 +38,11 @@ void RosenbrockSimulator::simulateRosenbrock(){
 	std::cout << "Xflout: " << x_double << std::endl;
 	std::cout << "Yflout: " << y_double << std::endl;
 
-	float result,a_local,b_local;
-    a_local = a->read();
-    b_local = b->read();
+	 float result,a_local,b_local;
+    a_local = uint32ToFloat(a->read());
+    b_local = uint32ToFloat(b->read());
 
-    result = floatToUint32_t(pow((a_local-x_double),2)+b_local*pow((y_double-pow(x_double,2)),2));
+    result = floatToUint32_t((float)(pow((a_local-x_double),2)+b_local*pow((y_double-pow(x_double,2)),2)));
     fitness->write(result);
 	  std::cout << "fitness: " << result << std::endl;
     simulationDone->write(true);
