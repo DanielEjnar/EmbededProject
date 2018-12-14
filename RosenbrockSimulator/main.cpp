@@ -16,9 +16,9 @@ int sc_main(int argc, char* argv[])
 
 	sc_signal<bool> startSimulation;
 	sc_signal<bool> simulationDone;
-	sc_signal<float> a;
-	sc_signal<float> b;
-	sc_signal<float> fitness;
+	sc_signal<sc_uint<32> > a;
+	sc_signal<sc_uint<32> > b;
+	sc_signal<sc_uint<32> > fitness;
 	sc_signal<sc_uint<CHROMOSOME_WIDTH> > chromosome_in;
 
 	// Wire GenerationGeneraton

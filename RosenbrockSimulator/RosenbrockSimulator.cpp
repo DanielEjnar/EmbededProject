@@ -42,9 +42,9 @@ void RosenbrockSimulator::simulateRosenbrock(){
     a_local = a->read();
     b_local = b->read();
 
-    result = pow((a_local-x_double),2)+b_local*pow((y_double-pow(x_double,2)),2);
+    result = floatToUint32_t(pow((a_local-x_double),2)+b_local*pow((y_double-pow(x_double,2)),2));
     fitness->write(result);
-	std::cout << "fitness: " << result << std::endl;
+	  std::cout << "fitness: " << result << std::endl;
     simulationDone->write(true);
   }
 }
