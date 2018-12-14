@@ -18,14 +18,14 @@ SC_MODULE(Stim)
 
 	void stimGen() {
 		wait(10, SC_NS);
-		std::cout << "simulation started - time: " << sc_time_stamp() << std::endl;
+		//std::cout << "simulation started - time: " << sc_time_stamp() << std::endl;
 		a->write(1);
 		b->write(100);
 		chromosome_in->write(0x7f7fffff7f7fffff);
 		wait(1, SC_NS);
 		startSimulation->write(true);
 		wait(10, SC_MS);
-		std::cout << "simulation ended with fitness: " << fitness->read() << std::endl;
+		//std::cout << "simulation ended with fitness: " << fitness->read() << std::endl;
 		wait(1, SC_MS);
 	}
 
