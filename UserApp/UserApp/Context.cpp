@@ -4,7 +4,7 @@
 #include <memory>
 
 
-Context::Context(): a(0), b(0)
+Context::Context(): _a(0), _b(0)
 {
 }
 
@@ -24,7 +24,7 @@ void Context::HandleInput(std::unique_ptr<Action> action) {
 	}
 }
 
-void Context::SetCurrent(std::unique_ptr<State> s) {
+void Context::SetCurrentState(std::unique_ptr<State> s) {
 	std::unique_ptr<State> oldState = std::move(_currentState);
 	oldState.reset();
 	_currentState = std::move(s);
@@ -32,8 +32,30 @@ void Context::SetCurrent(std::unique_ptr<State> s) {
 
 void Context::SetA(int a)
 {
+	_a = a;
 }
 
 void Context::SetB(int b)
 {
+	_b = b;
+}
+
+int Context::GetA()
+{
+	return _a;
+}
+
+int Context::GetB()
+{
+	return _b;
+}
+
+void Context::SetCurrentGeneration(std::vector<uint64_t> generation)
+{
+	_currentGeneration = generation;
+}
+
+std::vector<uint64_t> Context::GetCurrentGeneration()
+{
+	return _currentGeneration;
 }

@@ -142,6 +142,7 @@
     <ClInclude Include="GenerateGeneration.h" />
     <ClInclude Include="Idle.h" />
     <ClInclude Include="Action.h" />
+    <ClInclude Include="ieee754float.h" />
     <ClInclude Include="Optimize.h" />
     <ClInclude Include="Save.h" />
     <ClInclude Include="Setup.h" />
@@ -155,6 +156,7 @@
     <ClCompile Include="GenerateGeneration.cpp" />
     <ClCompile Include="Idle.cpp" />
     <ClCompile Include="Action.cpp" />
+    <ClCompile Include="ieee754float.cpp" />
     <ClCompile Include="Optimize.cpp" />
     <ClCompile Include="Save.cpp" />
     <ClCompile Include="Setup.cpp" />

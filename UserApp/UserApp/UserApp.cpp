@@ -9,7 +9,7 @@
 int main()
 {
 	std::cout << "Booting ...\n";
-	Context* context = new Context();
+	std::unique_ptr<Context> context = std::make_unique<Context>();
 	context->HandleInput(std::make_unique<Action>("ENTER_SETUP"));
 	context->HandleInput(std::make_unique<Action>("SETUP_DONE"));
 	context->HandleInput(std::make_unique<Action>("OPTIMIZE"));
