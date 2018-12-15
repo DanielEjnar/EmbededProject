@@ -7,6 +7,6 @@ public:
 	Setup();
 	void Enter(Context& context) override;
 	void Exit(Context& context) override;
-	State* HandleAction(Context& context, Action action) override;
+	std::unique_ptr<State> HandleAction(Context& context, Action action) override;
 };
 

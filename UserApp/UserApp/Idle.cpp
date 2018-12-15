@@ -13,19 +13,19 @@ Idle::Idle()
 {
 }
 
-State* Idle::HandleAction(Context& context, Action action)
+std::unique_ptr<State> Idle::HandleAction(Context& context, Action action)
 {
 	if(action.GetAction() == "ENTER_SETUP") {
 		std::cout << "EnterSetup() called" << std::endl;
-		return new Setup();
+		return std::make_unique<Setup>();
 	}
 	if(action.GetAction() == "SAVE_GEN") {
 		std::cout << "SaveGen() called" << std::endl;
-		return new Save();
+		return std::make_unique<Save>();
 	}
 	if (action.GetAction() == "RUN_OPTIMIZE") {
 		std::cout << "RunOptimize() called" << std::endl;
-		return new Simulate();
+		return std::make_unique<Simulate>();
 	}
 	return NULL;
 }

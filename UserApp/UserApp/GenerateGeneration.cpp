@@ -15,15 +15,15 @@ GenerateGeneration::~GenerateGeneration()
 {
 }
 
-State* GenerateGeneration::HandleAction(Context& context, Action action)
+std::unique_ptr<State> GenerateGeneration::HandleAction(Context& context, Action action)
 {
 	if(action.GetAction() == "ABORT") {
 		std::cout << "Abort() called" << std::endl;
-		return new Idle();
+		return std::make_unique<Idle>();
 	}
 	if(action.GetAction() == "GEN_CREATED") {
 		std::cout << "GenCreated() called" << std::endl;
-		return new Simulate();
+		return std::make_unique<Simulate>();
 	}
 	return NULL;
 }

@@ -10,15 +10,15 @@ Simulate::Simulate()
 }
 
 
-State* Simulate::HandleAction(Context& context, Action action)
+std::unique_ptr<State> Simulate::HandleAction(Context& context, Action action)
 {
 	if(action.GetAction() == "ABORT") {
 		std::cout << "Abort() called" << std::endl;
-		return new Idle();
+		return std::make_unique<Idle>();
 	}
 	if(action.GetAction() == "OPTIMIZED") {
 		std::cout << "Optimized() called" << std::endl;
-		return new Idle();
+		return std::make_unique<Idle>();
 	}
 	return NULL;
 }

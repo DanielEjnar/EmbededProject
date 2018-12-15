@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Context.h"
 #include "Action.h"
+#include <memory>
 
 
 Context::Context(): a(0), b(0)
@@ -9,22 +10,24 @@ Context::Context(): a(0), b(0)
 
 Context::~Context()
 {
+	
 }
 
 void Context::HandleInput(Action action) {
-	State* state = _currentState->HandleAction(*this, action);
-	if (state != NULL) {
+	std::unique_ptr<State> newState = _currentState->HandleAction(*this, action);
+	delete &action;
+	if (newState != NULL) {
 		_currentState->Exit(*this);
-		delete _currentState;
-		_currentState = state;
+		_currentState.reset();
+		_currentState = std::move(newState);
 		_currentState->Enter(*this);
 	}
 }
 
-void Context::SetCurrent(State* s) {
-	State* oldState = _currentState;
-	delete oldState;
-	_currentState = s;
+void Context::SetCurrent(std::unique_ptr<State> s) {
+	std::unique_ptr<State> oldState = std::move(_currentState);
+	oldState.reset();
+	_currentState = std::move(s);
 }
 
 void Context::SetA(int a)

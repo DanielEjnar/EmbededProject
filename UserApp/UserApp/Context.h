@@ -10,11 +10,11 @@ public:
 	Context();
 	~Context();
 	virtual void HandleInput(Action action);
-	void SetCurrent(State *s);
+	void SetCurrent(std::unique_ptr<State> s);
 	void SetA(int a);
 	void SetB(int b);
 private:
-	State* _currentState = new Idle();
+	std::unique_ptr<State> _currentState = std::make_unique<Idle>();
 	int a;
 	int b;
 };
