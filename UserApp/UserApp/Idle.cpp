@@ -3,7 +3,6 @@
 #include "Setup.h"
 #include "Context.h"
 #include "Save.h"
-#include "Optimize.h"
 #include "Simulate.h"
 #include <iostream>
 #include "Action.h"
@@ -13,18 +12,21 @@ Idle::Idle()
 {
 }
 
-std::unique_ptr<State> Idle::HandleAction(Context& context, Action action)
+std::unique_ptr<State> Idle::HandleAction(Context& context, std::unique_ptr<Action> action)
 {
-	if(action.GetAction() == "ENTER_SETUP") {
+	if((*action).GetAction() == "ENTER_SETUP") {
 		std::cout << "EnterSetup() called" << std::endl;
+		action.reset();
 		return std::make_unique<Setup>();
 	}
-	if(action.GetAction() == "SAVE_GEN") {
+	if((*action).GetAction() == "SAVE_GEN") {
 		std::cout << "SaveGen() called" << std::endl;
+		action.reset();
 		return std::make_unique<Save>();
 	}
-	if (action.GetAction() == "RUN_OPTIMIZE") {
-		std::cout << "RunOptimize() called" << std::endl;
+	if ((*action).GetAction() == "OPTIMIZE") {
+		std::cout << "Optimize() called" << std::endl;
+		action.reset();
 		return std::make_unique<Simulate>();
 	}
 	return NULL;

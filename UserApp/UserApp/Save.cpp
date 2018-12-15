@@ -9,10 +9,12 @@ Save::Save()
 {
 }
 
-std::unique_ptr<State> Save::HandleAction(Context& context, Action action)
+std::unique_ptr<State> Save::HandleAction(Context& context,
+	std::unique_ptr<Action> action)
 {
-	if(action.GetAction() == "GEN_SAVED") {
+	if((*action).GetAction() == "GEN_SAVED") {
 		std::cout << "GenSaved() called" << std::endl;
+		action.reset();
 		return std::make_unique<Idle>();
 	}
 	return NULL;

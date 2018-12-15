@@ -6,7 +6,7 @@ class Optimize :
 public:
 	Optimize();
 	virtual ~Optimize();
-	std::unique_ptr<State> HandleAction(Context& context, Action action) override = 0;
+	std::unique_ptr<State> HandleAction(Context& context, std::unique_ptr<Action> action) override = 0;
 	void Enter(Context& context) override = 0;
 	void Exit(Context& context) override = 0;
 };

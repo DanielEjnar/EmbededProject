@@ -1,14 +1,5 @@
-﻿  stdafx.cpp
-  UserApp.cpp
-  State.cpp
-  Simulate.cpp
-  Setup.cpp
-  Save.cpp
-  Optimize.cpp
-  Action.cpp
+﻿  UserApp.cpp
   Idle.cpp
-  GenerateGeneration.cpp
-  Context.cpp
   Generating Code...
   UserApp.vcxproj -> C:\Users\cml\Desktop\EmbededProject\UserApp\Debug\UserApp.exe
   UserApp.vcxproj -> C:\Users\cml\Desktop\EmbededProject\UserApp\Debug\UserApp.pdb (Partial PDB)

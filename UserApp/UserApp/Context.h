@@ -9,7 +9,7 @@ class Context
 public:
 	Context();
 	~Context();
-	virtual void HandleInput(Action action);
+	virtual void HandleInput(std::unique_ptr<Action> action);
 	void SetCurrent(std::unique_ptr<State> s);
 	void SetA(int a);
 	void SetB(int b);

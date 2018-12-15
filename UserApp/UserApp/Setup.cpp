@@ -22,10 +22,12 @@ void Setup::Exit(Context& context)
 {
 }
 
-std::unique_ptr<State> Setup::HandleAction(Context& context, Action action)
+std::unique_ptr<State> Setup::HandleAction(Context& context,
+	std::unique_ptr<Action> action)
 {
-	if(action.GetAction() == "SETUP_DONE") {
+	if((*action).GetAction() == "SETUP_DONE") {
 		std::cout << "SetupDone() called" << std::endl;
+		action.reset();
 		return std::make_unique<Idle>();
 	}
 	return NULL;

@@ -10,6 +10,6 @@ public:
 	virtual ~State();
 	virtual void Enter(Context& context) = 0;
 	virtual void Exit(Context& context) = 0;
-	virtual std::unique_ptr<State> HandleAction(Context& context, Action action) = 0;
+	virtual std::unique_ptr<State> HandleAction(Context& context, std::unique_ptr<Action> action) = 0;
 };
 

@@ -13,9 +13,9 @@ Context::~Context()
 	
 }
 
-void Context::HandleInput(Action action) {
-	std::unique_ptr<State> newState = _currentState->HandleAction(*this, action);
-	delete &action;
+void Context::HandleInput(std::unique_ptr<Action> action) {
+	std::unique_ptr<State> newState = _currentState->HandleAction(*this,
+		std::move(action));
 	if (newState != NULL) {
 		_currentState->Exit(*this);
 		_currentState.reset();
