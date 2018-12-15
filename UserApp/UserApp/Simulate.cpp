@@ -39,7 +39,7 @@ void Simulate::RunSimulation(Context& context)
 	// Make initial population if current gen is empty
 	std::vector<uint64_t> chromos = {};
 	auto currentGen = context.GetCurrentGeneration();
-	if(currentGen.size() == 0) {
+	if(currentGen.empty()) {
 		uint64_t parent1 = rand() * 2;
 		uint64_t parent2 = rand() * 2;
 		chromos = { parent1, parent2 };
