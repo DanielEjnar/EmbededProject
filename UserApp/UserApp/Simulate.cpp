@@ -19,14 +19,12 @@ std::unique_ptr<State> Simulate::HandleAction(Context& context,
 		action.reset();
 		return std::make_unique<Idle>();
 	}
-	if((*action).GetAction() == "OPTIMIZED") {
-		std::cout << "Optimized() called" << std::endl;
-		action.reset();
-		return std::make_unique<Idle>();
-	}
 	if ((*action).GetAction() == "SIM_DONE") {
 		std::cout << "SimDone() called" << std::endl;
 		action.reset();
+		// Assert stopping criterion
+		bool done = true;
+		if (done) { return std::make_unique<Idle>(); }
 		return std::make_unique<GenerateGeneration>();
 	}
 	return NULL;
@@ -44,7 +42,7 @@ void Simulate::RunSimulation(Context& context)
 	if(currentGen.size() == 0) {
 		uint64_t parent1 = rand() * 2;
 		uint64_t parent2 = rand() * 2;
-		std::vector<uint64_t> chromos = { parent1, parent2 };
+		chromos = { parent1, parent2 };
 	} else {
 		chromos = currentGen;
 	}
@@ -57,9 +55,7 @@ void Simulate::RunSimulation(Context& context)
 		std::cout << "Got fitness: " << fitness << '\n';
 	}
 	chromos.clear();
-	bool done;
-	if(done) { context.HandleInput(std::make_unique<Action>("OPTIMIZED")); }
-	else { context.HandleInput(std::make_unique<Action>("SIM_DONE"));  }
+	context.HandleInput(std::make_unique<Action>("SIM_DONE"));
 }
 
 float Simulate::EvaluateFitness(int a, int b, uint64_t chromosome)

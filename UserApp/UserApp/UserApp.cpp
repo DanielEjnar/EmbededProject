@@ -15,6 +15,5 @@ int main()
 	context->HandleInput(std::make_unique<Action>("OPTIMIZE"));
 	context->HandleInput(std::make_unique<Action>("ABORT"));
 	context->HandleInput(std::make_unique<Action>("OPTIMIZE"));
-	context->HandleInput(std::make_unique<Action>("OPTIMIZED"));
     return 0;
 }
