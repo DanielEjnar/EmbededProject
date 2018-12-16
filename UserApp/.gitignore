@@ -5,6 +5,7 @@
 *.o
 *.opendb
 *.db
+.vs
 
 # Compiled Dynamic libraries
 *.so
