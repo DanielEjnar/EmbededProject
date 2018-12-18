@@ -1,0 +1,1344 @@
+
+
+================================================================
+== Vivado HLS Report for 'GenerationGenerator_consumeRandom'
+================================================================
+* Date:           Thu Dec 13 12:08:00 2018
+
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
+* Project:        GeneticAlgo
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z010clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  20.00|     10.69|        2.50|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    3|    3|    3|    3|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |    2|    2|         2|          -|          -|  inf |    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 0
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 3
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	2  / true
+* FSM state operations: 
+
+ <State 1>: 0.00ns
+ST_1: StgValue_4 (14)  [1/1] 0.00ns
+:0  call void (...)* @_ssdm_op_SpecIFCore(i1* %startGenerating, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
+
+ST_1: StgValue_5 (15)  [1/1] 0.00ns
+:1  call void (...)* @_ssdm_op_SpecIFCore(i1* %generatingDone, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
+
+ST_1: StgValue_6 (16)  [1/1] 0.00ns
+:2  call void (...)* @_ssdm_op_SpecIFCore(i16* %generation_parent1, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
+
+ST_1: StgValue_7 (17)  [1/1] 0.00ns
+:3  call void (...)* @_ssdm_op_SpecIFCore(i16* %generation_parent2, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
+
+ST_1: StgValue_8 (18)  [1/1] 0.00ns
+:4  call void (...)* @_ssdm_op_SpecIFCore(i16* %generation_child1, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
+
+ST_1: StgValue_9 (19)  [1/1] 0.00ns
+:5  call void (...)* @_ssdm_op_SpecIFCore(i16* %generation_child2, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
+
+ST_1: StgValue_10 (20)  [1/1] 0.00ns
+:6  call void (...)* @_ssdm_op_SpecIFCore(i24* %mutation_probability, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
+
+ST_1: StgValue_11 (21)  [1/1] 0.00ns
+:7  call void (...)* @_ssdm_op_SpecBitsMap(i1* %clk), !map !4087
+
+ST_1: StgValue_12 (22)  [1/1] 0.00ns
+:8  call void (...)* @_ssdm_op_SpecBitsMap(i1* %reset), !map !4091
+
+ST_1: StgValue_13 (23)  [1/1] 0.00ns
+:9  call void (...)* @_ssdm_op_SpecBitsMap(i1* %startGenerating), !map !4095
+
+ST_1: StgValue_14 (24)  [1/1] 0.00ns
+:10  call void (...)* @_ssdm_op_SpecBitsMap(i1* %generatingDone), !map !4099
+
+ST_1: StgValue_15 (25)  [1/1] 0.00ns
+:11  call void (...)* @_ssdm_op_SpecBitsMap(i16* %generation_parent1), !map !4103
+
+ST_1: StgValue_16 (26)  [1/1] 0.00ns
+:12  call void (...)* @_ssdm_op_SpecBitsMap(i16* %generation_parent2), !map !4107
+
+ST_1: StgValue_17 (27)  [1/1] 0.00ns
+:13  call void (...)* @_ssdm_op_SpecBitsMap(i16* %generation_child1), !map !4111
+
+ST_1: StgValue_18 (28)  [1/1] 0.00ns
+:14  call void (...)* @_ssdm_op_SpecBitsMap(i16* %generation_child2), !map !4115
+
+ST_1: StgValue_19 (29)  [1/1] 0.00ns
+:15  call void (...)* @_ssdm_op_SpecBitsMap(i24* %mutation_probability), !map !4119
+
+ST_1: StgValue_20 (30)  [1/1] 0.00ns
+:16  call void (...)* @_ssdm_op_SpecBitsMap(i24* %random), !map !4123
+
+ST_1: StgValue_21 (31)  [1/1] 0.00ns
+:17  call void (...)* @_ssdm_op_SpecBitsMap(i24* %GenerationGenerator_randomNumberIndex_V), !map !4127
+
+ST_1: StgValue_22 (32)  [1/1] 0.00ns
+:18  call void (...)* @_ssdm_op_SpecBitsMap(i24* %GenerationGenerator_trueRandomIndex_V), !map !4131
+
+ST_1: StgValue_23 (33)  [1/1] 0.00ns
+:19  call void (...)* @_ssdm_op_SpecBitsMap([160 x i24]* %GenerationGenerator_randomNumbers_V), !map !4135
+
+ST_1: StgValue_24 (34)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:8
+:20  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 0, [7 x i8]* @p_str1, [4 x i8]* @p_str2, i32 0, i32 0, i1* %clk) nounwind
+
+ST_1: StgValue_25 (35)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:9
+:21  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 0, [7 x i8]* @p_str1, [6 x i8]* @p_str3, i32 0, i32 0, i1* %reset) nounwind
+
+ST_1: StgValue_26 (36)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:10
+:22  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 0, [7 x i8]* @p_str1, [16 x i8]* @p_str4, i32 0, i32 0, i1* %startGenerating) nounwind
+
+ST_1: StgValue_27 (37)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:11
+:23  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 1, [7 x i8]* @p_str1, [15 x i8]* @p_str5, i32 0, i32 0, i1* %generatingDone) nounwind
+
+ST_1: StgValue_28 (38)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:12
+:24  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 0, [14 x i8]* @p_str6, [19 x i8]* @p_str7, i32 0, i32 0, i16* %generation_parent1) nounwind
+
+ST_1: StgValue_29 (39)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:13
+:25  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 0, [14 x i8]* @p_str6, [19 x i8]* @p_str8, i32 0, i32 0, i16* %generation_parent2) nounwind
+
+ST_1: StgValue_30 (40)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:14
+:26  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 1, [14 x i8]* @p_str6, [18 x i8]* @p_str9, i32 0, i32 0, i16* %generation_child1) nounwind
+
+ST_1: StgValue_31 (41)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:15
+:27  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 1, [14 x i8]* @p_str6, [18 x i8]* @p_str10, i32 0, i32 0, i16* %generation_child2) nounwind
+
+ST_1: StgValue_32 (42)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:16
+:28  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 0, [14 x i8]* @p_str11, [21 x i8]* @p_str12, i32 0, i32 0, i24* %mutation_probability) nounwind
+
+ST_1: StgValue_33 (43)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:17
+:29  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 0, [14 x i8]* @p_str11, [7 x i8]* @p_str13, i32 0, i32 0, i24* %random) nounwind
+
+ST_1: StgValue_34 (44)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:18
+:30  call void (...)* @_ssdm_op_SpecProcessDef([20 x i8]* @p_str, i32 2, [14 x i8]* @p_str14) nounwind
+
+ST_1: tmp_2 (45)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:18
+:31  %tmp_2 = call i32 (...)* @_ssdm_op_SpecRegionBegin([15 x i8]* @p_str15)
+
+ST_1: StgValue_36 (46)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:18
+:32  call void (...)* @_ssdm_op_SpecProtocol(i32 1, [1 x i8]* @p_str16) nounwind
+
+ST_1: p_ssdm_reset_v (47)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:18
+:33  %p_ssdm_reset_v = call i32 (...)* @_ssdm_op_SpecStateBegin(i32 0, i32 0, i32 1) nounwind
+
+ST_1: StgValue_38 (48)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:8
+:34  call void (...)* @_ssdm_op_SpecIFCore(i24* %random, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str22)
+
+ST_1: empty (49)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:9
+:35  %empty = call i32 (...)* @_ssdm_op_SpecStateEnd(i32 %p_ssdm_reset_v) nounwind
+
+ST_1: empty_11 (50)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:9
+:36  %empty_11 = call i32 (...)* @_ssdm_op_SpecRegionEnd([15 x i8]* @p_str15, i32 %tmp_2)
+
+ST_1: StgValue_41 (51)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:9
+:37  br label %_ZN7_ap_sc_7sc_core4waitEi.exit
+
+
+ <State 2>: 10.69ns
+ST_2: StgValue_42 (53)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:11
+_ZN7_ap_sc_7sc_core4waitEi.exit:0  call void (...)* @_ssdm_op_Wait(i32 1) nounwind
+
+ST_2: val_V (54)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:12
+_ZN7_ap_sc_7sc_core4waitEi.exit:1  %val_V = call i24 @_ssdm_op_Read.ap_auto.volatile.i24P(i24* %random)
+
+ST_2: GenerationGenerator_s (55)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:13
+_ZN7_ap_sc_7sc_core4waitEi.exit:2  %GenerationGenerator_s = call i24 @_ssdm_op_Read.ap_auto.i24P(i24* %GenerationGenerator_randomNumberIndex_V)
+
+ST_2: lhs_V_cast (56)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:13
+_ZN7_ap_sc_7sc_core4waitEi.exit:3  %lhs_V_cast = zext i24 %GenerationGenerator_s to i25
+
+ST_2: r_V (57)  [1/1] 2.60ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:13
+_ZN7_ap_sc_7sc_core4waitEi.exit:4  %r_V = add i25 %lhs_V_cast, -1
+
+ST_2: tmp (58)  [1/1] 3.25ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:13
+_ZN7_ap_sc_7sc_core4waitEi.exit:5  %tmp = icmp sgt i25 %r_V, 24
+
+ST_2: StgValue_48 (59)  [1/1] 1.59ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:13
+_ZN7_ap_sc_7sc_core4waitEi.exit:6  br i1 %tmp, label %_ZN7_ap_sc_7sc_core4waitEi.exit._crit_edge, label %1
+
+ST_2: tmp_13 (61)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:13
+:0  %tmp_13 = trunc i24 %GenerationGenerator_s to i9
+
+ST_2: tmp_s (62)  [1/1] 2.32ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:13
+:1  %tmp_s = add i9 -1, %tmp_13
+
+ST_2: StgValue_51 (63)  [1/1] 1.59ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:13
+:2  br label %_ZN7_ap_sc_7sc_core4waitEi.exit._crit_edge
+
+ST_2: tmp_21 (65)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:13
+_ZN7_ap_sc_7sc_core4waitEi.exit._crit_edge:0  %tmp_21 = phi i9 [ %tmp_s, %1 ], [ 23, %_ZN7_ap_sc_7sc_core4waitEi.exit ]
+
+ST_2: tmp_29_cast (66)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:13
+_ZN7_ap_sc_7sc_core4waitEi.exit._crit_edge:1  %tmp_29_cast = sext i9 %tmp_21 to i32
+
+ST_2: GenerationGenerator_11 (67)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:13
+_ZN7_ap_sc_7sc_core4waitEi.exit._crit_edge:2  %GenerationGenerator_11 = getelementptr [160 x i24]* %GenerationGenerator_randomNumbers_V, i32 0, i32 %tmp_29_cast
+
+ST_2: GenerationGenerator_12 (68)  [2/2] 3.25ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:13
+_ZN7_ap_sc_7sc_core4waitEi.exit._crit_edge:3  %GenerationGenerator_12 = load i24* %GenerationGenerator_11, align 4
+
+
+ <State 3>: 6.48ns
+ST_3: GenerationGenerator_12 (68)  [1/2] 3.25ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:13
+_ZN7_ap_sc_7sc_core4waitEi.exit._crit_edge:3  %GenerationGenerator_12 = load i24* %GenerationGenerator_11, align 4
+
+ST_3: tmp_22 (69)  [1/1] 3.23ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:13
+_ZN7_ap_sc_7sc_core4waitEi.exit._crit_edge:4  %tmp_22 = icmp eq i24 %val_V, %GenerationGenerator_12
+
+ST_3: StgValue_58 (70)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:13
+_ZN7_ap_sc_7sc_core4waitEi.exit._crit_edge:5  br i1 %tmp_22, label %2, label %._crit_edge
+
+ST_3: tmp_23 (72)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:14
+:0  %tmp_23 = zext i24 %GenerationGenerator_s to i32
+
+ST_3: GenerationGenerator_13 (73)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:14
+:1  %GenerationGenerator_13 = getelementptr [160 x i24]* %GenerationGenerator_randomNumbers_V, i32 0, i32 %tmp_23
+
+ST_3: StgValue_61 (74)  [1/1] 3.25ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:14
+:2  store i24 %val_V, i24* %GenerationGenerator_13, align 4
+
+ST_3: tmp_24 (75)  [1/1] 3.23ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:16
+:3  %tmp_24 = icmp eq i24 %GenerationGenerator_s, 23
+
+ST_3: tmp_25 (76)  [1/1] 2.60ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:19
+:4  %tmp_25 = add i24 %GenerationGenerator_s, 1
+
+ST_3: p_tmp_s (77)  [1/1] 2.07ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:16
+:5  %p_tmp_s = select i1 %tmp_24, i24 0, i24 %tmp_25
+
+ST_3: StgValue_65 (78)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:17
+:6  call void @_ssdm_op_Write.ap_auto.i24P(i24* %GenerationGenerator_randomNumberIndex_V, i24 %p_tmp_s)
+
+ST_3: StgValue_66 (79)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:21
+:7  br label %._crit_edge
+
+ST_3: StgValue_67 (81)  [1/1] 0.00ns  loc: EmbededProject/SystemCModel/GenerationGenerator.cpp:22
+._crit_edge:0  br label %_ZN7_ap_sc_7sc_core4waitEi.exit
+
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+STG Binding: 
+---------------- STG Properties BEGIN ----------------
+- Is combinational: 0
+- Is one-state seq: 0
+- Is datapath-only: 0
+- Is pipelined: 0
+- Is top level: 0
+Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
+Port [ clk]:  wired=1; compound=0; hidden=1; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ reset]:  wired=1; compound=0; hidden=1; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ startGenerating]:  wired=1; compound=0; hidden=1; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ generatingDone]:  wired=1; compound=0; hidden=1; nouse=1; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ generation_parent1]:  wired=1; compound=0; hidden=1; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ generation_parent2]:  wired=1; compound=0; hidden=1; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ generation_child1]:  wired=1; compound=0; hidden=1; nouse=1; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ generation_child2]:  wired=1; compound=0; hidden=1; nouse=1; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ mutation_probability]:  wired=1; compound=0; hidden=1; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ random]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ GenerationGenerator_randomNumberIndex_V]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=2; type=0; pingpong=0; private_global=0; IO mode=ap_ovld:ce=0
+Port [ GenerationGenerator_trueRandomIndex_V]:  wired=1; compound=0; hidden=1; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ GenerationGenerator_randomNumbers_V]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=2; type=1; pingpong=0; private_global=0; MemPort=[23]; IO mode=ap_memory:ce=0
+---------------- STG Properties END ------------------
+
+---------------- Datapath Model BEGIN ----------------
+
+<LifeTime>
+<method=bitvector/>
+StgValue_4             (specifcore     ) [ 0000]
+StgValue_5             (specifcore     ) [ 0000]
+StgValue_6             (specifcore     ) [ 0000]
+StgValue_7             (specifcore     ) [ 0000]
+StgValue_8             (specifcore     ) [ 0000]
+StgValue_9             (specifcore     ) [ 0000]
+StgValue_10            (specifcore     ) [ 0000]
+StgValue_11            (specbitsmap    ) [ 0000]
+StgValue_12            (specbitsmap    ) [ 0000]
+StgValue_13            (specbitsmap    ) [ 0000]
+StgValue_14            (specbitsmap    ) [ 0000]
+StgValue_15            (specbitsmap    ) [ 0000]
+StgValue_16            (specbitsmap    ) [ 0000]
+StgValue_17            (specbitsmap    ) [ 0000]
+StgValue_18            (specbitsmap    ) [ 0000]
+StgValue_19            (specbitsmap    ) [ 0000]
+StgValue_20            (specbitsmap    ) [ 0000]
+StgValue_21            (specbitsmap    ) [ 0000]
+StgValue_22            (specbitsmap    ) [ 0000]
+StgValue_23            (specbitsmap    ) [ 0000]
+StgValue_24            (specport       ) [ 0000]
+StgValue_25            (specport       ) [ 0000]
+StgValue_26            (specport       ) [ 0000]
+StgValue_27            (specport       ) [ 0000]
+StgValue_28            (specport       ) [ 0000]
+StgValue_29            (specport       ) [ 0000]
+StgValue_30            (specport       ) [ 0000]
+StgValue_31            (specport       ) [ 0000]
+StgValue_32            (specport       ) [ 0000]
+StgValue_33            (specport       ) [ 0000]
+StgValue_34            (specprocessdef ) [ 0000]
+tmp_2                  (specregionbegin) [ 0000]
+StgValue_36            (specprotocol   ) [ 0000]
+p_ssdm_reset_v         (specstatebegin ) [ 0000]
+StgValue_38            (specifcore     ) [ 0000]
+empty                  (specstateend   ) [ 0000]
+empty_11               (specregionend  ) [ 0000]
+StgValue_41            (br             ) [ 0000]
+StgValue_42            (wait           ) [ 0000]
+val_V                  (read           ) [ 0001]
+GenerationGenerator_s  (read           ) [ 0001]
+lhs_V_cast             (zext           ) [ 0000]
+r_V                    (add            ) [ 0000]
+tmp                    (icmp           ) [ 0011]
+StgValue_48            (br             ) [ 0000]
+tmp_13                 (trunc          ) [ 0000]
+tmp_s                  (add            ) [ 0000]
+StgValue_51            (br             ) [ 0000]
+tmp_21                 (phi            ) [ 0000]
+tmp_29_cast            (sext           ) [ 0000]
+GenerationGenerator_11 (getelementptr  ) [ 0001]
+GenerationGenerator_12 (load           ) [ 0000]
+tmp_22                 (icmp           ) [ 0011]
+StgValue_58            (br             ) [ 0000]
+tmp_23                 (zext           ) [ 0000]
+GenerationGenerator_13 (getelementptr  ) [ 0000]
+StgValue_61            (store          ) [ 0000]
+tmp_24                 (icmp           ) [ 0000]
+tmp_25                 (add            ) [ 0000]
+p_tmp_s                (select         ) [ 0000]
+StgValue_65            (write          ) [ 0000]
+StgValue_66            (br             ) [ 0000]
+StgValue_67            (br             ) [ 0000]
+</LifeTime>
+
+<model>
+
+<comp_list>
+<comp id="0" class="1000" name="clk">
+<pin_list>
+<pin id="1" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="clk"/></StgValue>
+</bind>
+</comp>
+
+<comp id="2" class="1000" name="reset">
+<pin_list>
+<pin id="3" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="reset"/></StgValue>
+</bind>
+</comp>
+
+<comp id="4" class="1000" name="startGenerating">
+<pin_list>
+<pin id="5" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="startGenerating"/></StgValue>
+</bind>
+</comp>
+
+<comp id="6" class="1000" name="generatingDone">
+<pin_list>
+<pin id="7" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="generatingDone"/></StgValue>
+</bind>
+</comp>
+
+<comp id="8" class="1000" name="generation_parent1">
+<pin_list>
+<pin id="9" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="generation_parent1"/></StgValue>
+</bind>
+</comp>
+
+<comp id="10" class="1000" name="generation_parent2">
+<pin_list>
+<pin id="11" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="generation_parent2"/></StgValue>
+</bind>
+</comp>
+
+<comp id="12" class="1000" name="generation_child1">
+<pin_list>
+<pin id="13" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="generation_child1"/></StgValue>
+</bind>
+</comp>
+
+<comp id="14" class="1000" name="generation_child2">
+<pin_list>
+<pin id="15" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="generation_child2"/></StgValue>
+</bind>
+</comp>
+
+<comp id="16" class="1000" name="mutation_probability">
+<pin_list>
+<pin id="17" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="mutation_probability"/></StgValue>
+</bind>
+</comp>
+
+<comp id="18" class="1000" name="random">
+<pin_list>
+<pin id="19" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="random"/></StgValue>
+</bind>
+</comp>
+
+<comp id="20" class="1000" name="GenerationGenerator_randomNumberIndex_V">
+<pin_list>
+<pin id="21" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="GenerationGenerator_randomNumberIndex_V"/></StgValue>
+</bind>
+</comp>
+
+<comp id="22" class="1000" name="GenerationGenerator_trueRandomIndex_V">
+<pin_list>
+<pin id="23" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="GenerationGenerator_trueRandomIndex_V"/></StgValue>
+</bind>
+</comp>
+
+<comp id="24" class="1000" name="GenerationGenerator_randomNumbers_V">
+<pin_list>
+<pin id="25" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="GenerationGenerator_randomNumbers_V"/><MemPortTyVec>2 3 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="26" class="1001" name="const_26">
+<pin_list>
+<pin id="27" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecIFCore"/></StgValue>
+</bind>
+</comp>
+
+<comp id="28" class="1001" name="const_28">
+<pin_list>
+<pin id="29" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str16"/></StgValue>
+</bind>
+</comp>
+
+<comp id="30" class="1001" name="const_30">
+<pin_list>
+<pin id="31" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str21"/></StgValue>
+</bind>
+</comp>
+
+<comp id="32" class="1001" name="const_32">
+<pin_list>
+<pin id="33" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="34" class="1001" name="const_34">
+<pin_list>
+<pin id="35" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str24"/></StgValue>
+</bind>
+</comp>
+
+<comp id="36" class="1001" name="const_36">
+<pin_list>
+<pin id="37" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecBitsMap"/></StgValue>
+</bind>
+</comp>
+
+<comp id="38" class="1001" name="const_38">
+<pin_list>
+<pin id="39" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecPort"/></StgValue>
+</bind>
+</comp>
+
+<comp id="40" class="1001" name="const_40">
+<pin_list>
+<pin id="41" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="42" class="1001" name="const_42">
+<pin_list>
+<pin id="43" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="44" class="1001" name="const_44">
+<pin_list>
+<pin id="45" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str1"/></StgValue>
+</bind>
+</comp>
+
+<comp id="46" class="1001" name="const_46">
+<pin_list>
+<pin id="47" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str2"/></StgValue>
+</bind>
+</comp>
+
+<comp id="48" class="1001" name="const_48">
+<pin_list>
+<pin id="49" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str3"/></StgValue>
+</bind>
+</comp>
+
+<comp id="50" class="1001" name="const_50">
+<pin_list>
+<pin id="51" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str4"/></StgValue>
+</bind>
+</comp>
+
+<comp id="52" class="1001" name="const_52">
+<pin_list>
+<pin id="53" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="54" class="1001" name="const_54">
+<pin_list>
+<pin id="55" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str5"/></StgValue>
+</bind>
+</comp>
+
+<comp id="56" class="1001" name="const_56">
+<pin_list>
+<pin id="57" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str6"/></StgValue>
+</bind>
+</comp>
+
+<comp id="58" class="1001" name="const_58">
+<pin_list>
+<pin id="59" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str7"/></StgValue>
+</bind>
+</comp>
+
+<comp id="60" class="1001" name="const_60">
+<pin_list>
+<pin id="61" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str8"/></StgValue>
+</bind>
+</comp>
+
+<comp id="62" class="1001" name="const_62">
+<pin_list>
+<pin id="63" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str9"/></StgValue>
+</bind>
+</comp>
+
+<comp id="64" class="1001" name="const_64">
+<pin_list>
+<pin id="65" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str10"/></StgValue>
+</bind>
+</comp>
+
+<comp id="66" class="1001" name="const_66">
+<pin_list>
+<pin id="67" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str11"/></StgValue>
+</bind>
+</comp>
+
+<comp id="68" class="1001" name="const_68">
+<pin_list>
+<pin id="69" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str12"/></StgValue>
+</bind>
+</comp>
+
+<comp id="70" class="1001" name="const_70">
+<pin_list>
+<pin id="71" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str13"/></StgValue>
+</bind>
+</comp>
+
+<comp id="72" class="1001" name="const_72">
+<pin_list>
+<pin id="73" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecProcessDef"/></StgValue>
+</bind>
+</comp>
+
+<comp id="74" class="1001" name="const_74">
+<pin_list>
+<pin id="75" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="76" class="1001" name="const_76">
+<pin_list>
+<pin id="77" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str14"/></StgValue>
+</bind>
+</comp>
+
+<comp id="78" class="1001" name="const_78">
+<pin_list>
+<pin id="79" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecRegionBegin"/></StgValue>
+</bind>
+</comp>
+
+<comp id="80" class="1001" name="const_80">
+<pin_list>
+<pin id="81" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str15"/></StgValue>
+</bind>
+</comp>
+
+<comp id="82" class="1001" name="const_82">
+<pin_list>
+<pin id="83" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecProtocol"/></StgValue>
+</bind>
+</comp>
+
+<comp id="84" class="1001" name="const_84">
+<pin_list>
+<pin id="85" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecStateBegin"/></StgValue>
+</bind>
+</comp>
+
+<comp id="86" class="1001" name="const_86">
+<pin_list>
+<pin id="87" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str22"/></StgValue>
+</bind>
+</comp>
+
+<comp id="88" class="1001" name="const_88">
+<pin_list>
+<pin id="89" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecStateEnd"/></StgValue>
+</bind>
+</comp>
+
+<comp id="90" class="1001" name="const_90">
+<pin_list>
+<pin id="91" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecRegionEnd"/></StgValue>
+</bind>
+</comp>
+
+<comp id="92" class="1001" name="const_92">
+<pin_list>
+<pin id="93" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Wait"/></StgValue>
+</bind>
+</comp>
+
+<comp id="94" class="1001" name="const_94">
+<pin_list>
+<pin id="95" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.volatile.i24P"/></StgValue>
+</bind>
+</comp>
+
+<comp id="96" class="1001" name="const_96">
+<pin_list>
+<pin id="97" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i24P"/></StgValue>
+</bind>
+</comp>
+
+<comp id="98" class="1001" name="const_98">
+<pin_list>
+<pin id="99" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="100" class="1001" name="const_100">
+<pin_list>
+<pin id="101" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="102" class="1001" name="const_102">
+<pin_list>
+<pin id="103" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="104" class="1001" name="const_104">
+<pin_list>
+<pin id="105" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="106" class="1001" name="const_106">
+<pin_list>
+<pin id="107" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="108" class="1001" name="const_108">
+<pin_list>
+<pin id="109" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="110" class="1001" name="const_110">
+<pin_list>
+<pin id="111" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="112" class="1001" name="const_112">
+<pin_list>
+<pin id="113" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Write.ap_auto.i24P"/></StgValue>
+</bind>
+</comp>
+
+<comp id="114" class="1004" name="val_V_read_fu_114">
+<pin_list>
+<pin id="115" dir="0" index="0" bw="24" slack="0"/>
+<pin id="116" dir="0" index="1" bw="24" slack="0"/>
+<pin id="117" dir="1" index="2" bw="24" slack="1"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="val_V/2 "/>
+</bind>
+</comp>
+
+<comp id="120" class="1004" name="GenerationGenerator_s_read_fu_120">
+<pin_list>
+<pin id="121" dir="0" index="0" bw="24" slack="0"/>
+<pin id="122" dir="0" index="1" bw="24" slack="0"/>
+<pin id="123" dir="1" index="2" bw="24" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="GenerationGenerator_s/2 "/>
+</bind>
+</comp>
+
+<comp id="126" class="1004" name="StgValue_65_write_fu_126">
+<pin_list>
+<pin id="127" dir="0" index="0" bw="0" slack="0"/>
+<pin id="128" dir="0" index="1" bw="24" slack="0"/>
+<pin id="129" dir="0" index="2" bw="24" slack="0"/>
+<pin id="130" dir="1" index="3" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="write(1151) " fcode="write"/>
+<opset="StgValue_65/3 "/>
+</bind>
+</comp>
+
+<comp id="133" class="1004" name="GenerationGenerator_11_gep_fu_133">
+<pin_list>
+<pin id="134" dir="0" index="0" bw="24" slack="0"/>
+<pin id="135" dir="0" index="1" bw="1" slack="0"/>
+<pin id="136" dir="0" index="2" bw="9" slack="0"/>
+<pin id="137" dir="1" index="3" bw="8" slack="0"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="GenerationGenerator_11/2 "/>
+</bind>
+</comp>
+
+<comp id="140" class="1004" name="grp_access_fu_140">
+<pin_list>
+<pin id="141" dir="0" index="0" bw="8" slack="0"/>
+<pin id="142" dir="0" index="1" bw="24" slack="1"/>
+<pin id="143" dir="1" index="2" bw="24" slack="0"/>
+</pin_list>
+<bind>
+<opcode="load(27) store(28) " fcode="store"/>
+<opset="GenerationGenerator_12/2 StgValue_61/3 "/>
+</bind>
+</comp>
+
+<comp id="145" class="1004" name="GenerationGenerator_13_gep_fu_145">
+<pin_list>
+<pin id="146" dir="0" index="0" bw="24" slack="0"/>
+<pin id="147" dir="0" index="1" bw="1" slack="0"/>
+<pin id="148" dir="0" index="2" bw="24" slack="0"/>
+<pin id="149" dir="1" index="3" bw="8" slack="0"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="GenerationGenerator_13/3 "/>
+</bind>
+</comp>
+
+<comp id="153" class="1005" name="tmp_21_reg_153">
+<pin_list>
+<pin id="154" dir="0" index="0" bw="9" slack="2147483647"/>
+<pin id="155" dir="1" index="1" bw="9" slack="2147483647"/>
+</pin_list>
+<bind>
+<opset="tmp_21 (phireg) "/>
+</bind>
+</comp>
+
+<comp id="156" class="1004" name="tmp_21_phi_fu_156">
+<pin_list>
+<pin id="157" dir="0" index="0" bw="9" slack="0"/>
+<pin id="158" dir="0" index="1" bw="0" slack="2147483647"/>
+<pin id="159" dir="0" index="2" bw="6" slack="0"/>
+<pin id="160" dir="0" index="3" bw="0" slack="2147483647"/>
+<pin id="161" dir="1" index="4" bw="9" slack="0"/>
+</pin_list>
+<bind>
+<opcode="phi(47) " fcode="phi"/>
+<opset="tmp_21/2 "/>
+</bind>
+</comp>
+
+<comp id="163" class="1004" name="lhs_V_cast_fu_163">
+<pin_list>
+<pin id="164" dir="0" index="0" bw="24" slack="0"/>
+<pin id="165" dir="1" index="1" bw="25" slack="0"/>
+</pin_list>
+<bind>
+<opcode="zext(34) " fcode="zext"/>
+<opset="lhs_V_cast/2 "/>
+</bind>
+</comp>
+
+<comp id="167" class="1004" name="r_V_fu_167">
+<pin_list>
+<pin id="168" dir="0" index="0" bw="24" slack="0"/>
+<pin id="169" dir="0" index="1" bw="1" slack="0"/>
+<pin id="170" dir="1" index="2" bw="25" slack="0"/>
+</pin_list>
+<bind>
+<opcode="add(8) " fcode="add"/>
+<opset="r_V/2 "/>
+</bind>
+</comp>
+
+<comp id="173" class="1004" name="tmp_fu_173">
+<pin_list>
+<pin id="174" dir="0" index="0" bw="25" slack="0"/>
+<pin id="175" dir="0" index="1" bw="6" slack="0"/>
+<pin id="176" dir="1" index="2" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="icmp(45) " fcode="icmp"/>
+<opset="tmp/2 "/>
+</bind>
+</comp>
+
+<comp id="179" class="1004" name="tmp_13_fu_179">
+<pin_list>
+<pin id="180" dir="0" index="0" bw="24" slack="0"/>
+<pin id="181" dir="1" index="1" bw="9" slack="0"/>
+</pin_list>
+<bind>
+<opcode="trunc(33) " fcode="trunc"/>
+<opset="tmp_13/2 "/>
+</bind>
+</comp>
+
+<comp id="183" class="1004" name="tmp_s_fu_183">
+<pin_list>
+<pin id="184" dir="0" index="0" bw="1" slack="0"/>
+<pin id="185" dir="0" index="1" bw="9" slack="0"/>
+<pin id="186" dir="1" index="2" bw="9" slack="0"/>
+</pin_list>
+<bind>
+<opcode="add(8) " fcode="add"/>
+<opset="tmp_s/2 "/>
+</bind>
+</comp>
+
+<comp id="190" class="1004" name="tmp_29_cast_fu_190">
+<pin_list>
+<pin id="191" dir="0" index="0" bw="9" slack="0"/>
+<pin id="192" dir="1" index="1" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="sext(35) " fcode="sext"/>
+<opset="tmp_29_cast/2 "/>
+</bind>
+</comp>
+
+<comp id="195" class="1004" name="tmp_22_fu_195">
+<pin_list>
+<pin id="196" dir="0" index="0" bw="24" slack="1"/>
+<pin id="197" dir="0" index="1" bw="24" slack="0"/>
+<pin id="198" dir="1" index="2" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="icmp(45) " fcode="icmp"/>
+<opset="tmp_22/3 "/>
+</bind>
+</comp>
+
+<comp id="200" class="1004" name="tmp_23_fu_200">
+<pin_list>
+<pin id="201" dir="0" index="0" bw="24" slack="1"/>
+<pin id="202" dir="1" index="1" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="zext(34) " fcode="zext"/>
+<opset="tmp_23/3 "/>
+</bind>
+</comp>
+
+<comp id="204" class="1004" name="tmp_24_fu_204">
+<pin_list>
+<pin id="205" dir="0" index="0" bw="24" slack="1"/>
+<pin id="206" dir="0" index="1" bw="6" slack="0"/>
+<pin id="207" dir="1" index="2" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="icmp(45) " fcode="icmp"/>
+<opset="tmp_24/3 "/>
+</bind>
+</comp>
+
+<comp id="209" class="1004" name="tmp_25_fu_209">
+<pin_list>
+<pin id="210" dir="0" index="0" bw="24" slack="1"/>
+<pin id="211" dir="0" index="1" bw="1" slack="0"/>
+<pin id="212" dir="1" index="2" bw="24" slack="0"/>
+</pin_list>
+<bind>
+<opcode="add(8) " fcode="add"/>
+<opset="tmp_25/3 "/>
+</bind>
+</comp>
+
+<comp id="214" class="1004" name="p_tmp_s_fu_214">
+<pin_list>
+<pin id="215" dir="0" index="0" bw="1" slack="0"/>
+<pin id="216" dir="0" index="1" bw="1" slack="0"/>
+<pin id="217" dir="0" index="2" bw="24" slack="0"/>
+<pin id="218" dir="1" index="3" bw="24" slack="0"/>
+</pin_list>
+<bind>
+<opcode="select(49) " fcode="select"/>
+<opset="p_tmp_s/3 "/>
+</bind>
+</comp>
+
+<comp id="223" class="1005" name="val_V_reg_223">
+<pin_list>
+<pin id="224" dir="0" index="0" bw="24" slack="1"/>
+<pin id="225" dir="1" index="1" bw="24" slack="1"/>
+</pin_list>
+<bind>
+<opset="val_V "/>
+</bind>
+</comp>
+
+<comp id="229" class="1005" name="GenerationGenerator_s_reg_229">
+<pin_list>
+<pin id="230" dir="0" index="0" bw="24" slack="1"/>
+<pin id="231" dir="1" index="1" bw="24" slack="1"/>
+</pin_list>
+<bind>
+<opset="GenerationGenerator_s "/>
+</bind>
+</comp>
+
+<comp id="239" class="1005" name="GenerationGenerator_11_reg_239">
+<pin_list>
+<pin id="240" dir="0" index="0" bw="8" slack="1"/>
+<pin id="241" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opset="GenerationGenerator_11 "/>
+</bind>
+</comp>
+
+</comp_list>
+
+<net_list>
+<net id="118"><net_src comp="94" pin="0"/><net_sink comp="114" pin=0"/></net>
+
+<net id="119"><net_src comp="18" pin="0"/><net_sink comp="114" pin=1"/></net>
+
+<net id="124"><net_src comp="96" pin="0"/><net_sink comp="120" pin=0"/></net>
+
+<net id="125"><net_src comp="20" pin="0"/><net_sink comp="120" pin=1"/></net>
+
+<net id="131"><net_src comp="112" pin="0"/><net_sink comp="126" pin=0"/></net>
+
+<net id="132"><net_src comp="20" pin="0"/><net_sink comp="126" pin=1"/></net>
+
+<net id="138"><net_src comp="24" pin="0"/><net_sink comp="133" pin=0"/></net>
+
+<net id="139"><net_src comp="42" pin="0"/><net_sink comp="133" pin=1"/></net>
+
+<net id="144"><net_src comp="133" pin="3"/><net_sink comp="140" pin=0"/></net>
+
+<net id="150"><net_src comp="24" pin="0"/><net_sink comp="145" pin=0"/></net>
+
+<net id="151"><net_src comp="42" pin="0"/><net_sink comp="145" pin=1"/></net>
+
+<net id="152"><net_src comp="145" pin="3"/><net_sink comp="140" pin=0"/></net>
+
+<net id="162"><net_src comp="104" pin="0"/><net_sink comp="156" pin=2"/></net>
+
+<net id="166"><net_src comp="120" pin="2"/><net_sink comp="163" pin=0"/></net>
+
+<net id="171"><net_src comp="163" pin="1"/><net_sink comp="167" pin=0"/></net>
+
+<net id="172"><net_src comp="98" pin="0"/><net_sink comp="167" pin=1"/></net>
+
+<net id="177"><net_src comp="167" pin="2"/><net_sink comp="173" pin=0"/></net>
+
+<net id="178"><net_src comp="100" pin="0"/><net_sink comp="173" pin=1"/></net>
+
+<net id="182"><net_src comp="120" pin="2"/><net_sink comp="179" pin=0"/></net>
+
+<net id="187"><net_src comp="102" pin="0"/><net_sink comp="183" pin=0"/></net>
+
+<net id="188"><net_src comp="179" pin="1"/><net_sink comp="183" pin=1"/></net>
+
+<net id="189"><net_src comp="183" pin="2"/><net_sink comp="156" pin=0"/></net>
+
+<net id="193"><net_src comp="156" pin="4"/><net_sink comp="190" pin=0"/></net>
+
+<net id="194"><net_src comp="190" pin="1"/><net_sink comp="133" pin=2"/></net>
+
+<net id="199"><net_src comp="140" pin="2"/><net_sink comp="195" pin=1"/></net>
+
+<net id="203"><net_src comp="200" pin="1"/><net_sink comp="145" pin=2"/></net>
+
+<net id="208"><net_src comp="106" pin="0"/><net_sink comp="204" pin=1"/></net>
+
+<net id="213"><net_src comp="108" pin="0"/><net_sink comp="209" pin=1"/></net>
+
+<net id="219"><net_src comp="204" pin="2"/><net_sink comp="214" pin=0"/></net>
+
+<net id="220"><net_src comp="110" pin="0"/><net_sink comp="214" pin=1"/></net>
+
+<net id="221"><net_src comp="209" pin="2"/><net_sink comp="214" pin=2"/></net>
+
+<net id="222"><net_src comp="214" pin="3"/><net_sink comp="126" pin=2"/></net>
+
+<net id="226"><net_src comp="114" pin="2"/><net_sink comp="223" pin=0"/></net>
+
+<net id="227"><net_src comp="223" pin="1"/><net_sink comp="195" pin=0"/></net>
+
+<net id="228"><net_src comp="223" pin="1"/><net_sink comp="140" pin=1"/></net>
+
+<net id="232"><net_src comp="120" pin="2"/><net_sink comp="229" pin=0"/></net>
+
+<net id="233"><net_src comp="229" pin="1"/><net_sink comp="200" pin=0"/></net>
+
+<net id="234"><net_src comp="229" pin="1"/><net_sink comp="204" pin=0"/></net>
+
+<net id="235"><net_src comp="229" pin="1"/><net_sink comp="209" pin=0"/></net>
+
+<net id="242"><net_src comp="133" pin="3"/><net_sink comp="239" pin=0"/></net>
+
+<net id="243"><net_src comp="239" pin="1"/><net_sink comp="140" pin=0"/></net>
+
+</net_list>
+
+</model> 
+---------------- Datapath Model END ------------------
+
+* FSMD analyzer results:
+  - Output states:
+	Port: GenerationGenerator_randomNumberIndex_V | {3 }
+	Port: GenerationGenerator_randomNumbers_V | {3 }
+ - Input state : 
+	Port: GenerationGenerator::consumeRandom : random | {2 }
+	Port: GenerationGenerator::consumeRandom : GenerationGenerator_randomNumberIndex_V | {2 }
+	Port: GenerationGenerator::consumeRandom : GenerationGenerator_randomNumbers_V | {2 3 }
+  - Chain level:
+	State 1
+		empty : 1
+		empty_11 : 1
+	State 2
+		r_V : 1
+		tmp : 2
+		StgValue_48 : 3
+		tmp_s : 1
+		tmp_21 : 4
+		tmp_29_cast : 5
+		GenerationGenerator_11 : 6
+		GenerationGenerator_12 : 7
+	State 3
+		tmp_22 : 1
+		StgValue_58 : 2
+		GenerationGenerator_13 : 1
+		StgValue_61 : 2
+		p_tmp_s : 1
+		StgValue_65 : 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+
+* Functional unit list:
+|----------|-----------------------------------|---------|---------|
+| Operation|          Functional Unit          |    FF   |   LUT   |
+|----------|-----------------------------------|---------|---------|
+|          |             r_V_fu_167            |    77   |    29   |
+|    add   |            tmp_s_fu_183           |    32   |    14   |
+|          |           tmp_25_fu_209           |    77   |    29   |
+|----------|-----------------------------------|---------|---------|
+|          |             tmp_fu_173            |    0    |    13   |
+|   icmp   |           tmp_22_fu_195           |    0    |    13   |
+|          |           tmp_24_fu_204           |    0    |    13   |
+|----------|-----------------------------------|---------|---------|
+|  select  |           p_tmp_s_fu_214          |    0    |    24   |
+|----------|-----------------------------------|---------|---------|
+|   read   |         val_V_read_fu_114         |    0    |    0    |
+|          | GenerationGenerator_s_read_fu_120 |    0    |    0    |
+|----------|-----------------------------------|---------|---------|
+|   write  |      StgValue_65_write_fu_126     |    0    |    0    |
+|----------|-----------------------------------|---------|---------|
+|   zext   |         lhs_V_cast_fu_163         |    0    |    0    |
+|          |           tmp_23_fu_200           |    0    |    0    |
+|----------|-----------------------------------|---------|---------|
+|   trunc  |           tmp_13_fu_179           |    0    |    0    |
+|----------|-----------------------------------|---------|---------|
+|   sext   |         tmp_29_cast_fu_190        |    0    |    0    |
+|----------|-----------------------------------|---------|---------|
+|   Total  |                                   |   186   |   135   |
+|----------|-----------------------------------|---------|---------|
+
+Memories:
+N/A
+
+* Register list:
++------------------------------+--------+
+|                              |   FF   |
++------------------------------+--------+
+|GenerationGenerator_11_reg_239|    8   |
+| GenerationGenerator_s_reg_229|   24   |
+|        tmp_21_reg_153        |    9   |
+|         val_V_reg_223        |   24   |
++------------------------------+--------+
+|             Total            |   65   |
++------------------------------+--------+
+
+* Multiplexer (MUX) list: 
+|-------------------|------|------|------|--------||---------||---------|
+|        Comp       |  Pin | Size |  BW  | S x BW ||  Delay  ||   LUT   |
+|-------------------|------|------|------|--------||---------||---------|
+| grp_access_fu_140 |  p0  |   3  |   8  |   24   ||    15   |
+|-------------------|------|------|------|--------||---------||---------|
+|       Total       |      |      |      |   24   ||  1.773  ||    15   |
+|-------------------|------|------|------|--------||---------||---------|
+
+
+
+* Summary:
++-----------+--------+--------+--------+
+|           |  Delay |   FF   |   LUT  |
++-----------+--------+--------+--------+
+|  Function |    -   |   186  |   135  |
+|   Memory  |    -   |    -   |    -   |
+|Multiplexer|    1   |    -   |   15   |
+|  Register |    -   |   65   |    -   |
++-----------+--------+--------+--------+
+|   Total   |    1   |   251  |   150  |
++-----------+--------+--------+--------+
