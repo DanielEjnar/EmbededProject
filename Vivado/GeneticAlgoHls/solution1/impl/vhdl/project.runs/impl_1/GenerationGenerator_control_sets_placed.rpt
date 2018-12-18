@@ -1,0 +1,82 @@
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
+| Date         : Thu Dec 13 12:13:35 2018
+| Host         : Centropy running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file GenerationGenerator_control_sets_placed.rpt
+| Design       : GenerationGenerator
+| Device       : xc7z010
+------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    17 |
+| Unused register locations in slices containing registers |    38 |
++----------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               2 |            2 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |               9 |            7 |
+| Yes          | No                    | No                     |             286 |          102 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              49 |           16 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++--------------+-----------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------+------------------+----------------+
+| Clock Signal |                                                           Enable Signal                                                           |                                       Set/Reset Signal                                      | Slice Load Count | Bel Load Count |
++--------------+-----------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------+------------------+----------------+
+|  clk         |                                                                                                                                   |                                                                                             |                2 |              2 |
+|  clk         | grp_GenerationGenerator_generateGeneration_fu_116/ap_CS_fsm_state6                                                                | grp_GenerationGenerator_generateGeneration_fu_116/j_reg_270                                 |                2 |              5 |
+|  clk         | grp_GenerationGenerator_generateGeneration_fu_116/ap_CS_fsm_state8                                                                | grp_GenerationGenerator_generateGeneration_fu_116/ap_NS_fsm1                                |                3 |              5 |
+|  clk         | grp_GenerationGenerator_generateGeneration_fu_116/ap_NS_fsm10_out                                                                 |                                                                                             |                2 |              8 |
+|  clk         |                                                                                                                                   | grp_GenerationGenerator_generateGeneration_fu_116/SS[0]                                     |                7 |              9 |
+|  clk         | grp_GenerationGenerator_generateGeneration_fu_116/ap_CS_fsm_state3                                                                |                                                                                             |                4 |             10 |
+|  clk         | grp_GenerationGenerator_generateGeneration_fu_116/ap_CS_fsm_state7                                                                |                                                                                             |                4 |             10 |
+|  clk         | grp_GenerationGenerator_generateGeneration_fu_116/j_cast2_reg_707_reg[4]_0[0]                                                     |                                                                                             |                3 |             10 |
+|  clk         | grp_GenerationGenerator_generateGeneration_fu_116/ap_NS_fsm10_out                                                                 | grp_GenerationGenerator_generateGeneration_fu_116/storemerge_i_reg_661[23]_i_1_n_0          |                5 |             16 |
+|  clk         | grp_GenerationGenerator_consumeRandom_fu_146/grp_GenerationGenerator_consumeRandom_fu_146_GenerationGenerator_randomNumbers_V_we0 | grp_GenerationGenerator_consumeRandom_fu_146/GenerationGenerator_randomNumberIndex_V_reg[1] |                6 |             23 |
+|  clk         | grp_GenerationGenerator_generateGeneration_fu_116/E[0]                                                                            |                                                                                             |               13 |             24 |
+|  clk         | grp_GenerationGenerator_generateGeneration_fu_116/ap_CS_fsm[7]_i_2_n_0                                                            |                                                                                             |               12 |             24 |
+|  clk         | grp_GenerationGenerator_generateGeneration_fu_116/generation_child2_reg[0][0]                                                     |                                                                                             |               11 |             32 |
+|  clk         | grp_GenerationGenerator_generateGeneration_fu_116/ap_NS_fsm[4]                                                                    |                                                                                             |               16 |             40 |
+|  clk         | grp_GenerationGenerator_generateGeneration_fu_116/ap_NS_fsm[6]                                                                    |                                                                                             |               13 |             40 |
+|  clk         | grp_GenerationGenerator_generateGeneration_fu_116/ap_CS_fsm_state4                                                                |                                                                                             |               10 |             40 |
+|  clk         | grp_GenerationGenerator_consumeRandom_fu_146/Q[0]                                                                                 |                                                                                             |               14 |             48 |
++--------------+-----------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------+------------------+----------------+
+
+
++--------+-----------------------+
+| Fanout | Number of ControlSets |
++--------+-----------------------+
+| 2      |                     1 |
+| 5      |                     2 |
+| 8      |                     1 |
+| 9      |                     1 |
+| 10     |                     3 |
+| 16+    |                     9 |
++--------+-----------------------+
+
+
