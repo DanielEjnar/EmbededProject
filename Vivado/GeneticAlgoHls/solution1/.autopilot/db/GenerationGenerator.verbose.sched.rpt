@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'GenerationGenerator'
 ================================================================
-* Date:           Tue Dec 18 11:20:10 2018
+* Date:           Tue Dec 18 13:27:38 2018
 
 * Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        GeneticAlgoHls
@@ -77,28 +77,28 @@ IsGatedGlobalClock: 0
 
  <State 1>: 7.44ns
 ST_1: StgValue_3 (16)  [1/1] 0.00ns
-:0  call void (...)* @_ssdm_op_SpecIFCore(i24* %mutation_probability, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
+:0  call void (...)* @_ssdm_op_SpecIFCore(i24* %random, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str22)
 
 ST_1: StgValue_4 (17)  [1/1] 0.00ns
-:1  call void (...)* @_ssdm_op_SpecIFCore(i16* %generation_child2, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
+:1  call void (...)* @_ssdm_op_SpecIFCore(i24* %mutation_probability, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
 
 ST_1: StgValue_5 (18)  [1/1] 0.00ns
-:2  call void (...)* @_ssdm_op_SpecIFCore(i16* %generation_child1, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
+:2  call void (...)* @_ssdm_op_SpecIFCore(i16* %generation_child2, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
 
 ST_1: StgValue_6 (19)  [1/1] 0.00ns
-:3  call void (...)* @_ssdm_op_SpecIFCore(i16* %generation_parent2, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
+:3  call void (...)* @_ssdm_op_SpecIFCore(i16* %generation_child1, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
 
 ST_1: StgValue_7 (20)  [1/1] 0.00ns
-:4  call void (...)* @_ssdm_op_SpecIFCore(i16* %generation_parent1, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
+:4  call void (...)* @_ssdm_op_SpecIFCore(i16* %generation_parent2, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
 
 ST_1: StgValue_8 (21)  [1/1] 0.00ns
-:5  call void (...)* @_ssdm_op_SpecIFCore(i1* %generatingDone, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
+:5  call void (...)* @_ssdm_op_SpecIFCore(i16* %generation_parent1, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
 
 ST_1: StgValue_9 (22)  [1/1] 0.00ns
-:6  call void (...)* @_ssdm_op_SpecIFCore(i1* %startGenerating, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
+:6  call void (...)* @_ssdm_op_SpecIFCore(i1* %generatingDone, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
 
 ST_1: StgValue_10 (23)  [1/1] 0.00ns
-:7  call void (...)* @_ssdm_op_SpecIFCore(i24* %random, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str22)
+:7  call void (...)* @_ssdm_op_SpecIFCore(i1* %startGenerating, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
 
 ST_1: StgValue_11 (24)  [1/1] 0.00ns
 :8  call void (...)* @_ssdm_op_SpecBitsMap(i1* %clk), !map !4087

@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'GenerationGenerator_generateGeneration'
 ================================================================
-* Date:           Tue Dec 18 11:20:07 2018
+* Date:           Tue Dec 18 13:27:34 2018
 
 * Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        GeneticAlgoHls
@@ -577,7 +577,6 @@ The critical path consists of the following:
 	'phi' operation ('GenerationGenerator_8', ../GenerationGenerator/GenerationGenerator.cpp:28->../GenerationGenerator/GenerationGenerator.cpp:136) with incoming values : ('p_tmp_s', ../GenerationGenerator/GenerationGenerator.cpp:28->../GenerationGenerator/GenerationGenerator.cpp:86) ('p_tmp_1', ../GenerationGenerator/GenerationGenerator.cpp:28->../GenerationGenerator/GenerationGenerator.cpp:127) ('p_tmp_2', ../GenerationGenerator/GenerationGenerator.cpp:28->../GenerationGenerator/GenerationGenerator.cpp:136) [129]  (0 ns)
 	'icmp' operation ('tmp_18', ../GenerationGenerator/GenerationGenerator.cpp:28->../GenerationGenerator/GenerationGenerator.cpp:136) [141]  (3.23 ns)
 	'select' operation ('p_tmp_2', ../GenerationGenerator/GenerationGenerator.cpp:28->../GenerationGenerator/GenerationGenerator.cpp:136) [143]  (2.07 ns)
-	wire write on port 'GenerationGenerator_trueRandomIndex_V' (../GenerationGenerator/GenerationGenerator.cpp:29->../GenerationGenerator/GenerationGenerator.cpp:136) [144]  (0 ns)
 
  <State 8>: 9.15ns
 The critical path consists of the following:
