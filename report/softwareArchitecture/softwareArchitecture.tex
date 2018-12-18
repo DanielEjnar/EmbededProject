@@ -48,7 +48,7 @@ Other possible allocations are: \begin{itemize}
 \item GenerationGenerator to software (the ARM processor) and Simulator to hardware (FPGA).
 \end{itemize}
 
-As stated earlier it is needed that the 
+As stated earlier it is needed that the generation of a new generation and the simulation should run in real-rime. This means, that, it is interesting to look at accelerating these parts using hardware, and use the allocation shown in the allocation diagram in figure \ref{fig:allocation}.
 
 \begin{figure}[htbp]
 \begin{centering}
@@ -64,3 +64,19 @@ As stated earlier it is needed that the
 \begin{framed}
 4. Design the software and apply design patterns that are suitable for your project, and motivate the choice of the used patterns. Use the Two-Part Architecture Model if relevant for the problem. Use the abstract OS package for the ZYBO board
 \end{framed}
+
+The software is designed using, mostly, the GoF Concurrent state pattern with events for shifting using the command pattern.
+
+The state machine for this can be seen in figure \ref{fig:statemachine}. Here it can be seen that there is two concurrent states. One is for loading random numbers in all the time. and the other is the normal
+
+\begin{figure}[htbp]
+\begin{centering}
+\includegraphics[width=0.9\linewidth]{../diagrams/statemachine.png}
+\caption{Statemachine diagram for the software.}
+\label{fig:statemachine}
+\end{centering}
+\end{figure}
+
+For implementing the concurrency the given OS abstraction library is used. This is a wrapper for the functions in FreeRTOS.
+
+
