@@ -52,17 +52,17 @@ set rc [catch {
   create_project -in_memory -part xc7z010clg400-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir C:/Users/cml/Desktop/GeneticAlgoVivado/GeneticAlgoVivado.cache/wt [current_project]
-  set_property parent.project_path C:/Users/cml/Desktop/GeneticAlgoVivado/GeneticAlgoVivado.xpr [current_project]
+  set_property webtalk.parent_dir C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoVivado/GeneticAlgoVivado.cache/wt [current_project]
+  set_property parent.project_path C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoVivado/GeneticAlgoVivado.xpr [current_project]
   set_property ip_repo_paths C:/Users/cml/Desktop/EmbededProject/ip/generator [current_project]
-  set_property ip_output_repo C:/Users/cml/Desktop/GeneticAlgoVivado/GeneticAlgoVivado.cache/ip [current_project]
+  set_property ip_output_repo C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoVivado/GeneticAlgoVivado.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES XPM_CDC [current_project]
-  add_files -quiet C:/Users/cml/Desktop/GeneticAlgoVivado/GeneticAlgoVivado.runs/synth_2/design_1_wrapper.dcp
+  add_files -quiet C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoVivado/GeneticAlgoVivado.runs/synth_2/design_1_wrapper.dcp
   set_msg_config -source 4 -id {BD 41-1661} -suppress
   set_param project.isImplRun true
-  add_files C:/Users/cml/Desktop/GeneticAlgoVivado/GeneticAlgoVivado.srcs/sources_1/bd/design_1/design_1.bd
-  set_property is_locked true [get_files C:/Users/cml/Desktop/GeneticAlgoVivado/GeneticAlgoVivado.srcs/sources_1/bd/design_1/design_1.bd]
+  add_files C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoVivado/GeneticAlgoVivado.srcs/sources_1/bd/design_1/design_1.bd
+  set_property is_locked true [get_files C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoVivado/GeneticAlgoVivado.srcs/sources_1/bd/design_1/design_1.bd]
   set_param project.isImplRun false
   set_param project.isImplRun true
   link_design -top design_1_wrapper -part xc7z010clg400-1

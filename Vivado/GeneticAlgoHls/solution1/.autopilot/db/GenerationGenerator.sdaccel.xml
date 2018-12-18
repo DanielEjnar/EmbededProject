@@ -1,10 +1,10 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'GenerationGenerator'" level="0">
-<item name = "Date">Thu Dec 13 12:08:05 2018
+<item name = "Date">Tue Dec 18 11:20:12 2018
 </item>
 <item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
-<item name = "Project">GeneticAlgo</item>
+<item name = "Project">GeneticAlgoHls</item>
 <item name = "Solution">solution1</item>
 <item name = "Product family">zynq</item>
 <item name = "Target device">xc7z010clg400-1</item>
@@ -124,7 +124,7 @@
 <item name = "Max Delay">7.44</item>
 <item name = "Critical Path Table"><table name="Critical Path Table" hasTotal="0">
 <keys size="15">Name, Operator, Delay, Accumulated Delay, Store Source, Resource, Core, Interface, Type, Port, Array, Scope, Pointer, Callee, Phi Node</keys>
-<column name="EmbededProject/SystemCModel/GenerationGenerator.h:33">call, 7.44, 7.44, -, -, -, -, -, -, -, -, -, GenerationGenerator::consumeRandom, -</column>
+<column name="../GenerationGenerator/GenerationGenerator.h:33">call, 7.44, 7.44, -, -, -, -, -, -, -, -, -, GenerationGenerator::consumeRandom, -</column>
 </table>
 </item>
 </section>

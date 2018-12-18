@@ -3,10 +3,10 @@
 ================================================================
 == Vivado HLS Report for 'GenerationGenerator_consumeRandom'
 ================================================================
-* Date:           Thu Dec 13 12:08:01 2018
+* Date:           Tue Dec 18 11:20:06 2018
 
 * Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
-* Project:        GeneticAlgo
+* Project:        GeneticAlgoHls
 * Solution:       solution1
 * Product family: zynq
 * Target device:  xc7z010clg400-1

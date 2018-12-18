@@ -41,15 +41,15 @@ set SCTraceFileName "mytrace"
 set SCTraceFileFormat "vcd"
 set SCTraceOption "all"
 set TargetInfo "xc7z010:clg400:-1"
-set SourceFiles {sc ../../EmbededProject/SystemCModel/GenerationGenerator.cpp c {}}
+set SourceFiles {sc ../../../GenerationGenerator/GenerationGenerator.cpp c {}}
 set SourceFlags {sc {{}} c {}}
-set DirectiveFile {C:/Users/cml/Desktop/GeneticAlgo/solution1/solution1.directive}
-set TBFiles {verilog ../../EmbededProject/SystemCModel/main.cpp bc ../../EmbededProject/SystemCModel/main.cpp vhdl ../../EmbededProject/SystemCModel/main.cpp sc ../../EmbededProject/SystemCModel/main.cpp cas ../../EmbededProject/SystemCModel/main.cpp c {}}
+set DirectiveFile {C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/solution1.directive}
+set TBFiles {verilog {../../../GenerationGenerator/main.cpp ../../../GenerationGenerator/GenerationGenerator.cpp} bc {../../../GenerationGenerator/main.cpp ../../../GenerationGenerator/GenerationGenerator.cpp} sc {../../../GenerationGenerator/main.cpp ../../../GenerationGenerator/GenerationGenerator.cpp} vhdl {../../../GenerationGenerator/main.cpp ../../../GenerationGenerator/GenerationGenerator.cpp} c {} cas {../../../GenerationGenerator/main.cpp ../../../GenerationGenerator/GenerationGenerator.cpp}}
 set SpecLanguage "C"
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
-set TBTops {verilog {} bc {} vhdl {} sc {} cas {} c {}}
-set TBInstNames {verilog {} bc {} vhdl {} sc {} cas {} c {}}
+set TBTops {verilog {} bc {} sc {} vhdl {} c {} cas {}}
+set TBInstNames {verilog {} bc {} sc {} vhdl {} c {} cas {}}
 set XDCFiles {}
 set ExtraGlobalOptions {"area_timing" 1 "clock_gate" 1 "impl_flow" map "power_gate" 0}
 set PlatformFiles {{DefaultPlatform {xilinx/zynq/zynq xilinx/zynq/zynq_fpv6}}}
