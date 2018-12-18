@@ -3,7 +3,8 @@
 
 \begin{framed}
 5. Select the SysML/UML model for your preferred architecture suggestions in 3. Choose a part of the functionality including both hardware and software components to create a model and a test- bench in HLS using SystemC or C-code. Simulate and validate your design model.
-Argue for your choice of modeling language and abstraction level of modeling. Use the reports from the HLS tool to evaluate performance of the design. Assess whether the design is able to fulfill your requirements and constraints.
+
+Argue for your choice of modeling language and abstraction level of modeling. Use the reports from the HLS tool to evaluate performance of the design. Assess whether the design is able to fulfill your requirements and constraints.
 \end{framed}
 
 As discussed in section \ref{sec:allocation} and seen in figure \ref{fig:allocation} there are two modules, which could be allocated on the hardware. There has been made a SystemC model for each of these. Both are done at the RTL abstraction level. This means, that the communication is abstracted away, it is just modeled as a signal with a type. But the model is clocked, meaning that we have a mean of synchronization, i.e. the modules are approximately timed.
@@ -15,7 +16,7 @@ GenerationGenerator is responsible for generating a new generation using the gen
 
 The module consists of two SC\_CTREAD's, as it can be seen in listing \ref{lst:generationgenerator_h}.
 
-\begin{lstlisting}[language=C++,caption={GenerationGenerator.h},label={lst:generationgenerator_h}]
+\begin{lstlisting}[style=customc++, caption={GenerationGenerator.h},label={lst:generationgenerator_h}]
 #ifndef GENERATIONGENERATOR_H
 #define GENERATIONGENERATOR_H
 #include <systemc.h>
@@ -62,7 +63,7 @@ generateGeneration is the method which uses the most logic. It basically impleme
 
 All of the variables are made available through the AXILite interface through the use of pragmas.
 
-\begin{lstlisting}[language=C++,caption={GenerationGenerator.cpp},label={lst:generationgenerator_cpp}]
+\begin{lstlisting}[style=customc++,caption={GenerationGenerator.cpp},label={lst:generationgenerator_cpp}]
 #ifdef _MSC_VER
 	#include "stdafx.h"
 #endif
@@ -164,7 +165,7 @@ void GenerationGenerator::generateGeneration(void) {
 
 The GenerationGenerator module is tested in a tesbech. This testbench can be seen in listing ref{lst:generatorTestbench}, which more or less wires the stimulation and the genration generator together and makes a trace file.
 
-\begin{lstlisting}[language=C++,caption={Testbench for GenerationGenerator},label={lst:generatorTestbench}]
+\begin{lstlisting}[style=customc++,caption={Testbench for GenerationGenerator},label={lst:generatorTestbench}]
 #ifdef _MSC_VER
 	#include "stdafx.h"
 #endif
@@ -231,7 +232,7 @@ int sc_main(int argc, char* argv[]) {
 
 The stimulation for this testbench can be see in listing \ref{lst:generationGeneratiorStim}. It just makes a lot of random numbers and two parents and then starts the GenerationGenerator.
 
-\begin{lstlisting}[language=C++,caption={Stimulation for Generationgenerator},label={lst:generationGeneratiorStim}]
+\begin{lstlisting}[style=customc++,caption={Stimulation for Generationgenerator},label={lst:generationGeneratiorStim}]
 #pragma once
 #ifdef _MSC_VER
 	#include "stdafx.h"
@@ -272,7 +273,7 @@ SC_MODULE(Stim){
 \subsection{Simulator}
 The simulator (also called the RosenbrockSimulator) simulates the Rosenbrock function. The definition can be found in listing \ref{lst:rosenbrock_h}. Here it should be noted, that a and b are uint32 but we actually a float. This means that there is a conversion which is just handled by a reinterpret\_cast.
 
-\begin{lstlisting}[language=C++,caption={RosenbrockSimulator.h},label={lst:rosenbrock_h}]
+\begin{lstlisting}[style=customc++,caption={RosenbrockSimulator.h},label={lst:rosenbrock_h}]
 #ifndef ROSENBROCKSIMULATOR_H
 #define ROSENBROCKSIMULATOR_H
 #include <systemc.h>
@@ -301,7 +302,7 @@ SC_MODULE(RosenbrockSimulator) {
 
 The function implementation of the SC\_CTHREAD can be seen in listing \ref{lst:rosenbrock_cpp}. This is done using floats, which is not the most efficient thing to use. As it is going to be shown later in the results (section \ref{sec:results}) there is not room for the module on the FPGA. 
 
-\begin{lstlisting}[language=C++,caption={RosenbrockSimulator.cpp},label={lst:rosenbrock_cpp}]
+\begin{lstlisting}[style=customc++,caption={RosenbrockSimulator.cpp},label={lst:rosenbrock_cpp}]
 #include "RosenbrockSimulator.h"
 #include <string.h>
 #include <math.h>
@@ -333,7 +334,7 @@ void RosenbrockSimulator::simulateRosenbrock(){
 
 This module is tested using a testbench. This testbench can be seen in listing \ref{lst:rosenbrock_testbench}. This is more or less just wiring, but it also shows a result in the trace file. The stimulation for this testbench is shown in listing \ref{lst:rosenbrockStim}.
 
-\begin{lstlisting}[language=C++,caption={Testbench for RosenbrockSimulator},label={lst:rosenbrock_testbench}]
+\begin{lstlisting}[style=customc++,caption={Testbench for RosenbrockSimulator},label={lst:rosenbrock_testbench}]
 #ifdef _MSC_VER
 	#include "stdafx.h"
 #endif
@@ -395,7 +396,7 @@ int sc_main(int argc, char* argv[])
 }
 \end{lstlisting}
 
-\begin{lstlisting}[language=C++,caption={Testbench for RosenbrockSimulator},label={lst:rosenbrock_testbench}]
+\begin{lstlisting}[style=customc++,caption={Testbench for RosenbrockSimulator},label={lst:rosenbrock_testbench}]
 #pragma once
 #ifdef _MSC_VER
 	#include "stdafx.h"
