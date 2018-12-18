@@ -59,15 +59,26 @@ As stated earlier it is needed that the generation of a new generation and the s
 \end{figure}
 
 \subsection{Design}
-\footnote{\color{red}NOTE: waits in rosenbrock to reduce resources used}
-
 \begin{framed}
 4. Design the software and apply design patterns that are suitable for your project, and motivate the choice of the used patterns. Use the Two-Part Architecture Model if relevant for the problem. Use the abstract OS package for the ZYBO board
 \end{framed}
 
 The software is designed using, mostly, the GoF Concurrent state pattern with events for shifting using the command pattern.
 
-The state machine for this can be seen in figure \ref{fig:statemachine}. Here it can be seen that there is two concurrent states. One is for loading random numbers in all the time. and the other is the normal
+The state machine for this can be seen in figure \ref{fig:statemachine}. Here it can be seen that there is two concurrent states. One is for loading random numbers in all the time and the other is the optimizer.
+
+The only responsibility of the state for loading random numbers is to load random numbers and, when needed, pass them on to the generator.
+
+The other state is a bit bigger. It consists of four different states where one is a nested state with two additional states. 
+The states changes are triggered by the commands specified in the trigger in the state machine diagram in figure \ref{fig:statemachine}.
+
+The state \emph{Idle} is a waiting state which the software is in when it enters and when an optimization is done or aborted or when it is done with a setup.
+
+The \emph{Save} state is used to save the generation which has been optimized. This is done using a simple print to the terminal. 
+
+\emph{Setup} is the state where the user is able to set the parameters $a$,$b$,the stopping criterions, and the initial generation.
+
+The \emph{Optimize} is the nested state machine. This nested state machine is where most of the calculations happen. It starts in the state \emph{Simulate} where it finds the fitness of the generation. When the simulation is done it changes to either \emph{Idle} or \emph{GenerateGeneration} depending on whether the stopping criterions are met or not. It continues inside these until it has stopped or until it is aborted.
 
 \begin{figure}[htbp]
 \begin{centering}
