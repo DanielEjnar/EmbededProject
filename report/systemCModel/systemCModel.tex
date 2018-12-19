@@ -1,9 +1,438 @@
 \section{Modelling}
+\footnote{\color{red}NOTE: waits in rosenbrock to reduce resources used}
 
 \begin{framed}
 5. Select the SysML/UML model for your preferred architecture suggestions in 3. Choose a part of the functionality including both hardware and software components to create a model and a test- bench in HLS using SystemC or C-code. Simulate and validate your design model.
-Argue for your choice of modeling language and abstraction level of modeling. Use the reports from the HLS tool to evaluate performance of the design. Assess whether the design is able to fulfill your requirements and constraints.
+
+Argue for your choice of modeling language and abstraction level of modeling. Use the reports from the HLS tool to evaluate performance of the design. Assess whether the design is able to fulfill your requirements and constraints.
 \end{framed}
+
+As discussed in section \ref{sec:allocation} and seen in figure \ref{fig:allocation} there are two modules, which could be allocated on the hardware. There has been made a SystemC model for each of these. Both are done at the RTL abstraction level. This means, that the communication is abstracted away, it is just modeled as a signal with a type. But the model is clocked, meaning that we have a mean of synchronization, i.e. the modules are approximately timed.
+
+The two different modules will be described in the following.
+
+\subsection{GenerationGenerator}
+GenerationGenerator is responsible for generating a new generation using the generative algorithm described earlier.
+
+The module consists of two SC\_CTREAD's, as it can be seen in listing \ref{lst:generationgenerator_h}.
+
+\begin{lstlisting}[style=customc++, caption={GenerationGenerator.h},label={lst:generationgenerator_h}]
+#ifndef GENERATIONGENERATOR_H
+#define GENERATIONGENERATOR_H
+#include <systemc.h>
+
+#define CHROMOSOME_WIDTH 64
+#define RANDOM_WIDTH 24
+
+SC_MODULE(GenerationGenerator) {
+  sc_in<bool> clk;
+  sc_in<bool> reset;
+  sc_in<bool> startGenerating;
+  sc_out<bool> generatingDone;
+  sc_in<sc_uint<CHROMOSOME_WIDTH> > generation_parent1;
+  sc_in<sc_uint<CHROMOSOME_WIDTH> > generation_parent2;
+  sc_out<sc_uint<CHROMOSOME_WIDTH> > generation_child1;
+  sc_out<sc_uint<CHROMOSOME_WIDTH> > generation_child2;
+  sc_in<sc_uint<RANDOM_WIDTH> > mutation_probability;
+  sc_in<sc_uint<RANDOM_WIDTH> > random;
+  sc_uint<RANDOM_WIDTH> randomNumberIndex;
+  sc_uint<RANDOM_WIDTH> trueRandomIndex;;
+  sc_uint<RANDOM_WIDTH> randomNumbers[GENERATION_SIZE * 16];
+
+  void consumeRandom(void);
+  sc_uint<RANDOM_WIDTH> trueRandom(void);
+  void generateGeneration(void);
+  
+  SC_CTOR(GenerationGenerator) {
+    randomNumberIndex = 0;
+    trueRandomIndex = 0;
+    SC_CTHREAD(generateGeneration, clk.pos());
+    reset_signal_is(reset,false);
+    SC_CTHREAD(consumeRandom, clk.pos());
+    reset_signal_is(reset,false);
+  }
+};
+#endif
+\end{lstlisting}
+
+The implementation can be seen in listing \ref{lst:generationgenerator_cpp}. Here the behavior of the module can be found. consumeRandom has the responsibility of taking the random numbers from the input and saving them in a circular buffer. The random numbers are supposed to come from a loose audio channel, i.e. true random noise.
+
+The method trueRandom is used to get the random numbers when needed.
+
+generateGeneration is the method which uses the most logic. It basically implements the generative algorithm, as described i the theory. Here it is done with two random crossoverpoints. This is done using some bitmasks which is anded onto the adults to produce the children. Then the child is mutated, meaning, that a single bit can be flipped if the random number is lower than than the probability.
+
+All of the variables are made available through the AXILite interface through the use of pragmas.
+
+\begin{lstlisting}[style=customc++,caption={GenerationGenerator.cpp},label={lst:generationgenerator_cpp}]
+#ifdef _MSC_VER
+	#include "stdafx.h"
+#endif
+#include "GenerationGenerator.h"
+
+void GenerationGenerator::consumeRandom(void) {
+#pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv1" variable=random
+  sc_uint<RANDOM_WIDTH> tmpRnd;
+  while(true){
+    wait();
+    tmpRnd = random.read();
+    if(tmpRnd == randomNumbers[((randomNumberIndex-1) > 
+             RANDOM_WIDTH) ? RANDOM_WIDTH-1 : randomNumberIndex-1]){
+    randomNumbers[randomNumberIndex] = tmpRnd;
+    if(randomNumberIndex == RANDOM_WIDTH-1) {
+      randomNumberIndex = 0;
+      } else {
+        randomNumberIndex = randomNumberIndex + 1;
+      }
+    }
+  }
+}
+
+sc_uint<RANDOM_WIDTH> GenerationGenerator::trueRandom(void) {
+  sc_uint<RANDOM_WIDTH> randomNumber = randomNumbers[trueRandomIndex];
+  if (trueRandomIndex == RANDOM_WIDTH - 1) {
+    trueRandomIndex = 0;
+  } else {
+    trueRandomIndex = trueRandomIndex + 1;
+  }
+  return randomNumber;
+}
+
+void GenerationGenerator::generateGeneration(void) {
+  #pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=generation_parent1
+  #pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=generation_parent2
+  #pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=generation_child1
+  #pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=generation_child2
+  #pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=generation_parent1
+  #pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=mutation_probability
+  #pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=startGenerating
+  #pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=generatingDone
+
+  while(true) {
+    wait();	
+    while (startGenerating->read() == false) { wait(); }
+    generatingDone->write(false);
+    sc_uint<CHROMOSOME_WIDTH> parent1 = generation_parent1->read();
+    sc_uint<CHROMOSOME_WIDTH> parent2 = generation_parent2->read();
+
+    // crossover
+    // Make crossover points
+    sc_uint<CHROMOSOME_WIDTH> notZero = pow(2, CHROMOSOME_WIDTH) - 1;
+    sc_uint<RANDOM_WIDTH> point1 = trueRandom();
+    sc_uint<RANDOM_WIDTH> point2 = trueRandom();
+
+    point1 = (sc_uint<RANDOM_WIDTH + CHROMOSOME_WIDTH>) 
+                    (point1 * (CHROMOSOME_WIDTH - 1)) >> RANDOM_WIDTH;
+    point2 = (sc_uint<RANDOM_WIDTH + CHROMOSOME_WIDTH>) 
+                    (point2 * (CHROMOSOME_WIDTH - 1)) >> RANDOM_WIDTH;
+
+    // Sort high and low number
+    sc_uint<RANDOM_WIDTH> highNum;
+    sc_uint<RANDOM_WIDTH> lowNum;
+    if(point1 > point2) {
+      highNum = point1;
+      lowNum = point2;
+    } else {
+      highNum = point2;
+      lowNum = point1;
+    }
+  
+    sc_uint<CHROMOSOME_WIDTH> bitMask1 = notZero >> lowNum & ~notZero >> highNum;
+    sc_uint<CHROMOSOME_WIDTH> bitMask2 = ~bitMask1;
+
+    sc_uint<CHROMOSOME_WIDTH> child1 = (parent1 & bitMask1) + (bitMask2 & parent2);
+    sc_uint<CHROMOSOME_WIDTH> child2 = (parent1 & bitMask2) + (bitMask1 & parent2);
+
+    sc_uint<RANDOM_WIDTH> randomMutationProb = mutation_probability.read();
+
+    // Mutating child 1
+    for (int j = 0; j < CHROMOSOME_WIDTH; j++) {
+      if (trueRandom() < randomMutationProb) {
+        child1 ^= (1 << j);
+      }
+    }
+    // Mutating child 2
+    for (int j = 0; j < CHROMOSOME_WIDTH; j++){
+      if (trueRandom() < randomMutationProb) {
+        child2 ^= (1 << j);
+      }
+    }
+    generation_child1->write(child1);
+    generation_child2->write(child2);
+    generatingDone->write(true);
+  }
+}
+\end{lstlisting}
+
+The GenerationGenerator module is tested in a tesbech. This testbench can be seen in listing ref{lst:generatorTestbench}, which more or less wires the stimulation and the genration generator together and makes a trace file.
+
+\begin{lstlisting}[style=customc++,caption={Testbench for GenerationGenerator},label={lst:generatorTestbench}]
+#ifdef _MSC_VER
+	#include "stdafx.h"
+#endif
+#include <systemc.h>
+#include "GenerationGenerator.h"
+#include "Stim.h"
+
+#define CLK_PERIODE   20//ns
+int sc_main(int argc, char* argv[]) {
+  GenerationGenerator GenerationGenerator("GenerationGenerator");
+  Stim Stim("Stim");
+  
+  sc_clock clock("clock", sc_time(CLK_PERIODE, SC_NS)); // 50 MHz
+  sc_signal<bool> reset("reset");
+
+  sc_signal<sc_uint<CHROMOSOME_WIDTH> > generation_parent1_in_channel;
+  sc_signal<sc_uint<CHROMOSOME_WIDTH> > generation_parent2_in_channel;
+  sc_signal<sc_uint<CHROMOSOME_WIDTH> > generation_child1_out_channel;
+  sc_signal<sc_uint<CHROMOSOME_WIDTH> > generation_child2_out_channel;
+  sc_signal<sc_uint<RANDOM_WIDTH> > mutation_probability_in_channel("mutation_probability_in_channel");
+  sc_signal<sc_uint<RANDOM_WIDTH> > random_channel("random_channel");
+  sc_signal<bool> generatingDone;
+  sc_signal<bool> startGenerating;
+
+  // Wire GenerationGeneraton
+  GenerationGenerator.generation_parent1(generation_parent1_in_channel);
+  GenerationGenerator.generation_parent2(generation_parent2_in_channel);
+  GenerationGenerator.generation_child1(generation_child1_out_channel);
+  GenerationGenerator.generation_child2(generation_child2_out_channel);
+  GenerationGenerator.clk(clock);
+  GenerationGenerator.mutation_probability(mutation_probability_in_channel);
+  GenerationGenerator.random(random_channel);
+  GenerationGenerator.reset(reset);
+  GenerationGenerator.startGenerating(startGenerating);
+  GenerationGenerator.generatingDone(generatingDone);
+
+  // Wire Stim
+  Stim.generation_parent1(generation_parent1_in_channel);
+  Stim.generation_parent2(generation_parent2_in_channel);
+  Stim.clk(clock);
+  Stim.mutation_probability(mutation_probability_in_channel);
+  Stim.random(random_channel);
+  Stim.startGenerating(startGenerating);
+  Stim.generatingDone(generatingDone);
+
+  // Open VCD file
+  sc_trace_file *tf = sc_create_vcd_trace_file("GenerationGenerator");
+  tf->set_time_unit(1, SC_NS);
+  sc_trace(tf, clock, "clock");
+  sc_trace(tf, generation_parent1_in_channel, "generation_parent1_in_channel");
+  sc_trace(tf, generation_parent2_in_channel, "generation_parent2_in_channel");
+  sc_trace(tf, generation_child1_out_channel, "generation_child1_out_channel");
+  sc_trace(tf, generation_child2_out_channel, "generation_child2_out_channel");
+  sc_trace(tf, mutation_probability_in_channel, "mutation_probability_in_channel");
+  sc_trace(tf, random_channel, "random_in_channel");
+  
+  reset = true;
+
+  sc_start(2000,SC_NS);
+  sc_close_vcd_trace_file(tf);
+  return 0;
+}
+\end{lstlisting}
+
+The stimulation for this testbench can be see in listing \ref{lst:generationGeneratiorStim}. It just makes a lot of random numbers and two parents and then starts the GenerationGenerator.
+
+\begin{lstlisting}[style=customc++,caption={Stimulation for Generationgenerator},label={lst:generationGeneratiorStim}]
+#pragma once
+#ifdef _MSC_VER
+	#include "stdafx.h"
+#endif
+#include "systemc.h"
+#include "GenerationGenerator.h"
+//#include "iostream"
+
+SC_MODULE(Stim){
+  sc_in<bool> clk;
+  sc_out<sc_uint<CHROMOSOME_WIDTH> > generation_parent1;
+  sc_out<sc_uint<CHROMOSOME_WIDTH> > generation_parent2;
+  sc_out<sc_uint<RANDOM_WIDTH> > mutation_probability;
+  sc_out<sc_uint<RANDOM_WIDTH> > random;
+  sc_out<bool> startGenerating;
+  sc_in<bool> generatingDone;
+
+  void stimGen() {
+    wait(10, SC_NS);
+    mutation_probability->write(255);
+    for(int i = 0; i < 160; i++) {
+      random->write(rand()*RAND_MAX);
+      wait(1, SC_NS);
+    }
+    generation_parent1->write(rand() * 2);
+    generation_parent2->write(rand() * 2);
+    startGenerating->write(true);
+    wait(1, SC_MS);
+  }
+  SC_CTOR(Stim) {
+    SC_THREAD(stimGen);
+    sensitive << clk.pos();
+  }
+};
+\end{lstlisting}
+
+
+\subsection{Simulator}
+The simulator (also called the RosenbrockSimulator) simulates the Rosenbrock function. The definition can be found in listing \ref{lst:rosenbrock_h}. Here it should be noted, that a and b are uint32 but we actually a float. This means that there is a conversion which is just handled by a reinterpret\_cast.
+
+\begin{lstlisting}[style=customc++,caption={RosenbrockSimulator.h},label={lst:rosenbrock_h}]
+#ifndef ROSENBROCKSIMULATOR_H
+#define ROSENBROCKSIMULATOR_H
+#include <systemc.h>
+
+#define CHROMOSOME_WIDTH 64
+
+SC_MODULE(RosenbrockSimulator) {
+  sc_in<bool> clk;
+  sc_in<bool> reset;
+  sc_in<bool> startSimulation;
+  sc_out<bool> simulationDone;
+  sc_in<sc_uint<32> > a; //actually float
+  sc_in<sc_uint<32> > b; //actually float
+  sc_in<sc_uint<CHROMOSOME_WIDTH> > chromosome_in;
+  sc_out<sc_uint<32> > fitness;//actually float
+
+  void simulateRosenbrock(void);
+
+  SC_CTOR(RosenbrockSimulator) {
+    SC_CTHREAD(simulateRosenbrock, clk.pos());
+    reset_signal_is(reset,false);
+  }
+};
+#endif
+\end{lstlisting}
+
+The function implementation of the SC\_CTHREAD can be seen in listing \ref{lst:rosenbrock_cpp}. This is done using floats, which is not the most efficient thing to use. As it is going to be shown later in the results (section \ref{sec:results}) there is not room for the module on the FPGA. 
+
+\begin{lstlisting}[style=customc++,caption={RosenbrockSimulator.cpp},label={lst:rosenbrock_cpp}]
+#include "RosenbrockSimulator.h"
+#include <string.h>
+#include <math.h>
+#include "ieee754float.h"
+
+void RosenbrockSimulator::simulateRosenbrock(){
+  while (true) {
+    sc_uint<CHROMOSOME_WIDTH> notZero = pow(2, CHROMOSOME_WIDTH) - 1;
+    while(startSimulation->read()==false){ wait(); }
+    simulationDone->write(false);
+    sc_uint<CHROMOSOME_WIDTH> tmpChromosome = chromosome_in->read();
+    sc_uint<CHROMOSOME_WIDTH/2 > x = 0, y = 0;
+    x = tmpChromosome >> ( CHROMOSOME_WIDTH >> 1 );
+    y = tmpChromosome;
+    float x_double, y_double;
+    x_double = uint32ToFloat((uint32_t)x);
+    y_double = uint32ToFloat((uint32_t)y);
+    uint32_t result;
+    float a_local,b_local;
+    a_local = uint32ToFloat(a->read());
+    b_local = uint32ToFloat(b->read());
+    result = pow((a_local-x_double),2)+
+    		b_local*pow((y_double-pow(x_double,2)),2);
+    fitness->write(result);
+    simulationDone->write(true);
+  }
+}
+\end{lstlisting}
+
+This module is tested using a testbench. This testbench can be seen in listing \ref{lst:rosenbrock_testbench}. This is more or less just wiring, but it also shows a result in the trace file. The stimulation for this testbench is shown in listing \ref{lst:rosenbrockStim}.
+
+\begin{lstlisting}[style=customc++,caption={Testbench for RosenbrockSimulator},label={lst:rosenbrock_testbench}]
+#ifdef _MSC_VER
+	#include "stdafx.h"
+#endif
+#include <systemc.h>
+#include "RosenbrockSimulator.h"
+#include "Stim.h"
+
+#define CLK_PERIODE   20//ns
+int sc_main(int argc, char* argv[])
+{
+  RosenbrockSimulator RosenbrockSimulator("RosenbrockSimulator");
+  Stim Stim("Stim");
+
+  sc_clock clk("clock", sc_time(CLK_PERIODE, SC_NS)); // 50 MHz
+  sc_signal<bool> reset("reset");
+
+  sc_signal<bool> startSimulation;
+  sc_signal<bool> simulationDone;
+  sc_signal<sc_uint<32> > a;
+  sc_signal<sc_uint<32> > b;
+  sc_signal<sc_uint<32> > fitness;
+  sc_signal<sc_uint<CHROMOSOME_WIDTH> > chromosome_in;
+
+  // Wire GenerationGeneraton
+  RosenbrockSimulator.clk(clk);
+  RosenbrockSimulator.reset(reset);
+  RosenbrockSimulator.startSimulation(startSimulation);
+  RosenbrockSimulator.simulationDone(simulationDone);
+  RosenbrockSimulator.a(a);
+  RosenbrockSimulator.b(b);
+  RosenbrockSimulator.chromosome_in(chromosome_in);
+  RosenbrockSimulator.fitness(fitness);
+  
+  // Wire Stim
+  Stim.clk(clk);
+  Stim.startSimulation(startSimulation);
+  Stim.simulationDone(simulationDone);
+  Stim.a(a);
+  Stim.b(b);
+  Stim.chromosome_in(chromosome_in);
+  Stim.fitness(fitness);
+ 
+  // Open VCD file
+  sc_trace_file *tf = sc_create_vcd_trace_file("GenerationGenerator");
+  tf->set_time_unit(1, SC_NS);
+  sc_trace(tf, clk, "clock");
+  sc_trace(tf, startSimulation, "startSimulation");
+  sc_trace(tf, simulationDone, "simulationDone");
+  sc_trace(tf, a, "a");
+  sc_trace(tf, b, "b");
+  sc_trace(tf, fitness, "fitness");
+  sc_trace(tf, chromosome_in, "chromosome_in");
+  
+  reset = true;
+
+  sc_start(2000,SC_NS);
+  sc_close_vcd_trace_file(tf);
+  return 0;
+}
+\end{lstlisting}
+
+\begin{lstlisting}[style=customc++,caption={Testbench for RosenbrockSimulator},label={lst:rosenbrock_testbench}]
+#pragma once
+#ifdef _MSC_VER
+	#include "stdafx.h"
+#endif
+#include "systemc.h"
+#include "RosenbrockSimulator.h"
+#include "ieee754float.h"
+
+SC_MODULE(Stim)
+ {
+    sc_in<bool> clk;
+    sc_out<bool> startSimulation;
+    sc_in<bool> simulationDone;
+    sc_out<sc_uint<32> > a;//actually float
+    sc_out<sc_uint<32> > b;//actually float
+    sc_out<sc_uint<CHROMOSOME_WIDTH> > chromosome_in;
+    sc_in<sc_uint<32> > fitness;//actually float
+	
+    void stimGen() {
+      wait(10, SC_NS);
+      a->write(floatToUint32_t(1));
+      b->write(floatToUint32_t(100));
+      chromosome_in->write(0x7f7fffff7f7fffff);
+      wait(1, SC_NS);
+      startSimulation->write(true);
+      wait(10, SC_MS);
+      wait(1, SC_MS);
+    }
+    SC_CTOR(Stim) {
+      SC_THREAD(stimGen);
+      sensitive << clk.pos();
+    }
+};
+\end{lstlisting}
+
+
 
 %\section{SystemC Modelling}
 
