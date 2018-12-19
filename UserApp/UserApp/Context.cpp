@@ -30,12 +30,12 @@ void Context::SetCurrentState(std::unique_ptr<State> s) {
 	_currentState = std::move(s);
 }
 
-void Context::SetA(int a)
+void Context::SetA(float a)
 {
 	_a = a;
 }
 
-void Context::SetB(int b)
+void Context::SetB(float b)
 {
 	_b = b;
 }
