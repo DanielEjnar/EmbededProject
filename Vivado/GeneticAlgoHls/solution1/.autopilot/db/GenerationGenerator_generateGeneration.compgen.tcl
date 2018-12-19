@@ -18,7 +18,7 @@ eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
     dir I \
     corename GenerationGenerator_randomNumbers_V \
     op interface \
-    ports { GenerationGenerator_randomNumbers_V_address0 { O 8 vector } GenerationGenerator_randomNumbers_V_ce0 { O 1 bit } GenerationGenerator_randomNumbers_V_q0 { I 24 vector } GenerationGenerator_randomNumbers_V_address1 { O 8 vector } GenerationGenerator_randomNumbers_V_ce1 { O 1 bit } GenerationGenerator_randomNumbers_V_q1 { I 24 vector } } \
+    ports { GenerationGenerator_randomNumbers_V_address0 { O 8 vector } GenerationGenerator_randomNumbers_V_ce0 { O 1 bit } GenerationGenerator_randomNumbers_V_q0 { I 24 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'GenerationGenerator_randomNumbers_V'"
@@ -56,7 +56,7 @@ set opts {
         sync_rst true
         type scalar
         dir I
-        width 16
+        width 64
         mode SIG_IN_VLD_OFF:SIG_IN_ACC_OFF
     }
     {
@@ -66,7 +66,7 @@ set opts {
         sync_rst true
         type scalar
         dir I
-        width 16
+        width 64
         mode SIG_IN_VLD_OFF:SIG_IN_ACC_OFF
     }
     {
@@ -76,7 +76,7 @@ set opts {
         sync_rst true
         type scalar
         dir O
-        width 16
+        width 64
         mode SIG_OUT_VLD_ON:SIG_OUT_ACC_OFF
     }
     {
@@ -86,7 +86,7 @@ set opts {
         sync_rst true
         type scalar
         dir O
-        width 16
+        width 64
         mode SIG_OUT_VLD_ON:SIG_OUT_ACC_OFF
     }
     {

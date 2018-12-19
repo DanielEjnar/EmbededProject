@@ -39,7 +39,7 @@ lappend portList $port3
 set portName4 "generation_parent1"
 set isMeta4 0
 set portInterface4 [list "sc_in"]
-set portData4 [list "sc_uint" 16]
+set portData4 [list "sc_uint" 64]
 set isClock4 0
 set isReset4 0
 set portAttribute4 [list $isClock4 $isReset4]
@@ -48,7 +48,7 @@ lappend portList $port4
 set portName5 "generation_parent2"
 set isMeta5 0
 set portInterface5 [list "sc_in"]
-set portData5 [list "sc_uint" 16]
+set portData5 [list "sc_uint" 64]
 set isClock5 0
 set isReset5 0
 set portAttribute5 [list $isClock5 $isReset5]
@@ -57,7 +57,7 @@ lappend portList $port5
 set portName6 "generation_child1"
 set isMeta6 0
 set portInterface6 [list "sc_out"]
-set portData6 [list "sc_uint" 16]
+set portData6 [list "sc_uint" 64]
 set isClock6 0
 set isReset6 0
 set portAttribute6 [list $isClock6 $isReset6]
@@ -66,7 +66,7 @@ lappend portList $port6
 set portName7 "generation_child2"
 set isMeta7 0
 set portInterface7 [list "sc_out"]
-set portData7 [list "sc_uint" 16]
+set portData7 [list "sc_uint" 64]
 set isClock7 0
 set isReset7 0
 set portAttribute7 [list $isClock7 $isReset7]

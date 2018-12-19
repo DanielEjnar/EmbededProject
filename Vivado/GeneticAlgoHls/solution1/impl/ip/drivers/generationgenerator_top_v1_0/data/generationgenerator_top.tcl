@@ -10,20 +10,15 @@ proc generate {drv_handle} {
         "NUM_INSTANCES" \
         "DEVICE_ID" \
         "C_S_AXI_SLV0_BASEADDR" \
-        "C_S_AXI_SLV0_HIGHADDR" \
-        "C_S_AXI_SLV1_BASEADDR" \
-        "C_S_AXI_SLV1_HIGHADDR"
+        "C_S_AXI_SLV0_HIGHADDR"
 
     xdefine_config_file $drv_handle "xgenerationgenerator_g.c" "XGenerationgenerator" \
         "DEVICE_ID" \
-        "C_S_AXI_SLV0_BASEADDR" \
-        "C_S_AXI_SLV1_BASEADDR"
+        "C_S_AXI_SLV0_BASEADDR"
 
     xdefine_canonical_xpars $drv_handle "xparameters.h" "XGenerationgenerator" \
         "DEVICE_ID" \
         "C_S_AXI_SLV0_BASEADDR" \
-        "C_S_AXI_SLV0_HIGHADDR" \
-        "C_S_AXI_SLV1_BASEADDR" \
-        "C_S_AXI_SLV1_HIGHADDR"
+        "C_S_AXI_SLV0_HIGHADDR"
 }
 

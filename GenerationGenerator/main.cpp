@@ -54,10 +54,11 @@ int sc_main(int argc, char* argv[]) {
 	sc_trace(tf, generation_child2_out_channel, "generation_child2_out_channel");
 	sc_trace(tf, mutation_probability_in_channel, "mutation_probability_in_channel");
 	sc_trace(tf, random_channel, "random_in_channel");
+	sc_trace(tf, generatingDone, "generatingDone");
 
 	reset = true;
 
-	sc_start(2000,SC_NS);
+	sc_start(4000,SC_NS);
 	sc_close_vcd_trace_file(tf);
 	return 0;
 }

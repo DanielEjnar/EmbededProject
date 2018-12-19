@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'GenerationGenerator'
 ================================================================
-* Date:           Tue Dec 18 13:27:42 2018
+* Date:           Wed Dec 19 15:48:44 2018
 
 * Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        GeneticAlgoHls
@@ -20,7 +20,7 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  20.00|     13.37|        2.50|
+    |ap_clk  |  20.00|     10.59|        2.50|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
@@ -29,7 +29,7 @@
     |  Latency  |  Interval | Pipeline|
     | min | max | min | max |   Type  |
     +-----+-----+-----+-----+---------+
-    |    0|   71|    1|   72|   none  |
+    |    0|  267|    1|  268|   none  |
     +-----+-----+-----+-----+---------+
 
     + Detail: 
@@ -38,8 +38,8 @@
         |                                                   |                                        |  Latency  |  Interval | Pipeline|
         |                      Instance                     |                 Module                 | min | max | min | max |   Type  |
         +---------------------------------------------------+----------------------------------------+-----+-----+-----+-----+---------+
-        |grp_GenerationGenerator_generateGeneration_fu_116  |GenerationGenerator_generateGeneration  |   70|   70|   70|   70|   none  |
-        |grp_GenerationGenerator_consumeRandom_fu_146       |GenerationGenerator_consumeRandom       |    3|    3|    3|    3|   none  |
+        |grp_GenerationGenerator_generateGeneration_fu_114  |GenerationGenerator_generateGeneration  |  266|  266|  266|  266|   none  |
+        |grp_GenerationGenerator_consumeRandom_fu_144       |GenerationGenerator_consumeRandom       |    2|    2|    2|    2|   none  |
         +---------------------------------------------------+----------------------------------------+-----+-----+-----+-----+---------+
 
         * Loop: 
@@ -57,28 +57,28 @@
 |DSP              |        -|      -|      -|      -|
 |Expression       |        -|      -|      -|      -|
 |FIFO             |        -|      -|      -|      -|
-|Instance         |        -|      -|   1318|   1094|
-|Memory           |        2|      -|      0|      0|
+|Instance         |        -|      -|   1053|    950|
+|Memory           |        1|      -|      0|      0|
 |Multiplexer      |        -|      -|      -|     48|
-|Register         |        -|      -|     81|      -|
+|Register         |        -|      -|    177|      -|
 +-----------------+---------+-------+-------+-------+
-|Total            |        2|      0|   1399|   1142|
+|Total            |        1|      0|   1230|    998|
 +-----------------+---------+-------+-------+-------+
 |Available        |      120|     80|  35200|  17600|
 +-----------------+---------+-------+-------+-------+
-|Utilization (%)  |        1|      0|      3|      6|
+|Utilization (%)  |    ~0   |      0|      3|      5|
 +-----------------+---------+-------+-------+-------+
 
 + Detail: 
     * Instance: 
-    +---------------------------------------------------+----------------------------------------+---------+-------+------+-----+
-    |                      Instance                     |                 Module                 | BRAM_18K| DSP48E|  FF  | LUT |
-    +---------------------------------------------------+----------------------------------------+---------+-------+------+-----+
-    |grp_GenerationGenerator_consumeRandom_fu_146       |GenerationGenerator_consumeRandom       |        0|      0|   240|  181|
-    |grp_GenerationGenerator_generateGeneration_fu_116  |GenerationGenerator_generateGeneration  |        0|      0|  1078|  913|
-    +---------------------------------------------------+----------------------------------------+---------+-------+------+-----+
-    |Total                                              |                                        |        0|      0|  1318| 1094|
-    +---------------------------------------------------+----------------------------------------+---------+-------+------+-----+
+    +---------------------------------------------------+----------------------------------------+---------+-------+-----+-----+
+    |                      Instance                     |                 Module                 | BRAM_18K| DSP48E|  FF | LUT |
+    +---------------------------------------------------+----------------------------------------+---------+-------+-----+-----+
+    |grp_GenerationGenerator_consumeRandom_fu_144       |GenerationGenerator_consumeRandom       |        0|      0|   79|   75|
+    |grp_GenerationGenerator_generateGeneration_fu_114  |GenerationGenerator_generateGeneration  |        0|      0|  974|  875|
+    +---------------------------------------------------+----------------------------------------+---------+-------+-----+-----+
+    |Total                                              |                                        |        0|      0| 1053|  950|
+    +---------------------------------------------------+----------------------------------------+---------+-------+-----+-----+
 
     * DSP48: 
     N/A
@@ -87,9 +87,9 @@
     +---------------------------------------+----------------------+---------+---+----+------+-----+------+-------------+
     |                 Memory                |        Module        | BRAM_18K| FF| LUT| Words| Bits| Banks| W*Bits*Banks|
     +---------------------------------------+----------------------+---------+---+----+------+-----+------+-------------+
-    |GenerationGenerator_randomNumbers_V_U  |GenerationGeneratbkb  |        2|  0|   0|   160|   24|     1|         3840|
+    |GenerationGenerator_randomNumbers_V_U  |GenerationGeneratbkb  |        1|  0|   0|   160|   24|     1|         3840|
     +---------------------------------------+----------------------+---------+---+----+------+-----+------+-------------+
-    |Total                                  |                      |        2|  0|   0|   160|   24|     1|         3840|
+    |Total                                  |                      |        1|  0|   0|   160|   24|     1|         3840|
     +---------------------------------------+----------------------+---------+---+----+------+-----+------+-------------+
 
     * FIFO: 
@@ -117,10 +117,10 @@
     |GenerationGenerator_randomNumberIndex_V  |  24|   0|   24|          0|
     |GenerationGenerator_trueRandomIndex_V    |  24|   0|   24|          0|
     |generatingDone                           |   1|   0|    1|          0|
-    |generation_child1                        |  16|   0|   16|          0|
-    |generation_child2                        |  16|   0|   16|          0|
+    |generation_child1                        |  64|   0|   64|          0|
+    |generation_child2                        |  64|   0|   64|          0|
     +-----------------------------------------+----+----+-----+-----------+
-    |Total                                    |  81|   0|   81|          0|
+    |Total                                    | 177|   0|  177|          0|
     +-----------------------------------------+----+----+-----+-----------+
 
 
@@ -136,10 +136,10 @@
 |reset                 |  in |    1| ap_ctrl_hs | GenerationGenerator::GenerationGenerator | return value |
 |startGenerating       |  in |    1|   ap_none  |              startGenerating             |    pointer   |
 |generatingDone        | out |    1|   ap_vld   |              generatingDone              |    pointer   |
-|generation_parent1    |  in |   16|   ap_none  |            generation_parent1            |    pointer   |
-|generation_parent2    |  in |   16|   ap_none  |            generation_parent2            |    pointer   |
-|generation_child1     | out |   16|   ap_vld   |             generation_child1            |    pointer   |
-|generation_child2     | out |   16|   ap_vld   |             generation_child2            |    pointer   |
+|generation_parent1    |  in |   64|   ap_none  |            generation_parent1            |    pointer   |
+|generation_parent2    |  in |   64|   ap_none  |            generation_parent2            |    pointer   |
+|generation_child1     | out |   64|   ap_vld   |             generation_child1            |    pointer   |
+|generation_child2     | out |   64|   ap_vld   |             generation_child2            |    pointer   |
 |mutation_probability  |  in |   24|   ap_none  |           mutation_probability           |    pointer   |
 |random                |  in |   24|   ap_none  |                  random                  |    pointer   |
 +----------------------+-----+-----+------------+------------------------------------------+--------------+

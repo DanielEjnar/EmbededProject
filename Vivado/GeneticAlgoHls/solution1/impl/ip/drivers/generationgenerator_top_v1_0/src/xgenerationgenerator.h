@@ -41,13 +41,11 @@ typedef uint32_t u32;
 typedef struct {
     u16 DeviceId;
     u32 Slv0_BaseAddress;
-    u32 Slv1_BaseAddress;
 } XGenerationgenerator_Config;
 #endif
 
 typedef struct {
     u32 Slv0_BaseAddress;
-    u32 Slv1_BaseAddress;
     u32 IsReady;
 } XGenerationgenerator;
 
@@ -86,12 +84,12 @@ int XGenerationgenerator_Release(XGenerationgenerator *InstancePtr);
 void XGenerationgenerator_SetStartgenerating(XGenerationgenerator *InstancePtr, u32 Data);
 u32 XGenerationgenerator_GetStartgenerating(XGenerationgenerator *InstancePtr);
 u32 XGenerationgenerator_GetGeneratingdone(XGenerationgenerator *InstancePtr);
-void XGenerationgenerator_SetGeneration_parent1(XGenerationgenerator *InstancePtr, u32 Data);
-u32 XGenerationgenerator_GetGeneration_parent1(XGenerationgenerator *InstancePtr);
-void XGenerationgenerator_SetGeneration_parent2(XGenerationgenerator *InstancePtr, u32 Data);
-u32 XGenerationgenerator_GetGeneration_parent2(XGenerationgenerator *InstancePtr);
-u32 XGenerationgenerator_GetGeneration_child1(XGenerationgenerator *InstancePtr);
-u32 XGenerationgenerator_GetGeneration_child2(XGenerationgenerator *InstancePtr);
+void XGenerationgenerator_SetGeneration_parent1(XGenerationgenerator *InstancePtr, u64 Data);
+u64 XGenerationgenerator_GetGeneration_parent1(XGenerationgenerator *InstancePtr);
+void XGenerationgenerator_SetGeneration_parent2(XGenerationgenerator *InstancePtr, u64 Data);
+u64 XGenerationgenerator_GetGeneration_parent2(XGenerationgenerator *InstancePtr);
+u64 XGenerationgenerator_GetGeneration_child1(XGenerationgenerator *InstancePtr);
+u64 XGenerationgenerator_GetGeneration_child2(XGenerationgenerator *InstancePtr);
 void XGenerationgenerator_SetMutation_probability(XGenerationgenerator *InstancePtr, u32 Data);
 u32 XGenerationgenerator_GetMutation_probability(XGenerationgenerator *InstancePtr);
 void XGenerationgenerator_SetRandom(XGenerationgenerator *InstancePtr, u32 Data);

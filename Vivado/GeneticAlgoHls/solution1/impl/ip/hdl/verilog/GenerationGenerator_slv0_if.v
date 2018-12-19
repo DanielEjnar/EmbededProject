@@ -34,11 +34,12 @@ module GenerationGenerator_slv0_if
     // user signals
     output wire [0:0]                I_startGenerating,
     input  wire [0:0]                O_generatingDone,
-    output wire [15:0]               I_generation_parent1,
-    output wire [15:0]               I_generation_parent2,
-    input  wire [15:0]               O_generation_child1,
-    input  wire [15:0]               O_generation_child2,
-    output wire [23:0]               I_mutation_probability
+    output wire [63:0]               I_generation_parent1,
+    output wire [63:0]               I_generation_parent2,
+    input  wire [63:0]               O_generation_child1,
+    input  wire [63:0]               O_generation_child2,
+    output wire [23:0]               I_mutation_probability,
+    output wire [23:0]               I_random
 );
 //------------------------Address Info-------------------
 // 0x00 : reserved
@@ -55,23 +56,31 @@ module GenerationGenerator_slv0_if
 //        others - reserved
 // 0x20 : reserved
 // 0x24 : Data signal of generation_parent1
-//        bit 15~0 - generation_parent1[15:0] (Read/Write)
-//        others   - reserved
-// 0x28 : reserved
-// 0x2c : Data signal of generation_parent2
-//        bit 15~0 - generation_parent2[15:0] (Read/Write)
-//        others   - reserved
-// 0x30 : reserved
-// 0x34 : Data signal of generation_child1
-//        bit 15~0 - generation_child1[15:0] (Read)
-//        others   - reserved
+//        bit 31~0 - generation_parent1[31:0] (Read/Write)
+// 0x28 : Data signal of generation_parent1
+//        bit 31~0 - generation_parent1[63:32] (Read/Write)
+// 0x2c : reserved
+// 0x30 : Data signal of generation_parent2
+//        bit 31~0 - generation_parent2[31:0] (Read/Write)
+// 0x34 : Data signal of generation_parent2
+//        bit 31~0 - generation_parent2[63:32] (Read/Write)
 // 0x38 : reserved
-// 0x3c : Data signal of generation_child2
-//        bit 15~0 - generation_child2[15:0] (Read)
-//        others   - reserved
-// 0x40 : reserved
-// 0x44 : Data signal of mutation_probability
+// 0x3c : Data signal of generation_child1
+//        bit 31~0 - generation_child1[31:0] (Read)
+// 0x40 : Data signal of generation_child1
+//        bit 31~0 - generation_child1[63:32] (Read)
+// 0x44 : reserved
+// 0x48 : Data signal of generation_child2
+//        bit 31~0 - generation_child2[31:0] (Read)
+// 0x4c : Data signal of generation_child2
+//        bit 31~0 - generation_child2[63:32] (Read)
+// 0x50 : reserved
+// 0x54 : Data signal of mutation_probability
 //        bit 23~0 - mutation_probability[23:0] (Read/Write)
+//        others   - reserved
+// 0x58 : reserved
+// 0x5c : Data signal of random
+//        bit 23~0 - random[23:0] (Read/Write)
 //        others   - reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
@@ -88,14 +97,20 @@ localparam
     ADDR_GENERATINGDONE_DATA_0       = 7'h1c,
     ADDR_GENERATION_PARENT1_CTRL     = 7'h20,
     ADDR_GENERATION_PARENT1_DATA_0   = 7'h24,
-    ADDR_GENERATION_PARENT2_CTRL     = 7'h28,
-    ADDR_GENERATION_PARENT2_DATA_0   = 7'h2c,
-    ADDR_GENERATION_CHILD1_CTRL      = 7'h30,
-    ADDR_GENERATION_CHILD1_DATA_0    = 7'h34,
-    ADDR_GENERATION_CHILD2_CTRL      = 7'h38,
-    ADDR_GENERATION_CHILD2_DATA_0    = 7'h3c,
-    ADDR_MUTATION_PROBABILITY_CTRL   = 7'h40,
-    ADDR_MUTATION_PROBABILITY_DATA_0 = 7'h44;
+    ADDR_GENERATION_PARENT1_DATA_1   = 7'h28,
+    ADDR_GENERATION_PARENT2_CTRL     = 7'h2c,
+    ADDR_GENERATION_PARENT2_DATA_0   = 7'h30,
+    ADDR_GENERATION_PARENT2_DATA_1   = 7'h34,
+    ADDR_GENERATION_CHILD1_CTRL      = 7'h38,
+    ADDR_GENERATION_CHILD1_DATA_0    = 7'h3c,
+    ADDR_GENERATION_CHILD1_DATA_1    = 7'h40,
+    ADDR_GENERATION_CHILD2_CTRL      = 7'h44,
+    ADDR_GENERATION_CHILD2_DATA_0    = 7'h48,
+    ADDR_GENERATION_CHILD2_DATA_1    = 7'h4c,
+    ADDR_MUTATION_PROBABILITY_CTRL   = 7'h50,
+    ADDR_MUTATION_PROBABILITY_DATA_0 = 7'h54,
+    ADDR_RANDOM_CTRL                 = 7'h58,
+    ADDR_RANDOM_DATA_0               = 7'h5c;
 
 // axi write fsm
 localparam
@@ -125,11 +140,12 @@ wire [ADDR_BITS-1:0] raddr;
 // internal registers
 reg  [0:0]           _startGenerating;
 wire [0:0]           _generatingDone;
-reg  [15:0]          _generation_parent1;
-reg  [15:0]          _generation_parent2;
-wire [15:0]          _generation_child1;
-wire [15:0]          _generation_child2;
+reg  [63:0]          _generation_parent1;
+reg  [63:0]          _generation_parent2;
+wire [63:0]          _generation_child1;
+wire [63:0]          _generation_child2;
 reg  [23:0]          _mutation_probability;
+reg  [23:0]          _random;
 
 //------------------------Body---------------------------
 //++++++++++++++++++++++++axi write++++++++++++++++++++++
@@ -225,19 +241,34 @@ always @(posedge ACLK) begin
                 rdata <= _generatingDone[0:0];
             end
             ADDR_GENERATION_PARENT1_DATA_0: begin
-                rdata <= _generation_parent1[15:0];
+                rdata <= _generation_parent1[31:0];
+            end
+            ADDR_GENERATION_PARENT1_DATA_1: begin
+                rdata <= _generation_parent1[63:32];
             end
             ADDR_GENERATION_PARENT2_DATA_0: begin
-                rdata <= _generation_parent2[15:0];
+                rdata <= _generation_parent2[31:0];
+            end
+            ADDR_GENERATION_PARENT2_DATA_1: begin
+                rdata <= _generation_parent2[63:32];
             end
             ADDR_GENERATION_CHILD1_DATA_0: begin
-                rdata <= _generation_child1[15:0];
+                rdata <= _generation_child1[31:0];
+            end
+            ADDR_GENERATION_CHILD1_DATA_1: begin
+                rdata <= _generation_child1[63:32];
             end
             ADDR_GENERATION_CHILD2_DATA_0: begin
-                rdata <= _generation_child2[15:0];
+                rdata <= _generation_child2[31:0];
+            end
+            ADDR_GENERATION_CHILD2_DATA_1: begin
+                rdata <= _generation_child2[63:32];
             end
             ADDR_MUTATION_PROBABILITY_DATA_0: begin
                 rdata <= _mutation_probability[23:0];
+            end
+            ADDR_RANDOM_DATA_0: begin
+                rdata <= _random[23:0];
             end
         endcase
     end
@@ -252,6 +283,7 @@ assign I_generation_parent2   = _generation_parent2;
 assign _generation_child1     = O_generation_child1;
 assign _generation_child2     = O_generation_child2;
 assign I_mutation_probability = _mutation_probability;
+assign I_random               = _random;
 
 // _startGenerating[0:0]
 always @(posedge ACLK) begin
@@ -259,22 +291,40 @@ always @(posedge ACLK) begin
         _startGenerating[0:0] <= (WDATA[31:0] & wmask) | (_startGenerating[0:0] & ~wmask);
 end
 
-// _generation_parent1[15:0]
+// _generation_parent1[31:0]
 always @(posedge ACLK) begin
     if (w_hs && waddr == ADDR_GENERATION_PARENT1_DATA_0)
-        _generation_parent1[15:0] <= (WDATA[31:0] & wmask) | (_generation_parent1[15:0] & ~wmask);
+        _generation_parent1[31:0] <= (WDATA[31:0] & wmask) | (_generation_parent1[31:0] & ~wmask);
 end
 
-// _generation_parent2[15:0]
+// _generation_parent1[63:32]
+always @(posedge ACLK) begin
+    if (w_hs && waddr == ADDR_GENERATION_PARENT1_DATA_1)
+        _generation_parent1[63:32] <= (WDATA[31:0] & wmask) | (_generation_parent1[63:32] & ~wmask);
+end
+
+// _generation_parent2[31:0]
 always @(posedge ACLK) begin
     if (w_hs && waddr == ADDR_GENERATION_PARENT2_DATA_0)
-        _generation_parent2[15:0] <= (WDATA[31:0] & wmask) | (_generation_parent2[15:0] & ~wmask);
+        _generation_parent2[31:0] <= (WDATA[31:0] & wmask) | (_generation_parent2[31:0] & ~wmask);
+end
+
+// _generation_parent2[63:32]
+always @(posedge ACLK) begin
+    if (w_hs && waddr == ADDR_GENERATION_PARENT2_DATA_1)
+        _generation_parent2[63:32] <= (WDATA[31:0] & wmask) | (_generation_parent2[63:32] & ~wmask);
 end
 
 // _mutation_probability[23:0]
 always @(posedge ACLK) begin
     if (w_hs && waddr == ADDR_MUTATION_PROBABILITY_DATA_0)
         _mutation_probability[23:0] <= (WDATA[31:0] & wmask) | (_mutation_probability[23:0] & ~wmask);
+end
+
+// _random[23:0]
+always @(posedge ACLK) begin
+    if (w_hs && waddr == ADDR_RANDOM_DATA_0)
+        _random[23:0] <= (WDATA[31:0] & wmask) | (_random[23:0] & ~wmask);
 end
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++

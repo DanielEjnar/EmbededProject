@@ -4,7 +4,7 @@
 set ID 12
 set MemName GenerationGeneratbkb
 set CoreName ap_simcore_mem
-set PortList { 2 1 }
+set PortList { 2 3 }
 set DataWd 24
 set AddrRange 160
 set AddrWd 8
@@ -120,7 +120,7 @@ set opts {
         sync_rst true
         type scalar
         dir I
-        width 16
+        width 64
         mode SIG_IN_VLD_OFF:SIG_IN_ACC_OFF
     }
     {
@@ -130,7 +130,7 @@ set opts {
         sync_rst true
         type scalar
         dir I
-        width 16
+        width 64
         mode SIG_IN_VLD_OFF:SIG_IN_ACC_OFF
     }
     {
@@ -140,7 +140,7 @@ set opts {
         sync_rst true
         type scalar
         dir O
-        width 16
+        width 64
         mode SIG_OUT_VLD_OFF:SIG_OUT_ACC_OFF
     }
     {
@@ -150,7 +150,7 @@ set opts {
         sync_rst true
         type scalar
         dir O
-        width 16
+        width 64
         mode SIG_OUT_VLD_OFF:SIG_OUT_ACC_OFF
     }
     {
@@ -163,28 +163,6 @@ set opts {
         width 24
         mode SIG_IN_VLD_OFF:SIG_IN_ACC_OFF
     }
-}
-set portmap { }
-set metadata { -bus_bundle slv0}
-if {${::AESL::PGuard_autoexp_gen}} {
-if {[info proc ::AESL_LIB_XILADAPTER::axi_slave_int_gen] == "::AESL_LIB_XILADAPTER::axi_slave_int_gen"} {
-eval "::AESL_LIB_XILADAPTER::axi_slave_int_gen { \
-    corename ${corename} \
-    reset_level 1 \
-    sync_rst true \
-    opts {${opts}} \
-    portmap {${portmap}} \
-    metadata {${metadata}} \
-}"
-} else {
-puts "@W Can not find gen function '::AESL_LIB_XILADAPTER::axi_slave_int_gen' in the library. Ignored generation of adapter for '${corename}'"
-}
-}
-
-
-# Adapter definition:
-set corename slv1
-set opts {
     {
         id 20
         name random
@@ -197,7 +175,7 @@ set opts {
     }
 }
 set portmap { }
-set metadata { -bus_bundle slv1}
+set metadata { -bus_bundle slv0}
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::axi_slave_int_gen] == "::AESL_LIB_XILADAPTER::axi_slave_int_gen"} {
 eval "::AESL_LIB_XILADAPTER::axi_slave_int_gen { \

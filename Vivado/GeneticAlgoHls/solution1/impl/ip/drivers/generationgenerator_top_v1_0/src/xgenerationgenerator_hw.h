@@ -20,23 +20,31 @@
 //        others - reserved
 // 0x20 : reserved
 // 0x24 : Data signal of generation_parent1
-//        bit 15~0 - generation_parent1[15:0] (Read/Write)
-//        others   - reserved
-// 0x28 : reserved
-// 0x2c : Data signal of generation_parent2
-//        bit 15~0 - generation_parent2[15:0] (Read/Write)
-//        others   - reserved
-// 0x30 : reserved
-// 0x34 : Data signal of generation_child1
-//        bit 15~0 - generation_child1[15:0] (Read)
-//        others   - reserved
+//        bit 31~0 - generation_parent1[31:0] (Read/Write)
+// 0x28 : Data signal of generation_parent1
+//        bit 31~0 - generation_parent1[63:32] (Read/Write)
+// 0x2c : reserved
+// 0x30 : Data signal of generation_parent2
+//        bit 31~0 - generation_parent2[31:0] (Read/Write)
+// 0x34 : Data signal of generation_parent2
+//        bit 31~0 - generation_parent2[63:32] (Read/Write)
 // 0x38 : reserved
-// 0x3c : Data signal of generation_child2
-//        bit 15~0 - generation_child2[15:0] (Read)
-//        others   - reserved
-// 0x40 : reserved
-// 0x44 : Data signal of mutation_probability
+// 0x3c : Data signal of generation_child1
+//        bit 31~0 - generation_child1[31:0] (Read)
+// 0x40 : Data signal of generation_child1
+//        bit 31~0 - generation_child1[63:32] (Read)
+// 0x44 : reserved
+// 0x48 : Data signal of generation_child2
+//        bit 31~0 - generation_child2[31:0] (Read)
+// 0x4c : Data signal of generation_child2
+//        bit 31~0 - generation_child2[63:32] (Read)
+// 0x50 : reserved
+// 0x54 : Data signal of mutation_probability
 //        bit 23~0 - mutation_probability[23:0] (Read/Write)
+//        others   - reserved
+// 0x58 : reserved
+// 0x5c : Data signal of random
+//        bit 23~0 - random[23:0] (Read/Write)
 //        others   - reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
@@ -45,27 +53,15 @@
 #define XGENERATIONGENERATOR_SLV0_ADDR_GENERATINGDONE_DATA       0x1c
 #define XGENERATIONGENERATOR_SLV0_BITS_GENERATINGDONE_DATA       1
 #define XGENERATIONGENERATOR_SLV0_ADDR_GENERATION_PARENT1_DATA   0x24
-#define XGENERATIONGENERATOR_SLV0_BITS_GENERATION_PARENT1_DATA   16
-#define XGENERATIONGENERATOR_SLV0_ADDR_GENERATION_PARENT2_DATA   0x2c
-#define XGENERATIONGENERATOR_SLV0_BITS_GENERATION_PARENT2_DATA   16
-#define XGENERATIONGENERATOR_SLV0_ADDR_GENERATION_CHILD1_DATA    0x34
-#define XGENERATIONGENERATOR_SLV0_BITS_GENERATION_CHILD1_DATA    16
-#define XGENERATIONGENERATOR_SLV0_ADDR_GENERATION_CHILD2_DATA    0x3c
-#define XGENERATIONGENERATOR_SLV0_BITS_GENERATION_CHILD2_DATA    16
-#define XGENERATIONGENERATOR_SLV0_ADDR_MUTATION_PROBABILITY_DATA 0x44
+#define XGENERATIONGENERATOR_SLV0_BITS_GENERATION_PARENT1_DATA   64
+#define XGENERATIONGENERATOR_SLV0_ADDR_GENERATION_PARENT2_DATA   0x30
+#define XGENERATIONGENERATOR_SLV0_BITS_GENERATION_PARENT2_DATA   64
+#define XGENERATIONGENERATOR_SLV0_ADDR_GENERATION_CHILD1_DATA    0x3c
+#define XGENERATIONGENERATOR_SLV0_BITS_GENERATION_CHILD1_DATA    64
+#define XGENERATIONGENERATOR_SLV0_ADDR_GENERATION_CHILD2_DATA    0x48
+#define XGENERATIONGENERATOR_SLV0_BITS_GENERATION_CHILD2_DATA    64
+#define XGENERATIONGENERATOR_SLV0_ADDR_MUTATION_PROBABILITY_DATA 0x54
 #define XGENERATIONGENERATOR_SLV0_BITS_MUTATION_PROBABILITY_DATA 24
-
-// slv1
-// 0x00 : reserved
-// 0x04 : reserved
-// 0x08 : reserved
-// 0x0c : reserved
-// 0x10 : reserved
-// 0x14 : Data signal of random
-//        bit 23~0 - random[23:0] (Read/Write)
-//        others   - reserved
-// (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
-
-#define XGENERATIONGENERATOR_SLV1_ADDR_RANDOM_DATA 0x14
-#define XGENERATIONGENERATOR_SLV1_BITS_RANDOM_DATA 24
+#define XGENERATIONGENERATOR_SLV0_ADDR_RANDOM_DATA               0x5c
+#define XGENERATIONGENERATOR_SLV0_BITS_RANDOM_DATA               24
 

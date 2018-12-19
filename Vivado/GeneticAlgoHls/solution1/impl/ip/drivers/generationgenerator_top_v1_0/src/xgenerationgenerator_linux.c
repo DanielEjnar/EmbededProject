@@ -129,10 +129,6 @@ int XGenerationgenerator_Initialize(XGenerationgenerator *InstancePtr, const cha
     InstancePtr->Slv0_BaseAddress = (u32)mmap(NULL, InfoPtr->maps[0].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 0 * getpagesize());
     assert(InstancePtr->Slv0_BaseAddress);
 
-    // NOTE: slave interface 'Slv1' should be mapped to uioX/map1
-    InstancePtr->Slv1_BaseAddress = (u32)mmap(NULL, InfoPtr->maps[1].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 1 * getpagesize());
-    assert(InstancePtr->Slv1_BaseAddress);
-
     InstancePtr->IsReady = XIL_COMPONENT_IS_READY;
 
     return XST_SUCCESS;
@@ -145,7 +141,6 @@ int XGenerationgenerator_Release(XGenerationgenerator *InstancePtr) {
     assert(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
     munmap((void*)InstancePtr->Slv0_BaseAddress, InfoPtr->maps[0].size);
-    munmap((void*)InstancePtr->Slv1_BaseAddress, InfoPtr->maps[1].size);
 
     close(InfoPtr->uio_fd);
 

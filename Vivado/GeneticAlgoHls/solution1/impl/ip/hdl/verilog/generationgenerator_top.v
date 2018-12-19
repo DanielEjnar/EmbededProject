@@ -24,31 +24,12 @@ s_axi_slv0_RDATA,
 s_axi_slv0_RRESP,
 s_axi_slv0_RVALID,
 s_axi_slv0_RREADY,
-s_axi_slv1_AWADDR,
-s_axi_slv1_AWVALID,
-s_axi_slv1_AWREADY,
-s_axi_slv1_WDATA,
-s_axi_slv1_WSTRB,
-s_axi_slv1_WVALID,
-s_axi_slv1_WREADY,
-s_axi_slv1_BRESP,
-s_axi_slv1_BVALID,
-s_axi_slv1_BREADY,
-s_axi_slv1_ARADDR,
-s_axi_slv1_ARVALID,
-s_axi_slv1_ARREADY,
-s_axi_slv1_RDATA,
-s_axi_slv1_RRESP,
-s_axi_slv1_RVALID,
-s_axi_slv1_RREADY,
 aresetn,
 aclk
 );
 
 parameter C_S_AXI_SLV0_ADDR_WIDTH = 7;
 parameter C_S_AXI_SLV0_DATA_WIDTH = 32;
-parameter C_S_AXI_SLV1_ADDR_WIDTH = 5;
-parameter C_S_AXI_SLV1_DATA_WIDTH = 32;
 parameter RESET_ACTIVE_LOW = 1;
 
 input [C_S_AXI_SLV0_ADDR_WIDTH - 1:0] s_axi_slv0_AWADDR ;
@@ -68,25 +49,6 @@ output [C_S_AXI_SLV0_DATA_WIDTH - 1:0] s_axi_slv0_RDATA ;
 output [2 - 1:0] s_axi_slv0_RRESP ;
 output s_axi_slv0_RVALID ;
 input s_axi_slv0_RREADY ;
-
-
-input [C_S_AXI_SLV1_ADDR_WIDTH - 1:0] s_axi_slv1_AWADDR ;
-input s_axi_slv1_AWVALID ;
-output s_axi_slv1_AWREADY ;
-input [C_S_AXI_SLV1_DATA_WIDTH - 1:0] s_axi_slv1_WDATA ;
-input [C_S_AXI_SLV1_DATA_WIDTH/8 - 1:0] s_axi_slv1_WSTRB ;
-input s_axi_slv1_WVALID ;
-output s_axi_slv1_WREADY ;
-output [2 - 1:0] s_axi_slv1_BRESP ;
-output s_axi_slv1_BVALID ;
-input s_axi_slv1_BREADY ;
-input [C_S_AXI_SLV1_ADDR_WIDTH - 1:0] s_axi_slv1_ARADDR ;
-input s_axi_slv1_ARVALID ;
-output s_axi_slv1_ARREADY ;
-output [C_S_AXI_SLV1_DATA_WIDTH - 1:0] s_axi_slv1_RDATA ;
-output [2 - 1:0] s_axi_slv1_RRESP ;
-output s_axi_slv1_RVALID ;
-input s_axi_slv1_RREADY ;
 
 input aresetn ;
 
@@ -111,36 +73,16 @@ wire [2 - 1:0] s_axi_slv0_RRESP;
 wire s_axi_slv0_RVALID;
 wire s_axi_slv0_RREADY;
 
-
-wire [C_S_AXI_SLV1_ADDR_WIDTH - 1:0] s_axi_slv1_AWADDR;
-wire s_axi_slv1_AWVALID;
-wire s_axi_slv1_AWREADY;
-wire [C_S_AXI_SLV1_DATA_WIDTH - 1:0] s_axi_slv1_WDATA;
-wire [C_S_AXI_SLV1_DATA_WIDTH/8 - 1:0] s_axi_slv1_WSTRB;
-wire s_axi_slv1_WVALID;
-wire s_axi_slv1_WREADY;
-wire [2 - 1:0] s_axi_slv1_BRESP;
-wire s_axi_slv1_BVALID;
-wire s_axi_slv1_BREADY;
-wire [C_S_AXI_SLV1_ADDR_WIDTH - 1:0] s_axi_slv1_ARADDR;
-wire s_axi_slv1_ARVALID;
-wire s_axi_slv1_ARREADY;
-wire [C_S_AXI_SLV1_DATA_WIDTH - 1:0] s_axi_slv1_RDATA;
-wire [2 - 1:0] s_axi_slv1_RRESP;
-wire s_axi_slv1_RVALID;
-wire s_axi_slv1_RREADY;
-
 wire aresetn;
 
 
 wire [1 - 1:0] sig_GenerationGenerator_startGenerating;
 wire [1 - 1:0] sig_GenerationGenerator_generatingDone;
-wire [16 - 1:0] sig_GenerationGenerator_generation_parent1;
-wire [16 - 1:0] sig_GenerationGenerator_generation_parent2;
-wire [16 - 1:0] sig_GenerationGenerator_generation_child1;
-wire [16 - 1:0] sig_GenerationGenerator_generation_child2;
+wire [64 - 1:0] sig_GenerationGenerator_generation_parent1;
+wire [64 - 1:0] sig_GenerationGenerator_generation_parent2;
+wire [64 - 1:0] sig_GenerationGenerator_generation_child1;
+wire [64 - 1:0] sig_GenerationGenerator_generation_child2;
 wire [24 - 1:0] sig_GenerationGenerator_mutation_probability;
-
 wire [24 - 1:0] sig_GenerationGenerator_random;
 
 wire sig_GenerationGenerator_reset;
@@ -173,6 +115,7 @@ GenerationGenerator_slv0_if_U(
     .O_generation_child1(sig_GenerationGenerator_generation_child1),
     .O_generation_child2(sig_GenerationGenerator_generation_child2),
     .I_mutation_probability(sig_GenerationGenerator_mutation_probability),
+    .I_random(sig_GenerationGenerator_random),
     .AWADDR(s_axi_slv0_AWADDR),
     .AWVALID(s_axi_slv0_AWVALID),
     .AWREADY(s_axi_slv0_AWREADY),
@@ -190,31 +133,6 @@ GenerationGenerator_slv0_if_U(
     .RRESP(s_axi_slv0_RRESP),
     .RVALID(s_axi_slv0_RVALID),
     .RREADY(s_axi_slv0_RREADY));
-
-GenerationGenerator_slv1_if #(
-    .C_ADDR_WIDTH(C_S_AXI_SLV1_ADDR_WIDTH),
-    .C_DATA_WIDTH(C_S_AXI_SLV1_DATA_WIDTH))
-GenerationGenerator_slv1_if_U(
-    .ACLK(aclk),
-    .ARESETN(aresetn),
-    .I_random(sig_GenerationGenerator_random),
-    .AWADDR(s_axi_slv1_AWADDR),
-    .AWVALID(s_axi_slv1_AWVALID),
-    .AWREADY(s_axi_slv1_AWREADY),
-    .WDATA(s_axi_slv1_WDATA),
-    .WSTRB(s_axi_slv1_WSTRB),
-    .WVALID(s_axi_slv1_WVALID),
-    .WREADY(s_axi_slv1_WREADY),
-    .BRESP(s_axi_slv1_BRESP),
-    .BVALID(s_axi_slv1_BVALID),
-    .BREADY(s_axi_slv1_BREADY),
-    .ARADDR(s_axi_slv1_ARADDR),
-    .ARVALID(s_axi_slv1_ARVALID),
-    .ARREADY(s_axi_slv1_ARREADY),
-    .RDATA(s_axi_slv1_RDATA),
-    .RRESP(s_axi_slv1_RRESP),
-    .RVALID(s_axi_slv1_RVALID),
-    .RREADY(s_axi_slv1_RREADY));
 
 GenerationGenerator_reset_if #(
     .RESET_ACTIVE_LOW(RESET_ACTIVE_LOW))

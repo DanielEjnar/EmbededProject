@@ -27,7 +27,7 @@
 
 <Node id="16" bw="0" op_0_bw="0" op_1_bw="24" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="0" op_7_bw="0" op_8_bw="0" op_9_bw="0" op_10_bw="0">
 <![CDATA[
-:0  call void (...)* @_ssdm_op_SpecIFCore(i24* %random, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str22)
+:0  call void (...)* @_ssdm_op_SpecIFCore(i24* %mutation_probability, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str22)
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -40,9 +40,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="17" bw="0" op_0_bw="0" op_1_bw="24" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="0" op_7_bw="0" op_8_bw="0" op_9_bw="0" op_10_bw="0">
+<Node id="17" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="0" op_7_bw="0" op_8_bw="0" op_9_bw="0" op_10_bw="0">
 <![CDATA[
-:1  call void (...)* @_ssdm_op_SpecIFCore(i24* %mutation_probability, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
+:1  call void (...)* @_ssdm_op_SpecIFCore(i64* %generation_child2, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str22)
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -55,9 +55,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="18" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="0" op_7_bw="0" op_8_bw="0" op_9_bw="0" op_10_bw="0">
+<Node id="18" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="0" op_7_bw="0" op_8_bw="0" op_9_bw="0" op_10_bw="0">
 <![CDATA[
-:2  call void (...)* @_ssdm_op_SpecIFCore(i16* %generation_child2, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
+:2  call void (...)* @_ssdm_op_SpecIFCore(i64* %generation_child1, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str22)
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -70,9 +70,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="19" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="0" op_7_bw="0" op_8_bw="0" op_9_bw="0" op_10_bw="0">
+<Node id="19" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="0" op_7_bw="0" op_8_bw="0" op_9_bw="0" op_10_bw="0">
 <![CDATA[
-:3  call void (...)* @_ssdm_op_SpecIFCore(i16* %generation_child1, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
+:3  call void (...)* @_ssdm_op_SpecIFCore(i64* %generation_parent2, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str22)
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -85,9 +85,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="20" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="0" op_7_bw="0" op_8_bw="0" op_9_bw="0" op_10_bw="0">
+<Node id="20" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="0" op_7_bw="0" op_8_bw="0" op_9_bw="0" op_10_bw="0">
 <![CDATA[
-:4  call void (...)* @_ssdm_op_SpecIFCore(i16* %generation_parent2, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
+:4  call void (...)* @_ssdm_op_SpecIFCore(i64* %generation_parent1, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str22)
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -100,9 +100,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="21" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="0" op_7_bw="0" op_8_bw="0" op_9_bw="0" op_10_bw="0">
+<Node id="21" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="0" op_7_bw="0" op_8_bw="0" op_9_bw="0" op_10_bw="0">
 <![CDATA[
-:5  call void (...)* @_ssdm_op_SpecIFCore(i16* %generation_parent1, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
+:5  call void (...)* @_ssdm_op_SpecIFCore(i1* %generatingDone, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str22)
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -117,7 +117,7 @@
 
 <Node id="22" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="0" op_7_bw="0" op_8_bw="0" op_9_bw="0" op_10_bw="0">
 <![CDATA[
-:6  call void (...)* @_ssdm_op_SpecIFCore(i1* %generatingDone, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
+:6  call void (...)* @_ssdm_op_SpecIFCore(i1* %startGenerating, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str22)
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -130,9 +130,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="23" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="0" op_7_bw="0" op_8_bw="0" op_9_bw="0" op_10_bw="0">
+<Node id="23" bw="0" op_0_bw="0" op_1_bw="24" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="0" op_7_bw="0" op_8_bw="0" op_9_bw="0" op_10_bw="0">
 <![CDATA[
-:7  call void (...)* @_ssdm_op_SpecIFCore(i1* %startGenerating, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str24)
+:7  call void (...)* @_ssdm_op_SpecIFCore(i24* %random, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str22)
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -147,7 +147,7 @@
 
 <Node id="24" bw="0" op_0_bw="0" op_1_bw="1">
 <![CDATA[
-:8  call void (...)* @_ssdm_op_SpecBitsMap(i1* %clk), !map !4087
+:8  call void (...)* @_ssdm_op_SpecBitsMap(i1* %clk), !map !4081
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -162,7 +162,7 @@
 
 <Node id="25" bw="0" op_0_bw="0" op_1_bw="1">
 <![CDATA[
-:9  call void (...)* @_ssdm_op_SpecBitsMap(i1* %reset), !map !4091
+:9  call void (...)* @_ssdm_op_SpecBitsMap(i1* %reset), !map !4085
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -177,7 +177,7 @@
 
 <Node id="26" bw="0" op_0_bw="0" op_1_bw="1">
 <![CDATA[
-:10  call void (...)* @_ssdm_op_SpecBitsMap(i1* %startGenerating), !map !4095
+:10  call void (...)* @_ssdm_op_SpecBitsMap(i1* %startGenerating), !map !4089
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -192,7 +192,7 @@
 
 <Node id="27" bw="0" op_0_bw="0" op_1_bw="1">
 <![CDATA[
-:11  call void (...)* @_ssdm_op_SpecBitsMap(i1* %generatingDone), !map !4099
+:11  call void (...)* @_ssdm_op_SpecBitsMap(i1* %generatingDone), !map !4093
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -205,9 +205,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="28" bw="0" op_0_bw="0" op_1_bw="16">
+<Node id="28" bw="0" op_0_bw="0" op_1_bw="64">
 <![CDATA[
-:12  call void (...)* @_ssdm_op_SpecBitsMap(i16* %generation_parent1), !map !4103
+:12  call void (...)* @_ssdm_op_SpecBitsMap(i64* %generation_parent1), !map !4097
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -220,9 +220,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="29" bw="0" op_0_bw="0" op_1_bw="16">
+<Node id="29" bw="0" op_0_bw="0" op_1_bw="64">
 <![CDATA[
-:13  call void (...)* @_ssdm_op_SpecBitsMap(i16* %generation_parent2), !map !4107
+:13  call void (...)* @_ssdm_op_SpecBitsMap(i64* %generation_parent2), !map !4101
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -235,9 +235,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="30" bw="0" op_0_bw="0" op_1_bw="16">
+<Node id="30" bw="0" op_0_bw="0" op_1_bw="64">
 <![CDATA[
-:14  call void (...)* @_ssdm_op_SpecBitsMap(i16* %generation_child1), !map !4111
+:14  call void (...)* @_ssdm_op_SpecBitsMap(i64* %generation_child1), !map !4105
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -250,9 +250,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="31" bw="0" op_0_bw="0" op_1_bw="16">
+<Node id="31" bw="0" op_0_bw="0" op_1_bw="64">
 <![CDATA[
-:15  call void (...)* @_ssdm_op_SpecBitsMap(i16* %generation_child2), !map !4115
+:15  call void (...)* @_ssdm_op_SpecBitsMap(i64* %generation_child2), !map !4109
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -267,7 +267,7 @@
 
 <Node id="32" bw="0" op_0_bw="0" op_1_bw="24">
 <![CDATA[
-:16  call void (...)* @_ssdm_op_SpecBitsMap(i24* %mutation_probability), !map !4119
+:16  call void (...)* @_ssdm_op_SpecBitsMap(i24* %mutation_probability), !map !4113
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -282,7 +282,7 @@
 
 <Node id="33" bw="0" op_0_bw="0" op_1_bw="24">
 <![CDATA[
-:17  call void (...)* @_ssdm_op_SpecBitsMap(i24* %random), !map !4123
+:17  call void (...)* @_ssdm_op_SpecBitsMap(i24* %random), !map !4117
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -297,7 +297,7 @@
 
 <Node id="34" bw="0" op_0_bw="0" op_1_bw="24">
 <![CDATA[
-:18  call void (...)* @_ssdm_op_SpecBitsMap(i24* %GenerationGenerator_randomNumberIndex_V), !map !4127
+:18  call void (...)* @_ssdm_op_SpecBitsMap(i24* %GenerationGenerator_randomNumberIndex_V), !map !4121
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -312,7 +312,7 @@
 
 <Node id="35" bw="0" op_0_bw="0" op_1_bw="24">
 <![CDATA[
-:19  call void (...)* @_ssdm_op_SpecBitsMap(i24* %GenerationGenerator_trueRandomIndex_V), !map !4131
+:19  call void (...)* @_ssdm_op_SpecBitsMap(i24* %GenerationGenerator_trueRandomIndex_V), !map !4125
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -327,7 +327,7 @@
 
 <Node id="36" bw="0" op_0_bw="0" op_1_bw="24">
 <![CDATA[
-:20  call void (...)* @_ssdm_op_SpecBitsMap([160 x i24]* %GenerationGenerator_randomNumbers_V), !map !4135
+:20  call void (...)* @_ssdm_op_SpecBitsMap([160 x i24]* %GenerationGenerator_randomNumbers_V), !map !4129
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -586,9 +586,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="54" bw="0" op_0_bw="0" op_1_bw="0" op_2_bw="32" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="32" op_7_bw="16">
+<Node id="54" bw="0" op_0_bw="0" op_1_bw="0" op_2_bw="32" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="32" op_7_bw="64">
 <![CDATA[
-:7  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 0, [14 x i8]* @p_str6, [19 x i8]* @p_str7, i32 0, i32 0, i16* %generation_parent1) nounwind
+:7  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 0, [14 x i8]* @p_str6, [19 x i8]* @p_str7, i32 0, i32 0, i64* %generation_parent1) nounwind
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -603,9 +603,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="55" bw="0" op_0_bw="0" op_1_bw="0" op_2_bw="32" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="32" op_7_bw="16">
+<Node id="55" bw="0" op_0_bw="0" op_1_bw="0" op_2_bw="32" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="32" op_7_bw="64">
 <![CDATA[
-:8  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 0, [14 x i8]* @p_str6, [19 x i8]* @p_str8, i32 0, i32 0, i16* %generation_parent2) nounwind
+:8  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 0, [14 x i8]* @p_str6, [19 x i8]* @p_str8, i32 0, i32 0, i64* %generation_parent2) nounwind
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -620,9 +620,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="56" bw="0" op_0_bw="0" op_1_bw="0" op_2_bw="32" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="32" op_7_bw="16">
+<Node id="56" bw="0" op_0_bw="0" op_1_bw="0" op_2_bw="32" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="32" op_7_bw="64">
 <![CDATA[
-:9  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 1, [14 x i8]* @p_str6, [18 x i8]* @p_str9, i32 0, i32 0, i16* %generation_child1) nounwind
+:9  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 1, [14 x i8]* @p_str6, [18 x i8]* @p_str9, i32 0, i32 0, i64* %generation_child1) nounwind
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -637,9 +637,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="57" bw="0" op_0_bw="0" op_1_bw="0" op_2_bw="32" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="32" op_7_bw="16">
+<Node id="57" bw="0" op_0_bw="0" op_1_bw="0" op_2_bw="32" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="32" op_7_bw="64">
 <![CDATA[
-:10  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 1, [14 x i8]* @p_str6, [18 x i8]* @p_str10, i32 0, i32 0, i16* %generation_child2) nounwind
+:10  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 1, [14 x i8]* @p_str6, [18 x i8]* @p_str10, i32 0, i32 0, i64* %generation_child2) nounwind
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -739,9 +739,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="64" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1" op_3_bw="1" op_4_bw="1" op_5_bw="16" op_6_bw="16" op_7_bw="16" op_8_bw="16" op_9_bw="24" op_10_bw="24" op_11_bw="24" op_12_bw="24" op_13_bw="24">
+<Node id="64" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1" op_3_bw="1" op_4_bw="1" op_5_bw="64" op_6_bw="64" op_7_bw="64" op_8_bw="64" op_9_bw="24" op_10_bw="24" op_11_bw="24" op_12_bw="24" op_13_bw="24">
 <![CDATA[
-:0  call void @"GenerationGenerator::generateGeneration"(i1* %clk, i1* %reset, i1* %startGenerating, i1* %generatingDone, i16* %generation_parent1, i16* %generation_parent2, i16* %generation_child1, i16* %generation_child2, i24* %mutation_probability, i24* %random, i24* %GenerationGenerator_randomNumberIndex_V, i24* %GenerationGenerator_trueRandomIndex_V, [160 x i24]* %GenerationGenerator_randomNumbers_V)
+:0  call void @"GenerationGenerator::generateGeneration"(i1* %clk, i1* %reset, i1* %startGenerating, i1* %generatingDone, i64* %generation_parent1, i64* %generation_parent2, i64* %generation_child1, i64* %generation_child2, i24* %mutation_probability, i24* %random, i24* %GenerationGenerator_randomNumberIndex_V, i24* %GenerationGenerator_trueRandomIndex_V, [160 x i24]* %GenerationGenerator_randomNumbers_V)
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -755,9 +755,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="67" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1" op_3_bw="1" op_4_bw="1" op_5_bw="16" op_6_bw="16" op_7_bw="16" op_8_bw="16" op_9_bw="24" op_10_bw="24" op_11_bw="24" op_12_bw="24" op_13_bw="24">
+<Node id="67" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1" op_3_bw="1" op_4_bw="1" op_5_bw="64" op_6_bw="64" op_7_bw="64" op_8_bw="64" op_9_bw="24" op_10_bw="24" op_11_bw="24" op_12_bw="24" op_13_bw="24">
 <![CDATA[
-:0  call void @"GenerationGenerator::consumeRandom"(i1* %clk, i1* %reset, i1* %startGenerating, i1* %generatingDone, i16* %generation_parent1, i16* %generation_parent2, i16* %generation_child1, i16* %generation_child2, i24* %mutation_probability, i24* %random, i24* %GenerationGenerator_randomNumberIndex_V, i24* %GenerationGenerator_trueRandomIndex_V, [160 x i24]* %GenerationGenerator_randomNumbers_V)
+:0  call void @"GenerationGenerator::consumeRandom"(i1* %clk, i1* %reset, i1* %startGenerating, i1* %generatingDone, i64* %generation_parent1, i64* %generation_parent2, i64* %generation_child1, i64* %generation_child2, i24* %mutation_probability, i24* %random, i24* %GenerationGenerator_randomNumberIndex_V, i24* %GenerationGenerator_trueRandomIndex_V, [160 x i24]* %GenerationGenerator_randomNumbers_V)
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -774,9 +774,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="64" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1" op_3_bw="1" op_4_bw="1" op_5_bw="16" op_6_bw="16" op_7_bw="16" op_8_bw="16" op_9_bw="24" op_10_bw="24" op_11_bw="24" op_12_bw="24" op_13_bw="24">
+<Node id="64" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1" op_3_bw="1" op_4_bw="1" op_5_bw="64" op_6_bw="64" op_7_bw="64" op_8_bw="64" op_9_bw="24" op_10_bw="24" op_11_bw="24" op_12_bw="24" op_13_bw="24">
 <![CDATA[
-:0  call void @"GenerationGenerator::generateGeneration"(i1* %clk, i1* %reset, i1* %startGenerating, i1* %generatingDone, i16* %generation_parent1, i16* %generation_parent2, i16* %generation_child1, i16* %generation_child2, i24* %mutation_probability, i24* %random, i24* %GenerationGenerator_randomNumberIndex_V, i24* %GenerationGenerator_trueRandomIndex_V, [160 x i24]* %GenerationGenerator_randomNumbers_V)
+:0  call void @"GenerationGenerator::generateGeneration"(i1* %clk, i1* %reset, i1* %startGenerating, i1* %generatingDone, i64* %generation_parent1, i64* %generation_parent2, i64* %generation_child1, i64* %generation_child2, i24* %mutation_probability, i24* %random, i24* %GenerationGenerator_randomNumberIndex_V, i24* %GenerationGenerator_trueRandomIndex_V, [160 x i24]* %GenerationGenerator_randomNumbers_V)
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -806,9 +806,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="67" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1" op_3_bw="1" op_4_bw="1" op_5_bw="16" op_6_bw="16" op_7_bw="16" op_8_bw="16" op_9_bw="24" op_10_bw="24" op_11_bw="24" op_12_bw="24" op_13_bw="24">
+<Node id="67" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1" op_3_bw="1" op_4_bw="1" op_5_bw="64" op_6_bw="64" op_7_bw="64" op_8_bw="64" op_9_bw="24" op_10_bw="24" op_11_bw="24" op_12_bw="24" op_13_bw="24">
 <![CDATA[
-:0  call void @"GenerationGenerator::consumeRandom"(i1* %clk, i1* %reset, i1* %startGenerating, i1* %generatingDone, i16* %generation_parent1, i16* %generation_parent2, i16* %generation_child1, i16* %generation_child2, i24* %mutation_probability, i24* %random, i24* %GenerationGenerator_randomNumberIndex_V, i24* %GenerationGenerator_trueRandomIndex_V, [160 x i24]* %GenerationGenerator_randomNumbers_V)
+:0  call void @"GenerationGenerator::consumeRandom"(i1* %clk, i1* %reset, i1* %startGenerating, i1* %generatingDone, i64* %generation_parent1, i64* %generation_parent2, i64* %generation_child1, i64* %generation_child2, i24* %mutation_probability, i24* %random, i24* %GenerationGenerator_randomNumberIndex_V, i24* %GenerationGenerator_trueRandomIndex_V, [160 x i24]* %GenerationGenerator_randomNumbers_V)
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>

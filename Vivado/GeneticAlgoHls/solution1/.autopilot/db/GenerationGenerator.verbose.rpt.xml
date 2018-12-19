@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'GenerationGenerator'" level="0">
-<item name = "Date">Tue Dec 18 13:27:42 2018
+<item name = "Date">Wed Dec 19 15:48:44 2018
 </item>
 <item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
 <item name = "Project">GeneticAlgoHls</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">20.00, 13.37, 2.50</column>
+<column name="ap_clk">20.00, 10.59, 2.50</column>
 </table>
 </item>
 </section>
@@ -24,15 +24,15 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">0, 71, 1, 72, none</column>
+<column name="">0, 267, 1, 268, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="grp_GenerationGenerator_generateGeneration_fu_116">GenerationGenerator_generateGeneration, 70, 70, 70, 70, none</column>
-<column name="grp_GenerationGenerator_consumeRandom_fu_146">GenerationGenerator_consumeRandom, 3, 3, 3, 3, none</column>
+<column name="grp_GenerationGenerator_generateGeneration_fu_114">GenerationGenerator_generateGeneration, 266, 266, 266, 266, none</column>
+<column name="grp_GenerationGenerator_consumeRandom_fu_144">GenerationGenerator_consumeRandom, 2, 2, 2, 2, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -51,20 +51,20 @@
 <column name="DSP">-, -, -, -</column>
 <column name="Expression">-, -, -, -</column>
 <column name="FIFO">-, -, -, -</column>
-<column name="Instance">-, -, 1318, 1094</column>
-<column name="Memory">2, -, 0, 0</column>
+<column name="Instance">-, -, 1053, 950</column>
+<column name="Memory">1, -, 0, 0</column>
 <column name="Multiplexer">-, -, -, 48</column>
-<column name="Register">-, -, 81, -</column>
+<column name="Register">-, -, 177, -</column>
 <specialColumn name="Available">120, 80, 35200, 17600</specialColumn>
-<specialColumn name="Utilization (%)">1, 0, 3, 6</specialColumn>
+<specialColumn name="Utilization (%)">~0, 0, 3, 5</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
-<column name="grp_GenerationGenerator_consumeRandom_fu_146">GenerationGenerator_consumeRandom, 0, 0, 240, 181</column>
-<column name="grp_GenerationGenerator_generateGeneration_fu_116">GenerationGenerator_generateGeneration, 0, 0, 1078, 913</column>
+<column name="grp_GenerationGenerator_consumeRandom_fu_144">GenerationGenerator_consumeRandom, 0, 0, 79, 75</column>
+<column name="grp_GenerationGenerator_generateGeneration_fu_114">GenerationGenerator_generateGeneration, 0, 0, 974, 875</column>
 </table>
 </item>
 <item name = "DSP48"><table name="" hasTotal="0">
@@ -73,7 +73,7 @@
 </item>
 <item name = "Memory"><table name="" hasTotal="1">
 <keys size="9">Memory, Module, BRAM_18K, FF, LUT, Words, Bits, Banks, W*Bits*Banks</keys>
-<column name="GenerationGenerator_randomNumbers_V_U">GenerationGeneratbkb, 2, 0, 0, 160, 24, 1, 3840</column>
+<column name="GenerationGenerator_randomNumbers_V_U">GenerationGeneratbkb, 1, 0, 0, 160, 24, 1, 3840</column>
 </table>
 </item>
 <item name = "FIFO"><table name="" hasTotal="1">
@@ -97,8 +97,8 @@
 <column name="GenerationGenerator_randomNumberIndex_V">24, 0, 24, 0</column>
 <column name="GenerationGenerator_trueRandomIndex_V">24, 0, 24, 0</column>
 <column name="generatingDone">1, 0, 1, 0</column>
-<column name="generation_child1">16, 0, 16, 0</column>
-<column name="generation_child2">16, 0, 16, 0</column>
+<column name="generation_child1">64, 0, 64, 0</column>
+<column name="generation_child2">64, 0, 64, 0</column>
 </table>
 </item>
 </section>
@@ -112,10 +112,10 @@
 <column name="reset">in, 1, ap_ctrl_hs, GenerationGenerator::GenerationGenerator, return value</column>
 <column name="startGenerating">in, 1, ap_none, startGenerating, pointer</column>
 <column name="generatingDone">out, 1, ap_vld, generatingDone, pointer</column>
-<column name="generation_parent1">in, 16, ap_none, generation_parent1, pointer</column>
-<column name="generation_parent2">in, 16, ap_none, generation_parent2, pointer</column>
-<column name="generation_child1">out, 16, ap_vld, generation_child1, pointer</column>
-<column name="generation_child2">out, 16, ap_vld, generation_child2, pointer</column>
+<column name="generation_parent1">in, 64, ap_none, generation_parent1, pointer</column>
+<column name="generation_parent2">in, 64, ap_none, generation_parent2, pointer</column>
+<column name="generation_child1">out, 64, ap_vld, generation_child1, pointer</column>
+<column name="generation_child2">out, 64, ap_vld, generation_child2, pointer</column>
 <column name="mutation_probability">in, 24, ap_none, mutation_probability, pointer</column>
 <column name="random">in, 24, ap_none, random, pointer</column>
 </table>

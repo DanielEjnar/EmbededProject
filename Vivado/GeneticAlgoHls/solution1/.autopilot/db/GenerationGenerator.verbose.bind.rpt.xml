@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'GenerationGenerator'" level="0">
-<item name = "Date">Tue Dec 18 13:27:40 2018
+<item name = "Date">Wed Dec 19 15:48:43 2018
 </item>
 <item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
 <item name = "Project">GeneticAlgoHls</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">20.00, 13.37, 2.50</column>
+<column name="ap_clk">20.00, 10.59, 2.50</column>
 </table>
 </item>
 </section>
@@ -24,15 +24,15 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">0, 71, 1, 72, none</column>
+<column name="">0, 267, 1, 268, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="grp_GenerationGenerator_generateGeneration_fu_116">GenerationGenerator_generateGeneration, 70, 70, 70, 70, none</column>
-<column name="grp_GenerationGenerator_consumeRandom_fu_146">GenerationGenerator_consumeRandom, 3, 3, 3, 3, none</column>
+<column name="grp_GenerationGenerator_generateGeneration_fu_114">GenerationGenerator_generateGeneration, 266, 266, 266, 266, none</column>
+<column name="grp_GenerationGenerator_consumeRandom_fu_144">GenerationGenerator_consumeRandom, 2, 2, 2, 2, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

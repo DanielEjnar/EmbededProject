@@ -44,7 +44,7 @@ set TargetInfo "xc7z010:clg400:-1"
 set SourceFiles {sc ../../../GenerationGenerator/GenerationGenerator.cpp c {}}
 set SourceFlags {sc {{}} c {}}
 set DirectiveFile {C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/solution1.directive}
-set TBFiles {verilog {../../../GenerationGenerator/main.cpp ../../../GenerationGenerator/GenerationGenerator.cpp} bc {../../../GenerationGenerator/main.cpp ../../../GenerationGenerator/GenerationGenerator.cpp} sc {../../../GenerationGenerator/main.cpp ../../../GenerationGenerator/GenerationGenerator.cpp} vhdl {../../../GenerationGenerator/main.cpp ../../../GenerationGenerator/GenerationGenerator.cpp} c {} cas {../../../GenerationGenerator/main.cpp ../../../GenerationGenerator/GenerationGenerator.cpp}}
+set TBFiles {verilog {../../../GenerationGenerator/GenerationGenerator.cpp ../../../GenerationGenerator/main.cpp} bc {../../../GenerationGenerator/GenerationGenerator.cpp ../../../GenerationGenerator/main.cpp} sc {../../../GenerationGenerator/GenerationGenerator.cpp ../../../GenerationGenerator/main.cpp} vhdl {../../../GenerationGenerator/GenerationGenerator.cpp ../../../GenerationGenerator/main.cpp} c {} cas {../../../GenerationGenerator/GenerationGenerator.cpp ../../../GenerationGenerator/main.cpp}}
 set SpecLanguage "C"
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

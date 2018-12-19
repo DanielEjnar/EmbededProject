@@ -15,10 +15,10 @@ eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
     name GenerationGenerator_randomNumbers_V \
     reset_level 1 \
     sync_rst true \
-    dir IO \
+    dir O \
     corename GenerationGenerator_randomNumbers_V \
     op interface \
-    ports { GenerationGenerator_randomNumbers_V_address0 { O 8 vector } GenerationGenerator_randomNumbers_V_ce0 { O 1 bit } GenerationGenerator_randomNumbers_V_we0 { O 1 bit } GenerationGenerator_randomNumbers_V_d0 { O 24 vector } GenerationGenerator_randomNumbers_V_q0 { I 24 vector } } \
+    ports { GenerationGenerator_randomNumbers_V_address0 { O 8 vector } GenerationGenerator_randomNumbers_V_ce0 { O 1 bit } GenerationGenerator_randomNumbers_V_we0 { O 1 bit } GenerationGenerator_randomNumbers_V_d0 { O 24 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'GenerationGenerator_randomNumbers_V'"
@@ -27,7 +27,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 
 
 # Adapter definition:
-set corename slv1
+set corename slv0
 set opts {
     {
         id 0
@@ -41,7 +41,7 @@ set opts {
     }
 }
 set portmap { }
-set metadata { -bus_bundle slv1}
+set metadata { -bus_bundle slv0}
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::axi_slave_int_gen] == "::AESL_LIB_XILADAPTER::axi_slave_int_gen"} {
 eval "::AESL_LIB_XILADAPTER::axi_slave_int_gen { \

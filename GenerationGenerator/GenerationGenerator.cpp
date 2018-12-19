@@ -4,19 +4,30 @@
 #include "GenerationGenerator.h"
 
 void GenerationGenerator::consumeRandom(void) {
-#pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv1" variable=random
+#pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=random
   sc_uint<RANDOM_WIDTH> tmpRnd;
 	while(true){
 		wait();
 		tmpRnd = random.read();
+		//std::cout << "Read a random number: " << tmpRnd << std::endl;
+		//std::cout << "Inserted random number: " << tmpRnd << "at index: " << randomNumberIndex << std::endl;
+		randomNumbers[randomNumberIndex] = tmpRnd;
+		if(randomNumberIndex == RANDOM_WIDTH-1) {
+			randomNumberIndex = 0;
+		} else {
+			randomNumberIndex = randomNumberIndex + 1;
+		}
+		/*
 		if(tmpRnd == randomNumbers[((randomNumberIndex-1) > RANDOM_WIDTH) ? RANDOM_WIDTH-1 : randomNumberIndex-1]){
-			randomNumbers[randomNumberIndex] = tmpRnd;
 			if(randomNumberIndex == RANDOM_WIDTH-1) {
 				randomNumberIndex = 0;
 			} else {
 				randomNumberIndex = randomNumberIndex + 1;
 			}
+			std::cout << "Inserted random number: " << tmpRnd << "at index: " << randomNumberIndex << std::endl;
+			randomNumbers[randomNumberIndex] = tmpRnd;
 		}
+		*/
 	}
 }
 
@@ -49,6 +60,7 @@ void GenerationGenerator::generateGeneration(void) {
 		// get the fitness and previous generation_in
 		sc_uint<CHROMOSOME_WIDTH> parent1 = generation_parent1->read();
 		sc_uint<CHROMOSOME_WIDTH> parent2 = generation_parent2->read();
+		wait();
 
 		// Generate = num of bits
 		// X = 16 bits, y = 16 bits
@@ -64,8 +76,12 @@ void GenerationGenerator::generateGeneration(void) {
 		//0-2^24
 		//0-CHROMOSOME_WIDTH
 		//Scale
-		point1 = (sc_uint<RANDOM_WIDTH + CHROMOSOME_WIDTH>) (point1 * (CHROMOSOME_WIDTH - 1)) >> RANDOM_WIDTH;
-		point2 = (sc_uint<RANDOM_WIDTH + CHROMOSOME_WIDTH>) (point2 * (CHROMOSOME_WIDTH - 1)) >> RANDOM_WIDTH;
+		point1 = (point1 * (CHROMOSOME_WIDTH - 1)) >> RANDOM_WIDTH;
+		point2 = (point2 * (CHROMOSOME_WIDTH - 1)) >> RANDOM_WIDTH;
+		wait();
+
+		//std::cout << "Point1: " << point1 << std::endl;
+		//std::cout << "Point2: " << point2 << std::endl;
 
 		// Sort high and low number
 		sc_uint<RANDOM_WIDTH> highNum;
@@ -84,13 +100,13 @@ void GenerationGenerator::generateGeneration(void) {
 		sc_uint<CHROMOSOME_WIDTH> child1 = (parent1 & bitMask1) + (bitMask2 & parent2);
 		sc_uint<CHROMOSOME_WIDTH> child2 = (parent1 & bitMask2) + (bitMask1 & parent2);
 
-
 		// mutate - get random positions to mutate OR get a random number per bit and see if it mutates
 		sc_uint<RANDOM_WIDTH> randomMutationProb = mutation_probability.read();
+		wait();
 
 		// Mutating child 1
 		mutateChild1: for (int j = 0; j < CHROMOSOME_WIDTH; j++) {
-			#pragma HLS PIPLEINE II=2
+			#pragma HLS PIPELINE II=2
 			if (trueRandom() < randomMutationProb) {
 				child1 ^= (1 << j);
 			}
@@ -98,15 +114,17 @@ void GenerationGenerator::generateGeneration(void) {
 
 		// Mutating child 2
 		mutateChild2: for (int j = 0; j < CHROMOSOME_WIDTH; j++) {
-			#pragma HLS PIPLEINE II=2
+			#pragma HLS PIPELINE II=2
 			if (trueRandom() < randomMutationProb) {
 				child2 ^= (1 << j);
 			}
 		}
+		wait();
 
 		// set generation_out
 		generation_child1->write(child1);
 		generation_child2->write(child2);
 		generatingDone->write(true);
+		while(startGenerating->read() == true) { wait(); };
 	}
 }

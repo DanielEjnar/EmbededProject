@@ -15,7 +15,6 @@ int XGenerationgenerator_CfgInitialize(XGenerationgenerator *InstancePtr, XGener
     Xil_AssertNonvoid(ConfigPtr != NULL);
 
     InstancePtr->Slv0_BaseAddress = ConfigPtr->Slv0_BaseAddress;
-    InstancePtr->Slv1_BaseAddress = ConfigPtr->Slv1_BaseAddress;
     InstancePtr->IsReady = XIL_COMPONENT_IS_READY;
 
     return XST_SUCCESS;
@@ -49,57 +48,63 @@ u32 XGenerationgenerator_GetGeneratingdone(XGenerationgenerator *InstancePtr) {
     return Data;
 }
 
-void XGenerationgenerator_SetGeneration_parent1(XGenerationgenerator *InstancePtr, u32 Data) {
+void XGenerationgenerator_SetGeneration_parent1(XGenerationgenerator *InstancePtr, u64 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XGenerationgenerator_WriteReg(InstancePtr->Slv0_BaseAddress, XGENERATIONGENERATOR_SLV0_ADDR_GENERATION_PARENT1_DATA, Data);
+    XGenerationgenerator_WriteReg(InstancePtr->Slv0_BaseAddress, XGENERATIONGENERATOR_SLV0_ADDR_GENERATION_PARENT1_DATA, (u32)(Data));
+    XGenerationgenerator_WriteReg(InstancePtr->Slv0_BaseAddress, XGENERATIONGENERATOR_SLV0_ADDR_GENERATION_PARENT1_DATA + 4, (u32)(Data >> 32));
 }
 
-u32 XGenerationgenerator_GetGeneration_parent1(XGenerationgenerator *InstancePtr) {
-    u32 Data;
+u64 XGenerationgenerator_GetGeneration_parent1(XGenerationgenerator *InstancePtr) {
+    u64 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
     Data = XGenerationgenerator_ReadReg(InstancePtr->Slv0_BaseAddress, XGENERATIONGENERATOR_SLV0_ADDR_GENERATION_PARENT1_DATA);
+    Data += (u64)XGenerationgenerator_ReadReg(InstancePtr->Slv0_BaseAddress, XGENERATIONGENERATOR_SLV0_ADDR_GENERATION_PARENT1_DATA + 4) << 32;
     return Data;
 }
 
-void XGenerationgenerator_SetGeneration_parent2(XGenerationgenerator *InstancePtr, u32 Data) {
+void XGenerationgenerator_SetGeneration_parent2(XGenerationgenerator *InstancePtr, u64 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XGenerationgenerator_WriteReg(InstancePtr->Slv0_BaseAddress, XGENERATIONGENERATOR_SLV0_ADDR_GENERATION_PARENT2_DATA, Data);
+    XGenerationgenerator_WriteReg(InstancePtr->Slv0_BaseAddress, XGENERATIONGENERATOR_SLV0_ADDR_GENERATION_PARENT2_DATA, (u32)(Data));
+    XGenerationgenerator_WriteReg(InstancePtr->Slv0_BaseAddress, XGENERATIONGENERATOR_SLV0_ADDR_GENERATION_PARENT2_DATA + 4, (u32)(Data >> 32));
 }
 
-u32 XGenerationgenerator_GetGeneration_parent2(XGenerationgenerator *InstancePtr) {
-    u32 Data;
+u64 XGenerationgenerator_GetGeneration_parent2(XGenerationgenerator *InstancePtr) {
+    u64 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
     Data = XGenerationgenerator_ReadReg(InstancePtr->Slv0_BaseAddress, XGENERATIONGENERATOR_SLV0_ADDR_GENERATION_PARENT2_DATA);
+    Data += (u64)XGenerationgenerator_ReadReg(InstancePtr->Slv0_BaseAddress, XGENERATIONGENERATOR_SLV0_ADDR_GENERATION_PARENT2_DATA + 4) << 32;
     return Data;
 }
 
-u32 XGenerationgenerator_GetGeneration_child1(XGenerationgenerator *InstancePtr) {
-    u32 Data;
+u64 XGenerationgenerator_GetGeneration_child1(XGenerationgenerator *InstancePtr) {
+    u64 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
     Data = XGenerationgenerator_ReadReg(InstancePtr->Slv0_BaseAddress, XGENERATIONGENERATOR_SLV0_ADDR_GENERATION_CHILD1_DATA);
+    Data += (u64)XGenerationgenerator_ReadReg(InstancePtr->Slv0_BaseAddress, XGENERATIONGENERATOR_SLV0_ADDR_GENERATION_CHILD1_DATA + 4) << 32;
     return Data;
 }
 
-u32 XGenerationgenerator_GetGeneration_child2(XGenerationgenerator *InstancePtr) {
-    u32 Data;
+u64 XGenerationgenerator_GetGeneration_child2(XGenerationgenerator *InstancePtr) {
+    u64 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
     Data = XGenerationgenerator_ReadReg(InstancePtr->Slv0_BaseAddress, XGENERATIONGENERATOR_SLV0_ADDR_GENERATION_CHILD2_DATA);
+    Data += (u64)XGenerationgenerator_ReadReg(InstancePtr->Slv0_BaseAddress, XGENERATIONGENERATOR_SLV0_ADDR_GENERATION_CHILD2_DATA + 4) << 32;
     return Data;
 }
 
@@ -124,7 +129,7 @@ void XGenerationgenerator_SetRandom(XGenerationgenerator *InstancePtr, u32 Data)
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XGenerationgenerator_WriteReg(InstancePtr->Slv1_BaseAddress, XGENERATIONGENERATOR_SLV1_ADDR_RANDOM_DATA, Data);
+    XGenerationgenerator_WriteReg(InstancePtr->Slv0_BaseAddress, XGENERATIONGENERATOR_SLV0_ADDR_RANDOM_DATA, Data);
 }
 
 u32 XGenerationgenerator_GetRandom(XGenerationgenerator *InstancePtr) {
@@ -133,7 +138,7 @@ u32 XGenerationgenerator_GetRandom(XGenerationgenerator *InstancePtr) {
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XGenerationgenerator_ReadReg(InstancePtr->Slv1_BaseAddress, XGENERATIONGENERATOR_SLV1_ADDR_RANDOM_DATA);
+    Data = XGenerationgenerator_ReadReg(InstancePtr->Slv0_BaseAddress, XGENERATIONGENERATOR_SLV0_ADDR_RANDOM_DATA);
     return Data;
 }
 

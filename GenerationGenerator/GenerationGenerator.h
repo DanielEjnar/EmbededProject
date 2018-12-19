@@ -2,8 +2,9 @@
 #define GENERATIONGENERATOR_H
 #include <systemc.h>
 
-#define CHROMOSOME_WIDTH 16
+#define CHROMOSOME_WIDTH 64
 #define RANDOM_WIDTH 24
+#define GENERATION_SIZE 10
 
 SC_MODULE(GenerationGenerator) {
 	sc_in<bool> clk;

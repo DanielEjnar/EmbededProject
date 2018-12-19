@@ -17,12 +17,10 @@ module GenerationGenerator_consumeRandom (
         GenerationGenerator_randomNumbers_V_address0,
         GenerationGenerator_randomNumbers_V_ce0,
         GenerationGenerator_randomNumbers_V_we0,
-        GenerationGenerator_randomNumbers_V_d0,
-        GenerationGenerator_randomNumbers_V_q0
+        GenerationGenerator_randomNumbers_V_d0
 );
 
-parameter    ap_ST_fsm_state2 = 3'd2;
-parameter    ap_ST_fsm_state3 = 3'd4;
+parameter    ap_ST_fsm_state2 = 2'd2;
 
 input   ap_clk;
 input   ap_rst;
@@ -34,34 +32,21 @@ output  [7:0] GenerationGenerator_randomNumbers_V_address0;
 output   GenerationGenerator_randomNumbers_V_ce0;
 output   GenerationGenerator_randomNumbers_V_we0;
 output  [23:0] GenerationGenerator_randomNumbers_V_d0;
-input  [23:0] GenerationGenerator_randomNumbers_V_q0;
 
 reg GenerationGenerator_randomNumberIndex_V_o_ap_vld;
-reg[7:0] GenerationGenerator_randomNumbers_V_address0;
 reg GenerationGenerator_randomNumbers_V_ce0;
 reg GenerationGenerator_randomNumbers_V_we0;
 
-reg   [23:0] val_V_reg_223;
-(* fsm_encoding = "none" *) reg   [2:0] ap_CS_fsm;
+wire   [31:0] tmp_fu_136_p1;
+(* fsm_encoding = "none" *) reg   [1:0] ap_CS_fsm;
 wire    ap_CS_fsm_state2;
-reg   [23:0] GenerationGenerator_s_reg_229;
-wire   [8:0] tmp_s_fu_183_p2;
-reg   [8:0] tmp_21_phi_fu_156_p4;
-wire   [0:0] tmp_fu_173_p2;
-wire  signed [31:0] tmp_29_cast_fu_190_p1;
-wire   [31:0] tmp_23_fu_200_p1;
-wire    ap_CS_fsm_state3;
-wire   [0:0] tmp_22_fu_195_p2;
-wire   [24:0] lhs_V_cast_fu_163_p1;
-wire   [24:0] r_V_fu_167_p2;
-wire   [8:0] tmp_13_fu_179_p1;
-wire   [0:0] tmp_24_fu_204_p2;
-wire   [23:0] tmp_25_fu_209_p2;
-reg   [2:0] ap_NS_fsm;
+wire   [0:0] tmp_s_fu_141_p2;
+wire   [23:0] tmp_17_fu_147_p2;
+reg   [1:0] ap_NS_fsm;
 
 // power-on initialization
 initial begin
-#0 ap_CS_fsm = 3'd2;
+#0 ap_CS_fsm = 2'd2;
 end
 
 always @ (posedge ap_clk) begin
@@ -72,15 +57,8 @@ always @ (posedge ap_clk) begin
     end
 end
 
-always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state2)) begin
-        GenerationGenerator_s_reg_229 <= GenerationGenerator_randomNumberIndex_V_i;
-        val_V_reg_223 <= random;
-    end
-end
-
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) & (1'd1 == tmp_22_fu_195_p2))) begin
+    if ((1'b1 == ap_CS_fsm_state2)) begin
         GenerationGenerator_randomNumberIndex_V_o_ap_vld = 1'b1;
     end else begin
         GenerationGenerator_randomNumberIndex_V_o_ap_vld = 1'b0;
@@ -88,17 +66,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        GenerationGenerator_randomNumbers_V_address0 = tmp_23_fu_200_p1;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        GenerationGenerator_randomNumbers_V_address0 = tmp_29_cast_fu_190_p1;
-    end else begin
-        GenerationGenerator_randomNumbers_V_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state3))) begin
+    if ((1'b1 == ap_CS_fsm_state2)) begin
         GenerationGenerator_randomNumbers_V_ce0 = 1'b1;
     end else begin
         GenerationGenerator_randomNumbers_V_ce0 = 1'b0;
@@ -106,7 +74,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) & (1'd1 == tmp_22_fu_195_p2))) begin
+    if ((1'b1 == ap_CS_fsm_state2)) begin
         GenerationGenerator_randomNumbers_V_we0 = 1'b1;
     end else begin
         GenerationGenerator_randomNumbers_V_we0 = 1'b0;
@@ -114,25 +82,8 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state2)) begin
-        if ((tmp_fu_173_p2 == 1'd1)) begin
-            tmp_21_phi_fu_156_p4 = 9'd23;
-        end else if ((tmp_fu_173_p2 == 1'd0)) begin
-            tmp_21_phi_fu_156_p4 = tmp_s_fu_183_p2;
-        end else begin
-            tmp_21_phi_fu_156_p4 = 'bx;
-        end
-    end else begin
-        tmp_21_phi_fu_156_p4 = 'bx;
-    end
-end
-
-always @ (*) begin
     case (ap_CS_fsm)
         ap_ST_fsm_state2 : begin
-            ap_NS_fsm = ap_ST_fsm_state3;
-        end
-        ap_ST_fsm_state3 : begin
             ap_NS_fsm = ap_ST_fsm_state2;
         end
         default : begin
@@ -141,32 +92,18 @@ always @ (*) begin
     endcase
 end
 
-assign GenerationGenerator_randomNumberIndex_V_o = ((tmp_24_fu_204_p2[0:0] === 1'b1) ? 24'd0 : tmp_25_fu_209_p2);
+assign GenerationGenerator_randomNumberIndex_V_o = ((tmp_s_fu_141_p2[0:0] === 1'b1) ? 24'd0 : tmp_17_fu_147_p2);
 
-assign GenerationGenerator_randomNumbers_V_d0 = val_V_reg_223;
+assign GenerationGenerator_randomNumbers_V_address0 = tmp_fu_136_p1;
+
+assign GenerationGenerator_randomNumbers_V_d0 = random;
 
 assign ap_CS_fsm_state2 = ap_CS_fsm[32'd1];
 
-assign ap_CS_fsm_state3 = ap_CS_fsm[32'd2];
+assign tmp_17_fu_147_p2 = (GenerationGenerator_randomNumberIndex_V_i + 24'd1);
 
-assign lhs_V_cast_fu_163_p1 = GenerationGenerator_randomNumberIndex_V_i;
+assign tmp_fu_136_p1 = GenerationGenerator_randomNumberIndex_V_i;
 
-assign r_V_fu_167_p2 = ($signed(lhs_V_cast_fu_163_p1) + $signed(25'd33554431));
-
-assign tmp_13_fu_179_p1 = GenerationGenerator_randomNumberIndex_V_i[8:0];
-
-assign tmp_22_fu_195_p2 = ((val_V_reg_223 == GenerationGenerator_randomNumbers_V_q0) ? 1'b1 : 1'b0);
-
-assign tmp_23_fu_200_p1 = GenerationGenerator_s_reg_229;
-
-assign tmp_24_fu_204_p2 = ((GenerationGenerator_s_reg_229 == 24'd23) ? 1'b1 : 1'b0);
-
-assign tmp_25_fu_209_p2 = (GenerationGenerator_s_reg_229 + 24'd1);
-
-assign tmp_29_cast_fu_190_p1 = $signed(tmp_21_phi_fu_156_p4);
-
-assign tmp_fu_173_p2 = (($signed(r_V_fu_167_p2) > $signed(25'd24)) ? 1'b1 : 1'b0);
-
-assign tmp_s_fu_183_p2 = ($signed(9'd511) + $signed(tmp_13_fu_179_p1));
+assign tmp_s_fu_141_p2 = ((GenerationGenerator_randomNumberIndex_V_i == 24'd23) ? 1'b1 : 1'b0);
 
 endmodule //GenerationGenerator_consumeRandom
