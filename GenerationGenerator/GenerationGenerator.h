@@ -3,9 +3,7 @@
 #include <systemc.h>
 
 #define CHROMOSOME_WIDTH 16
-#define GENERATION_SIZE 10
 #define RANDOM_WIDTH 24
-#define FITNESS_WIDTH 16
 
 SC_MODULE(GenerationGenerator) {
 	sc_in<bool> clk;
@@ -32,12 +30,8 @@ SC_MODULE(GenerationGenerator) {
 	  trueRandomIndex = 0;
 	  SC_CTHREAD(generateGeneration, clk.pos());
 		reset_signal_is(reset,false);
-	  //sensitive << generation_parent1;
-	  //sensitive << generation_parent2;
 	  SC_CTHREAD(consumeRandom, clk.pos());
 		reset_signal_is(reset,false);
-	  //sensitive << random;
-	  //reset_signal_is(reset, false);
   }
 };
 #endif
