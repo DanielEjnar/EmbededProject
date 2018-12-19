@@ -18,17 +18,16 @@ SC_MODULE(Stim)
 
 	void stimGen() {
 		wait(10, SC_NS);
-		//std::cout << "generate started - time: " << sc_time_stamp() << std::endl;
 		mutation_probability->write(255);
 		for(int i = 0; i < 160; i++)
 		{
-			random->write(rand()*RAND_MAX);
+			random->write(130+i*8);
 			wait(1, SC_NS);
 		}
-		generation_parent1->write(rand() * 2);
-		generation_parent2->write(rand() * 2);
+		generation_parent1->write(0xdeaddeadbeefbeef);
+		generation_parent2->write(0x1234567812345678);
 		startGenerating->write(true);
-		wait(1, SC_MS);
+		wait(100, SC_NS);
 	}
 
 	SC_CTOR(Stim) {
