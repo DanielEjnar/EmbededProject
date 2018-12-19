@@ -2,7 +2,7 @@
 \footnote{\color{red}NOTE: waits in rosenbrock to reduce resources used}
 
 \begin{framed}
-5. Select the SysML/UML model for your preferred architecture suggestions in 3. Choose a part of the functionality including both hardware and software components to create a model and a test- bench in HLS using SystemC or C-code. Simulate and validate your design model.
+5. Select the SysML/UML model for your preferred architecture suggestions in 3. Choose a part of the functionality including both hardware and software components to create a model and a test-bench in HLS using SystemC or C-code. Simulate and validate your design model.
 
 Argue for your choice of modeling language and abstraction level of modeling. Use the reports from the HLS tool to evaluate performance of the design. Assess whether the design is able to fulfill your requirements and constraints.
 \end{framed}
@@ -17,8 +17,6 @@ GenerationGenerator is responsible for generating a new generation using the gen
 The module consists of two SC\_CTREAD's, as it can be seen in listing \ref{lst:generationgenerator_h}.
 
 \begin{lstlisting}[style=customc++, caption={GenerationGenerator.h},label={lst:generationgenerator_h}]
-#ifndef GENERATIONGENERATOR_H
-#define GENERATIONGENERATOR_H
 #include <systemc.h>
 
 #define CHROMOSOME_WIDTH 64
@@ -52,21 +50,17 @@ SC_MODULE(GenerationGenerator) {
     reset_signal_is(reset,false);
   }
 };
-#endif
 \end{lstlisting}
 
-The implementation can be seen in listing \ref{lst:generationgenerator_cpp}. Here the behavior of the module can be found. consumeRandom has the responsibility of taking the random numbers from the input and saving them in a circular buffer. The random numbers are supposed to come from a loose audio channel, i.e. true random noise.
+The implementation can be seen in listing \ref{lst:generationgenerator_cpp}. Here the behavior of the module can be found. consumeRandom has the responsibility of taking the random numbers from the input and saving them in a circular buffer. The random numbers were supposed to come from a loose audio channel, i.e. true random noise, but due to time constraints it was implemented using pseudo random numbers using the rand function.
 
-The method trueRandom is used to get the random numbers when needed.
+The method trueRandom is used to get the random numbers when needed from the circular buffer.
 
-generateGeneration is the method which uses the most logic. It basically implements the generative algorithm, as described i the theory. Here it is done with two random crossoverpoints. This is done using some bitmasks which is anded onto the adults to produce the children. Then the child is mutated, meaning, that a single bit can be flipped if the random number is lower than than the probability.
+generateGeneration is the method which uses the most logic. It basically implements the generative algorithm, as described i the theory. Here it is done with two random crossover points. This is done using some bitmasks which is anded onto the adults to produce the children. Then the child is mutated, meaning, that a single bit can be flipped if the random number is lower than than the scaled probability.
 
-All of the variables are made available through the AXILite interface through the use of pragmas.
+All of the variables are made available through the AXILite interface through the use of pragmas, e.g. \#pragma HLS resource core=AXI4LiteS metadata="-bus\_bundle slv0" variable=generation\_parent1.
 
 \begin{lstlisting}[style=customc++,caption={GenerationGenerator.cpp},label={lst:generationgenerator_cpp}]
-#ifdef _MSC_VER
-	#include "stdafx.h"
-#endif
 #include "GenerationGenerator.h"
 
 void GenerationGenerator::consumeRandom(void) {
@@ -163,16 +157,14 @@ void GenerationGenerator::generateGeneration(void) {
 }
 \end{lstlisting}
 
-The GenerationGenerator module is tested in a tesbech. This testbench can be seen in listing ref{lst:generatorTestbench}, which more or less wires the stimulation and the genration generator together and makes a trace file.
+The GenerationGenerator module is tested in a tesbech. This testbench can be seen in listing ref{lst:generatorTestbench} in appendix \ref{app:code}, which more or less wires the stimulation and the genration generator together and makes a trace file, and therefor not shown here.
 
-The stimulation for this testbench can be see in listing \ref{lst:generationGeneratiorStim}. It just makes a lot of random numbers and two parents and then starts the GenerationGenerator.
+The stimulation for this testbench can be see in listing \ref{lst:generationGeneratiorStim}, also in appendix \ref{app:code}. It just makes a lot of random numbers and two parents and then starts the GenerationGenerator.
 
 \subsection{Simulator}
 The simulator (also called the RosenbrockSimulator) simulates the Rosenbrock function. The definition can be found in listing \ref{lst:rosenbrock_h}. Here it should be noted, that a and b are uint32 but is actually a float. This means that there is a conversion which is just handled by a cast using pointers.
 
 \begin{lstlisting}[style=customc++,caption={RosenbrockSimulator.h},label={lst:rosenbrock_h}]
-#ifndef ROSENBROCKSIMULATOR_H
-#define ROSENBROCKSIMULATOR_H
 #include <systemc.h>
 
 #define CHROMOSOME_WIDTH 64
@@ -194,10 +186,9 @@ SC_MODULE(RosenbrockSimulator) {
     reset_signal_is(reset,false);
   }
 };
-#endif
 \end{lstlisting}
 
-The function implementation of the SC\_CTHREAD can be seen in listing \ref{lst:rosenbrock_cpp}. This is done using floats, which is not the most efficient thing to use. As it is going to be shown later in the results (section \ref{sec:results}) there is not room for the module on the FPGA. 
+The function implementation of the SC\_CTHREAD can be seen in listing \ref{lst:rosenbrock_cpp}. This is done using floats, which is not the most efficient thing to use. As it is going to be shown later in the results (section \ref{sec:results}) there is not room for the module on the FPGA. Due to times constraints this could have been made differently by using another floating point encoding which could allow for for the use of fixed point arithmetics and interpret it as floats later.
 
 \begin{lstlisting}[style=customc++,caption={RosenbrockSimulator.cpp},label={lst:rosenbrock_cpp}]
 #include "RosenbrockSimulator.h"
@@ -229,7 +220,7 @@ void RosenbrockSimulator::simulateRosenbrock(){
 }
 \end{lstlisting}
 
-This module is tested using a testbench. This testbench can be seen in listing \ref{lst:rosenbrock_testbench}. This is more or less just wiring, but it also shows a result in the trace file. The stimulation for this testbench is shown in listing \ref{lst:rosenbrockStim}.
+This module is tested using a testbench. This testbench can be seen in listing \ref{lst:rosenbrock_testbench} in appednix \ref{app:code}. This is more or less just wiring, but it also shows a result in the trace file. The stimulation for this testbench is shown in listing \ref{lst:rosenbrockStim} in appendix \ref{app:code}.
 
 
 %\section{SystemC Modelling}
