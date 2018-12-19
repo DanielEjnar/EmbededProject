@@ -18,7 +18,7 @@ set_property target_language Verilog [current_project]
 set_property ip_repo_paths c:/Users/cml/Desktop/EmbededProject/ip/generator [current_project]
 set_property ip_output_repo c:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoVivado/GeneticAlgoVivado.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_vhdl -library xil_defaultlib C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoVivado/GeneticAlgoVivado.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+read_verilog -library xil_defaultlib C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoVivado/GeneticAlgoVivado.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v
 add_files C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoVivado/GeneticAlgoVivado.srcs/sources_1/bd/design_1/design_1.bd
 set_property used_in_implementation false [get_files -all c:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoVivado/GeneticAlgoVivado.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_2/design_1_processing_system7_0_2.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoVivado/GeneticAlgoVivado.srcs/sources_1/bd/design_1/ip/design_1_GenerationGenerator_0_0/constraints/GenerationGenerator_ooc.xdc]
