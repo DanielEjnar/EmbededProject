@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1545234126">
+<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1545236353">
   <File Type="PLACE-DCP" Name="GenerationGenerator_placed.dcp"/>
   <File Type="PA-DCP" Name="GenerationGenerator.dcp"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="GenerationGenerator_methodology_drc_opted.rpt"/>
@@ -77,14 +77,14 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/GenerationGenerator_consumeRandom.v">
+    <File Path="$PPRDIR/GenerationGenerator_generateGeneration.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/GenerationGenerator_generateGeneration.v">
+    <File Path="$PPRDIR/GenerationGenerator_produceRandom.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>

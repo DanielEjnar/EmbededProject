@@ -9,7 +9,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity GenerationGenerator_consumeRandom is
+entity GenerationGenerator_produceRandom is
 port (
     ap_clk : IN STD_LOGIC;
     ap_rst : IN STD_LOGIC;
@@ -24,25 +24,30 @@ port (
 end;
 
 
-architecture behav of GenerationGenerator_consumeRandom is 
+architecture behav of GenerationGenerator_produceRandom is 
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
-    constant ap_ST_fsm_state2 : STD_LOGIC_VECTOR (1 downto 0) := "10";
+    constant ap_ST_fsm_state2 : STD_LOGIC_VECTOR (2 downto 0) := "010";
+    constant ap_ST_fsm_state3 : STD_LOGIC_VECTOR (2 downto 0) := "100";
     constant ap_const_lv32_1 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000001";
+    constant ap_const_lv32_2 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000010";
     constant ap_const_lv24_17 : STD_LOGIC_VECTOR (23 downto 0) := "000000000000000000010111";
     constant ap_const_lv24_1 : STD_LOGIC_VECTOR (23 downto 0) := "000000000000000000000001";
     constant ap_const_lv24_0 : STD_LOGIC_VECTOR (23 downto 0) := "000000000000000000000000";
     constant ap_const_boolean_1 : BOOLEAN := true;
 
-    signal tmp_fu_136_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal ap_CS_fsm : STD_LOGIC_VECTOR (1 downto 0) := "10";
+    signal val_V_reg_161 : STD_LOGIC_VECTOR (23 downto 0);
+    signal ap_CS_fsm : STD_LOGIC_VECTOR (2 downto 0) := "010";
     attribute fsm_encoding : string;
     attribute fsm_encoding of ap_CS_fsm : signal is "none";
     signal ap_CS_fsm_state2 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
-    signal tmp_s_fu_141_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal tmp_8_fu_147_p2 : STD_LOGIC_VECTOR (23 downto 0);
-    signal ap_NS_fsm : STD_LOGIC_VECTOR (1 downto 0);
+    signal tmp_fu_135_p1 : STD_LOGIC_VECTOR (31 downto 0);
+    signal ap_CS_fsm_state3 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state3 : signal is "none";
+    signal tmp_1_fu_140_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal tmp_2_fu_146_p2 : STD_LOGIC_VECTOR (23 downto 0);
+    signal ap_NS_fsm : STD_LOGIC_VECTOR (2 downto 0);
 
 
 begin
@@ -61,45 +66,55 @@ begin
         end if;
     end process;
 
+    process (ap_clk)
+    begin
+        if (ap_clk'event and ap_clk = '1') then
+            if ((ap_const_logic_1 = ap_CS_fsm_state2)) then
+                val_V_reg_161 <= random;
+            end if;
+        end if;
+    end process;
 
     ap_NS_fsm_assign_proc : process (ap_CS_fsm)
     begin
         case ap_CS_fsm is
             when ap_ST_fsm_state2 => 
+                ap_NS_fsm <= ap_ST_fsm_state3;
+            when ap_ST_fsm_state3 => 
                 ap_NS_fsm <= ap_ST_fsm_state2;
             when others =>  
-                ap_NS_fsm <= "XX";
+                ap_NS_fsm <= "XXX";
         end case;
     end process;
     GenerationGenerator_randomNumberIndex_V_o <= 
-        ap_const_lv24_0 when (tmp_s_fu_141_p2(0) = '1') else 
-        tmp_8_fu_147_p2;
+        ap_const_lv24_0 when (tmp_1_fu_140_p2(0) = '1') else 
+        tmp_2_fu_146_p2;
 
-    GenerationGenerator_randomNumberIndex_V_o_ap_vld_assign_proc : process(ap_CS_fsm_state2)
+    GenerationGenerator_randomNumberIndex_V_o_ap_vld_assign_proc : process(ap_CS_fsm_state3)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+        if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
             GenerationGenerator_randomNumberIndex_V_o_ap_vld <= ap_const_logic_1;
         else 
             GenerationGenerator_randomNumberIndex_V_o_ap_vld <= ap_const_logic_0;
         end if; 
     end process;
 
-    GenerationGenerator_randomNumbers_V_address0 <= tmp_fu_136_p1(8 - 1 downto 0);
+    GenerationGenerator_randomNumbers_V_address0 <= tmp_fu_135_p1(8 - 1 downto 0);
 
-    GenerationGenerator_randomNumbers_V_ce0_assign_proc : process(ap_CS_fsm_state2)
+    GenerationGenerator_randomNumbers_V_ce0_assign_proc : process(ap_CS_fsm_state3)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+        if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
             GenerationGenerator_randomNumbers_V_ce0 <= ap_const_logic_1;
         else 
             GenerationGenerator_randomNumbers_V_ce0 <= ap_const_logic_0;
         end if; 
     end process;
 
-    GenerationGenerator_randomNumbers_V_d0 <= random;
+    GenerationGenerator_randomNumbers_V_d0 <= val_V_reg_161;
 
-    GenerationGenerator_randomNumbers_V_we0_assign_proc : process(ap_CS_fsm_state2)
+    GenerationGenerator_randomNumbers_V_we0_assign_proc : process(ap_CS_fsm_state3)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+        if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
             GenerationGenerator_randomNumbers_V_we0 <= ap_const_logic_1;
         else 
             GenerationGenerator_randomNumbers_V_we0 <= ap_const_logic_0;
@@ -107,7 +122,8 @@ begin
     end process;
 
     ap_CS_fsm_state2 <= ap_CS_fsm(1);
-    tmp_8_fu_147_p2 <= std_logic_vector(unsigned(GenerationGenerator_randomNumberIndex_V_i) + unsigned(ap_const_lv24_1));
-    tmp_fu_136_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(GenerationGenerator_randomNumberIndex_V_i),32));
-    tmp_s_fu_141_p2 <= "1" when (GenerationGenerator_randomNumberIndex_V_i = ap_const_lv24_17) else "0";
+    ap_CS_fsm_state3 <= ap_CS_fsm(2);
+    tmp_1_fu_140_p2 <= "1" when (GenerationGenerator_randomNumberIndex_V_i = ap_const_lv24_17) else "0";
+    tmp_2_fu_146_p2 <= std_logic_vector(unsigned(GenerationGenerator_randomNumberIndex_V_i) + unsigned(ap_const_lv24_1));
+    tmp_fu_135_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(GenerationGenerator_randomNumberIndex_V_i),32));
 end behav;

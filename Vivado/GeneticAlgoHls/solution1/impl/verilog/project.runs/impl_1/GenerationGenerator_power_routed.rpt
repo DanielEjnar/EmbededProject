@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-| Date             : Wed Dec 19 16:43:11 2018
+| Date             : Wed Dec 19 17:20:19 2018
 | Host             : Centropy running 64-bit major release  (build 9200)
 | Command          : report_power -file GenerationGenerator_power_routed.rpt -pb GenerationGenerator_power_summary_routed.pb -rpx GenerationGenerator_power_routed.rpx
 | Design           : GenerationGenerator
@@ -30,8 +30,8 @@ Table of Contents
 ----------
 
 +--------------------------+--------+
-| Total On-Chip Power (W)  | 0.102  |
-| Dynamic (W)              | 0.002  |
+| Total On-Chip Power (W)  | 0.107  |
+| Dynamic (W)              | 0.007  |
 | Device Static (W)        | 0.100  |
 | Effective TJA (C/W)      | 11.5   |
 | Max Ambient (C)          | 83.8   |
@@ -49,14 +49,16 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      609 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      172 |     17600 |            0.98 |
-|   Register     |    <0.001 |      413 |     35200 |            1.17 |
-|   Others       |     0.000 |        4 |       --- |             --- |
-| Signals        |    <0.001 |      330 |       --- |             --- |
+| Clocks         |     0.003 |        3 |       --- |             --- |
+| Slice Logic    |     0.001 |     1088 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      357 |     17600 |            2.03 |
+|   Register     |    <0.001 |      621 |     35200 |            1.76 |
+|   CARRY4       |    <0.001 |       33 |      4400 |            0.75 |
+|   Others       |     0.000 |        8 |       --- |             --- |
+| Signals        |     0.001 |      748 |       --- |             --- |
+| Block RAM      |     0.001 |      0.5 |        60 |            0.83 |
 | Static Power   |     0.100 |          |           |                 |
-| Total          |     0.102 |          |           |                 |
+| Total          |     0.107 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -66,7 +68,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.005 |       0.002 |      0.004 |
+| Vccint    |       1.000 |     0.010 |       0.007 |      0.004 |
 | Vccaux    |       1.800 |     0.011 |       0.000 |      0.011 |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -142,8 +144,11 @@ Table of Contents
 +-----------------------------------------------------+-----------+
 | Name                                                | Power (W) |
 +-----------------------------------------------------+-----------+
-| GenerationGenerator                                 |     0.002 |
-|   grp_GenerationGenerator_generateGeneration_fu_114 |     0.001 |
+| GenerationGenerator                                 |     0.007 |
+|   GenerationGenerator_randomNumbers_V_U             |     0.001 |
+|     GenerationGeneratbkb_ram_U                      |     0.001 |
+|   grp_GenerationGenerator_generateGeneration_fu_114 |     0.004 |
+|   grp_GenerationGenerator_produceRandom_fu_144      |    <0.001 |
 +-----------------------------------------------------+-----------+
 
 

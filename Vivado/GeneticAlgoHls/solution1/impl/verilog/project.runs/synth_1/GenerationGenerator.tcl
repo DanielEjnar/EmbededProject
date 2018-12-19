@@ -16,8 +16,8 @@ set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib {
   C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGeneratbkb.v
   C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator.v
-  C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_consumeRandom.v
   C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_generateGeneration.v
+  C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_produceRandom.v
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

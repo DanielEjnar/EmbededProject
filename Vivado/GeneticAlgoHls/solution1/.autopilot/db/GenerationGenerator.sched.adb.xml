@@ -357,7 +357,7 @@
 
 <Node id="38" bw="1" op_0_bw="1">
 <![CDATA[
-:22  %GenerationGenerator_s = load i1* @GenerationGenerator_ssdm_thread_M_consumeRandom, align 1
+:22  %GenerationGenerator_s = load i1* @GenerationGenerator_ssdm_thread_M_produceRandom, align 1
 
 ]]></Node>
 <StgValue><ssdm name="GenerationGenerator_s"/></StgValue>
@@ -757,7 +757,7 @@
 
 <Node id="67" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1" op_3_bw="1" op_4_bw="1" op_5_bw="64" op_6_bw="64" op_7_bw="64" op_8_bw="64" op_9_bw="24" op_10_bw="24" op_11_bw="24" op_12_bw="24" op_13_bw="24">
 <![CDATA[
-:0  call void @"GenerationGenerator::consumeRandom"(i1* %clk, i1* %reset, i1* %startGenerating, i1* %generatingDone, i64* %generation_parent1, i64* %generation_parent2, i64* %generation_child1, i64* %generation_child2, i24* %mutation_probability, i24* %random, i24* %GenerationGenerator_randomNumberIndex_V, i24* %GenerationGenerator_trueRandomIndex_V, [160 x i24]* %GenerationGenerator_randomNumbers_V)
+:0  call void @"GenerationGenerator::produceRandom"(i1* %clk, i1* %reset, i1* %startGenerating, i1* %generatingDone, i64* %generation_parent1, i64* %generation_parent2, i64* %generation_child1, i64* %generation_child2, i24* %mutation_probability, i24* %random, i24* %GenerationGenerator_randomNumberIndex_V, i24* %GenerationGenerator_trueRandomIndex_V, [160 x i24]* %GenerationGenerator_randomNumbers_V)
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -808,7 +808,7 @@
 
 <Node id="67" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1" op_3_bw="1" op_4_bw="1" op_5_bw="64" op_6_bw="64" op_7_bw="64" op_8_bw="64" op_9_bw="24" op_10_bw="24" op_11_bw="24" op_12_bw="24" op_13_bw="24">
 <![CDATA[
-:0  call void @"GenerationGenerator::consumeRandom"(i1* %clk, i1* %reset, i1* %startGenerating, i1* %generatingDone, i64* %generation_parent1, i64* %generation_parent2, i64* %generation_child1, i64* %generation_child2, i24* %mutation_probability, i24* %random, i24* %GenerationGenerator_randomNumberIndex_V, i24* %GenerationGenerator_trueRandomIndex_V, [160 x i24]* %GenerationGenerator_randomNumbers_V)
+:0  call void @"GenerationGenerator::produceRandom"(i1* %clk, i1* %reset, i1* %startGenerating, i1* %generatingDone, i64* %generation_parent1, i64* %generation_parent2, i64* %generation_child1, i64* %generation_child2, i24* %mutation_probability, i24* %random, i24* %GenerationGenerator_randomNumberIndex_V, i24* %GenerationGenerator_trueRandomIndex_V, [160 x i24]* %GenerationGenerator_randomNumbers_V)
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>

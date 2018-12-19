@@ -4,17 +4,17 @@ Implementation tool: Xilinx Vivado v.2017.2
 Project:             GeneticAlgoHls
 Solution:            solution1
 Device target:       xc7z010clg400-1
-Report date:         Wed Dec 19 16:43:15 +0100 2018
+Report date:         Wed Dec 19 17:20:24 +0100 2018
 
 #=== Post-Implementation Resource usage ===
-SLICE:          109
-LUT:            172
-FF:             413
+SLICE:          206
+LUT:            357
+FF:             621
 DSP:              0
-BRAM:             0
+BRAM:             1
 SRL:              0
 #=== Final timing ===
 CP required:    20.000
-CP achieved post-synthesis:    4.099
+CP achieved post-synthesis:    6.077
 CP achieved post-implementation:    NA
 No Sequential Path

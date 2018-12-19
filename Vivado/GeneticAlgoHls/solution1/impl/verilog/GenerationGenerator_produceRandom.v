@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-module GenerationGenerator_consumeRandom (
+module GenerationGenerator_produceRandom (
         ap_clk,
         ap_rst,
         random,
@@ -20,7 +20,8 @@ module GenerationGenerator_consumeRandom (
         GenerationGenerator_randomNumbers_V_d0
 );
 
-parameter    ap_ST_fsm_state2 = 2'd2;
+parameter    ap_ST_fsm_state2 = 3'd2;
+parameter    ap_ST_fsm_state3 = 3'd4;
 
 input   ap_clk;
 input   ap_rst;
@@ -37,16 +38,18 @@ reg GenerationGenerator_randomNumberIndex_V_o_ap_vld;
 reg GenerationGenerator_randomNumbers_V_ce0;
 reg GenerationGenerator_randomNumbers_V_we0;
 
-wire   [31:0] tmp_fu_136_p1;
-(* fsm_encoding = "none" *) reg   [1:0] ap_CS_fsm;
+reg   [23:0] val_V_reg_161;
+(* fsm_encoding = "none" *) reg   [2:0] ap_CS_fsm;
 wire    ap_CS_fsm_state2;
-wire   [0:0] tmp_s_fu_141_p2;
-wire   [23:0] tmp_8_fu_147_p2;
-reg   [1:0] ap_NS_fsm;
+wire   [31:0] tmp_fu_135_p1;
+wire    ap_CS_fsm_state3;
+wire   [0:0] tmp_1_fu_140_p2;
+wire   [23:0] tmp_2_fu_146_p2;
+reg   [2:0] ap_NS_fsm;
 
 // power-on initialization
 initial begin
-#0 ap_CS_fsm = 2'd2;
+#0 ap_CS_fsm = 3'd2;
 end
 
 always @ (posedge ap_clk) begin
@@ -57,8 +60,14 @@ always @ (posedge ap_clk) begin
     end
 end
 
-always @ (*) begin
+always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state2)) begin
+        val_V_reg_161 <= random;
+    end
+end
+
+always @ (*) begin
+    if ((1'b1 == ap_CS_fsm_state3)) begin
         GenerationGenerator_randomNumberIndex_V_o_ap_vld = 1'b1;
     end else begin
         GenerationGenerator_randomNumberIndex_V_o_ap_vld = 1'b0;
@@ -66,7 +75,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state2)) begin
+    if ((1'b1 == ap_CS_fsm_state3)) begin
         GenerationGenerator_randomNumbers_V_ce0 = 1'b1;
     end else begin
         GenerationGenerator_randomNumbers_V_ce0 = 1'b0;
@@ -74,7 +83,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state2)) begin
+    if ((1'b1 == ap_CS_fsm_state3)) begin
         GenerationGenerator_randomNumbers_V_we0 = 1'b1;
     end else begin
         GenerationGenerator_randomNumbers_V_we0 = 1'b0;
@@ -84,6 +93,9 @@ end
 always @ (*) begin
     case (ap_CS_fsm)
         ap_ST_fsm_state2 : begin
+            ap_NS_fsm = ap_ST_fsm_state3;
+        end
+        ap_ST_fsm_state3 : begin
             ap_NS_fsm = ap_ST_fsm_state2;
         end
         default : begin
@@ -92,18 +104,20 @@ always @ (*) begin
     endcase
 end
 
-assign GenerationGenerator_randomNumberIndex_V_o = ((tmp_s_fu_141_p2[0:0] === 1'b1) ? 24'd0 : tmp_8_fu_147_p2);
+assign GenerationGenerator_randomNumberIndex_V_o = ((tmp_1_fu_140_p2[0:0] === 1'b1) ? 24'd0 : tmp_2_fu_146_p2);
 
-assign GenerationGenerator_randomNumbers_V_address0 = tmp_fu_136_p1;
+assign GenerationGenerator_randomNumbers_V_address0 = tmp_fu_135_p1;
 
-assign GenerationGenerator_randomNumbers_V_d0 = random;
+assign GenerationGenerator_randomNumbers_V_d0 = val_V_reg_161;
 
 assign ap_CS_fsm_state2 = ap_CS_fsm[32'd1];
 
-assign tmp_8_fu_147_p2 = (GenerationGenerator_randomNumberIndex_V_i + 24'd1);
+assign ap_CS_fsm_state3 = ap_CS_fsm[32'd2];
 
-assign tmp_fu_136_p1 = GenerationGenerator_randomNumberIndex_V_i;
+assign tmp_1_fu_140_p2 = ((GenerationGenerator_randomNumberIndex_V_i == 24'd23) ? 1'b1 : 1'b0);
 
-assign tmp_s_fu_141_p2 = ((GenerationGenerator_randomNumberIndex_V_i == 24'd23) ? 1'b1 : 1'b0);
+assign tmp_2_fu_146_p2 = (GenerationGenerator_randomNumberIndex_V_i + 24'd1);
 
-endmodule //GenerationGenerator_consumeRandom
+assign tmp_fu_135_p1 = GenerationGenerator_randomNumberIndex_V_i;
+
+endmodule //GenerationGenerator_produceRandom

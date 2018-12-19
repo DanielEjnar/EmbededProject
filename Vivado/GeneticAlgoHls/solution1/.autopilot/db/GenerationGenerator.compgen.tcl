@@ -1,10 +1,10 @@
 # This script segment is generated automatically by AutoPilot
 
 # Memory (RAM/ROM)  definition:
-set ID 10
+set ID 12
 set MemName GenerationGeneratbkb
 set CoreName ap_simcore_mem
-set PortList { 0 3 }
+set PortList { 2 3 }
 set DataWd 24
 set AddrRange 160
 set AddrWd 8
@@ -94,7 +94,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 set corename slv0
 set opts {
     {
-        id 11
+        id 13
         name startGenerating
         reset_level 1
         sync_rst true
@@ -104,7 +104,7 @@ set opts {
         mode SIG_IN_VLD_OFF:SIG_IN_ACC_OFF
     }
     {
-        id 12
+        id 14
         name generatingDone
         reset_level 1
         sync_rst true
@@ -114,7 +114,7 @@ set opts {
         mode SIG_OUT_VLD_OFF:SIG_OUT_ACC_OFF
     }
     {
-        id 13
+        id 15
         name generation_parent1
         reset_level 1
         sync_rst true
@@ -124,7 +124,7 @@ set opts {
         mode SIG_IN_VLD_OFF:SIG_IN_ACC_OFF
     }
     {
-        id 14
+        id 16
         name generation_parent2
         reset_level 1
         sync_rst true
@@ -134,7 +134,7 @@ set opts {
         mode SIG_IN_VLD_OFF:SIG_IN_ACC_OFF
     }
     {
-        id 15
+        id 17
         name generation_child1
         reset_level 1
         sync_rst true
@@ -144,7 +144,7 @@ set opts {
         mode SIG_OUT_VLD_OFF:SIG_OUT_ACC_OFF
     }
     {
-        id 16
+        id 18
         name generation_child2
         reset_level 1
         sync_rst true
@@ -154,7 +154,7 @@ set opts {
         mode SIG_OUT_VLD_OFF:SIG_OUT_ACC_OFF
     }
     {
-        id 17
+        id 19
         name mutation_probability
         reset_level 1
         sync_rst true
@@ -164,7 +164,7 @@ set opts {
         mode SIG_IN_VLD_OFF:SIG_IN_ACC_OFF
     }
     {
-        id 18
+        id 20
         name random
         reset_level 1
         sync_rst true

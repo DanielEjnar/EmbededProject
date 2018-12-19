@@ -609,11 +609,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/GenerationGenerator_consumeRandom.v</spirit:name>
+        <spirit:name>hdl/verilog/GenerationGenerator_generateGeneration.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/GenerationGenerator_generateGeneration.v</spirit:name>
+        <spirit:name>hdl/verilog/GenerationGenerator_produceRandom.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -643,12 +643,12 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/GenerationGenerator_consumeRandom.v</spirit:name>
+        <spirit:name>hdl/verilog/GenerationGenerator_generateGeneration.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/GenerationGenerator_generateGeneration.v</spirit:name>
+        <spirit:name>hdl/verilog/GenerationGenerator_produceRandom.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -757,8 +757,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>Generationgenerator</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>1812191640</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2018-12-19T15:40:40Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>1812191717</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2018-12-19T16:17:50Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2017.2</xilinx:xilinxVersion>

@@ -357,7 +357,7 @@
 
 <Node id="38" bw="1" op_0_bw="1">
 <![CDATA[
-:22  %GenerationGenerator_s = load i1* @GenerationGenerator_ssdm_thread_M_consumeRandom, align 1
+:22  %GenerationGenerator_s = load i1* @GenerationGenerator_ssdm_thread_M_produceRandom, align 1
 
 ]]></Node>
 <StgValue><ssdm name="GenerationGenerator_s"/></StgValue>
@@ -757,7 +757,7 @@
 
 <Node id="67" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1" op_3_bw="1" op_4_bw="1" op_5_bw="64" op_6_bw="64" op_7_bw="64" op_8_bw="64" op_9_bw="24" op_10_bw="24" op_11_bw="24" op_12_bw="24" op_13_bw="24">
 <![CDATA[
-:0  call void @"GenerationGenerator::consumeRandom"(i1* %clk, i1* %reset, i1* %startGenerating, i1* %generatingDone, i64* %generation_parent1, i64* %generation_parent2, i64* %generation_child1, i64* %generation_child2, i24* %mutation_probability, i24* %random, i24* %GenerationGenerator_randomNumberIndex_V, i24* %GenerationGenerator_trueRandomIndex_V, [160 x i24]* %GenerationGenerator_randomNumbers_V)
+:0  call void @"GenerationGenerator::produceRandom"(i1* %clk, i1* %reset, i1* %startGenerating, i1* %generatingDone, i64* %generation_parent1, i64* %generation_parent2, i64* %generation_child1, i64* %generation_child2, i24* %mutation_probability, i24* %random, i24* %GenerationGenerator_randomNumberIndex_V, i24* %GenerationGenerator_trueRandomIndex_V, [160 x i24]* %GenerationGenerator_randomNumbers_V)
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -808,7 +808,7 @@
 
 <Node id="67" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1" op_3_bw="1" op_4_bw="1" op_5_bw="64" op_6_bw="64" op_7_bw="64" op_8_bw="64" op_9_bw="24" op_10_bw="24" op_11_bw="24" op_12_bw="24" op_13_bw="24">
 <![CDATA[
-:0  call void @"GenerationGenerator::consumeRandom"(i1* %clk, i1* %reset, i1* %startGenerating, i1* %generatingDone, i64* %generation_parent1, i64* %generation_parent2, i64* %generation_child1, i64* %generation_child2, i24* %mutation_probability, i24* %random, i24* %GenerationGenerator_randomNumberIndex_V, i24* %GenerationGenerator_trueRandomIndex_V, [160 x i24]* %GenerationGenerator_randomNumbers_V)
+:0  call void @"GenerationGenerator::produceRandom"(i1* %clk, i1* %reset, i1* %startGenerating, i1* %generatingDone, i64* %generation_parent1, i64* %generation_parent2, i64* %generation_child1, i64* %generation_child2, i24* %mutation_probability, i24* %random, i24* %GenerationGenerator_randomNumberIndex_V, i24* %GenerationGenerator_trueRandomIndex_V, [160 x i24]* %GenerationGenerator_randomNumbers_V)
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -885,12 +885,12 @@ UnifiedUnreachableBlock:0  unreachable
 <port id="70" name="GenerationGenerator_trueRandomIndex_V" dir="2" iftype="0">
 <core>NULL</core><StgValue><ssdm name="GenerationGenerator_trueRandomIndex_V"/></StgValue>
 </port>
-<port id="71" name="GenerationGenerator_randomNumbers_V" dir="1" iftype="1">
-<core>RAM</core><StgValue><ssdm name="GenerationGenerator_randomNumbers_V"/><MemPortTyVec>0 3 </MemPortTyVec>
+<port id="71" name="GenerationGenerator_randomNumbers_V" dir="2" iftype="1">
+<core>RAM</core><StgValue><ssdm name="GenerationGenerator_randomNumbers_V"/><MemPortTyVec>2 3 </MemPortTyVec>
 </StgValue>
 </port>
-<port id="72" name="GenerationGenerator_ssdm_thread_M_consumeRandom" dir="0" iftype="0">
-<core>NULL</core><StgValue><ssdm name="GenerationGenerator_ssdm_thread_M_consumeRandom"/></StgValue>
+<port id="72" name="GenerationGenerator_ssdm_thread_M_produceRandom" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="GenerationGenerator_ssdm_thread_M_produceRandom"/></StgValue>
 </port>
 <port id="73" name="GenerationGenerator_ssdm_thread_M_generateGeneration" dir="0" iftype="0">
 <core>NULL</core><StgValue><ssdm name="GenerationGenerator_ssdm_thread_M_generateGeneration"/></StgValue>
@@ -1133,7 +1133,7 @@ UnifiedUnreachableBlock:0  unreachable
 </dataflow>
 <dataflow id="198" from="p_str" to="StgValue_24" fromId="196" toId="24">
 </dataflow>
-<dataflow id="199" from="GenerationGenerator_ssdm_thread_M_consumeRandom" to="GenerationGenerator_s" fromId="72" toId="25">
+<dataflow id="199" from="GenerationGenerator_ssdm_thread_M_produceRandom" to="GenerationGenerator_s" fromId="72" toId="25">
 </dataflow>
 <dataflow id="200" from="GenerationGenerator_s" to="StgValue_26" fromId="25" toId="26">
 </dataflow>
@@ -1397,7 +1397,7 @@ UnifiedUnreachableBlock:0  unreachable
 </dataflow>
 <dataflow id="355" from="GenerationGenerator_randomNumbers_V" to="StgValue_48" fromId="71" toId="48">
 </dataflow>
-<dataflow id="357" from="GenerationGenerator::consumeRandom" to="StgValue_49" fromId="356" toId="49">
+<dataflow id="357" from="GenerationGenerator::produceRandom" to="StgValue_49" fromId="356" toId="49">
 </dataflow>
 <dataflow id="358" from="clk" to="StgValue_49" fromId="59" toId="49">
 </dataflow>
@@ -1453,7 +1453,7 @@ UnifiedUnreachableBlock:0  unreachable
 </dataflow>
 <dataflow id="384" from="GenerationGenerator_randomNumbers_V" to="StgValue_50" fromId="71" toId="50">
 </dataflow>
-<dataflow id="385" from="GenerationGenerator::consumeRandom" to="StgValue_52" fromId="356" toId="52">
+<dataflow id="385" from="GenerationGenerator::produceRandom" to="StgValue_52" fromId="356" toId="52">
 </dataflow>
 <dataflow id="386" from="clk" to="StgValue_52" fromId="59" toId="52">
 </dataflow>

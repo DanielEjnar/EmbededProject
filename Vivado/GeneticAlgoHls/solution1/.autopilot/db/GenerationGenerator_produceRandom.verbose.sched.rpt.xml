@@ -1,7 +1,7 @@
 <profile>
 
-<section name = "Vivado HLS Report for 'GenerationGenerator_consumeRandom'" level="0">
-<item name = "Date">Wed Dec 19 16:40:13 2018
+<section name = "Vivado HLS Report for 'GenerationGenerator_produceRandom'" level="0">
+<item name = "Date">Wed Dec 19 17:17:28 2018
 </item>
 <item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
 <item name = "Project">GeneticAlgoHls</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">2, 2, 2, 2, none</column>
+<column name="">3, 3, 3, 3, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">1, 1, 1, -, -, inf, no</column>
+<column name="- Loop 1">2, 2, 2, -, -, inf, no</column>
 </table>
 </item>
 </section>

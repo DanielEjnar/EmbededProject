@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1545234049">
+<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1545236280">
   <File Type="RDS-PROPCONSTRS" Name="GenerationGenerator_drc_synth.rpt"/>
   <File Type="PA-TCL" Name="GenerationGenerator.tcl"/>
   <File Type="RDS-RDS" Name="GenerationGenerator.vds"/>
@@ -24,14 +24,14 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/GenerationGenerator_consumeRandom.v">
+    <File Path="$PPRDIR/GenerationGenerator_generateGeneration.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/GenerationGenerator_generateGeneration.v">
+    <File Path="$PPRDIR/GenerationGenerator_produceRandom.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>

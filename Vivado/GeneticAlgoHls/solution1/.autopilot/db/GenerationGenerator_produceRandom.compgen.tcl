@@ -11,7 +11,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 2 \
+    id 11 \
     name GenerationGenerator_randomNumbers_V \
     reset_level 1 \
     sync_rst true \
@@ -30,7 +30,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 set corename slv0
 set opts {
     {
-        id 0
+        id 9
         name random
         reset_level 1
         sync_rst true
@@ -61,7 +61,7 @@ puts "@W Can not find gen function '::AESL_LIB_XILADAPTER::axi_slave_int_gen' in
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 1 \
+    id 10 \
     name GenerationGenerator_randomNumberIndex_V \
     type other \
     dir IO \

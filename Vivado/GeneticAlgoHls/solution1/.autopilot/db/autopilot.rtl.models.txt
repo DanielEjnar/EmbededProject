@@ -1,4 +1,4 @@
-GenerationGenerator_consumeRandom
 GenerationGenerator_generateGeneration
+GenerationGenerator_produceRandom
 GenerationGeneratbkb
 GenerationGenerator

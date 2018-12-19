@@ -2,8 +2,8 @@
 # Vivado v2017.2 (64-bit)
 # SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
 # IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
-# Start of session at: Wed Dec 19 16:40:52 2018
-# Process ID: 4688
+# Start of session at: Wed Dec 19 17:18:02 2018
+# Process ID: 14244
 # Current directory: C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/project.runs/synth_1
 # Command line: vivado.exe -log GenerationGenerator.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source GenerationGenerator.tcl
 # Log file: C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/project.runs/synth_1/GenerationGenerator.vds
@@ -15,89 +15,57 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010-clg400'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010-clg400'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 14976 
+INFO: Helper process launched with PID 732 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 310.492 ; gain = 78.012
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 310.219 ; gain = 77.652
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'GenerationGenerator' [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator.v:12]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator.v:64]
-INFO: [Synth 8-638] synthesizing module 'GenerationGeneratbkb' [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGeneratbkb.v:42]
+INFO: [Synth 8-638] synthesizing module 'GenerationGeneratbkb' [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGeneratbkb.v:46]
 	Parameter DataWidth bound to: 24 - type: integer 
 	Parameter AddressRange bound to: 160 - type: integer 
 	Parameter AddressWidth bound to: 8 - type: integer 
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGeneratbkb.v:62]
 INFO: [Synth 8-638] synthesizing module 'GenerationGeneratbkb_ram' [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGeneratbkb.v:9]
 	Parameter DWIDTH bound to: 24 - type: integer 
 	Parameter AWIDTH bound to: 8 - type: integer 
 	Parameter MEM_SIZE bound to: 160 - type: integer 
-INFO: [Synth 8-5534] Detected attribute (* ram_style = "block" *) [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGeneratbkb.v:21]
-WARNING: [Synth 8-6014] Unused sequential element ram_reg was removed. 
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "block" *) [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGeneratbkb.v:22]
 INFO: [Synth 8-256] done synthesizing module 'GenerationGeneratbkb_ram' (1#1) [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGeneratbkb.v:9]
-INFO: [Synth 8-256] done synthesizing module 'GenerationGeneratbkb' (2#1) [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGeneratbkb.v:42]
+INFO: [Synth 8-256] done synthesizing module 'GenerationGeneratbkb' (2#1) [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGeneratbkb.v:46]
 INFO: [Synth 8-638] synthesizing module 'GenerationGenerator_generateGeneration' [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_generateGeneration.v:10]
-	Parameter ap_ST_fsm_state2 bound to: 14'b00000000000010 
-	Parameter ap_ST_fsm_state3 bound to: 14'b00000000000100 
-	Parameter ap_ST_fsm_state4 bound to: 14'b00000000001000 
-	Parameter ap_ST_fsm_state5 bound to: 14'b00000000010000 
-	Parameter ap_ST_fsm_state6 bound to: 14'b00000000100000 
-	Parameter ap_ST_fsm_state7 bound to: 14'b00000001000000 
-	Parameter ap_ST_fsm_state8 bound to: 14'b00000010000000 
-	Parameter ap_ST_fsm_state9 bound to: 14'b00000100000000 
-	Parameter ap_ST_fsm_state10 bound to: 14'b00001000000000 
-	Parameter ap_ST_fsm_state11 bound to: 14'b00010000000000 
-	Parameter ap_ST_fsm_state12 bound to: 14'b00100000000000 
-	Parameter ap_ST_fsm_state13 bound to: 14'b01000000000000 
-	Parameter ap_ST_fsm_state14 bound to: 14'b10000000000000 
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_generateGeneration.v:58]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_generateGeneration.v:285]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_generateGeneration.v:289]
+	Parameter ap_ST_fsm_state2 bound to: 15'b000000000000010 
+	Parameter ap_ST_fsm_state3 bound to: 15'b000000000000100 
+	Parameter ap_ST_fsm_state4 bound to: 15'b000000000001000 
+	Parameter ap_ST_fsm_state5 bound to: 15'b000000000010000 
+	Parameter ap_ST_fsm_state6 bound to: 15'b000000000100000 
+	Parameter ap_ST_fsm_state7 bound to: 15'b000000001000000 
+	Parameter ap_ST_fsm_state8 bound to: 15'b000000010000000 
+	Parameter ap_ST_fsm_state9 bound to: 15'b000000100000000 
+	Parameter ap_ST_fsm_state10 bound to: 15'b000001000000000 
+	Parameter ap_ST_fsm_state11 bound to: 15'b000010000000000 
+	Parameter ap_ST_fsm_state12 bound to: 15'b000100000000000 
+	Parameter ap_ST_fsm_state13 bound to: 15'b001000000000000 
+	Parameter ap_ST_fsm_state14 bound to: 15'b010000000000000 
+	Parameter ap_ST_fsm_state15 bound to: 15'b100000000000000 
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_generateGeneration.v:75]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_generateGeneration.v:402]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_generateGeneration.v:408]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_generateGeneration.v:436]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_generateGeneration.v:438]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_generateGeneration.v:440]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_generateGeneration.v:442]
 INFO: [Synth 8-256] done synthesizing module 'GenerationGenerator_generateGeneration' (3#1) [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_generateGeneration.v:10]
-INFO: [Synth 8-638] synthesizing module 'GenerationGenerator_consumeRandom' [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_consumeRandom.v:10]
-	Parameter ap_ST_fsm_state2 bound to: 2'b10 
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_consumeRandom.v:41]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_consumeRandom.v:95]
-WARNING: [Synth 8-6014] Unused sequential element GenerationGenerator_randomNumbers_V_ce0_reg was removed.  [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_consumeRandom.v:70]
-WARNING: [Synth 8-6014] Unused sequential element GenerationGenerator_randomNumbers_V_we0_reg was removed.  [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_consumeRandom.v:78]
-INFO: [Synth 8-256] done synthesizing module 'GenerationGenerator_consumeRandom' (4#1) [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_consumeRandom.v:10]
+INFO: [Synth 8-638] synthesizing module 'GenerationGenerator_produceRandom' [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_produceRandom.v:10]
+	Parameter ap_ST_fsm_state2 bound to: 3'b010 
+	Parameter ap_ST_fsm_state3 bound to: 3'b100 
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_produceRandom.v:42]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_produceRandom.v:107]
+WARNING: [Synth 8-6014] Unused sequential element GenerationGenerator_randomNumbers_V_ce0_reg was removed.  [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_produceRandom.v:79]
+WARNING: [Synth 8-6014] Unused sequential element GenerationGenerator_randomNumbers_V_we0_reg was removed.  [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_produceRandom.v:87]
+INFO: [Synth 8-256] done synthesizing module 'GenerationGenerator_produceRandom' (4#1) [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_produceRandom.v:10]
 INFO: [Synth 8-256] done synthesizing module 'GenerationGenerator' (5#1) [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator.v:12]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port addr0[7]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port addr0[6]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port addr0[5]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port addr0[4]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port addr0[3]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port addr0[2]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port addr0[1]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port addr0[0]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port ce0
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port d0[23]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port d0[22]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port d0[21]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port d0[20]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port d0[19]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port d0[18]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port d0[17]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port d0[16]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port d0[15]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port d0[14]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port d0[13]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port d0[12]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port d0[11]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port d0[10]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port d0[9]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port d0[8]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port d0[7]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port d0[6]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port d0[5]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port d0[4]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port d0[3]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port d0[2]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port d0[1]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port d0[0]
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port we0
-WARNING: [Synth 8-3331] design GenerationGeneratbkb_ram has unconnected port clk
 WARNING: [Synth 8-3331] design GenerationGeneratbkb has unconnected port reset
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 350.570 ; gain = 118.090
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 350.297 ; gain = 117.730
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -107,7 +75,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 350.570 ; gain = 118.090
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 350.297 ; gain = 117.730
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z010clg400-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -121,33 +89,35 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.151 . Memory (MB): peak = 654.789 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.140 . Memory (MB): peak = 655.512 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 654.789 ; gain = 422.309
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 655.512 ; gain = 422.945
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 654.789 ; gain = 422.309
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 655.512 ; gain = 422.945
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:20 . Memory (MB): peak = 654.789 ; gain = 422.309
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 655.512 ; gain = 422.945
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
 INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
-INFO: [Synth 8-5546] ROM "exitcond1_fu_233_p2" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "exitcond_fu_272_p2" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element j1_reg_210_reg was removed.  [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_generateGeneration.v:112]
-WARNING: [Synth 8-6014] Unused sequential element j_reg_188_reg was removed.  [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_generateGeneration.v:120]
+INFO: [Synth 8-5546] ROM "exitcond_fu_402_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "tmp_14_fu_419_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "tmp_s_fu_357_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "tmp_6_fu_315_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "tmp_2_fu_295_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "exitcond1_fu_336_p2" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
-INFO: [Synth 8-5546] ROM "tmp_s_fu_141_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "tmp_1_fu_140_p2" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 654.789 ; gain = 422.309
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 655.512 ; gain = 422.945
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -160,28 +130,32 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     24 Bit       Adders := 1     
+	   2 Input     24 Bit       Adders := 5     
 	   2 Input      7 Bit       Adders := 2     
 +---XORs : 
 	   2 Input     64 Bit         XORs := 2     
 	   2 Input      1 Bit         XORs := 1     
 +---Registers : 
 	               64 Bit    Registers := 6     
-	               24 Bit    Registers := 1     
-	               14 Bit    Registers := 1     
-	                7 Bit    Registers := 2     
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 2     
+	               24 Bit    Registers := 9     
+	               15 Bit    Registers := 1     
+	                7 Bit    Registers := 4     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---RAMs : 
+	               3K Bit         RAMs := 1     
 +---Muxes : 
 	   2 Input     64 Bit        Muxes := 2     
 	   2 Input     32 Bit        Muxes := 2     
-	   2 Input     24 Bit        Muxes := 1     
-	   2 Input     14 Bit        Muxes := 1     
-	  14 Input     14 Bit        Muxes := 1     
-	   2 Input     11 Bit        Muxes := 1     
+	   2 Input     24 Bit        Muxes := 6     
+	   2 Input     15 Bit        Muxes := 1     
+	  15 Input     15 Bit        Muxes := 1     
+	   2 Input     12 Bit        Muxes := 1     
 	   2 Input      9 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 2     
 	   2 Input      3 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 5     
+	   3 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 10    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -193,37 +167,51 @@ Module GenerationGenerator
 Detailed RTL Component Info : 
 +---Registers : 
 	               64 Bit    Registers := 2     
-	               24 Bit    Registers := 1     
+	               24 Bit    Registers := 2     
 	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module GenerationGeneratbkb_ram 
+Detailed RTL Component Info : 
++---Registers : 
+	               24 Bit    Registers := 1     
++---RAMs : 
+	               3K Bit         RAMs := 1     
 Module GenerationGenerator_generateGeneration 
 Detailed RTL Component Info : 
 +---Adders : 
+	   2 Input     24 Bit       Adders := 4     
 	   2 Input      7 Bit       Adders := 2     
 +---XORs : 
 	   2 Input     64 Bit         XORs := 2     
 	   2 Input      1 Bit         XORs := 1     
 +---Registers : 
 	               64 Bit    Registers := 4     
-	               14 Bit    Registers := 1     
-	                7 Bit    Registers := 2     
-	                1 Bit    Registers := 1     
+	               24 Bit    Registers := 5     
+	               15 Bit    Registers := 1     
+	                7 Bit    Registers := 4     
 +---Muxes : 
 	   2 Input     64 Bit        Muxes := 2     
 	   2 Input     32 Bit        Muxes := 2     
-	   2 Input     14 Bit        Muxes := 1     
-	  14 Input     14 Bit        Muxes := 1     
-	   2 Input     11 Bit        Muxes := 1     
+	   2 Input     24 Bit        Muxes := 5     
+	   2 Input     15 Bit        Muxes := 1     
+	  15 Input     15 Bit        Muxes := 1     
+	   2 Input     12 Bit        Muxes := 1     
 	   2 Input      9 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 4     
-Module GenerationGenerator_consumeRandom 
+	   2 Input      1 Bit        Muxes := 8     
+Module GenerationGenerator_produceRandom 
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     24 Bit       Adders := 1     
 +---Registers : 
-	                2 Bit    Registers := 1     
+	               24 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
 +---Muxes : 
 	   2 Input     24 Bit        Muxes := 1     
+	   3 Input      3 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
@@ -240,39 +228,33 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-6014] Unused sequential element grp_GenerationGenerator_consumeRandom_fu_144/ap_CS_fsm_reg was removed.  [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_consumeRandom.v:54]
-WARNING: [Synth 8-6014] Unused sequential element GenerationGenerator_randomNumberIndex_V_reg was removed.  [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator.v:92]
-INFO: [Synth 8-5546] ROM "grp_GenerationGenerator_generateGeneration_fu_114/exitcond1_fu_233_p2" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "grp_GenerationGenerator_generateGeneration_fu_114/exitcond_fu_272_p2" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element grp_GenerationGenerator_generateGeneration_fu_114/j_reg_188_reg was removed.  [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_generateGeneration.v:120]
-WARNING: [Synth 8-6014] Unused sequential element grp_GenerationGenerator_generateGeneration_fu_114/j1_reg_210_reg was removed.  [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator_generateGeneration.v:112]
-WARNING: [Synth 8-3331] design GenerationGenerator has unconnected port random[23]
-WARNING: [Synth 8-3331] design GenerationGenerator has unconnected port random[22]
-WARNING: [Synth 8-3331] design GenerationGenerator has unconnected port random[21]
-WARNING: [Synth 8-3331] design GenerationGenerator has unconnected port random[20]
-WARNING: [Synth 8-3331] design GenerationGenerator has unconnected port random[19]
-WARNING: [Synth 8-3331] design GenerationGenerator has unconnected port random[18]
-WARNING: [Synth 8-3331] design GenerationGenerator has unconnected port random[17]
-WARNING: [Synth 8-3331] design GenerationGenerator has unconnected port random[16]
-WARNING: [Synth 8-3331] design GenerationGenerator has unconnected port random[15]
-WARNING: [Synth 8-3331] design GenerationGenerator has unconnected port random[14]
-WARNING: [Synth 8-3331] design GenerationGenerator has unconnected port random[13]
-WARNING: [Synth 8-3331] design GenerationGenerator has unconnected port random[12]
-WARNING: [Synth 8-3331] design GenerationGenerator has unconnected port random[11]
-WARNING: [Synth 8-3331] design GenerationGenerator has unconnected port random[10]
-WARNING: [Synth 8-3331] design GenerationGenerator has unconnected port random[9]
-WARNING: [Synth 8-3331] design GenerationGenerator has unconnected port random[8]
-WARNING: [Synth 8-3331] design GenerationGenerator has unconnected port random[7]
-WARNING: [Synth 8-3331] design GenerationGenerator has unconnected port random[6]
-WARNING: [Synth 8-3331] design GenerationGenerator has unconnected port random[5]
-WARNING: [Synth 8-3331] design GenerationGenerator has unconnected port random[4]
-WARNING: [Synth 8-3331] design GenerationGenerator has unconnected port random[3]
-WARNING: [Synth 8-3331] design GenerationGenerator has unconnected port random[2]
-WARNING: [Synth 8-3331] design GenerationGenerator has unconnected port random[1]
-WARNING: [Synth 8-3331] design GenerationGenerator has unconnected port random[0]
+INFO: [Synth 8-5546] ROM "grp_GenerationGenerator_produceRandom_fu_144/tmp_1_fu_140_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "grp_GenerationGenerator_generateGeneration_fu_114/exitcond1_fu_336_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "grp_GenerationGenerator_generateGeneration_fu_114/exitcond_fu_402_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "grp_GenerationGenerator_generateGeneration_fu_114/tmp_2_fu_295_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "grp_GenerationGenerator_generateGeneration_fu_114/tmp_6_fu_315_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "grp_GenerationGenerator_generateGeneration_fu_114/tmp_s_fu_357_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "grp_GenerationGenerator_generateGeneration_fu_114/tmp_14_fu_419_p2" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element GenerationGenerator_randomNumberIndex_V_reg was removed.  [C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/GenerationGenerator.v:107]
 WARNING: [Synth 8-3332] Sequential element (grp_GenerationGenerator_generateGeneration_fu_114/ap_CS_fsm_reg[0]) is unused and will be removed from module GenerationGenerator.
+WARNING: [Synth 8-3332] Sequential element (grp_GenerationGenerator_produceRandom_fu_144/ap_CS_fsm_reg[0]) is unused and will be removed from module GenerationGenerator.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 654.789 ; gain = 422.309
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 655.512 ; gain = 422.945
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping  Report (see note below)
++--------------------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name               | RTL Object | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++--------------------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|GenerationGeneratbkb_ram: | ram_reg    | 256 x 24(WRITE_FIRST)  | W | R |                        |   |   | Port A           | 1      | 0      | 
++--------------------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -284,13 +266,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:34 . Memory (MB): peak = 654.789 ; gain = 422.309
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 655.512 ; gain = 422.945
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:34 . Memory (MB): peak = 654.789 ; gain = 422.309
+Finished Timing Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 687.277 ; gain = 454.711
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -301,8 +283,10 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-4480] The timing for the instance GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 654.789 ; gain = 422.309
+Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:36 . Memory (MB): peak = 687.277 ; gain = 454.711
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -326,7 +310,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 654.789 ; gain = 422.309
+Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 687.277 ; gain = 454.711
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -339,7 +323,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 654.789 ; gain = 422.309
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 687.277 ; gain = 454.711
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -351,25 +335,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 654.789 ; gain = 422.309
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 687.277 ; gain = 454.711
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 654.789 ; gain = 422.309
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 687.277 ; gain = 454.711
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 654.789 ; gain = 422.309
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 687.277 ; gain = 454.711
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 654.789 ; gain = 422.309
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 687.277 ; gain = 454.711
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -382,41 +366,48 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+-----+------+
-|      |Cell |Count |
-+------+-----+------+
-|1     |LUT1 |     3|
-|2     |LUT2 |     5|
-|3     |LUT3 |    22|
-|4     |LUT4 |    80|
-|5     |LUT5 |    10|
-|6     |LUT6 |    72|
-|7     |FDRE |   412|
-|8     |FDSE |     1|
-+------+-----+------+
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |CARRY4   |    33|
+|2     |LUT1     |    95|
+|3     |LUT2     |    62|
+|4     |LUT3     |    33|
+|5     |LUT4     |   180|
+|6     |LUT5     |    83|
+|7     |LUT6     |    62|
+|8     |RAMB18E1 |     1|
+|9     |FDRE     |   619|
+|10    |FDSE     |     2|
++------+---------+------+
 
 Report Instance Areas: 
 +------+----------------------------------------------------+---------------------------------------+------+
 |      |Instance                                            |Module                                 |Cells |
 +------+----------------------------------------------------+---------------------------------------+------+
-|1     |top                                                 |                                       |   605|
-|2     |  grp_GenerationGenerator_generateGeneration_fu_114 |GenerationGenerator_generateGeneration |   476|
+|1     |top                                                 |                                       |  1170|
+|2     |  GenerationGenerator_randomNumbers_V_U             |GenerationGeneratbkb                   |    13|
+|3     |    GenerationGeneratbkb_ram_U                      |GenerationGeneratbkb_ram               |    13|
+|4     |  grp_GenerationGenerator_generateGeneration_fu_114 |GenerationGenerator_generateGeneration |   857|
+|5     |  grp_GenerationGenerator_produceRandom_fu_144      |GenerationGenerator_produceRandom      |    27|
 +------+----------------------------------------------------+---------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 654.789 ; gain = 422.309
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 687.277 ; gain = 454.711
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 31 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:26 . Memory (MB): peak = 654.789 ; gain = 118.090
-Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 654.789 ; gain = 422.309
+Synthesis finished with 0 errors, 0 critical warnings and 3 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:29 . Memory (MB): peak = 687.277 ; gain = 149.496
+Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 687.277 ; gain = 454.711
 INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 34 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-29 Infos, 75 Warnings, 0 Critical Warnings and 0 Errors encountered.
+42 Infos, 13 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:38 . Memory (MB): peak = 654.789 ; gain = 430.074
+synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:41 . Memory (MB): peak = 687.277 ; gain = 462.473
 INFO: [Common 17-1381] The checkpoint 'C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/project.runs/synth_1/GenerationGenerator.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 654.789 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Wed Dec 19 16:41:35 2018...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.034 . Memory (MB): peak = 687.277 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Wed Dec 19 17:18:49 2018...

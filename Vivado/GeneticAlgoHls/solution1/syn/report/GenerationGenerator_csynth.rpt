@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'GenerationGenerator'
 ================================================================
-* Date:           Wed Dec 19 16:40:18 2018
+* Date:           Wed Dec 19 17:17:31 2018
 
 * Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        GeneticAlgoHls
@@ -20,7 +20,7 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  20.00|      5.30|        2.50|
+    |ap_clk  |  20.00|     10.59|        2.50|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
@@ -29,7 +29,7 @@
     |  Latency  |  Interval | Pipeline|
     | min | max | min | max |   Type  |
     +-----+-----+-----+-----+---------+
-    |    0|  143|    1|  144|   none  |
+    |    0|  270|    1|  271|   none  |
     +-----+-----+-----+-----+---------+
 
     + Detail: 
@@ -38,8 +38,8 @@
         |                                                   |                                        |  Latency  |  Interval | Pipeline|
         |                      Instance                     |                 Module                 | min | max | min | max |   Type  |
         +---------------------------------------------------+----------------------------------------+-----+-----+-----+-----+---------+
-        |grp_GenerationGenerator_generateGeneration_fu_114  |GenerationGenerator_generateGeneration  |  142|  142|  142|  142|   none  |
-        |grp_GenerationGenerator_consumeRandom_fu_144       |GenerationGenerator_consumeRandom       |    2|    2|    2|    2|   none  |
+        |grp_GenerationGenerator_generateGeneration_fu_114  |GenerationGenerator_generateGeneration  |  269|  269|  269|  269|   none  |
+        |grp_GenerationGenerator_produceRandom_fu_144       |GenerationGenerator_produceRandom       |    3|    3|    3|    3|   none  |
         +---------------------------------------------------+----------------------------------------+-----+-----+-----+-----+---------+
 
         * Loop: 
@@ -57,16 +57,16 @@
 |DSP              |        -|      -|      -|      -|
 |Expression       |        -|      -|      -|      -|
 |FIFO             |        -|      -|      -|      -|
-|Instance         |        -|      -|    614|    632|
+|Instance         |        -|      -|   1081|    956|
 |Memory           |        1|      -|      0|      0|
-|Multiplexer      |        -|      -|      -|      9|
-|Register         |        -|      -|    153|      -|
+|Multiplexer      |        -|      -|      -|     48|
+|Register         |        -|      -|    177|      -|
 +-----------------+---------+-------+-------+-------+
-|Total            |        1|      0|    767|    641|
+|Total            |        1|      0|   1258|   1004|
 +-----------------+---------+-------+-------+-------+
 |Available        |      120|     80|  35200|  17600|
 +-----------------+---------+-------+-------+-------+
-|Utilization (%)  |    ~0   |      0|      2|      3|
+|Utilization (%)  |    ~0   |      0|      3|      5|
 +-----------------+---------+-------+-------+-------+
 
 + Detail: 
@@ -74,10 +74,10 @@
     +---------------------------------------------------+----------------------------------------+---------+-------+-----+-----+
     |                      Instance                     |                 Module                 | BRAM_18K| DSP48E|  FF | LUT |
     +---------------------------------------------------+----------------------------------------+---------+-------+-----+-----+
-    |grp_GenerationGenerator_consumeRandom_fu_144       |GenerationGenerator_consumeRandom       |        0|      0|   79|   75|
-    |grp_GenerationGenerator_generateGeneration_fu_114  |GenerationGenerator_generateGeneration  |        0|      0|  535|  557|
+    |grp_GenerationGenerator_generateGeneration_fu_114  |GenerationGenerator_generateGeneration  |        0|      0|  977|  875|
+    |grp_GenerationGenerator_produceRandom_fu_144       |GenerationGenerator_produceRandom       |        0|      0|  104|   81|
     +---------------------------------------------------+----------------------------------------+---------+-------+-----+-----+
-    |Total                                              |                                        |        0|      0|  614|  632|
+    |Total                                              |                                        |        0|      0| 1081|  956|
     +---------------------------------------------------+----------------------------------------+---------+-------+-----+-----+
 
     * DSP48: 
@@ -99,24 +99,28 @@
     N/A
 
     * Multiplexer: 
-    +-----------------------------------------+----+-----------+-----+-----------+
-    |                   Name                  | LUT| Input Size| Bits| Total Bits|
-    +-----------------------------------------+----+-----------+-----+-----------+
-    |GenerationGenerator_randomNumberIndex_V  |   9|          2|   24|         48|
-    +-----------------------------------------+----+-----------+-----+-----------+
-    |Total                                    |   9|          2|   24|         48|
-    +-----------------------------------------+----+-----------+-----+-----------+
+    +----------------------------------------------+----+-----------+-----+-----------+
+    |                     Name                     | LUT| Input Size| Bits| Total Bits|
+    +----------------------------------------------+----+-----------+-----+-----------+
+    |GenerationGenerator_randomNumberIndex_V       |   9|          2|   24|         48|
+    |GenerationGenerator_randomNumbers_V_address0  |  15|          3|    8|         24|
+    |GenerationGenerator_randomNumbers_V_ce0       |  15|          3|    1|          3|
+    |GenerationGenerator_trueRandomIndex_V         |   9|          2|   24|         48|
+    +----------------------------------------------+----+-----------+-----+-----------+
+    |Total                                         |  48|         10|   57|        123|
+    +----------------------------------------------+----+-----------+-----+-----------+
 
     * Register: 
     +-----------------------------------------+----+----+-----+-----------+
     |                   Name                  | FF | LUT| Bits| Const Bits|
     +-----------------------------------------+----+----+-----+-----------+
     |GenerationGenerator_randomNumberIndex_V  |  24|   0|   24|          0|
+    |GenerationGenerator_trueRandomIndex_V    |  24|   0|   24|          0|
     |generatingDone                           |   1|   0|    1|          0|
     |generation_child1                        |  64|   0|   64|          0|
     |generation_child2                        |  64|   0|   64|          0|
     +-----------------------------------------+----+----+-----+-----------+
-    |Total                                    | 153|   0|  153|          0|
+    |Total                                    | 177|   0|  177|          0|
     +-----------------------------------------+----+----+-----+-----------+
 
 

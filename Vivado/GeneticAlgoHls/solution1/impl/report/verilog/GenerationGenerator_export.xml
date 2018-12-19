@@ -2,11 +2,11 @@
 
 <AreaReport>
 <Resources>
-<SLICE>109</SLICE>
-<LUT>172</LUT>
-<FF>413</FF>
+<SLICE>206</SLICE>
+<LUT>357</LUT>
+<FF>621</FF>
 <DSP>0</DSP>
-<BRAM>0</BRAM>
+<BRAM>1</BRAM>
 <SRL>0</SRL>
 </Resources>
 <AvailableResources>

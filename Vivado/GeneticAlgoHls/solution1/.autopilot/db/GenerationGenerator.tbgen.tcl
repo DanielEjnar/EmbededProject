@@ -73,56 +73,56 @@ set RtlHierarchyInfo {[
 			{"Name" : "clk", "Type" : "None", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "2", "SubInstance" : "grp_GenerationGenerator_generateGeneration_fu_114", "Port" : "clk"},
-					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_consumeRandom_fu_144", "Port" : "clk"}]},
+					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_produceRandom_fu_144", "Port" : "clk"}]},
 			{"Name" : "reset", "Type" : "None", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "2", "SubInstance" : "grp_GenerationGenerator_generateGeneration_fu_114", "Port" : "reset"},
-					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_consumeRandom_fu_144", "Port" : "reset"}]},
+					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_produceRandom_fu_144", "Port" : "reset"}]},
 			{"Name" : "startGenerating", "Type" : "None", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "2", "SubInstance" : "grp_GenerationGenerator_generateGeneration_fu_114", "Port" : "startGenerating"},
-					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_consumeRandom_fu_144", "Port" : "startGenerating"}]},
+					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_produceRandom_fu_144", "Port" : "startGenerating"}]},
 			{"Name" : "generatingDone", "Type" : "Vld", "Direction" : "O",
 				"SubConnect" : [
 					{"ID" : "2", "SubInstance" : "grp_GenerationGenerator_generateGeneration_fu_114", "Port" : "generatingDone"},
-					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_consumeRandom_fu_144", "Port" : "generatingDone"}]},
+					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_produceRandom_fu_144", "Port" : "generatingDone"}]},
 			{"Name" : "generation_parent1", "Type" : "None", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "2", "SubInstance" : "grp_GenerationGenerator_generateGeneration_fu_114", "Port" : "generation_parent1"},
-					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_consumeRandom_fu_144", "Port" : "generation_parent1"}]},
+					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_produceRandom_fu_144", "Port" : "generation_parent1"}]},
 			{"Name" : "generation_parent2", "Type" : "None", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "2", "SubInstance" : "grp_GenerationGenerator_generateGeneration_fu_114", "Port" : "generation_parent2"},
-					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_consumeRandom_fu_144", "Port" : "generation_parent2"}]},
+					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_produceRandom_fu_144", "Port" : "generation_parent2"}]},
 			{"Name" : "generation_child1", "Type" : "Vld", "Direction" : "O",
 				"SubConnect" : [
 					{"ID" : "2", "SubInstance" : "grp_GenerationGenerator_generateGeneration_fu_114", "Port" : "generation_child1"},
-					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_consumeRandom_fu_144", "Port" : "generation_child1"}]},
+					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_produceRandom_fu_144", "Port" : "generation_child1"}]},
 			{"Name" : "generation_child2", "Type" : "Vld", "Direction" : "O",
 				"SubConnect" : [
 					{"ID" : "2", "SubInstance" : "grp_GenerationGenerator_generateGeneration_fu_114", "Port" : "generation_child2"},
-					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_consumeRandom_fu_144", "Port" : "generation_child2"}]},
+					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_produceRandom_fu_144", "Port" : "generation_child2"}]},
 			{"Name" : "mutation_probability", "Type" : "None", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "2", "SubInstance" : "grp_GenerationGenerator_generateGeneration_fu_114", "Port" : "mutation_probability"},
-					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_consumeRandom_fu_144", "Port" : "mutation_probability"}]},
+					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_produceRandom_fu_144", "Port" : "mutation_probability"}]},
 			{"Name" : "random", "Type" : "None", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "2", "SubInstance" : "grp_GenerationGenerator_generateGeneration_fu_114", "Port" : "random"},
-					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_consumeRandom_fu_144", "Port" : "random"}]},
+					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_produceRandom_fu_144", "Port" : "random"}]},
 			{"Name" : "GenerationGenerator_randomNumberIndex_V", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
 					{"ID" : "2", "SubInstance" : "grp_GenerationGenerator_generateGeneration_fu_114", "Port" : "GenerationGenerator_randomNumberIndex_V"},
-					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_consumeRandom_fu_144", "Port" : "GenerationGenerator_randomNumberIndex_V"}]},
+					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_produceRandom_fu_144", "Port" : "GenerationGenerator_randomNumberIndex_V"}]},
 			{"Name" : "GenerationGenerator_trueRandomIndex_V", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
 					{"ID" : "2", "SubInstance" : "grp_GenerationGenerator_generateGeneration_fu_114", "Port" : "GenerationGenerator_trueRandomIndex_V"},
-					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_consumeRandom_fu_144", "Port" : "GenerationGenerator_trueRandomIndex_V"}]},
-			{"Name" : "GenerationGenerator_randomNumbers_V", "Type" : "Memory", "Direction" : "O",
+					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_produceRandom_fu_144", "Port" : "GenerationGenerator_trueRandomIndex_V"}]},
+			{"Name" : "GenerationGenerator_randomNumbers_V", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
 					{"ID" : "2", "SubInstance" : "grp_GenerationGenerator_generateGeneration_fu_114", "Port" : "GenerationGenerator_randomNumbers_V"},
-					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_consumeRandom_fu_144", "Port" : "GenerationGenerator_randomNumbers_V"}]},
-			{"Name" : "GenerationGenerator_ssdm_thread_M_consumeRandom", "Type" : "None", "Direction" : "I"},
+					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_produceRandom_fu_144", "Port" : "GenerationGenerator_randomNumbers_V"}]},
+			{"Name" : "GenerationGenerator_ssdm_thread_M_produceRandom", "Type" : "None", "Direction" : "I"},
 			{"Name" : "GenerationGenerator_ssdm_thread_M_generateGeneration", "Type" : "None", "Direction" : "I"}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.GenerationGenerator_randomNumbers_V_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_GenerationGenerator_generateGeneration_fu_114", "Parent" : "0",
@@ -145,10 +145,10 @@ set RtlHierarchyInfo {[
 			{"Name" : "mutation_probability", "Type" : "None", "Direction" : "I"},
 			{"Name" : "random", "Type" : "None", "Direction" : "I"},
 			{"Name" : "GenerationGenerator_randomNumberIndex_V", "Type" : "None", "Direction" : "I"},
-			{"Name" : "GenerationGenerator_trueRandomIndex_V", "Type" : "None", "Direction" : "I"},
-			{"Name" : "GenerationGenerator_randomNumbers_V", "Type" : "Memory", "Direction" : "X"}]},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_GenerationGenerator_consumeRandom_fu_144", "Parent" : "0",
-		"CDFG" : "GenerationGenerator_consumeRandom",
+			{"Name" : "GenerationGenerator_trueRandomIndex_V", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "GenerationGenerator_randomNumbers_V", "Type" : "Memory", "Direction" : "I"}]},
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_GenerationGenerator_produceRandom_fu_144", "Parent" : "0",
+		"CDFG" : "GenerationGenerator_produceRandom",
 		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "0", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
 		"Pipeline" : "None", "AlignedPipeline" : "0", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"Combinational" : "0",
@@ -175,34 +175,34 @@ set ArgLastReadFirstWriteLatency {
 	GenerationGenerator {
 		clk {Type I LastRead -1 FirstWrite -1}
 		reset {Type I LastRead -1 FirstWrite -1}
-		startGenerating {Type I LastRead 13 FirstWrite -1}
+		startGenerating {Type I LastRead 12 FirstWrite -1}
 		generatingDone {Type O LastRead -1 FirstWrite -1}
 		generation_parent1 {Type I LastRead 2 FirstWrite -1}
 		generation_parent2 {Type I LastRead 3 FirstWrite -1}
 		generation_child1 {Type O LastRead -1 FirstWrite -1}
 		generation_child2 {Type O LastRead -1 FirstWrite -1}
-		mutation_probability {Type I LastRead 5 FirstWrite -1}
+		mutation_probability {Type I LastRead 4 FirstWrite -1}
 		random {Type I LastRead 1 FirstWrite -1}
 		GenerationGenerator_randomNumberIndex_V {Type IO LastRead -1 FirstWrite -1}
 		GenerationGenerator_trueRandomIndex_V {Type IO LastRead -1 FirstWrite -1}
-		GenerationGenerator_randomNumbers_V {Type O LastRead -1 FirstWrite -1}
-		GenerationGenerator_ssdm_thread_M_consumeRandom {Type I LastRead -1 FirstWrite -1}
+		GenerationGenerator_randomNumbers_V {Type IO LastRead -1 FirstWrite -1}
+		GenerationGenerator_ssdm_thread_M_produceRandom {Type I LastRead -1 FirstWrite -1}
 		GenerationGenerator_ssdm_thread_M_generateGeneration {Type I LastRead -1 FirstWrite -1}}
 	GenerationGenerator_generateGeneration {
 		clk {Type I LastRead -1 FirstWrite -1}
 		reset {Type I LastRead -1 FirstWrite -1}
-		startGenerating {Type I LastRead 13 FirstWrite -1}
+		startGenerating {Type I LastRead 12 FirstWrite -1}
 		generatingDone {Type O LastRead -1 FirstWrite 1}
 		generation_parent1 {Type I LastRead 2 FirstWrite -1}
 		generation_parent2 {Type I LastRead 3 FirstWrite -1}
-		generation_child1 {Type O LastRead -1 FirstWrite 10}
-		generation_child2 {Type O LastRead -1 FirstWrite 11}
-		mutation_probability {Type I LastRead 5 FirstWrite -1}
+		generation_child1 {Type O LastRead -1 FirstWrite 9}
+		generation_child2 {Type O LastRead -1 FirstWrite 10}
+		mutation_probability {Type I LastRead 4 FirstWrite -1}
 		random {Type I LastRead -1 FirstWrite -1}
 		GenerationGenerator_randomNumberIndex_V {Type I LastRead -1 FirstWrite -1}
-		GenerationGenerator_trueRandomIndex_V {Type I LastRead -1 FirstWrite -1}
-		GenerationGenerator_randomNumbers_V {Type X LastRead -1 FirstWrite -1}}
-	GenerationGenerator_consumeRandom {
+		GenerationGenerator_trueRandomIndex_V {Type IO LastRead 4 FirstWrite 4}
+		GenerationGenerator_randomNumbers_V {Type I LastRead 8 FirstWrite -1}}
+	GenerationGenerator_produceRandom {
 		clk {Type I LastRead -1 FirstWrite -1}
 		reset {Type I LastRead -1 FirstWrite -1}
 		startGenerating {Type I LastRead -1 FirstWrite -1}
@@ -213,15 +213,15 @@ set ArgLastReadFirstWriteLatency {
 		generation_child2 {Type O LastRead -1 FirstWrite -1}
 		mutation_probability {Type I LastRead -1 FirstWrite -1}
 		random {Type I LastRead 1 FirstWrite -1}
-		GenerationGenerator_randomNumberIndex_V {Type IO LastRead 1 FirstWrite 1}
+		GenerationGenerator_randomNumberIndex_V {Type IO LastRead 2 FirstWrite 2}
 		GenerationGenerator_trueRandomIndex_V {Type I LastRead -1 FirstWrite -1}
-		GenerationGenerator_randomNumbers_V {Type O LastRead -1 FirstWrite 1}}}
+		GenerationGenerator_randomNumbers_V {Type O LastRead -1 FirstWrite 2}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "0", "Max" : "143"}
-	, {"Name" : "Interval", "Min" : "1", "Max" : "144"}
+	{"Name" : "Latency", "Min" : "0", "Max" : "270"}
+	, {"Name" : "Interval", "Min" : "1", "Max" : "271"}
 ]}
 
 set PipelineEnableSignalInfo {[

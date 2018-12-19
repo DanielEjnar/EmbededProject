@@ -1,4 +1,4 @@
-set moduleName GenerationGenerator_consumeRandom
+set moduleName GenerationGenerator_produceRandom
 set isCombinational 0
 set isDatapathOnly 0
 set isPipelined 0
@@ -7,7 +7,7 @@ set FunctionProtocol ap_ctrl_hs
 set isOneStateSeq 0
 set ProfileFlag 0
 set StallSigGenFlag 0
-set C_modelName {GenerationGenerator::consumeRandom}
+set C_modelName {GenerationGenerator::produceRandom}
 set C_modelType { void 0 }
 set C_modelArgList {
 	{ random int 24 regular {pointer 0 volatile }  }
@@ -46,7 +46,7 @@ set NewPortList {[
 
 set RtlHierarchyInfo {[
 	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "",
-		"CDFG" : "GenerationGenerator_consumeRandom",
+		"CDFG" : "GenerationGenerator_produceRandom",
 		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "0", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
 		"Pipeline" : "None", "AlignedPipeline" : "0", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"Combinational" : "0",
@@ -70,7 +70,7 @@ set RtlHierarchyInfo {[
 
 
 set ArgLastReadFirstWriteLatency {
-	GenerationGenerator_consumeRandom {
+	GenerationGenerator_produceRandom {
 		clk {Type I LastRead -1 FirstWrite -1}
 		reset {Type I LastRead -1 FirstWrite -1}
 		startGenerating {Type I LastRead -1 FirstWrite -1}
@@ -81,15 +81,15 @@ set ArgLastReadFirstWriteLatency {
 		generation_child2 {Type O LastRead -1 FirstWrite -1}
 		mutation_probability {Type I LastRead -1 FirstWrite -1}
 		random {Type I LastRead 1 FirstWrite -1}
-		GenerationGenerator_randomNumberIndex_V {Type IO LastRead 1 FirstWrite 1}
+		GenerationGenerator_randomNumberIndex_V {Type IO LastRead 2 FirstWrite 2}
 		GenerationGenerator_trueRandomIndex_V {Type I LastRead -1 FirstWrite -1}
-		GenerationGenerator_randomNumbers_V {Type O LastRead -1 FirstWrite 1}}}
+		GenerationGenerator_randomNumbers_V {Type O LastRead -1 FirstWrite 2}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "2", "Max" : "2"}
-	, {"Name" : "Interval", "Min" : "2", "Max" : "2"}
+	{"Name" : "Latency", "Min" : "3", "Max" : "3"}
+	, {"Name" : "Interval", "Min" : "3", "Max" : "3"}
 ]}
 
 set PipelineEnableSignalInfo {[
