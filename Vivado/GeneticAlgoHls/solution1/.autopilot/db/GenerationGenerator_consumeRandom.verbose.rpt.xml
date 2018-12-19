@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'GenerationGenerator_consumeRandom'" level="0">
-<item name = "Date">Wed Dec 19 15:48:40 2018
+<item name = "Date">Wed Dec 19 16:40:14 2018
 </item>
 <item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
 <item name = "Project">GeneticAlgoHls</item>
@@ -78,7 +78,7 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="tmp_17_fu_147_p2">+, 0, 77, 29, 24, 1</column>
+<column name="tmp_8_fu_147_p2">+, 0, 77, 29, 24, 1</column>
 <column name="tmp_s_fu_141_p2">icmp, 0, 0, 13, 24, 5</column>
 <column name="GenerationGenerator_randomNumberIndex_V_o">select, 0, 0, 24, 1, 1</column>
 </table>

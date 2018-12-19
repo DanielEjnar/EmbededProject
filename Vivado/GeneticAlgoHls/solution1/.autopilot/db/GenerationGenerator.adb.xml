@@ -885,8 +885,8 @@ UnifiedUnreachableBlock:0  unreachable
 <port id="70" name="GenerationGenerator_trueRandomIndex_V" dir="2" iftype="0">
 <core>NULL</core><StgValue><ssdm name="GenerationGenerator_trueRandomIndex_V"/></StgValue>
 </port>
-<port id="71" name="GenerationGenerator_randomNumbers_V" dir="2" iftype="1">
-<core>RAM</core><StgValue><ssdm name="GenerationGenerator_randomNumbers_V"/><MemPortTyVec>2 3 </MemPortTyVec>
+<port id="71" name="GenerationGenerator_randomNumbers_V" dir="1" iftype="1">
+<core>RAM</core><StgValue><ssdm name="GenerationGenerator_randomNumbers_V"/><MemPortTyVec>0 3 </MemPortTyVec>
 </StgValue>
 </port>
 <port id="72" name="GenerationGenerator_ssdm_thread_M_consumeRandom" dir="0" iftype="0">

@@ -3,31 +3,18 @@
 #endif
 #include "GenerationGenerator.h"
 
-void GenerationGenerator::consumeRandom(void) {
+void GenerationGenerator::produceRandom(void) {
 #pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=random
   sc_uint<RANDOM_WIDTH> tmpRnd;
 	while(true){
-		wait();
 		tmpRnd = random.read();
-		//std::cout << "Read a random number: " << tmpRnd << std::endl;
-		//std::cout << "Inserted random number: " << tmpRnd << "at index: " << randomNumberIndex << std::endl;
+		wait();
 		randomNumbers[randomNumberIndex] = tmpRnd;
 		if(randomNumberIndex == RANDOM_WIDTH-1) {
 			randomNumberIndex = 0;
 		} else {
 			randomNumberIndex = randomNumberIndex + 1;
 		}
-		/*
-		if(tmpRnd == randomNumbers[((randomNumberIndex-1) > RANDOM_WIDTH) ? RANDOM_WIDTH-1 : randomNumberIndex-1]){
-			if(randomNumberIndex == RANDOM_WIDTH-1) {
-				randomNumberIndex = 0;
-			} else {
-				randomNumberIndex = randomNumberIndex + 1;
-			}
-			std::cout << "Inserted random number: " << tmpRnd << "at index: " << randomNumberIndex << std::endl;
-			randomNumbers[randomNumberIndex] = tmpRnd;
-		}
-		*/
 	}
 }
 
@@ -53,12 +40,13 @@ void GenerationGenerator::generateGeneration(void) {
 	#pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=generatingDone
 
 	while(true) {
-		wait();
 		while (startGenerating->read() == false) { wait(); }
 		generatingDone->write(false);
+		wait();
 
 		// get the fitness and previous generation_in
 		sc_uint<CHROMOSOME_WIDTH> parent1 = generation_parent1->read();
+		wait();
 		sc_uint<CHROMOSOME_WIDTH> parent2 = generation_parent2->read();
 		wait();
 
@@ -73,12 +61,12 @@ void GenerationGenerator::generateGeneration(void) {
 		sc_uint<RANDOM_WIDTH> point1 = trueRandom();
 		sc_uint<RANDOM_WIDTH> point2 = trueRandom();
 
+
 		//0-2^24
 		//0-CHROMOSOME_WIDTH
 		//Scale
 		point1 = (point1 * (CHROMOSOME_WIDTH - 1)) >> RANDOM_WIDTH;
 		point2 = (point2 * (CHROMOSOME_WIDTH - 1)) >> RANDOM_WIDTH;
-		wait();
 
 		//std::cout << "Point1: " << point1 << std::endl;
 		//std::cout << "Point2: " << point2 << std::endl;
@@ -96,7 +84,6 @@ void GenerationGenerator::generateGeneration(void) {
 
 		sc_uint<CHROMOSOME_WIDTH> bitMask1 = notZero >> lowNum & ~notZero >> highNum;
 		sc_uint<CHROMOSOME_WIDTH> bitMask2 = ~bitMask1;
-
 		sc_uint<CHROMOSOME_WIDTH> child1 = (parent1 & bitMask1) + (bitMask2 & parent2);
 		sc_uint<CHROMOSOME_WIDTH> child2 = (parent1 & bitMask2) + (bitMask1 & parent2);
 
@@ -119,12 +106,14 @@ void GenerationGenerator::generateGeneration(void) {
 				child2 ^= (1 << j);
 			}
 		}
-		wait();
 
 		// set generation_out
 		generation_child1->write(child1);
+		wait();
 		generation_child2->write(child2);
+		wait();
 		generatingDone->write(true);
+		wait();
 		while(startGenerating->read() == true) { wait(); };
 	}
 }

@@ -496,10 +496,10 @@
 
 <Node id="45" bw="32" op_0_bw="32" op_1_bw="0">
 <![CDATA[
-:31  %tmp_16 = call i32 (...)* @_ssdm_op_SpecRegionBegin([15 x i8]* @p_str15)
+:31  %tmp_6 = call i32 (...)* @_ssdm_op_SpecRegionBegin([15 x i8]* @p_str15)
 
 ]]></Node>
-<StgValue><ssdm name="tmp_16"/></StgValue>
+<StgValue><ssdm name="tmp_6"/></StgValue>
 </operation>
 
 <operation id="35" st_id="1" stage="1" lat="1">
@@ -571,7 +571,7 @@
 
 <Node id="50" bw="32" op_0_bw="32" op_1_bw="0" op_2_bw="32">
 <![CDATA[
-:36  %empty_7 = call i32 (...)* @_ssdm_op_SpecRegionEnd([15 x i8]* @p_str15, i32 %tmp_16)
+:36  %empty_7 = call i32 (...)* @_ssdm_op_SpecRegionEnd([15 x i8]* @p_str15, i32 %tmp_6)
 
 ]]></Node>
 <StgValue><ssdm name="empty_7"/></StgValue>
@@ -664,10 +664,10 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:3  %tmp = zext i24 %GenerationGenerator_s to i32
 
 <Node id="57" bw="8" op_0_bw="24" op_1_bw="32" op_2_bw="32">
 <![CDATA[
-_ZN7_ap_sc_7sc_core4waitEi.exit:4  %GenerationGenerator_7 = getelementptr [160 x i24]* %GenerationGenerator_randomNumbers_V, i32 0, i32 %tmp
+_ZN7_ap_sc_7sc_core4waitEi.exit:4  %GenerationGenerator_1 = getelementptr [160 x i24]* %GenerationGenerator_randomNumbers_V, i32 0, i32 %tmp
 
 ]]></Node>
-<StgValue><ssdm name="GenerationGenerator_7"/></StgValue>
+<StgValue><ssdm name="GenerationGenerator_1"/></StgValue>
 </operation>
 
 <operation id="46" st_id="2" stage="1" lat="1">
@@ -679,7 +679,7 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:4  %GenerationGenerator_7 = getelementptr [160 x
 
 <Node id="58" bw="0" op_0_bw="24" op_1_bw="8">
 <![CDATA[
-_ZN7_ap_sc_7sc_core4waitEi.exit:5  store i24 %val_V, i24* %GenerationGenerator_7, align 4
+_ZN7_ap_sc_7sc_core4waitEi.exit:5  store i24 %val_V, i24* %GenerationGenerator_1, align 4
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -709,10 +709,10 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:6  %tmp_s = icmp eq i24 %GenerationGenerator_s, 
 
 <Node id="60" bw="24" op_0_bw="24" op_1_bw="24">
 <![CDATA[
-_ZN7_ap_sc_7sc_core4waitEi.exit:7  %tmp_17 = add i24 %GenerationGenerator_s, 1
+_ZN7_ap_sc_7sc_core4waitEi.exit:7  %tmp_8 = add i24 %GenerationGenerator_s, 1
 
 ]]></Node>
-<StgValue><ssdm name="tmp_17"/></StgValue>
+<StgValue><ssdm name="tmp_8"/></StgValue>
 </operation>
 
 <operation id="49" st_id="2" stage="1" lat="1">
@@ -724,7 +724,7 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:7  %tmp_17 = add i24 %GenerationGenerator_s, 1
 
 <Node id="61" bw="24" op_0_bw="1" op_1_bw="24" op_2_bw="24">
 <![CDATA[
-_ZN7_ap_sc_7sc_core4waitEi.exit:8  %storemerge = select i1 %tmp_s, i24 0, i24 %tmp_17
+_ZN7_ap_sc_7sc_core4waitEi.exit:8  %storemerge = select i1 %tmp_s, i24 0, i24 %tmp_8
 
 ]]></Node>
 <StgValue><ssdm name="storemerge"/></StgValue>
@@ -1182,9 +1182,9 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:10  br label %_ZN7_ap_sc_7sc_core4waitEi.exit
 </dataflow>
 <dataflow id="279" from="p_str14" to="StgValue_33" fromId="278" toId="33">
 </dataflow>
-<dataflow id="281" from="_ssdm_op_SpecRegionBegin" to="tmp_16" fromId="280" toId="34">
+<dataflow id="281" from="_ssdm_op_SpecRegionBegin" to="tmp_6" fromId="280" toId="34">
 </dataflow>
-<dataflow id="283" from="p_str15" to="tmp_16" fromId="282" toId="34">
+<dataflow id="283" from="p_str15" to="tmp_6" fromId="282" toId="34">
 </dataflow>
 <dataflow id="285" from="_ssdm_op_SpecProtocol" to="StgValue_35" fromId="284" toId="35">
 </dataflow>
@@ -1230,7 +1230,7 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:10  br label %_ZN7_ap_sc_7sc_core4waitEi.exit
 </dataflow>
 <dataflow id="309" from="p_str15" to="empty_7" fromId="282" toId="39">
 </dataflow>
-<dataflow id="310" from="tmp_16" to="empty_7" fromId="34" toId="39">
+<dataflow id="310" from="tmp_6" to="empty_7" fromId="34" toId="39">
 </dataflow>
 <dataflow id="312" from="_ssdm_op_Wait" to="StgValue_41" fromId="311" toId="41">
 </dataflow>
@@ -1246,29 +1246,29 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:10  br label %_ZN7_ap_sc_7sc_core4waitEi.exit
 </dataflow>
 <dataflow id="320" from="GenerationGenerator_s" to="tmp" fromId="43" toId="44">
 </dataflow>
-<dataflow id="321" from="GenerationGenerator_randomNumbers_V" to="GenerationGenerator_7" fromId="66" toId="45">
+<dataflow id="321" from="GenerationGenerator_randomNumbers_V" to="GenerationGenerator_1" fromId="66" toId="45">
 </dataflow>
-<dataflow id="322" from="StgValue_180" to="GenerationGenerator_7" fromId="180" toId="45">
+<dataflow id="322" from="StgValue_180" to="GenerationGenerator_1" fromId="180" toId="45">
 </dataflow>
-<dataflow id="323" from="tmp" to="GenerationGenerator_7" fromId="44" toId="45">
+<dataflow id="323" from="tmp" to="GenerationGenerator_1" fromId="44" toId="45">
 </dataflow>
 <dataflow id="324" from="val_V" to="StgValue_46" fromId="42" toId="46">
 </dataflow>
-<dataflow id="325" from="GenerationGenerator_7" to="StgValue_46" fromId="45" toId="46">
+<dataflow id="325" from="GenerationGenerator_1" to="StgValue_46" fromId="45" toId="46">
 </dataflow>
 <dataflow id="326" from="GenerationGenerator_s" to="tmp_s" fromId="43" toId="47">
 </dataflow>
 <dataflow id="328" from="StgValue_327" to="tmp_s" fromId="327" toId="47">
 </dataflow>
-<dataflow id="329" from="GenerationGenerator_s" to="tmp_17" fromId="43" toId="48">
+<dataflow id="329" from="GenerationGenerator_s" to="tmp_8" fromId="43" toId="48">
 </dataflow>
-<dataflow id="331" from="StgValue_330" to="tmp_17" fromId="330" toId="48">
+<dataflow id="331" from="StgValue_330" to="tmp_8" fromId="330" toId="48">
 </dataflow>
 <dataflow id="332" from="tmp_s" to="storemerge" fromId="47" toId="49">
 </dataflow>
 <dataflow id="334" from="StgValue_333" to="storemerge" fromId="333" toId="49">
 </dataflow>
-<dataflow id="335" from="tmp_17" to="storemerge" fromId="48" toId="49">
+<dataflow id="335" from="tmp_8" to="storemerge" fromId="48" toId="49">
 </dataflow>
 <dataflow id="337" from="_ssdm_op_Write.ap_auto.i24P" to="StgValue_50" fromId="336" toId="50">
 </dataflow>

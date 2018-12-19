@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'GenerationGenerator'
 ================================================================
-* Date:           Wed Dec 19 15:48:43 2018
+* Date:           Wed Dec 19 16:40:17 2018
 
 * Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        GeneticAlgoHls
@@ -20,7 +20,7 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  20.00|     10.59|        2.50|
+    |ap_clk  |  20.00|      5.30|        2.50|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
@@ -29,7 +29,7 @@
     |  Latency  |  Interval | Pipeline|
     | min | max | min | max |   Type  |
     +-----+-----+-----+-----+---------+
-    |    0|  267|    1|  268|   none  |
+    |    0|  143|    1|  144|   none  |
     +-----+-----+-----+-----+---------+
 
     + Detail: 
@@ -75,7 +75,7 @@ IsGatedGlobalClock: 0
 2 --> 
 * FSM state operations: 
 
- <State 1>: 10.59ns
+ <State 1>: 5.30ns
 ST_1: StgValue_3 (16)  [1/1] 0.00ns
 :0  call void (...)* @_ssdm_op_SpecIFCore(i24* %mutation_probability, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str22)
 
@@ -211,15 +211,15 @@ ST_1: StgValue_46 (61)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGene
 ST_1: StgValue_47 (62)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.h:36
 :15  ret void
 
-ST_1: StgValue_48 (64)  [2/2] 10.59ns  loc: ../GenerationGenerator/GenerationGenerator.h:35
+ST_1: StgValue_48 (64)  [2/2] 3.23ns  loc: ../GenerationGenerator/GenerationGenerator.h:35
 :0  call void @"GenerationGenerator::generateGeneration"(i1* %clk, i1* %reset, i1* %startGenerating, i1* %generatingDone, i64* %generation_parent1, i64* %generation_parent2, i64* %generation_child1, i64* %generation_child2, i24* %mutation_probability, i24* %random, i24* %GenerationGenerator_randomNumberIndex_V, i24* %GenerationGenerator_trueRandomIndex_V, [160 x i24]* %GenerationGenerator_randomNumbers_V)
 
 ST_1: StgValue_49 (67)  [2/2] 5.30ns  loc: ../GenerationGenerator/GenerationGenerator.h:32
 :0  call void @"GenerationGenerator::consumeRandom"(i1* %clk, i1* %reset, i1* %startGenerating, i1* %generatingDone, i64* %generation_parent1, i64* %generation_parent2, i64* %generation_child1, i64* %generation_child2, i24* %mutation_probability, i24* %random, i24* %GenerationGenerator_randomNumberIndex_V, i24* %GenerationGenerator_trueRandomIndex_V, [160 x i24]* %GenerationGenerator_randomNumbers_V)
 
 
- <State 2>: 10.59ns
-ST_2: StgValue_50 (64)  [1/2] 10.59ns  loc: ../GenerationGenerator/GenerationGenerator.h:35
+ <State 2>: 5.30ns
+ST_2: StgValue_50 (64)  [1/2] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.h:35
 :0  call void @"GenerationGenerator::generateGeneration"(i1* %clk, i1* %reset, i1* %startGenerating, i1* %generatingDone, i64* %generation_parent1, i64* %generation_parent2, i64* %generation_child1, i64* %generation_child2, i24* %mutation_probability, i24* %random, i24* %GenerationGenerator_randomNumberIndex_V, i24* %GenerationGenerator_trueRandomIndex_V, [160 x i24]* %GenerationGenerator_randomNumbers_V)
 
 ST_2: StgValue_51 (65)  [1/1] 0.00ns
@@ -241,13 +241,13 @@ UnifiedUnreachableBlock:0  unreachable
 ============================================================
 Target clock period: 20ns, clock uncertainty: 2.5ns.
 
- <State 1>: 10.6ns
+ <State 1>: 5.3ns
 The critical path consists of the following:
-	'call' operation (../GenerationGenerator/GenerationGenerator.h:35) to 'GenerationGenerator::generateGeneration' [64]  (10.6 ns)
+	'call' operation (../GenerationGenerator/GenerationGenerator.h:32) to 'GenerationGenerator::consumeRandom' [67]  (5.3 ns)
 
- <State 2>: 10.6ns
+ <State 2>: 5.3ns
 The critical path consists of the following:
-	'call' operation (../GenerationGenerator/GenerationGenerator.h:35) to 'GenerationGenerator::generateGeneration' [64]  (10.6 ns)
+	'call' operation (../GenerationGenerator/GenerationGenerator.h:32) to 'GenerationGenerator::consumeRandom' [67]  (5.3 ns)
 
 
 ============================================================

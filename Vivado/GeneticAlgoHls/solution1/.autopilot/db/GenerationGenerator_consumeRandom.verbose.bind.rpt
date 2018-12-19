@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'GenerationGenerator_consumeRandom'
 ================================================================
-* Date:           Wed Dec 19 15:48:39 2018
+* Date:           Wed Dec 19 16:40:13 2018
 
 * Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        GeneticAlgoHls
@@ -175,8 +175,8 @@ ST_1: StgValue_32 (43)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGene
 ST_1: StgValue_33 (44)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:17
 :30  call void (...)* @_ssdm_op_SpecProcessDef([20 x i8]* @p_str, i32 2, [14 x i8]* @p_str14) nounwind
 
-ST_1: tmp_16 (45)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:17
-:31  %tmp_16 = call i32 (...)* @_ssdm_op_SpecRegionBegin([15 x i8]* @p_str15)
+ST_1: tmp_6 (45)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:17
+:31  %tmp_6 = call i32 (...)* @_ssdm_op_SpecRegionBegin([15 x i8]* @p_str15)
 
 ST_1: StgValue_35 (46)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:17
 :32  call void (...)* @_ssdm_op_SpecProtocol(i32 1, [1 x i8]* @p_str16) nounwind
@@ -191,7 +191,7 @@ ST_1: empty (49)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.
 :35  %empty = call i32 (...)* @_ssdm_op_SpecStateEnd(i32 %p_ssdm_reset_v) nounwind
 
 ST_1: empty_7 (50)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:8
-:36  %empty_7 = call i32 (...)* @_ssdm_op_SpecRegionEnd([15 x i8]* @p_str15, i32 %tmp_16)
+:36  %empty_7 = call i32 (...)* @_ssdm_op_SpecRegionEnd([15 x i8]* @p_str15, i32 %tmp_6)
 
 ST_1: StgValue_40 (51)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:8
 :37  br label %_ZN7_ap_sc_7sc_core4waitEi.exit
@@ -210,20 +210,20 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:2  %GenerationGenerator_s = call i24 @_ssdm_op_R
 ST_2: tmp (56)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:14
 _ZN7_ap_sc_7sc_core4waitEi.exit:3  %tmp = zext i24 %GenerationGenerator_s to i32
 
-ST_2: GenerationGenerator_7 (57)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:14
-_ZN7_ap_sc_7sc_core4waitEi.exit:4  %GenerationGenerator_7 = getelementptr [160 x i24]* %GenerationGenerator_randomNumbers_V, i32 0, i32 %tmp
+ST_2: GenerationGenerator_1 (57)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:14
+_ZN7_ap_sc_7sc_core4waitEi.exit:4  %GenerationGenerator_1 = getelementptr [160 x i24]* %GenerationGenerator_randomNumbers_V, i32 0, i32 %tmp
 
 ST_2: StgValue_46 (58)  [1/1] 3.25ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:14
-_ZN7_ap_sc_7sc_core4waitEi.exit:5  store i24 %val_V, i24* %GenerationGenerator_7, align 4
+_ZN7_ap_sc_7sc_core4waitEi.exit:5  store i24 %val_V, i24* %GenerationGenerator_1, align 4
 
 ST_2: tmp_s (59)  [1/1] 3.23ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:15
 _ZN7_ap_sc_7sc_core4waitEi.exit:6  %tmp_s = icmp eq i24 %GenerationGenerator_s, 23
 
-ST_2: tmp_17 (60)  [1/1] 2.60ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:18
-_ZN7_ap_sc_7sc_core4waitEi.exit:7  %tmp_17 = add i24 %GenerationGenerator_s, 1
+ST_2: tmp_8 (60)  [1/1] 2.60ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:18
+_ZN7_ap_sc_7sc_core4waitEi.exit:7  %tmp_8 = add i24 %GenerationGenerator_s, 1
 
 ST_2: storemerge (61)  [1/1] 2.07ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:15
-_ZN7_ap_sc_7sc_core4waitEi.exit:8  %storemerge = select i1 %tmp_s, i24 0, i24 %tmp_17
+_ZN7_ap_sc_7sc_core4waitEi.exit:8  %storemerge = select i1 %tmp_s, i24 0, i24 %tmp_8
 
 ST_2: StgValue_50 (62)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:16
 _ZN7_ap_sc_7sc_core4waitEi.exit:9  call void @_ssdm_op_Write.ap_auto.i24P(i24* %GenerationGenerator_randomNumberIndex_V, i24 %storemerge)
@@ -294,7 +294,7 @@ StgValue_30           (specport       ) [ 000]
 StgValue_31           (specport       ) [ 000]
 StgValue_32           (specport       ) [ 000]
 StgValue_33           (specprocessdef ) [ 000]
-tmp_16                (specregionbegin) [ 000]
+tmp_6                 (specregionbegin) [ 000]
 StgValue_35           (specprotocol   ) [ 000]
 p_ssdm_reset_v        (specstatebegin ) [ 000]
 StgValue_37           (specifcore     ) [ 000]
@@ -305,10 +305,10 @@ StgValue_41           (wait           ) [ 000]
 val_V                 (read           ) [ 000]
 GenerationGenerator_s (read           ) [ 000]
 tmp                   (zext           ) [ 000]
-GenerationGenerator_7 (getelementptr  ) [ 000]
+GenerationGenerator_1 (getelementptr  ) [ 000]
 StgValue_46           (store          ) [ 000]
 tmp_s                 (icmp           ) [ 000]
-tmp_17                (add            ) [ 000]
+tmp_8                 (add            ) [ 000]
 storemerge            (select         ) [ 000]
 StgValue_50           (write          ) [ 000]
 StgValue_51           (br             ) [ 000]
@@ -823,7 +823,7 @@ StgValue_51           (br             ) [ 000]
 </bind>
 </comp>
 
-<comp id="123" class="1004" name="GenerationGenerator_7_gep_fu_123">
+<comp id="123" class="1004" name="GenerationGenerator_1_gep_fu_123">
 <pin_list>
 <pin id="124" dir="0" index="0" bw="24" slack="0"/>
 <pin id="125" dir="0" index="1" bw="1" slack="0"/>
@@ -832,7 +832,7 @@ StgValue_51           (br             ) [ 000]
 </pin_list>
 <bind>
 <opcode="getelementptr(29) " fcode="getelementptr"/>
-<opset="GenerationGenerator_7/2 "/>
+<opset="GenerationGenerator_1/2 "/>
 </bind>
 </comp>
 
@@ -871,7 +871,7 @@ StgValue_51           (br             ) [ 000]
 </bind>
 </comp>
 
-<comp id="147" class="1004" name="tmp_17_fu_147">
+<comp id="147" class="1004" name="tmp_8_fu_147">
 <pin_list>
 <pin id="148" dir="0" index="0" bw="24" slack="0"/>
 <pin id="149" dir="0" index="1" bw="1" slack="0"/>
@@ -879,7 +879,7 @@ StgValue_51           (br             ) [ 000]
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="tmp_17/2 "/>
+<opset="tmp_8/2 "/>
 </bind>
 </comp>
 
@@ -956,7 +956,7 @@ StgValue_51           (br             ) [ 000]
 		empty : 1
 		empty_7 : 1
 	State 2
-		GenerationGenerator_7 : 1
+		GenerationGenerator_1 : 1
 		StgValue_46 : 2
 		storemerge : 1
 		StgValue_50 : 2
@@ -970,7 +970,7 @@ StgValue_51           (br             ) [ 000]
 |----------|-----------------------------------|---------|---------|
 | Operation|          Functional Unit          |    FF   |   LUT   |
 |----------|-----------------------------------|---------|---------|
-|    add   |           tmp_17_fu_147           |    77   |    29   |
+|    add   |            tmp_8_fu_147           |    77   |    29   |
 |----------|-----------------------------------|---------|---------|
 |  select  |         storemerge_fu_153         |    0    |    24   |
 |----------|-----------------------------------|---------|---------|

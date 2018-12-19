@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'GenerationGenerator_generateGeneration'" level="0">
-<item name = "Date">Wed Dec 19 15:48:41 2018
+<item name = "Date">Wed Dec 19 16:40:15 2018
 </item>
 <item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
 <item name = "Project">GeneticAlgoHls</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">20.00, 10.59, 2.50</column>
+<column name="ap_clk">20.00, 3.23, 2.50</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">266, 266, 266, 266, none</column>
+<column name="">142, 142, 142, 142, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,9 +35,9 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">265, 265, 265, -, -, inf, no</column>
-<column name=" + mutateChild1">128, 128, 2, 2, 2, 64, yes</column>
-<column name=" + mutateChild2">128, 128, 2, 2, 2, 64, yes</column>
+<column name="- Loop 1">141, 141, 141, -, -, inf, no</column>
+<column name=" + mutateChild1">64, 64, 1, 1, 2, 64, yes</column>
+<column name=" + mutateChild2">64, 64, 1, 1, 2, 64, yes</column>
 </table>
 </item>
 </section>

@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-| Date         : Wed Dec 19 15:51:40 2018
+| Date         : Wed Dec 19 16:42:48 2018
 | Host         : Centropy running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file GenerationGenerator_control_sets_placed.rpt
 | Design       : GenerationGenerator
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    11 |
-| Unused register locations in slices containing registers |    16 |
+| Number of unique control sets                            |    10 |
+| Unused register locations in slices containing registers |    11 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,40 +33,40 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              25 |            7 |
+| No           | No                    | No                     |               2 |            1 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              11 |            3 |
-| Yes          | No                    | No                     |             422 |          115 |
+| No           | Yes                   | No                     |              13 |            3 |
+| Yes          | No                    | No                     |             384 |          100 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              14 |            5 |
+| Yes          | Yes                   | No                     |              14 |            4 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 3. Detailed Control Set Information
 -----------------------------------
 
-+--------------+-------------------------------------------------------------------------------+-------------------------------------------------------------------------+------------------+----------------+
-| Clock Signal |                                 Enable Signal                                 |                             Set/Reset Signal                            | Slice Load Count | Bel Load Count |
-+--------------+-------------------------------------------------------------------------------+-------------------------------------------------------------------------+------------------+----------------+
-|  clk         | grp_GenerationGenerator_generateGeneration_fu_114/ap_CS_fsm_state10           | grp_GenerationGenerator_generateGeneration_fu_114/ap_CS_fsm_state8      |                2 |              7 |
-|  clk         | grp_GenerationGenerator_generateGeneration_fu_114/ap_CS_fsm_state6            |                                                                         |                3 |              7 |
-|  clk         | grp_GenerationGenerator_generateGeneration_fu_114/ap_CS_fsm_state7            | grp_GenerationGenerator_generateGeneration_fu_114/j_reg_239[6]_i_1_n_0  |                3 |              7 |
-|  clk         | grp_GenerationGenerator_generateGeneration_fu_114/ap_CS_fsm_state9            |                                                                         |                2 |              7 |
-|  clk         |                                                                               | grp_GenerationGenerator_generateGeneration_fu_114/ap_CS_fsm[11]_i_1_n_0 |                3 |             11 |
-|  clk         | grp_GenerationGenerator_generateGeneration_fu_114/ap_CS_fsm_state4            |                                                                         |                7 |             24 |
-|  clk         |                                                                               |                                                                         |                7 |             25 |
-|  clk         | grp_GenerationGenerator_generateGeneration_fu_114/v_V_1_reg_261               |                                                                         |               22 |             64 |
-|  clk         | grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_228                 |                                                                         |               21 |             64 |
-|  clk         | grp_GenerationGenerator_generateGeneration_fu_114/ap_NS_fsm11_out             |                                                                         |               30 |            128 |
-|  clk         | grp_GenerationGenerator_generateGeneration_fu_114/generation_child2_reg[0][0] |                                                                         |               30 |            128 |
-+--------------+-------------------------------------------------------------------------------+-------------------------------------------------------------------------+------------------+----------------+
++--------------+-----------------------------------------------------------------------------+------------------------------------------------------------------------+------------------+----------------+
+| Clock Signal |                                Enable Signal                                |                            Set/Reset Signal                            | Slice Load Count | Bel Load Count |
++--------------+-----------------------------------------------------------------------------+------------------------------------------------------------------------+------------------+----------------+
+|  clk         |                                                                             |                                                                        |                1 |              2 |
+|  clk         | grp_GenerationGenerator_generateGeneration_fu_114/j1_reg_210[6]_i_1_n_0     | grp_GenerationGenerator_generateGeneration_fu_114/ap_CS_fsm_state9     |                2 |              7 |
+|  clk         | grp_GenerationGenerator_generateGeneration_fu_114/j_reg_188[6]_i_2_n_0      | grp_GenerationGenerator_generateGeneration_fu_114/j_reg_188[6]_i_1_n_0 |                2 |              7 |
+|  clk         |                                                                             | grp_GenerationGenerator_generateGeneration_fu_114/p_0_in               |                3 |             13 |
+|  clk         | grp_GenerationGenerator_generateGeneration_fu_114/ap_CS_fsm_state3          |                                                                        |               16 |             64 |
+|  clk         | grp_GenerationGenerator_generateGeneration_fu_114/ap_CS_fsm_state4          |                                                                        |               16 |             64 |
+|  clk         | grp_GenerationGenerator_generateGeneration_fu_114/v_V_1_reg_199[63]_i_1_n_0 |                                                                        |               21 |             64 |
+|  clk         | grp_GenerationGenerator_generateGeneration_fu_114/Q[0]                      |                                                                        |               12 |             64 |
+|  clk         | grp_GenerationGenerator_generateGeneration_fu_114/Q[1]                      |                                                                        |               15 |             64 |
+|  clk         | grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_177[63]_i_1_n_0   |                                                                        |               20 |             64 |
++--------------+-----------------------------------------------------------------------------+------------------------------------------------------------------------+------------------+----------------+
 
 
 +--------+-----------------------+
 | Fanout | Number of ControlSets |
 +--------+-----------------------+
-| 7      |                     4 |
-| 11     |                     1 |
+| 2      |                     1 |
+| 7      |                     2 |
+| 13     |                     1 |
 | 16+    |                     6 |
 +--------+-----------------------+
 

@@ -757,8 +757,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>Generationgenerator</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>1812191549</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2018-12-19T14:49:27Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>1812191640</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2018-12-19T15:40:40Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2017.2</xilinx:xilinxVersion>

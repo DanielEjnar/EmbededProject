@@ -27,7 +27,7 @@ end;
 architecture behav of GenerationGenerator is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "GenerationGenerator,hls_ip_2017_2,{HLS_INPUT_TYPE=sc,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z010clg400-1,HLS_INPUT_CLOCK=20.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=10.594667,HLS_SYN_LAT=68,HLS_SYN_TPT=none,HLS_SYN_MEM=1,HLS_SYN_DSP=0,HLS_SYN_FF=1230,HLS_SYN_LUT=998}";
+    "GenerationGenerator,hls_ip_2017_2,{HLS_INPUT_TYPE=sc,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z010clg400-1,HLS_INPUT_CLOCK=20.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=5.297333,HLS_SYN_LAT=37,HLS_SYN_TPT=none,HLS_SYN_MEM=1,HLS_SYN_DSP=0,HLS_SYN_FF=767,HLS_SYN_LUT=641}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
     constant ap_const_lv32_0 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
@@ -38,9 +38,6 @@ architecture behav of GenerationGenerator is
     constant ap_const_logic_0 : STD_LOGIC := '0';
     constant ap_const_boolean_1 : BOOLEAN := true;
 
-    signal GenerationGenerator_randomNumbers_V_address0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal GenerationGenerator_randomNumbers_V_ce0 : STD_LOGIC;
-    signal GenerationGenerator_randomNumbers_V_q0 : STD_LOGIC_VECTOR (23 downto 0);
     signal GenerationGenerator_s_load_fu_174_p1 : STD_LOGIC_VECTOR (0 downto 0);
     signal ap_CS_fsm : STD_LOGIC_VECTOR (1 downto 0);
     attribute fsm_encoding : string;
@@ -53,10 +50,6 @@ architecture behav of GenerationGenerator is
     signal grp_GenerationGenerator_generateGeneration_fu_114_generation_child1_ap_vld : STD_LOGIC;
     signal grp_GenerationGenerator_generateGeneration_fu_114_generation_child2 : STD_LOGIC_VECTOR (63 downto 0);
     signal grp_GenerationGenerator_generateGeneration_fu_114_generation_child2_ap_vld : STD_LOGIC;
-    signal grp_GenerationGenerator_generateGeneration_fu_114_GenerationGenerator_trueRandomIndex_V_o : STD_LOGIC_VECTOR (23 downto 0);
-    signal grp_GenerationGenerator_generateGeneration_fu_114_GenerationGenerator_trueRandomIndex_V_o_ap_vld : STD_LOGIC;
-    signal grp_GenerationGenerator_generateGeneration_fu_114_GenerationGenerator_randomNumbers_V_address0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_GenerationGenerator_generateGeneration_fu_114_GenerationGenerator_randomNumbers_V_ce0 : STD_LOGIC;
     signal grp_GenerationGenerator_consumeRandom_fu_144_GenerationGenerator_randomNumberIndex_V_o : STD_LOGIC_VECTOR (23 downto 0);
     signal grp_GenerationGenerator_consumeRandom_fu_144_GenerationGenerator_randomNumberIndex_V_o_ap_vld : STD_LOGIC;
     signal grp_GenerationGenerator_consumeRandom_fu_144_GenerationGenerator_randomNumbers_V_address0 : STD_LOGIC_VECTOR (7 downto 0);
@@ -66,7 +59,6 @@ architecture behav of GenerationGenerator is
     signal ap_CS_fsm_state2 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
     signal GenerationGenerator_randomNumberIndex_V : STD_LOGIC_VECTOR (23 downto 0);
-    signal GenerationGenerator_trueRandomIndex_V : STD_LOGIC_VECTOR (23 downto 0);
     signal GenerationGenerator_1_load_fu_178_p1 : STD_LOGIC_VECTOR (0 downto 0);
 
     component GenerationGenerator_generateGeneration IS
@@ -82,13 +74,7 @@ architecture behav of GenerationGenerator is
         generation_child1_ap_vld : OUT STD_LOGIC;
         generation_child2 : OUT STD_LOGIC_VECTOR (63 downto 0);
         generation_child2_ap_vld : OUT STD_LOGIC;
-        mutation_probability : IN STD_LOGIC_VECTOR (23 downto 0);
-        GenerationGenerator_trueRandomIndex_V_i : IN STD_LOGIC_VECTOR (23 downto 0);
-        GenerationGenerator_trueRandomIndex_V_o : OUT STD_LOGIC_VECTOR (23 downto 0);
-        GenerationGenerator_trueRandomIndex_V_o_ap_vld : OUT STD_LOGIC;
-        GenerationGenerator_randomNumbers_V_address0 : OUT STD_LOGIC_VECTOR (7 downto 0);
-        GenerationGenerator_randomNumbers_V_ce0 : OUT STD_LOGIC;
-        GenerationGenerator_randomNumbers_V_q0 : IN STD_LOGIC_VECTOR (23 downto 0) );
+        mutation_probability : IN STD_LOGIC_VECTOR (23 downto 0) );
     end component;
 
 
@@ -118,8 +104,7 @@ architecture behav of GenerationGenerator is
         address0 : IN STD_LOGIC_VECTOR (7 downto 0);
         ce0 : IN STD_LOGIC;
         we0 : IN STD_LOGIC;
-        d0 : IN STD_LOGIC_VECTOR (23 downto 0);
-        q0 : OUT STD_LOGIC_VECTOR (23 downto 0) );
+        d0 : IN STD_LOGIC_VECTOR (23 downto 0) );
     end component;
 
 
@@ -133,11 +118,10 @@ begin
     port map (
         clk => clk,
         reset => reset,
-        address0 => GenerationGenerator_randomNumbers_V_address0,
-        ce0 => GenerationGenerator_randomNumbers_V_ce0,
+        address0 => grp_GenerationGenerator_consumeRandom_fu_144_GenerationGenerator_randomNumbers_V_address0,
+        ce0 => grp_GenerationGenerator_consumeRandom_fu_144_GenerationGenerator_randomNumbers_V_ce0,
         we0 => grp_GenerationGenerator_consumeRandom_fu_144_GenerationGenerator_randomNumbers_V_we0,
-        d0 => grp_GenerationGenerator_consumeRandom_fu_144_GenerationGenerator_randomNumbers_V_d0,
-        q0 => GenerationGenerator_randomNumbers_V_q0);
+        d0 => grp_GenerationGenerator_consumeRandom_fu_144_GenerationGenerator_randomNumbers_V_d0);
 
     grp_GenerationGenerator_generateGeneration_fu_114 : component GenerationGenerator_generateGeneration
     port map (
@@ -152,13 +136,7 @@ begin
         generation_child1_ap_vld => grp_GenerationGenerator_generateGeneration_fu_114_generation_child1_ap_vld,
         generation_child2 => grp_GenerationGenerator_generateGeneration_fu_114_generation_child2,
         generation_child2_ap_vld => grp_GenerationGenerator_generateGeneration_fu_114_generation_child2_ap_vld,
-        mutation_probability => mutation_probability,
-        GenerationGenerator_trueRandomIndex_V_i => GenerationGenerator_trueRandomIndex_V,
-        GenerationGenerator_trueRandomIndex_V_o => grp_GenerationGenerator_generateGeneration_fu_114_GenerationGenerator_trueRandomIndex_V_o,
-        GenerationGenerator_trueRandomIndex_V_o_ap_vld => grp_GenerationGenerator_generateGeneration_fu_114_GenerationGenerator_trueRandomIndex_V_o_ap_vld,
-        GenerationGenerator_randomNumbers_V_address0 => grp_GenerationGenerator_generateGeneration_fu_114_GenerationGenerator_randomNumbers_V_address0,
-        GenerationGenerator_randomNumbers_V_ce0 => grp_GenerationGenerator_generateGeneration_fu_114_GenerationGenerator_randomNumbers_V_ce0,
-        GenerationGenerator_randomNumbers_V_q0 => GenerationGenerator_randomNumbers_V_q0);
+        mutation_probability => mutation_probability);
 
     grp_GenerationGenerator_consumeRandom_fu_144 : component GenerationGenerator_consumeRandom
     port map (
@@ -184,18 +162,6 @@ begin
                 GenerationGenerator_randomNumberIndex_V <= ap_const_lv24_0;
             elsif ((ap_const_logic_1 = grp_GenerationGenerator_consumeRandom_fu_144_GenerationGenerator_randomNumberIndex_V_o_ap_vld)) then 
                 GenerationGenerator_randomNumberIndex_V <= grp_GenerationGenerator_consumeRandom_fu_144_GenerationGenerator_randomNumberIndex_V_o;
-            end if; 
-        end if;
-    end process;
-
-
-    GenerationGenerator_trueRandomIndex_V_assign_proc : process(clk)
-    begin
-        if (clk'event and clk =  '1') then
-            if (((ap_const_logic_1 = ap_CS_fsm_state1) and (ap_const_lv1_0 = GenerationGenerator_s_load_fu_174_p1) and (ap_const_lv1_0 = GenerationGenerator_1_load_fu_178_p1))) then 
-                GenerationGenerator_trueRandomIndex_V <= ap_const_lv24_0;
-            elsif ((ap_const_logic_1 = grp_GenerationGenerator_generateGeneration_fu_114_GenerationGenerator_trueRandomIndex_V_o_ap_vld)) then 
-                GenerationGenerator_trueRandomIndex_V <= grp_GenerationGenerator_generateGeneration_fu_114_GenerationGenerator_trueRandomIndex_V_o;
             end if; 
         end if;
     end process;
@@ -231,30 +197,6 @@ begin
     end process;
 
     GenerationGenerator_1_load_fu_178_p1 <= ap_const_lv1_0;
-
-    GenerationGenerator_randomNumbers_V_address0_assign_proc : process(grp_GenerationGenerator_generateGeneration_fu_114_GenerationGenerator_randomNumbers_V_address0, grp_GenerationGenerator_generateGeneration_fu_114_GenerationGenerator_randomNumbers_V_ce0, grp_GenerationGenerator_consumeRandom_fu_144_GenerationGenerator_randomNumbers_V_address0, grp_GenerationGenerator_consumeRandom_fu_144_GenerationGenerator_randomNumbers_V_ce0)
-    begin
-        if ((ap_const_logic_1 = grp_GenerationGenerator_consumeRandom_fu_144_GenerationGenerator_randomNumbers_V_ce0)) then 
-            GenerationGenerator_randomNumbers_V_address0 <= grp_GenerationGenerator_consumeRandom_fu_144_GenerationGenerator_randomNumbers_V_address0;
-        elsif ((ap_const_logic_1 = grp_GenerationGenerator_generateGeneration_fu_114_GenerationGenerator_randomNumbers_V_ce0)) then 
-            GenerationGenerator_randomNumbers_V_address0 <= grp_GenerationGenerator_generateGeneration_fu_114_GenerationGenerator_randomNumbers_V_address0;
-        else 
-            GenerationGenerator_randomNumbers_V_address0 <= "XXXXXXXX";
-        end if; 
-    end process;
-
-
-    GenerationGenerator_randomNumbers_V_ce0_assign_proc : process(grp_GenerationGenerator_generateGeneration_fu_114_GenerationGenerator_randomNumbers_V_ce0, grp_GenerationGenerator_consumeRandom_fu_144_GenerationGenerator_randomNumbers_V_ce0)
-    begin
-        if ((ap_const_logic_1 = grp_GenerationGenerator_consumeRandom_fu_144_GenerationGenerator_randomNumbers_V_ce0)) then 
-            GenerationGenerator_randomNumbers_V_ce0 <= grp_GenerationGenerator_consumeRandom_fu_144_GenerationGenerator_randomNumbers_V_ce0;
-        elsif ((ap_const_logic_1 = grp_GenerationGenerator_generateGeneration_fu_114_GenerationGenerator_randomNumbers_V_ce0)) then 
-            GenerationGenerator_randomNumbers_V_ce0 <= grp_GenerationGenerator_generateGeneration_fu_114_GenerationGenerator_randomNumbers_V_ce0;
-        else 
-            GenerationGenerator_randomNumbers_V_ce0 <= 'X';
-        end if; 
-    end process;
-
     GenerationGenerator_s_load_fu_174_p1 <= ap_const_lv1_0;
     ap_CS_fsm <= ap_const_lv2_0;
     ap_CS_fsm_state1 <= ap_CS_fsm(0);

@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'GenerationGenerator_consumeRandom'
 ================================================================
-* Date:           Wed Dec 19 15:48:38 2018
+* Date:           Wed Dec 19 16:40:13 2018
 
 * Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        GeneticAlgoHls
@@ -175,8 +175,8 @@ ST_1: StgValue_32 (43)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGene
 ST_1: StgValue_33 (44)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:17
 :30  call void (...)* @_ssdm_op_SpecProcessDef([20 x i8]* @p_str, i32 2, [14 x i8]* @p_str14) nounwind
 
-ST_1: tmp_16 (45)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:17
-:31  %tmp_16 = call i32 (...)* @_ssdm_op_SpecRegionBegin([15 x i8]* @p_str15)
+ST_1: tmp_6 (45)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:17
+:31  %tmp_6 = call i32 (...)* @_ssdm_op_SpecRegionBegin([15 x i8]* @p_str15)
 
 ST_1: StgValue_35 (46)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:17
 :32  call void (...)* @_ssdm_op_SpecProtocol(i32 1, [1 x i8]* @p_str16) nounwind
@@ -191,7 +191,7 @@ ST_1: empty (49)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.
 :35  %empty = call i32 (...)* @_ssdm_op_SpecStateEnd(i32 %p_ssdm_reset_v) nounwind
 
 ST_1: empty_7 (50)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:8
-:36  %empty_7 = call i32 (...)* @_ssdm_op_SpecRegionEnd([15 x i8]* @p_str15, i32 %tmp_16)
+:36  %empty_7 = call i32 (...)* @_ssdm_op_SpecRegionEnd([15 x i8]* @p_str15, i32 %tmp_6)
 
 ST_1: StgValue_40 (51)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:8
 :37  br label %_ZN7_ap_sc_7sc_core4waitEi.exit
@@ -210,20 +210,20 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:2  %GenerationGenerator_s = call i24 @_ssdm_op_R
 ST_2: tmp (56)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:14
 _ZN7_ap_sc_7sc_core4waitEi.exit:3  %tmp = zext i24 %GenerationGenerator_s to i32
 
-ST_2: GenerationGenerator_7 (57)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:14
-_ZN7_ap_sc_7sc_core4waitEi.exit:4  %GenerationGenerator_7 = getelementptr [160 x i24]* %GenerationGenerator_randomNumbers_V, i32 0, i32 %tmp
+ST_2: GenerationGenerator_1 (57)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:14
+_ZN7_ap_sc_7sc_core4waitEi.exit:4  %GenerationGenerator_1 = getelementptr [160 x i24]* %GenerationGenerator_randomNumbers_V, i32 0, i32 %tmp
 
 ST_2: StgValue_46 (58)  [1/1] 3.25ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:14
-_ZN7_ap_sc_7sc_core4waitEi.exit:5  store i24 %val_V, i24* %GenerationGenerator_7, align 4
+_ZN7_ap_sc_7sc_core4waitEi.exit:5  store i24 %val_V, i24* %GenerationGenerator_1, align 4
 
 ST_2: tmp_s (59)  [1/1] 3.23ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:15
 _ZN7_ap_sc_7sc_core4waitEi.exit:6  %tmp_s = icmp eq i24 %GenerationGenerator_s, 23
 
-ST_2: tmp_17 (60)  [1/1] 2.60ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:18
-_ZN7_ap_sc_7sc_core4waitEi.exit:7  %tmp_17 = add i24 %GenerationGenerator_s, 1
+ST_2: tmp_8 (60)  [1/1] 2.60ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:18
+_ZN7_ap_sc_7sc_core4waitEi.exit:7  %tmp_8 = add i24 %GenerationGenerator_s, 1
 
 ST_2: storemerge (61)  [1/1] 2.07ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:15
-_ZN7_ap_sc_7sc_core4waitEi.exit:8  %storemerge = select i1 %tmp_s, i24 0, i24 %tmp_17
+_ZN7_ap_sc_7sc_core4waitEi.exit:8  %storemerge = select i1 %tmp_s, i24 0, i24 %tmp_8
 
 ST_2: StgValue_50 (62)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.cpp:16
 _ZN7_ap_sc_7sc_core4waitEi.exit:9  call void @_ssdm_op_Write.ap_auto.i24P(i24* %GenerationGenerator_randomNumberIndex_V, i24 %storemerge)

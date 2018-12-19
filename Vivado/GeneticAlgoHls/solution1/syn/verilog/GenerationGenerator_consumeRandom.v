@@ -41,7 +41,7 @@ wire   [31:0] tmp_fu_136_p1;
 (* fsm_encoding = "none" *) reg   [1:0] ap_CS_fsm;
 wire    ap_CS_fsm_state2;
 wire   [0:0] tmp_s_fu_141_p2;
-wire   [23:0] tmp_17_fu_147_p2;
+wire   [23:0] tmp_8_fu_147_p2;
 reg   [1:0] ap_NS_fsm;
 
 // power-on initialization
@@ -92,7 +92,7 @@ always @ (*) begin
     endcase
 end
 
-assign GenerationGenerator_randomNumberIndex_V_o = ((tmp_s_fu_141_p2[0:0] === 1'b1) ? 24'd0 : tmp_17_fu_147_p2);
+assign GenerationGenerator_randomNumberIndex_V_o = ((tmp_s_fu_141_p2[0:0] === 1'b1) ? 24'd0 : tmp_8_fu_147_p2);
 
 assign GenerationGenerator_randomNumbers_V_address0 = tmp_fu_136_p1;
 
@@ -100,7 +100,7 @@ assign GenerationGenerator_randomNumbers_V_d0 = random;
 
 assign ap_CS_fsm_state2 = ap_CS_fsm[32'd1];
 
-assign tmp_17_fu_147_p2 = (GenerationGenerator_randomNumberIndex_V_i + 24'd1);
+assign tmp_8_fu_147_p2 = (GenerationGenerator_randomNumberIndex_V_i + 24'd1);
 
 assign tmp_fu_136_p1 = GenerationGenerator_randomNumberIndex_V_i;
 

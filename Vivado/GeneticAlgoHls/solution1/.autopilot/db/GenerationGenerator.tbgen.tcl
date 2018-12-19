@@ -118,7 +118,7 @@ set RtlHierarchyInfo {[
 				"SubConnect" : [
 					{"ID" : "2", "SubInstance" : "grp_GenerationGenerator_generateGeneration_fu_114", "Port" : "GenerationGenerator_trueRandomIndex_V"},
 					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_consumeRandom_fu_144", "Port" : "GenerationGenerator_trueRandomIndex_V"}]},
-			{"Name" : "GenerationGenerator_randomNumbers_V", "Type" : "Memory", "Direction" : "IO",
+			{"Name" : "GenerationGenerator_randomNumbers_V", "Type" : "Memory", "Direction" : "O",
 				"SubConnect" : [
 					{"ID" : "2", "SubInstance" : "grp_GenerationGenerator_generateGeneration_fu_114", "Port" : "GenerationGenerator_randomNumbers_V"},
 					{"ID" : "3", "SubInstance" : "grp_GenerationGenerator_consumeRandom_fu_144", "Port" : "GenerationGenerator_randomNumbers_V"}]},
@@ -145,8 +145,8 @@ set RtlHierarchyInfo {[
 			{"Name" : "mutation_probability", "Type" : "None", "Direction" : "I"},
 			{"Name" : "random", "Type" : "None", "Direction" : "I"},
 			{"Name" : "GenerationGenerator_randomNumberIndex_V", "Type" : "None", "Direction" : "I"},
-			{"Name" : "GenerationGenerator_trueRandomIndex_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "GenerationGenerator_randomNumbers_V", "Type" : "Memory", "Direction" : "I"}]},
+			{"Name" : "GenerationGenerator_trueRandomIndex_V", "Type" : "None", "Direction" : "I"},
+			{"Name" : "GenerationGenerator_randomNumbers_V", "Type" : "Memory", "Direction" : "X"}]},
 	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_GenerationGenerator_consumeRandom_fu_144", "Parent" : "0",
 		"CDFG" : "GenerationGenerator_consumeRandom",
 		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "0", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
@@ -175,33 +175,33 @@ set ArgLastReadFirstWriteLatency {
 	GenerationGenerator {
 		clk {Type I LastRead -1 FirstWrite -1}
 		reset {Type I LastRead -1 FirstWrite -1}
-		startGenerating {Type I LastRead 9 FirstWrite -1}
+		startGenerating {Type I LastRead 13 FirstWrite -1}
 		generatingDone {Type O LastRead -1 FirstWrite -1}
-		generation_parent1 {Type I LastRead 1 FirstWrite -1}
-		generation_parent2 {Type I LastRead 1 FirstWrite -1}
+		generation_parent1 {Type I LastRead 2 FirstWrite -1}
+		generation_parent2 {Type I LastRead 3 FirstWrite -1}
 		generation_child1 {Type O LastRead -1 FirstWrite -1}
 		generation_child2 {Type O LastRead -1 FirstWrite -1}
-		mutation_probability {Type I LastRead 3 FirstWrite -1}
+		mutation_probability {Type I LastRead 5 FirstWrite -1}
 		random {Type I LastRead 1 FirstWrite -1}
 		GenerationGenerator_randomNumberIndex_V {Type IO LastRead -1 FirstWrite -1}
 		GenerationGenerator_trueRandomIndex_V {Type IO LastRead -1 FirstWrite -1}
-		GenerationGenerator_randomNumbers_V {Type IO LastRead -1 FirstWrite -1}
+		GenerationGenerator_randomNumbers_V {Type O LastRead -1 FirstWrite -1}
 		GenerationGenerator_ssdm_thread_M_consumeRandom {Type I LastRead -1 FirstWrite -1}
 		GenerationGenerator_ssdm_thread_M_generateGeneration {Type I LastRead -1 FirstWrite -1}}
 	GenerationGenerator_generateGeneration {
 		clk {Type I LastRead -1 FirstWrite -1}
 		reset {Type I LastRead -1 FirstWrite -1}
-		startGenerating {Type I LastRead 9 FirstWrite -1}
+		startGenerating {Type I LastRead 13 FirstWrite -1}
 		generatingDone {Type O LastRead -1 FirstWrite 1}
-		generation_parent1 {Type I LastRead 1 FirstWrite -1}
-		generation_parent2 {Type I LastRead 1 FirstWrite -1}
-		generation_child1 {Type O LastRead -1 FirstWrite 8}
-		generation_child2 {Type O LastRead -1 FirstWrite 8}
-		mutation_probability {Type I LastRead 3 FirstWrite -1}
+		generation_parent1 {Type I LastRead 2 FirstWrite -1}
+		generation_parent2 {Type I LastRead 3 FirstWrite -1}
+		generation_child1 {Type O LastRead -1 FirstWrite 10}
+		generation_child2 {Type O LastRead -1 FirstWrite 11}
+		mutation_probability {Type I LastRead 5 FirstWrite -1}
 		random {Type I LastRead -1 FirstWrite -1}
 		GenerationGenerator_randomNumberIndex_V {Type I LastRead -1 FirstWrite -1}
-		GenerationGenerator_trueRandomIndex_V {Type IO LastRead 2 FirstWrite 2}
-		GenerationGenerator_randomNumbers_V {Type I LastRead 7 FirstWrite -1}}
+		GenerationGenerator_trueRandomIndex_V {Type I LastRead -1 FirstWrite -1}
+		GenerationGenerator_randomNumbers_V {Type X LastRead -1 FirstWrite -1}}
 	GenerationGenerator_consumeRandom {
 		clk {Type I LastRead -1 FirstWrite -1}
 		reset {Type I LastRead -1 FirstWrite -1}
@@ -220,8 +220,8 @@ set ArgLastReadFirstWriteLatency {
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "0", "Max" : "267"}
-	, {"Name" : "Interval", "Min" : "1", "Max" : "268"}
+	{"Name" : "Latency", "Min" : "0", "Max" : "143"}
+	, {"Name" : "Interval", "Min" : "1", "Max" : "144"}
 ]}
 
 set PipelineEnableSignalInfo {[

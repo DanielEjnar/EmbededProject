@@ -496,10 +496,10 @@
 
 <Node id="45" bw="32" op_0_bw="32" op_1_bw="0">
 <![CDATA[
-:31  %tmp_16 = call i32 (...)* @_ssdm_op_SpecRegionBegin([15 x i8]* @p_str15)
+:31  %tmp_6 = call i32 (...)* @_ssdm_op_SpecRegionBegin([15 x i8]* @p_str15)
 
 ]]></Node>
-<StgValue><ssdm name="tmp_16"/></StgValue>
+<StgValue><ssdm name="tmp_6"/></StgValue>
 </operation>
 
 <operation id="35" st_id="1" stage="1" lat="1">
@@ -571,7 +571,7 @@
 
 <Node id="50" bw="32" op_0_bw="32" op_1_bw="0" op_2_bw="32">
 <![CDATA[
-:36  %empty_7 = call i32 (...)* @_ssdm_op_SpecRegionEnd([15 x i8]* @p_str15, i32 %tmp_16)
+:36  %empty_7 = call i32 (...)* @_ssdm_op_SpecRegionEnd([15 x i8]* @p_str15, i32 %tmp_6)
 
 ]]></Node>
 <StgValue><ssdm name="empty_7"/></StgValue>
@@ -664,10 +664,10 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:3  %tmp = zext i24 %GenerationGenerator_s to i32
 
 <Node id="57" bw="8" op_0_bw="24" op_1_bw="32" op_2_bw="32">
 <![CDATA[
-_ZN7_ap_sc_7sc_core4waitEi.exit:4  %GenerationGenerator_7 = getelementptr [160 x i24]* %GenerationGenerator_randomNumbers_V, i32 0, i32 %tmp
+_ZN7_ap_sc_7sc_core4waitEi.exit:4  %GenerationGenerator_1 = getelementptr [160 x i24]* %GenerationGenerator_randomNumbers_V, i32 0, i32 %tmp
 
 ]]></Node>
-<StgValue><ssdm name="GenerationGenerator_7"/></StgValue>
+<StgValue><ssdm name="GenerationGenerator_1"/></StgValue>
 </operation>
 
 <operation id="46" st_id="2" stage="1" lat="1">
@@ -679,7 +679,7 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:4  %GenerationGenerator_7 = getelementptr [160 x
 
 <Node id="58" bw="0" op_0_bw="24" op_1_bw="8">
 <![CDATA[
-_ZN7_ap_sc_7sc_core4waitEi.exit:5  store i24 %val_V, i24* %GenerationGenerator_7, align 4
+_ZN7_ap_sc_7sc_core4waitEi.exit:5  store i24 %val_V, i24* %GenerationGenerator_1, align 4
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -709,10 +709,10 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:6  %tmp_s = icmp eq i24 %GenerationGenerator_s, 
 
 <Node id="60" bw="24" op_0_bw="24" op_1_bw="24">
 <![CDATA[
-_ZN7_ap_sc_7sc_core4waitEi.exit:7  %tmp_17 = add i24 %GenerationGenerator_s, 1
+_ZN7_ap_sc_7sc_core4waitEi.exit:7  %tmp_8 = add i24 %GenerationGenerator_s, 1
 
 ]]></Node>
-<StgValue><ssdm name="tmp_17"/></StgValue>
+<StgValue><ssdm name="tmp_8"/></StgValue>
 </operation>
 
 <operation id="49" st_id="2" stage="1" lat="1">
@@ -724,7 +724,7 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:7  %tmp_17 = add i24 %GenerationGenerator_s, 1
 
 <Node id="61" bw="24" op_0_bw="1" op_1_bw="24" op_2_bw="24">
 <![CDATA[
-_ZN7_ap_sc_7sc_core4waitEi.exit:8  %storemerge = select i1 %tmp_s, i24 0, i24 %tmp_17
+_ZN7_ap_sc_7sc_core4waitEi.exit:8  %storemerge = select i1 %tmp_s, i24 0, i24 %tmp_8
 
 ]]></Node>
 <StgValue><ssdm name="storemerge"/></StgValue>

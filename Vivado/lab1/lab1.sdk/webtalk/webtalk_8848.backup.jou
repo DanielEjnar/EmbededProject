@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# 
+# Start of session at: Wed Dec 19 15:58:41 2018
+# Process ID: 8848
+# Current directory: C:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.sdk/webtalk
+# Command line: wbtcv.exe -mode batch -source sdk_webtalk.tcl
+# Log file: C:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.sdk/webtalk/webtalk.log
+# Journal file: C:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.sdk/webtalk\webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl

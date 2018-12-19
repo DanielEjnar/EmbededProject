@@ -41,7 +41,7 @@ architecture behav of GenerationGenerator_consumeRandom is
     signal ap_CS_fsm_state2 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
     signal tmp_s_fu_141_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal tmp_17_fu_147_p2 : STD_LOGIC_VECTOR (23 downto 0);
+    signal tmp_8_fu_147_p2 : STD_LOGIC_VECTOR (23 downto 0);
     signal ap_NS_fsm : STD_LOGIC_VECTOR (1 downto 0);
 
 
@@ -73,7 +73,7 @@ begin
     end process;
     GenerationGenerator_randomNumberIndex_V_o <= 
         ap_const_lv24_0 when (tmp_s_fu_141_p2(0) = '1') else 
-        tmp_17_fu_147_p2;
+        tmp_8_fu_147_p2;
 
     GenerationGenerator_randomNumberIndex_V_o_ap_vld_assign_proc : process(ap_CS_fsm_state2)
     begin
@@ -107,7 +107,7 @@ begin
     end process;
 
     ap_CS_fsm_state2 <= ap_CS_fsm(1);
-    tmp_17_fu_147_p2 <= std_logic_vector(unsigned(GenerationGenerator_randomNumberIndex_V_i) + unsigned(ap_const_lv24_1));
+    tmp_8_fu_147_p2 <= std_logic_vector(unsigned(GenerationGenerator_randomNumberIndex_V_i) + unsigned(ap_const_lv24_1));
     tmp_fu_136_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(GenerationGenerator_randomNumberIndex_V_i),32));
     tmp_s_fu_141_p2 <= "1" when (GenerationGenerator_randomNumberIndex_V_i = ap_const_lv24_17) else "0";
 end behav;

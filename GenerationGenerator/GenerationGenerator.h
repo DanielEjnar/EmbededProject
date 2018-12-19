@@ -22,7 +22,7 @@ SC_MODULE(GenerationGenerator) {
 	sc_uint<RANDOM_WIDTH> trueRandomIndex;;
 	sc_uint<RANDOM_WIDTH> randomNumbers[GENERATION_SIZE * 16];
 
-	void consumeRandom(void);
+	void produceRandom(void);
 	sc_uint<RANDOM_WIDTH> trueRandom(void);
 	void generateGeneration(void);
 
@@ -31,7 +31,7 @@ SC_MODULE(GenerationGenerator) {
 	  trueRandomIndex = 0;
 	  SC_CTHREAD(generateGeneration, clk.pos());
 		reset_signal_is(reset,false);
-	  SC_CTHREAD(consumeRandom, clk.pos());
+	  SC_CTHREAD(produceRandom, clk.pos());
 		reset_signal_is(reset,false);
   }
 };

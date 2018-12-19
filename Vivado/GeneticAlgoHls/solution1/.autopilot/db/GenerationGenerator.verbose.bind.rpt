@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'GenerationGenerator'
 ================================================================
-* Date:           Wed Dec 19 15:48:43 2018
+* Date:           Wed Dec 19 16:40:17 2018
 
 * Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        GeneticAlgoHls
@@ -20,7 +20,7 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  20.00|     10.59|        2.50|
+    |ap_clk  |  20.00|      5.30|        2.50|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
@@ -29,7 +29,7 @@
     |  Latency  |  Interval | Pipeline|
     | min | max | min | max |   Type  |
     +-----+-----+-----+-----+---------+
-    |    0|  267|    1|  268|   none  |
+    |    0|  143|    1|  144|   none  |
     +-----+-----+-----+-----+---------+
 
     + Detail: 
@@ -38,7 +38,7 @@
         |                                                   |                                        |  Latency  |  Interval | Pipeline|
         |                      Instance                     |                 Module                 | min | max | min | max |   Type  |
         +---------------------------------------------------+----------------------------------------+-----+-----+-----+-----+---------+
-        |grp_GenerationGenerator_generateGeneration_fu_114  |GenerationGenerator_generateGeneration  |  266|  266|  266|  266|   none  |
+        |grp_GenerationGenerator_generateGeneration_fu_114  |GenerationGenerator_generateGeneration  |  142|  142|  142|  142|   none  |
         |grp_GenerationGenerator_consumeRandom_fu_144       |GenerationGenerator_consumeRandom       |    2|    2|    2|    2|   none  |
         +---------------------------------------------------+----------------------------------------+-----+-----+-----+-----+---------+
 
@@ -81,7 +81,7 @@ IsGatedGlobalClock: 0
 2 --> 
 * FSM state operations: 
 
- <State 1>: 10.59ns
+ <State 1>: 5.30ns
 ST_1: StgValue_3 (16)  [1/1] 0.00ns
 :0  call void (...)* @_ssdm_op_SpecIFCore(i24* %mutation_probability, [1 x i8]* @p_str16, [10 x i8]* @p_str21, [1 x i8]* @p_str16, i32 -1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [17 x i8]* @p_str22)
 
@@ -217,15 +217,15 @@ ST_1: StgValue_46 (61)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGene
 ST_1: StgValue_47 (62)  [1/1] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.h:36
 :15  ret void
 
-ST_1: StgValue_48 (64)  [2/2] 10.59ns  loc: ../GenerationGenerator/GenerationGenerator.h:35
+ST_1: StgValue_48 (64)  [2/2] 3.23ns  loc: ../GenerationGenerator/GenerationGenerator.h:35
 :0  call void @"GenerationGenerator::generateGeneration"(i1* %clk, i1* %reset, i1* %startGenerating, i1* %generatingDone, i64* %generation_parent1, i64* %generation_parent2, i64* %generation_child1, i64* %generation_child2, i24* %mutation_probability, i24* %random, i24* %GenerationGenerator_randomNumberIndex_V, i24* %GenerationGenerator_trueRandomIndex_V, [160 x i24]* %GenerationGenerator_randomNumbers_V)
 
 ST_1: StgValue_49 (67)  [2/2] 5.30ns  loc: ../GenerationGenerator/GenerationGenerator.h:32
 :0  call void @"GenerationGenerator::consumeRandom"(i1* %clk, i1* %reset, i1* %startGenerating, i1* %generatingDone, i64* %generation_parent1, i64* %generation_parent2, i64* %generation_child1, i64* %generation_child2, i24* %mutation_probability, i24* %random, i24* %GenerationGenerator_randomNumberIndex_V, i24* %GenerationGenerator_trueRandomIndex_V, [160 x i24]* %GenerationGenerator_randomNumbers_V)
 
 
- <State 2>: 10.59ns
-ST_2: StgValue_50 (64)  [1/2] 10.59ns  loc: ../GenerationGenerator/GenerationGenerator.h:35
+ <State 2>: 5.30ns
+ST_2: StgValue_50 (64)  [1/2] 0.00ns  loc: ../GenerationGenerator/GenerationGenerator.h:35
 :0  call void @"GenerationGenerator::generateGeneration"(i1* %clk, i1* %reset, i1* %startGenerating, i1* %generatingDone, i64* %generation_parent1, i64* %generation_parent2, i64* %generation_child1, i64* %generation_child2, i24* %mutation_probability, i24* %random, i24* %GenerationGenerator_randomNumberIndex_V, i24* %GenerationGenerator_trueRandomIndex_V, [160 x i24]* %GenerationGenerator_randomNumbers_V)
 
 ST_2: StgValue_51 (65)  [1/1] 0.00ns
@@ -265,7 +265,7 @@ Port [ mutation_probability]:  wired=1; compound=0; hidden=0; nouse=0; global=0;
 Port [ random]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
 Port [ GenerationGenerator_randomNumberIndex_V]:  wired=1; compound=0; hidden=1; nouse=0; global=0; static=0; extern=0; dir=2; type=0; pingpong=0; private_global=0; IO mode=ap_ovld:ce=0
 Port [ GenerationGenerator_trueRandomIndex_V]:  wired=1; compound=0; hidden=1; nouse=0; global=0; static=0; extern=0; dir=2; type=0; pingpong=0; private_global=0; IO mode=ap_ovld:ce=0
-Port [ GenerationGenerator_randomNumbers_V]:  wired=1; compound=1; hidden=1; nouse=0; global=0; static=0; extern=0; dir=2; type=1; pingpong=0; private_global=0; MemPort=[23]; IO mode=ap_memory:ce=0
+Port [ GenerationGenerator_randomNumbers_V]:  wired=1; compound=1; hidden=1; nouse=0; global=0; static=0; extern=0; dir=1; type=1; pingpong=0; private_global=0; MemPort=[03]; IO mode=ap_memory:ce=0
 Port [ GenerationGenerator_ssdm_thread_M_consumeRandom]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=0; extern=1; dir=0; type=0; pingpong=0; private_global=1; linkage=0; visibility=0; IO mode=ap_none:ce=0
 Port [ GenerationGenerator_ssdm_thread_M_generateGeneration]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=0; extern=1; dir=0; type=0; pingpong=0; private_global=1; linkage=0; visibility=0; IO mode=ap_none:ce=0
 ---------------- STG Properties END ------------------
@@ -442,7 +442,7 @@ StgValue_54           (unreachable    ) [ 000]
 <pin id="25" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="GenerationGenerator_randomNumbers_V"/><MemPortTyVec>2 3 </MemPortTyVec>
+<StgValue><ssdm name="GenerationGenerator_randomNumbers_V"/><MemPortTyVec>0 3 </MemPortTyVec>
 </StgValue>
 </bind>
 </comp>
@@ -965,7 +965,7 @@ StgValue_54           (unreachable    ) [ 000]
 	Port: generation_child1 | {1 2 }
 	Port: generation_child2 | {1 2 }
 	Port: GenerationGenerator_randomNumberIndex_V | {1 2 }
-	Port: GenerationGenerator_trueRandomIndex_V | {1 2 }
+	Port: GenerationGenerator_trueRandomIndex_V | {1 }
 	Port: GenerationGenerator_randomNumbers_V | {1 2 }
  - Input state : 
 	Port: GenerationGenerator::GenerationGenerator : startGenerating | {1 2 }
@@ -974,8 +974,6 @@ StgValue_54           (unreachable    ) [ 000]
 	Port: GenerationGenerator::GenerationGenerator : mutation_probability | {1 2 }
 	Port: GenerationGenerator::GenerationGenerator : random | {1 2 }
 	Port: GenerationGenerator::GenerationGenerator : GenerationGenerator_randomNumberIndex_V | {1 2 }
-	Port: GenerationGenerator::GenerationGenerator : GenerationGenerator_trueRandomIndex_V | {1 2 }
-	Port: GenerationGenerator::GenerationGenerator : GenerationGenerator_randomNumbers_V | {1 2 }
 	Port: GenerationGenerator::GenerationGenerator : GenerationGenerator_ssdm_thread_M_consumeRandom | {1 }
 	Port: GenerationGenerator::GenerationGenerator : GenerationGenerator_ssdm_thread_M_generateGeneration | {1 }
   - Chain level:
@@ -993,13 +991,13 @@ StgValue_54           (unreachable    ) [ 000]
 |----------|---------------------------------------------------|---------|---------|---------|
 | Operation|                  Functional Unit                  |  Delay  |    FF   |   LUT   |
 |----------|---------------------------------------------------|---------|---------|---------|
-|   call   | grp_GenerationGenerator_generateGeneration_fu_114 |  8.495  |   980   |   591   |
+|   call   | grp_GenerationGenerator_generateGeneration_fu_114 |  1.588  |   513   |   273   |
 |          |    grp_GenerationGenerator_consumeRandom_fu_144   |    0    |    77   |    66   |
 |----------|---------------------------------------------------|---------|---------|---------|
 |   write  |              StgValue_45_write_fu_98              |    0    |    0    |    0    |
 |          |              StgValue_46_write_fu_106             |    0    |    0    |    0    |
 |----------|---------------------------------------------------|---------|---------|---------|
-|   Total  |                                                   |  8.495  |   1057  |   657   |
+|   Total  |                                                   |  1.588  |   590   |   339   |
 |----------|---------------------------------------------------|---------|---------|---------|
 
 Memories:
@@ -1033,10 +1031,10 @@ Memories:
 +-----------+--------+--------+--------+--------+
 |           |  BRAM  |  Delay |   FF   |   LUT  |
 +-----------+--------+--------+--------+--------+
-|  Function |    -   |    8   |  1057  |   657  |
+|  Function |    -   |    1   |   590  |   339  |
 |   Memory  |    1   |    -   |    0   |    0   |
 |Multiplexer|    -   |    -   |    -   |    -   |
 |  Register |    -   |    -   |    1   |    -   |
 +-----------+--------+--------+--------+--------+
-|   Total   |    1   |    8   |  1058  |   657  |
+|   Total   |    1   |    1   |   591  |   339  |
 +-----------+--------+--------+--------+--------+

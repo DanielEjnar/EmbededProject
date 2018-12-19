@@ -7,25 +7,6 @@ if {${::AESL::PGuard_autoexp_gen}} {
     AESL_LIB_XILADAPTER::native_axis_begin
 }
 
-# XIL_BRAM:
-if {${::AESL::PGuard_autoexp_gen}} {
-if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
-eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 11 \
-    name GenerationGenerator_randomNumbers_V \
-    reset_level 1 \
-    sync_rst true \
-    dir I \
-    corename GenerationGenerator_randomNumbers_V \
-    op interface \
-    ports { GenerationGenerator_randomNumbers_V_address0 { O 8 vector } GenerationGenerator_randomNumbers_V_ce0 { O 1 bit } GenerationGenerator_randomNumbers_V_q0 { I 24 vector } } \
-} "
-} else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'GenerationGenerator_randomNumbers_V'"
-}
-}
-
-
 # Adapter definition:
 set corename slv0
 set opts {
@@ -117,21 +98,6 @@ puts "@W Can not find gen function '::AESL_LIB_XILADAPTER::axi_slave_int_gen' in
 }
 }
 
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 10 \
-    name GenerationGenerator_trueRandomIndex_V \
-    type other \
-    dir IO \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_GenerationGenerator_trueRandomIndex_V \
-    op interface \
-    ports { GenerationGenerator_trueRandomIndex_V_i { I 24 vector } GenerationGenerator_trueRandomIndex_V_o { O 24 vector } GenerationGenerator_trueRandomIndex_V_o_ap_vld { O 1 bit } } \
-} "
-}
 
 
 # Adapter definition:

@@ -40,7 +40,7 @@ struct GenerationGenerator_consumeRandom : public sc_module {
     sc_signal< sc_lv<2> > ap_CS_fsm;
     sc_signal< sc_logic > ap_CS_fsm_state2;
     sc_signal< sc_lv<1> > tmp_s_fu_141_p2;
-    sc_signal< sc_lv<24> > tmp_17_fu_147_p2;
+    sc_signal< sc_lv<24> > tmp_8_fu_147_p2;
     sc_signal< sc_lv<2> > ap_NS_fsm;
     static const sc_logic ap_const_logic_1;
     static const sc_logic ap_const_logic_0;
@@ -59,7 +59,7 @@ struct GenerationGenerator_consumeRandom : public sc_module {
     void thread_GenerationGenerator_randomNumbers_V_d0();
     void thread_GenerationGenerator_randomNumbers_V_we0();
     void thread_ap_CS_fsm_state2();
-    void thread_tmp_17_fu_147_p2();
+    void thread_tmp_8_fu_147_p2();
     void thread_tmp_fu_136_p1();
     void thread_tmp_s_fu_141_p2();
     void thread_ap_NS_fsm();
