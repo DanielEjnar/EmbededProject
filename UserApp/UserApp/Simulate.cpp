@@ -58,7 +58,7 @@ void Simulate::RunSimulation(Context& context)
 	context.HandleInput(std::make_unique<Action>("SIM_DONE"));
 }
 
-float Simulate::EvaluateFitness(int a, int b, uint64_t chromosome)
+float Simulate::EvaluateFitness(float a, float b, uint64_t chromosome)
 {
 	// Get x and y part of chromosome
 	uint32_t x = chromosome>>(CHROMOSOME_WIDTH >> 1);

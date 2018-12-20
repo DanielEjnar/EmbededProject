@@ -1,5 +1,5 @@
-\section{Modelling}
-\footnote{\color{red}NOTE: waits in rosenbrock to reduce resources used}
+\section{Modeling in SystemC}
+\footnote{\color{red}NOTE: waits in Rosenbrock to reduce resources used}
 
 \begin{framed}
 5. Select the SysML/UML model for your preferred architecture suggestions in 3. Choose a part of the functionality including both hardware and software components to create a model and a test-bench in HLS using SystemC or C-code. Simulate and validate your design model.
@@ -7,38 +7,33 @@
 Argue for your choice of modeling language and abstraction level of modeling. Use the reports from the HLS tool to evaluate performance of the design. Assess whether the design is able to fulfill your requirements and constraints.
 \end{framed}
 
-As discussed in section \ref{sec:allocation} and seen in figure \ref{fig:allocation} there are two modules, which could be allocated on the hardware. There has been made a SystemC model for each of these. Both are done at the RTL abstraction level. This means, that the communication is abstracted away, it is just modeled as a signal with a type. But the model is clocked, meaning that we have a mean of synchronization, i.e. the modules are approximately timed.
-
-The two different modules will be described in the following.
+This section explains how parts of the genetic algoritm has been modeled in SystemC and exported to hardware using HLS with Vivado. As discussed in section \ref{sec:allocation} and seen in figure \ref{fig:allocation}, two components from the design can be mapped to hardware, so we constructed a SystemC model for each and tested it in the results, see section \ref{sec:results}. Both designs are made at the RTL abstraction level. This means that the communication between isolated components is abstracted away, i.e. external stimuli is simply modeled as a signal of some type and outputs are registered in a trace file. However the model is clocked, meaning we have a mean of synchronization, that is the modules are approximately timed. The two different modules will be described in the following subsections.
 
 \subsection{GenerationGenerator}
-GenerationGenerator is responsible for generating a new generation using the generative algorithm described earlier.
-
-The module consists of two SC\_CTREAD's, as it can be seen in listing \ref{lst:generationgenerator_h}.
+The \textbf{GenerationGenerator} is responsible for generating a new generation of chromosomes using the generative algorithm described earlier. Using SystemC, the module consists of two SC\_CTREAD's, as it can be seen in listing \ref{lst:generationgenerator_h}. The module has a number of input and output signals, as most are self-explanatory, we will briefly review them here. The two parent inputs for generation $P(k)$ stem from $P(k-1)$, similar the two children of $P(k)$ are parents of $P(k+1)$. A chromosome has length of 64, where 32 bits are reserved for the $x$ coefficient and 32 for the $y$ coefficient of the Rosenbrock function. Mutation probability is a hyper parameter set as stimuli or from the user side. The two indexes for random numbers are used to keep track of the next random number accessed by $trueRandom()$ and created continually by $produceRandom()$.  
 
 \begin{lstlisting}[style=customc++, caption={GenerationGenerator.h},label={lst:generationgenerator_h}]
 #include <systemc.h>
 
 #define CHROMOSOME_WIDTH 64
 #define RANDOM_WIDTH 24
-
 SC_MODULE(GenerationGenerator) {
   sc_in<bool> clk;
   sc_in<bool> reset;
   sc_in<bool> startGenerating;
   sc_out<bool> generatingDone;
-  sc_in<sc_uint<CHROMOSOME_WIDTH> > generation_parent1;
-  sc_in<sc_uint<CHROMOSOME_WIDTH> > generation_parent2;
-  sc_out<sc_uint<CHROMOSOME_WIDTH> > generation_child1;
-  sc_out<sc_uint<CHROMOSOME_WIDTH> > generation_child2;
-  sc_in<sc_uint<RANDOM_WIDTH> > mutation_probability;
-  sc_in<sc_uint<RANDOM_WIDTH> > random;
+  sc_in<sc_uint<CHROMOSOME_WIDTH>> generation_parent1;
+  sc_in<sc_uint<CHROMOSOME_WIDTH>> generation_parent2;
+  sc_out<sc_uint<CHROMOSOME_WIDTH>> generation_child1;
+  sc_out<sc_uint<CHROMOSOME_WIDTH>> generation_child2;
+  sc_in<sc_uint<RANDOM_WIDTH>> mutation_probability;
+  sc_in<sc_uint<RANDOM_WIDTH>> random;
   sc_uint<RANDOM_WIDTH> randomNumberIndex;
   sc_uint<RANDOM_WIDTH> trueRandomIndex;;
   sc_uint<RANDOM_WIDTH> randomNumbers[GENERATION_SIZE * 16];
 
   void consumeRandom(void);
-  sc_uint<RANDOM_WIDTH> trueRandom(void);
+  sc_uint<RANDOM_WIDTH> produceRandom(void);
   void generateGeneration(void);
   
   SC_CTOR(GenerationGenerator) {
@@ -52,45 +47,37 @@ SC_MODULE(GenerationGenerator) {
 };
 \end{lstlisting}
 
-The implementation can be seen in listing \ref{lst:generationgenerator_cpp}. Here the behavior of the module can be found. consumeRandom has the responsibility of taking the random numbers from the input and saving them in a circular buffer. The random numbers were supposed to come from a loose audio channel, i.e. true random noise, but due to time constraints it was implemented using pseudo random numbers using the rand function.
+The implementation of \textbf{GenerationGenerator} is done in SystemC. Listing \ref{lst:trueandproducerandom_cpp} shows the two methods that produce and return a random number, listing \ref{lst:generationgeneratorpragma_cpp} shows pragmas for the $generateGeneration()$ function and listing \ref{lst:generationgenerator_cpp} shows the actual implementation of the function $generateGeneration()$. Function $produceRandom()$ takes the random numbers from the input and saves them in a circular buffer. These random numbers were supposed to come from a loose audio channel, i.e. true random noise, but due to time constraints it was implemented using pseudo random numbers with the C++ $rand()$ function. Function $trueRandom()$ is used to get the random numbers when needed from the circular buffer.
 
-The method trueRandom is used to get the random numbers when needed from the circular buffer.
-
-generateGeneration is the method which uses the most logic. It basically implements the generative algorithm, as described i the theory. Here it is done with two random crossover points. This is done using some bitmasks which is anded onto the adults to produce the children. Then the child is mutated, meaning, that a single bit can be flipped if the random number is lower than than the scaled probability.
-
-All of the variables are made available through the AXILite interface through the use of pragmas, e.g. \#pragma HLS resource core=AXI4LiteS metadata="-bus\_bundle slv0" variable=generation\_parent1.
-
-\begin{lstlisting}[style=customc++,caption={GenerationGenerator.cpp},label={lst:generationgenerator_cpp}]
-#include "GenerationGenerator.h"
-
-void GenerationGenerator::consumeRandom(void) {
-#pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv1" variable=random
-  sc_uint<RANDOM_WIDTH> tmpRnd;
-  while(true){
-    wait();
-    tmpRnd = random.read();
-    if(tmpRnd == randomNumbers[((randomNumberIndex-1) > 
-             RANDOM_WIDTH) ? RANDOM_WIDTH-1 : randomNumberIndex-1]){
-    randomNumbers[randomNumberIndex] = tmpRnd;
-    if(randomNumberIndex == RANDOM_WIDTH-1) {
-      randomNumberIndex = 0;
-      } else {
-        randomNumberIndex = randomNumberIndex + 1;
-      }
-    }
-  }
+\begin{lstlisting}[style=customc++,caption=The two methods for producing and accessing a random number.]
+void GenerationGenerator::produceRandom(void) {
+#pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=random
+	sc_uint<RANDOM_WIDTH> tmpRnd;
+	while(true){
+		randomNumbers[randomNumberIndex] = random.read();
+		if(randomNumberIndex == RANDOM_WIDTH-1) {
+			randomNumberIndex = 0;
+		} else {
+			randomNumberIndex = randomNumberIndex + 1;
+		}
+	}
 }
 
 sc_uint<RANDOM_WIDTH> GenerationGenerator::trueRandom(void) {
-  sc_uint<RANDOM_WIDTH> randomNumber = randomNumbers[trueRandomIndex];
-  if (trueRandomIndex == RANDOM_WIDTH - 1) {
-    trueRandomIndex = 0;
-  } else {
-    trueRandomIndex = trueRandomIndex + 1;
-  }
-  return randomNumber;
+	sc_uint<RANDOM_WIDTH> randomNumber = randomNumbers[trueRandomIndex];
+	if (trueRandomIndex == RANDOM_WIDTH - 1) {
+		trueRandomIndex = 0;
+	}
+	else {
+		trueRandomIndex = trueRandomIndex + 1;
+	}
+	return randomNumber;
 }
+\end{lstlisting}  
 
+All signals are made available through the AXILite interface by the use of pragmas, e.g. \#pragma HLS resource core=AXI4LiteS metadata="-bus\_bundle slv0" variable=generation\_parent1, also seen in listing \ref{lst:generationgeneratorpragma_cpp}.
+
+\begin{lstlisting}[style=customc++,caption=Pragmas defined for the GenerationGenerator function generateGeneration().,label={lst:generationgeneratorpragma_cpp}]
 void GenerationGenerator::generateGeneration(void) {
   #pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=generation_parent1
   #pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=generation_parent2
@@ -101,6 +88,13 @@ void GenerationGenerator::generateGeneration(void) {
   #pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=startGenerating
   #pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=generatingDone
 
+  ...
+\end{lstlisting}  
+
+The $generateGeneration()$ functions contains most the logic related to generating generations. It basically implements the generative algorithm as described in theory with two random crossover points. This is done using bit masks which are AND'ed onto the parent chromosomes in the mating pool to produce new children. Each child are then mutated by a stochastic process, where a single bit in the chromosome is flipped if a given random number is lower than a scaled probability of the mutation likelihood.
+
+\begin{lstlisting}[style=customc++,caption={GenerationGenerator.cpp},label={lst:generationgenerator_cpp}]
+void GenerationGenerator::generateGeneration(void) { 
   while(true) {
     wait();	
     while (startGenerating->read() == false) { wait(); }
@@ -108,7 +102,6 @@ void GenerationGenerator::generateGeneration(void) {
     sc_uint<CHROMOSOME_WIDTH> parent1 = generation_parent1->read();
     sc_uint<CHROMOSOME_WIDTH> parent2 = generation_parent2->read();
 
-    // crossover
     // Make crossover points
     sc_uint<CHROMOSOME_WIDTH> notZero = pow(2, CHROMOSOME_WIDTH) - 1;
     sc_uint<RANDOM_WIDTH> point1 = trueRandom();
@@ -119,37 +112,32 @@ void GenerationGenerator::generateGeneration(void) {
     point2 = (sc_uint<RANDOM_WIDTH + CHROMOSOME_WIDTH>) 
                     (point2 * (CHROMOSOME_WIDTH - 1)) >> RANDOM_WIDTH;
 
-    // Sort high and low number
+    // Sort high and low points
     sc_uint<RANDOM_WIDTH> highNum;
     sc_uint<RANDOM_WIDTH> lowNum;
     if(point1 > point2) {
-      highNum = point1;
-      lowNum = point2;
+      highNum = point1;  lowNum = point2;
     } else {
-      highNum = point2;
-      lowNum = point1;
+      highNum = point2; lowNum = point1;
     }
   
     sc_uint<CHROMOSOME_WIDTH> bitMask1 = notZero >> lowNum & ~notZero >> highNum;
     sc_uint<CHROMOSOME_WIDTH> bitMask2 = ~bitMask1;
-
     sc_uint<CHROMOSOME_WIDTH> child1 = (parent1 & bitMask1) + (bitMask2 & parent2);
     sc_uint<CHROMOSOME_WIDTH> child2 = (parent1 & bitMask2) + (bitMask1 & parent2);
 
     sc_uint<RANDOM_WIDTH> randomMutationProb = mutation_probability.read();
 
-    // Mutating child 1
+    // Mutating children
     for (int j = 0; j < CHROMOSOME_WIDTH; j++) {
       if (trueRandom() < randomMutationProb) {
         child1 ^= (1 << j);
       }
-    }
-    // Mutating child 2
-    for (int j = 0; j < CHROMOSOME_WIDTH; j++){
       if (trueRandom() < randomMutationProb) {
-        child2 ^= (1 << j);
+      	child2 ^= (1 << j);
       }
     }
+    
     generation_child1->write(child1);
     generation_child2->write(child2);
     generatingDone->write(true);
@@ -157,9 +145,7 @@ void GenerationGenerator::generateGeneration(void) {
 }
 \end{lstlisting}
 
-The GenerationGenerator module is tested in a tesbech. This testbench can be seen in listing ref{lst:generatorTestbench} in appendix \ref{app:code}, which more or less wires the stimulation and the genration generator together and makes a trace file, and therefor not shown here.
-
-The stimulation for this testbench can be see in listing \ref{lst:generationGeneratiorStim}, also in appendix \ref{app:code}. It just makes a lot of random numbers and two parents and then starts the GenerationGenerator.
+The \textbf{GenerationGenerator} module is tested in a test bench that stimulates function calls to it and can be viewed in Appendix A. It simply wires the stimulation and the module together and makes a .VCD trace file with all the signals over the period of the application execution cycle, that we have included in the results.
 
 \subsection{Simulator}
 The simulator (also called the RosenbrockSimulator) simulates the Rosenbrock function. The definition can be found in listing \ref{lst:rosenbrock_h}. Here it should be noted, that a and b are uint32 but is actually a float. This means that there is a conversion which is just handled by a cast using pointers.

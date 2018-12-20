@@ -14,10 +14,10 @@
 \usepackage{color}
 \usepackage{amsmath}
 \usepackage{framed}
+\usepackage[section]{placeins}
 \lstdefinestyle{customc++}{
 	belowcaptionskip=1\baselineskip,
 	breaklines=true,
-	numbers=left,
 	frame=single,
 	xleftmargin=\parindent,
 	language=C++,
@@ -36,7 +36,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-	In this report, a genetic optimization algorithm is modeled in SystemC, then verified and accelerated in an FPGA using Vivado's HLS tool to find if this kind of global search algorithm benefits from hardware acceleration. The results of comparing the algorithm evaluated on a standard general-purpose processor with the hardware accelerated version in terms of performance, energy usage and space are presented.
+	High level synthesis (HLS) is an automated design process that models a computational algorithm in software and uses tools to create a hardware implementation in e.g. a field programmable gate array (FPGA). In this report, we use the event-driven SystemC language to model, stimulate and verify a genetic optimization algorithm before accelerating it in an FPGA using Xilinx's Vivado HLS tool to test its feasibility, hardware utilization and find if such algorithm would benefit from acceleration in hardware. We use HLS to design different parts of the algorithm and compare the results in terms of performance and hardware utilization. Moreover a user application for end-users are created using various design patterns and concurrent thread execution on the Zybo ZYNQ SoC Board. The results of comparing the algorithm evaluated on a standard general-purpose processor with the hardware accelerated version are presented.
 \end{abstract}
 
 

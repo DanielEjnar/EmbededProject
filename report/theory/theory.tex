@@ -1,6 +1,6 @@
 \section{Theory}\label{sec:theory}
 
-This section will briefly explain the theory behind the genetic algorithm. It is defined as randomized, population based global search algorithm that tries to find global maximums or minimums of a certain function $f(x)$, in our case the Rosenbrock function: $$f(x,y) = (a-x)^2+b(y-x^2)^2$$, where $a$ and $b$ are parameters that define the function and $x$ and $y$ its coefficients. We start with an initial population $P(0)$ in which $x$ and $y$ are given as chromosomes (binary strings) of a certain size and evaluate the objective function (Rosenbrock) at points in $P(0)$ to get a fitness $F_{i}$ for each chromosome. The fitness represent a chromosome's score on the function, as a high value means we are close to either a global optimum or minimum. We save the fitness as the best-so-far chromosome and continue to create population $P_(1)$ from $P_(0)$ using the chromosomes with the best fitness so far, evaluate its fitness and so forth in an iterative manner. Given iteration $k=0$ and a initial population $P(0)$, the algorithm can be defined as\cite{Chong}:
+This section will briefly explain the theory behind the genetic algorithm. It is defined as randomized, population based global search algorithm that tries to find global maximums or minimums of a certain function $f(x)$, in our case the Rosenbrock function: $$f(x,y) = (a-x)^2+b(y-x^2)^2$$, where $a$ and $b$ are parameters that define the function and $x$ and $y$ its coefficients. We start with an initial population $P(0)$ in which $x$ and $y$ are given as chromosomes (binary strings) of a certain size and evaluate the objective function (the Rosenbrock function\cite{Shang2006}) at points in $P(0)$ to get a fitness $F_{i}$ for each chromosome. The fitness represent a chromosome's score on the function, as a high value means we are close to either a global optimum or minimum. We save the fitness as the best-so-far chromosome and continue to create population $P_(1)$ from $P_(0)$ using the chromosomes with the best fitness so far, evaluate its fitness and so forth in an iterative manner. Given iteration $k=0$ and a initial population $P(0)$, the algorithm can be defined as\cite{Chong2013}:
 
 \begin{itemize}
 	\item 1. Evaluate $P(k)$. If stopping criterion is met, then stop.
@@ -17,4 +17,5 @@ An interesting aspect is the crossover and mutation part, where we create new ch
 	\caption{An example of two parent chromosomes being crossed to create two children.}
 	\label{fig:geneticalgocrossover}
 \end{figure}
+
 
