@@ -1,7 +1,4 @@
 \section{Results}\label{sec:results}
-\begin{framed}
-6. Implement and test a part of your system using the ZYBO platform including at least one IP core written and verified with the HLS tool.
-\end{framed}
 
 This section shows and elaborates on the results in performance and utilization of all the designs we purposed in section \ref{sec:archdesign}. This includes a high-level synthesis report of the two IP cores (GenerationGenerator and Simulator) and the user application, that was implemented in C++ and deployed to the ZYBO board with the use of OSAPI threads and FreeRTOS. Overall, our results show that simple fixed-point arithmetic can be accelerated in an hardware FPGA at relative low cost, however more complicated floating point computations are better done in software, as the number of required DSP's and lookup tables rapidly increase in such cases.
 

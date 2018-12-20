@@ -1,9 +1,5 @@
 \section{Requirements}\label{sec:req}
 
-\begin{framed}
-2. Write a requirement specification with functional and non-functional requirements especially with focus on performance like throughput and latency. The functional requirements can be described in terms of use cases.
-\end{framed}
-
 The following functional and non-functional requirements are stated for this report as they make up the system and architectural design. Focus is on implementing the genetic algorithm using HLS and evaluating its performance before deploying it to actual hardware. These requirements state what is expected of the system mostly, but also covers the user application.
 
 \begin{itemize}
@@ -15,7 +11,7 @@ The following functional and non-functional requirements are stated for this rep
 \item The user should be able to extract the generation and its fitness from the system.
 \end{itemize}
 
-The requirements are stated in the form of a use case and detailed in table \ref{tab:usecase}. It can be seen that the flow of interactions from the user's perspective is rather simple. The user simply asks for a specific Rosenbrock function using set parameters to be optimized, and gets a chromosome (bit string) that optimizes it.
+The requirements are stated in the form of a use case and detailed in table \ref{tab:usecase}. It can be seen that the flow of interactions from the user's perspective is rather simple. The user simply asks for a certain Rosenbrock function using set parameters to be optimized, and gets a chromosome (bit string) that optimizes it.
 
 \begin{table}[!htbp]
 \caption{Basic use case for the system.} \label{tab:usecase}
