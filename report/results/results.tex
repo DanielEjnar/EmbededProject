@@ -35,7 +35,7 @@ It should be noted, that most of these ports (all except clk and reset) are acce
 	\label{fig:gginterface}
 \end{figure}
 
-Figure \ref{fig:generationgeneratortrace} shows the trace output after running a C simulation with a stimuli, which can be seen in listing \ref{lst:generationGeneratiorStim}. We can seen that the random input data changes continuously, and when the generating core is started, it uses the two parents and a mutation probability to create new children chromosomes and output these. This simulation shows, that the IP core should has the right behaviour. Unfortunately we were not able to run the C/RTL co-simulation  due to a tool issues.
+Figure \ref{fig:generationgeneratortrace} shows the trace output after running a C simulation with a stimuli, which can be found in the attached code. We can seen that the random input data changes continuously, and when the generating core is started, it uses the two parents and a mutation probability to create new children chromosomes and output these. This simulation shows, that the IP core should has the right behaviour. Unfortunately we were not able to run the C/RTL co-simulation  due to a tool issues.
 
 \begin{figure}[h!]
 	\centering
@@ -47,7 +47,7 @@ Figure \ref{fig:generationgeneratortrace} shows the trace output after running a
 
 \subsection{HLS of the Simulator core}
 
-The IP was synthesized with the same settings as the GenerationGenerator in the Vivado HLS tool. We used a SystemC stimuli file to make calls to the IP core, which can be found in Appendix A. Figure \ref{fig:simperformanceestimates} shows performance estimates, with the estimated clock being within the range of the target clock, though only barely, and the latency being from  0 to 96. The simulateRosenbrock instance should have a latency of between 46 and 95. 
+The IP was synthesized with the same settings as the GenerationGenerator in the Vivado HLS tool. We used a SystemC stimuli file to make calls to the IP core, which can be found in the attached code (RosenbrockSimulator/stim.h). Figure \ref{fig:simperformanceestimates} shows performance estimates, with the estimated clock being within the range of the target clock, though only barely, and the latency being from  0 to 96. The simulateRosenbrock instance should have a latency of between 46 and 95. 
 
 \begin{figure}[h!]
 	\centering

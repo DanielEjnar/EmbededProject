@@ -135,7 +135,7 @@ void GenerationGenerator::generateGeneration(void) {
 }
 \end{lstlisting}
 
-The \textbf{GenerationGenerator} module is tested in a test bench that stimulates function calls to it and can be viewed in Appendix A. It simply wires the stimulation and the module together and makes a .VCD trace file with all the signals over the period of the application execution cycle, that we have included in the results.
+The \textbf{GenerationGenerator} module is tested in a test bench that stimulates function calls to it. It simply wires the stimulation and the module together and makes a .VCD trace file with all the signals over the period of the application execution cycle, that we have included in the results. The test bench can be fount in the attached code (GenerationGenerator/main.cpp)
 
 \subsection{Simulator}
 The simulator (also called the RosenbrockSimulator in code) simulates the Rosenbrock function. The definition in SystemC can be found in listing \ref{lst:rosenbrock_h}. Function $simulateRosenbrock()$ evaluates the fitness of a chromosome from $P(k)$. It should be noted that coefficients $a$ and $b$ are uint32 type signals but handled as floats in the implementation, as we were not able to successfully pass floats over the signals in SystemC. To obtain a floating value for the calculation, we simply make a type conversion using pointers. Signal $chromosome_in$ is passed as input from the user side. The module outputs actual fitness of the chromosome.
@@ -199,7 +199,7 @@ void RosenbrockSimulator::simulateRosenbrock(){
 }
 \end{lstlisting}
 
-This module is tested using a test bench in the Vivado HLS IDE. This test bench can be seen in Appendix A.
+This module is tested using a test bench in the Vivado HLS IDE. This test bench can be found in the attached code (RosenbrockSimulator/main.cpp).
 
 \subsection{Hardware Block Design}
 
