@@ -3,7 +3,13 @@
   <errorLogs>
     <logs>
       <synLog/>
-      <simLog/>
+      <simLog>
+        <logs message="ERROR: [COSIM 212-4] *** C/RTL co-simulation finished: FAIL ***&#xD;&#xA;command 'ap_source' returned error code&#xD;&#xA;    while executing&#xD;&#xA;&quot;source C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHlsRosenbrock/solution1/cosim.tcl&quot;&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls::main C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHlsRosenbrock/solution1/cosim.tcl&quot;&#xD;&#xA;    (&quot;uplevel&quot; body line 1)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xD;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls_proc $argv&quot;&#xD;&#xA;" projectName="GeneticAlgoHlsRosenbrock" solutionName="solution1" date="2018-12-20T10:43:19.883+0100"/>
+        <logs message="ERROR: [COSIM 212-104] Cannot find Mentor Graphics ModelSim. Make sure it is accessible through the PATH variable." projectName="GeneticAlgoHlsRosenbrock" solutionName="solution1" date="2018-12-20T10:43:19.734+0100"/>
+        <logs message="ERROR: [COSIM 212-4] *** C/RTL co-simulation finished: FAIL ***&#xD;&#xA;command 'ap_source' returned error code&#xD;&#xA;    while executing&#xD;&#xA;&quot;source C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHlsRosenbrock/solution1/cosim.tcl&quot;&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls::main C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHlsRosenbrock/solution1/cosim.tcl&quot;&#xD;&#xA;    (&quot;uplevel&quot; body line 1)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xD;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls_proc $argv&quot;&#xD;&#xA;" projectName="GeneticAlgoHlsRosenbrock" solutionName="solution1" date="2018-12-20T10:42:31.061+0100"/>
+        <logs message="ERROR: Please check the snapshot name which is created during 'xelab',the current snapshot name &quot;xsim.dir/RosenbrockSimulator/xsimk.exe&quot; does not exist " projectName="GeneticAlgoHlsRosenbrock" solutionName="solution1" date="2018-12-20T10:42:30.870+0100"/>
+        <logs message="ERROR: [XSIM 43-3225] Cannot find design unit xil_defaultlib.AUTOTB_TOP in library work located at xsim.dir/work." projectName="GeneticAlgoHlsRosenbrock" solutionName="solution1" date="2018-12-20T10:42:30.696+0100"/>
+      </simLog>
       <mgLog/>
       <packageLog/>
       <csimLog/>
@@ -12,10 +18,10 @@
   <warningLogs>
     <logs>
       <synLog>
-        <logs message="WARNING: [SCA 200-202] Port 'fitness' has no reset." projectName="GeneticAlgoHlsRosenbrock" solutionName="solution1" date="2018-12-18T12:45:31.943+0100" type="Warning"/>
-        <logs message="WARNING: [SCA 200-202] Port 'simulationDone' has no reset." projectName="GeneticAlgoHlsRosenbrock" solutionName="solution1" date="2018-12-18T12:45:30.181+0100" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (r:/builds/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_pow.h:386:5) in function 'RosenbrockSimulator::simulateRosenbrock' is an infinite loop." projectName="GeneticAlgoHlsRosenbrock" solutionName="solution1" date="2018-12-18T12:45:30.163+0100" type="Warning"/>
-        <logs message="WARNING: [SYNCHK 200-23] r:/builds/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_pow.h:576: variable-indexed range selection may cause suboptimal QoR." projectName="GeneticAlgoHlsRosenbrock" solutionName="solution1" date="2018-12-18T12:44:39.651+0100" type="Warning"/>
+        <logs message="WARNING: [SCA 200-202] Port 'fitness' has no reset." projectName="GeneticAlgoHlsRosenbrock" solutionName="solution1" date="2018-12-20T10:37:26.160+0100" type="Warning"/>
+        <logs message="WARNING: [SCA 200-202] Port 'simulationDone' has no reset." projectName="GeneticAlgoHlsRosenbrock" solutionName="solution1" date="2018-12-20T10:37:23.518+0100" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (r:/builds/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_pow.h:386:5) in function 'RosenbrockSimulator::simulateRosenbrock' is an infinite loop." projectName="GeneticAlgoHlsRosenbrock" solutionName="solution1" date="2018-12-20T10:37:23.277+0100" type="Warning"/>
+        <logs message="WARNING: [SYNCHK 200-23] r:/builds/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_pow.h:576: variable-indexed range selection may cause suboptimal QoR." projectName="GeneticAlgoHlsRosenbrock" solutionName="solution1" date="2018-12-20T10:36:41.163+0100" type="Warning"/>
       </synLog>
       <simLog/>
       <mgLog/>

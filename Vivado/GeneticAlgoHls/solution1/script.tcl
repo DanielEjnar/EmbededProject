@@ -5,10 +5,12 @@
 ############################################################
 open_project GeneticAlgoHls
 set_top GenerationGenerator
-add_files ../GenerationGenerator/Stim.h
-add_files ../GenerationGenerator/GenerationGenerator.h
 add_files ../GenerationGenerator/GenerationGenerator.cpp
+add_files ../GenerationGenerator/GenerationGenerator.h
+add_files ../GenerationGenerator/Stim.h
 add_files -tb ../GenerationGenerator/main.cpp
+add_files -tb ../GenerationGenerator/Stim.h
+add_files -tb ../GenerationGenerator/GenerationGenerator.h
 add_files -tb ../GenerationGenerator/GenerationGenerator.cpp
 open_solution "solution1"
 set_part {xc7z010clg400-1} -tool vivado
@@ -16,5 +18,5 @@ create_clock -period 20 -name default
 #source "./GeneticAlgoHls/solution1/directives.tcl"
 csim_design -clean
 csynth_design
-cosim_design -tool modelsim
+cosim_design -setup -tool modelsim
 export_design -flow impl -rtl verilog -format ip_catalog

@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'RosenbrockSimulator_simulateRosenbrock'
 ================================================================
-* Date:           Tue Dec 18 12:45:34 2018
+* Date:           Thu Dec 20 10:37:28 2018
 
 * Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        GeneticAlgoHlsRosenbrock
@@ -4207,7 +4207,7 @@ The critical path consists of the following:
 The critical path consists of the following:
 	'add' operation ('sh', r:/builds/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:502->r:/builds/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:485->r:/builds/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->r:/builds/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:61->../RosenbrockSimulator/RosenbrockSimulator.cpp:46) [1064]  (2.33 ns)
 	'select' operation ('sh', r:/builds/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:485->r:/builds/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->r:/builds/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:61->../RosenbrockSimulator/RosenbrockSimulator.cpp:46) [1068]  (2.07 ns)
-	'lshr' operation ('r.V', r:/builds/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:485->r:/builds/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->r:/builds/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:61->../RosenbrockSimulator/RosenbrockSimulator.cpp:46) [1072]  (0 ns)
+	'shl' operation ('r.V', r:/builds/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:485->r:/builds/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->r:/builds/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:61->../RosenbrockSimulator/RosenbrockSimulator.cpp:46) [1073]  (0 ns)
 	'select' operation ('__Val2__', r:/builds/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:485->r:/builds/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->r:/builds/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:61->../RosenbrockSimulator/RosenbrockSimulator.cpp:46) [1077]  (4.61 ns)
 	wire write on port 'fitness' (../RosenbrockSimulator/RosenbrockSimulator.cpp:48) [1078]  (0 ns)
 

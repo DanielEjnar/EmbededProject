@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'GenerationGenerator_generateGeneration'
 ================================================================
-* Date:           Wed Dec 19 17:17:24 2018
+* Date:           Thu Dec 20 11:19:44 2018
 
 * Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        GeneticAlgoHls
@@ -541,7 +541,6 @@ The critical path consists of the following:
 	'select' operation ('storemerge_i', ../GenerationGenerator/GenerationGenerator.cpp:23->../GenerationGenerator/GenerationGenerator.cpp:61) [67]  (2.07 ns)
 	'icmp' operation ('tmp_6', ../GenerationGenerator/GenerationGenerator.cpp:23->../GenerationGenerator/GenerationGenerator.cpp:62) [68]  (3.23 ns)
 	'select' operation ('p_tmp_s', ../GenerationGenerator/GenerationGenerator.cpp:23->../GenerationGenerator/GenerationGenerator.cpp:62) [70]  (2.07 ns)
-	wire write on port 'GenerationGenerator_trueRandomIndex_V' (../GenerationGenerator/GenerationGenerator.cpp:24->../GenerationGenerator/GenerationGenerator.cpp:62) [71]  (0 ns)
 
  <State 6>: 1.59ns
 The critical path consists of the following:
@@ -568,6 +567,7 @@ The critical path consists of the following:
 	'phi' operation ('GenerationGenerator_5', ../GenerationGenerator/GenerationGenerator.cpp:23->../GenerationGenerator/GenerationGenerator.cpp:105) with incoming values : ('p_tmp_s', ../GenerationGenerator/GenerationGenerator.cpp:23->../GenerationGenerator/GenerationGenerator.cpp:62) ('p_tmp_1', ../GenerationGenerator/GenerationGenerator.cpp:23->../GenerationGenerator/GenerationGenerator.cpp:97) ('p_tmp_2', ../GenerationGenerator/GenerationGenerator.cpp:23->../GenerationGenerator/GenerationGenerator.cpp:105) [105]  (0 ns)
 	'icmp' operation ('tmp_14', ../GenerationGenerator/GenerationGenerator.cpp:23->../GenerationGenerator/GenerationGenerator.cpp:105) [120]  (3.23 ns)
 	'select' operation ('p_tmp_2', ../GenerationGenerator/GenerationGenerator.cpp:23->../GenerationGenerator/GenerationGenerator.cpp:105) [122]  (2.07 ns)
+	wire write on port 'GenerationGenerator_trueRandomIndex_V' (../GenerationGenerator/GenerationGenerator.cpp:24->../GenerationGenerator/GenerationGenerator.cpp:105) [123]  (0 ns)
 
  <State 11>: 9.53ns
 The critical path consists of the following:

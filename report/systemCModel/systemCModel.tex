@@ -107,11 +107,9 @@ void GenerationGenerator::generateGeneration(void) {
     sc_uint<RANDOM_WIDTH> point1 = trueRandom();
     sc_uint<RANDOM_WIDTH> point2 = trueRandom();
 
-    point1 = (sc_uint<RANDOM_WIDTH + CHROMOSOME_WIDTH>) 
-                    (point1 * (CHROMOSOME_WIDTH - 1)) >> RANDOM_WIDTH;
-    point2 = (sc_uint<RANDOM_WIDTH + CHROMOSOME_WIDTH>) 
-                    (point2 * (CHROMOSOME_WIDTH - 1)) >> RANDOM_WIDTH;
-
+	point1 = (point1 * (CHROMOSOME_WIDTH - 1)) >> RANDOM_WIDTH;
+	point2 = (point2 * (CHROMOSOME_WIDTH - 1)) >> RANDOM_WIDTH;
+	
     // Sort high and low points
     sc_uint<RANDOM_WIDTH> highNum;
     sc_uint<RANDOM_WIDTH> lowNum;
@@ -148,22 +146,21 @@ void GenerationGenerator::generateGeneration(void) {
 The \textbf{GenerationGenerator} module is tested in a test bench that stimulates function calls to it and can be viewed in Appendix A. It simply wires the stimulation and the module together and makes a .VCD trace file with all the signals over the period of the application execution cycle, that we have included in the results.
 
 \subsection{Simulator}
-The simulator (also called the RosenbrockSimulator) simulates the Rosenbrock function. The definition can be found in listing \ref{lst:rosenbrock_h}. Here it should be noted, that a and b are uint32 but is actually a float. This means that there is a conversion which is just handled by a cast using pointers.
+The simulator (also called the RosenbrockSimulator in code) simulates the Rosenbrock function. The definition in SystemC can be found in listing \ref{lst:rosenbrock_h}. Function $simulateRosenbrock()$ evaluates the fitness of a chromosome from $P(k)$. It should be noted that coefficients $a$ and $b$ are uint32 type signals but handled as floats in the implementation, as we were not able to successfully pass floats over the signals in SystemC. To obtain a floating value for the calculation, we simply make a type conversion using pointers. Signal $chromosome_in$ is passed as input from the user side. The module outputs actual fitness of the chromosome.
 
 \begin{lstlisting}[style=customc++,caption={RosenbrockSimulator.h},label={lst:rosenbrock_h}]
 #include <systemc.h>
 
 #define CHROMOSOME_WIDTH 64
-
 SC_MODULE(RosenbrockSimulator) {
   sc_in<bool> clk;
   sc_in<bool> reset;
   sc_in<bool> startSimulation;
   sc_out<bool> simulationDone;
-  sc_in<sc_uint<32> > a; //actually float
-  sc_in<sc_uint<32> > b; //actually float
-  sc_in<sc_uint<CHROMOSOME_WIDTH> > chromosome_in;
-  sc_out<sc_uint<32> > fitness;//actually float
+  sc_in<sc_uint<32>> a; //actually float
+  sc_in<sc_uint<32>> b; //actually float
+  sc_in<sc_uint<CHROMOSOME_WIDTH>> chromosome_in;
+  sc_out<sc_uint<32>> fitness; //actually float
 
   void simulateRosenbrock(void);
 
@@ -174,7 +171,8 @@ SC_MODULE(RosenbrockSimulator) {
 };
 \end{lstlisting}
 
-The function implementation of the SC\_CTHREAD can be seen in listing \ref{lst:rosenbrock_cpp}. This is done using floats, which is not the most efficient thing to use. As it is going to be shown later in the results (section \ref{sec:results}) there is not room for the module on the FPGA. Due to times constraints this could have been made differently by using another floating point encoding which could allow for for the use of fixed point arithmetics and interpret it as floats later.
+%TODO: Review this.
+The function implementation of $simulateRosenbrock()$ is viewed in listing \ref{lst:rosenbrock_cpp}. This is done using floats as an experiment, however it is not the most efficient thing to use resource-wise, but brings a better accuracy of the fitness value than fixed-point would. As seen later in results in section \ref{sec:results}, we discovered there was not enough space for the module on the FPGA in terms of DSP's and LUT's. This could have been made differently by using another floating point encoding which could allow for the use of fixed point arithmetics and interpret it as floats later. $uint32ToFloat()$ is a utlity function that converts a unsigned integer number to a float.
 
 \begin{lstlisting}[style=customc++,caption={RosenbrockSimulator.cpp},label={lst:rosenbrock_cpp}]
 #include "RosenbrockSimulator.h"
@@ -187,27 +185,30 @@ void RosenbrockSimulator::simulateRosenbrock(){
     sc_uint<CHROMOSOME_WIDTH> notZero = pow(2, CHROMOSOME_WIDTH) - 1;
     while(startSimulation->read()==false){ wait(); }
     simulationDone->write(false);
+    
     sc_uint<CHROMOSOME_WIDTH> tmpChromosome = chromosome_in->read();
     sc_uint<CHROMOSOME_WIDTH/2 > x = 0, y = 0;
     x = tmpChromosome >> ( CHROMOSOME_WIDTH >> 1 );
     y = tmpChromosome;
-    float x_double, y_double;
-    x_double = uint32ToFloat((uint32_t)x);
-    y_double = uint32ToFloat((uint32_t)y);
-    uint32_t result;
-    float a_local,b_local;
-    a_local = uint32ToFloat(a->read());
-    b_local = uint32ToFloat(b->read());
-    result = pow((a_local-x_double),2)+
-    		b_local*pow((y_double-pow(x_double,2)),2);
+    
+    // Convert coefficients to floats
+    float x_float = uint32ToFloat((uint32_t)x);
+   	float y_float = uint32ToFloat((uint32_t)y);
+   	
+   	// Convert parameters to floats
+   	float a_local = uint32ToFloat(a->read());
+   	float b_local = uint32ToFloat(b->read());
+   
+   	// Evaluate Rosenbrock function with given data
+    uint32_t result = pow((a_local-x_float),2)+
+    		b_local*pow((y_double-pow(x_float,2)),2);
     fitness->write(result);
     simulationDone->write(true);
   }
 }
 \end{lstlisting}
 
-This module is tested using a testbench. This testbench can be seen in listing \ref{lst:rosenbrock_testbench} in appednix \ref{app:code}. This is more or less just wiring, but it also shows a result in the trace file. The stimulation for this testbench is shown in listing \ref{lst:rosenbrockStim} in appendix \ref{app:code}.
-
+This module is tested using a test bench in the Vivado HLS IDE. This test bench can be seen in Appendix A.
 
 %\section{SystemC Modelling}
 
