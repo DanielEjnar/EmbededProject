@@ -9,3 +9,4 @@
 # Log file: C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog/vivado.log
 # Journal file: C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/impl/verilog\vivado.jou
 #-----------------------------------------------------------
+source run_vivado.tcl -notrace

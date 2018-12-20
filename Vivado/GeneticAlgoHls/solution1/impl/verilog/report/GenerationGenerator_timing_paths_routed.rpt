@@ -1,0 +1,326 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Thu Dec 20 14:57:28 2018
+| Host         : Centropy running 64-bit major release  (build 9200)
+| Command      : report_timing -max_paths 10 -file ./report/GenerationGenerator_timing_paths_routed.rpt
+| Design       : bd_0_wrapper
+| Device       : 7z010-clg400
+| Speed File   : -1  PRODUCTION 1.11 2014-09-11
+--------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack:                    inf
+  Source:                 bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB18E1)
+  Destination:            bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231_reg[33]/CE
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        8.653ns  (logic 3.480ns (40.219%)  route 5.173ns (59.781%))
+  Logic Levels:           6  (CARRY4=3 LUT3=1 LUT4=1 RAMB18E1=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    RAMB18_X0Y10         RAMB18E1                     0.000     0.000 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/CLKARDCLK
+    RAMB18_X0Y10         RAMB18E1 (Prop_ramb18e1_CLKARDCLK_DOADO[2])
+                                                      2.454     2.454 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/DOADO[2]
+                         net (fo=2, routed)           1.132     3.586    bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/GenerationGenerator_randomNumbers_V_q0[2]
+    SLICE_X9Y25          LUT4 (Prop_lut4_I3_O)        0.124     3.710 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/grp_fu_311_p2_carry_i_7/O
+                         net (fo=1, routed)           0.000     3.710    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/S[1]
+    SLICE_X9Y25          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     4.260 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry/CO[3]
+                         net (fo=1, routed)           0.000     4.260    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry_n_0
+    SLICE_X9Y26          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.374 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     4.374    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__0_n_0
+    SLICE_X9Y27          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.488 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__1/CO[3]
+                         net (fo=2, routed)           1.490     5.978    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2
+    SLICE_X14Y30         LUT3 (Prop_lut3_I0_O)        0.124     6.102 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231[63]_i_1/O
+                         net (fo=64, routed)          2.550     8.653    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231[63]_i_1_n_0
+    SLICE_X28Y24         FDRE                                         r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231_reg[33]/CE
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB18E1)
+  Destination:            bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231_reg[34]/CE
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        8.653ns  (logic 3.480ns (40.219%)  route 5.173ns (59.781%))
+  Logic Levels:           6  (CARRY4=3 LUT3=1 LUT4=1 RAMB18E1=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    RAMB18_X0Y10         RAMB18E1                     0.000     0.000 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/CLKARDCLK
+    RAMB18_X0Y10         RAMB18E1 (Prop_ramb18e1_CLKARDCLK_DOADO[2])
+                                                      2.454     2.454 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/DOADO[2]
+                         net (fo=2, routed)           1.132     3.586    bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/GenerationGenerator_randomNumbers_V_q0[2]
+    SLICE_X9Y25          LUT4 (Prop_lut4_I3_O)        0.124     3.710 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/grp_fu_311_p2_carry_i_7/O
+                         net (fo=1, routed)           0.000     3.710    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/S[1]
+    SLICE_X9Y25          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     4.260 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry/CO[3]
+                         net (fo=1, routed)           0.000     4.260    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry_n_0
+    SLICE_X9Y26          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.374 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     4.374    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__0_n_0
+    SLICE_X9Y27          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.488 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__1/CO[3]
+                         net (fo=2, routed)           1.490     5.978    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2
+    SLICE_X14Y30         LUT3 (Prop_lut3_I0_O)        0.124     6.102 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231[63]_i_1/O
+                         net (fo=64, routed)          2.550     8.653    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231[63]_i_1_n_0
+    SLICE_X28Y24         FDRE                                         r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231_reg[34]/CE
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB18E1)
+  Destination:            bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231_reg[56]/CE
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        8.653ns  (logic 3.480ns (40.219%)  route 5.173ns (59.781%))
+  Logic Levels:           6  (CARRY4=3 LUT3=1 LUT4=1 RAMB18E1=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    RAMB18_X0Y10         RAMB18E1                     0.000     0.000 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/CLKARDCLK
+    RAMB18_X0Y10         RAMB18E1 (Prop_ramb18e1_CLKARDCLK_DOADO[2])
+                                                      2.454     2.454 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/DOADO[2]
+                         net (fo=2, routed)           1.132     3.586    bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/GenerationGenerator_randomNumbers_V_q0[2]
+    SLICE_X9Y25          LUT4 (Prop_lut4_I3_O)        0.124     3.710 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/grp_fu_311_p2_carry_i_7/O
+                         net (fo=1, routed)           0.000     3.710    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/S[1]
+    SLICE_X9Y25          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     4.260 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry/CO[3]
+                         net (fo=1, routed)           0.000     4.260    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry_n_0
+    SLICE_X9Y26          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.374 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     4.374    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__0_n_0
+    SLICE_X9Y27          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.488 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__1/CO[3]
+                         net (fo=2, routed)           1.490     5.978    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2
+    SLICE_X14Y30         LUT3 (Prop_lut3_I0_O)        0.124     6.102 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231[63]_i_1/O
+                         net (fo=64, routed)          2.550     8.653    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231[63]_i_1_n_0
+    SLICE_X28Y24         FDRE                                         r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231_reg[56]/CE
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB18E1)
+  Destination:            bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231_reg[41]/CE
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        8.428ns  (logic 3.480ns (41.289%)  route 4.948ns (58.711%))
+  Logic Levels:           6  (CARRY4=3 LUT3=1 LUT4=1 RAMB18E1=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    RAMB18_X0Y10         RAMB18E1                     0.000     0.000 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/CLKARDCLK
+    RAMB18_X0Y10         RAMB18E1 (Prop_ramb18e1_CLKARDCLK_DOADO[2])
+                                                      2.454     2.454 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/DOADO[2]
+                         net (fo=2, routed)           1.132     3.586    bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/GenerationGenerator_randomNumbers_V_q0[2]
+    SLICE_X9Y25          LUT4 (Prop_lut4_I3_O)        0.124     3.710 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/grp_fu_311_p2_carry_i_7/O
+                         net (fo=1, routed)           0.000     3.710    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/S[1]
+    SLICE_X9Y25          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     4.260 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry/CO[3]
+                         net (fo=1, routed)           0.000     4.260    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry_n_0
+    SLICE_X9Y26          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.374 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     4.374    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__0_n_0
+    SLICE_X9Y27          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.488 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__1/CO[3]
+                         net (fo=2, routed)           1.490     5.978    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2
+    SLICE_X14Y30         LUT3 (Prop_lut3_I0_O)        0.124     6.102 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231[63]_i_1/O
+                         net (fo=64, routed)          2.326     8.428    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231[63]_i_1_n_0
+    SLICE_X19Y21         FDRE                                         r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231_reg[41]/CE
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB18E1)
+  Destination:            bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231_reg[36]/CE
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        8.420ns  (logic 3.480ns (41.328%)  route 4.940ns (58.672%))
+  Logic Levels:           6  (CARRY4=3 LUT3=1 LUT4=1 RAMB18E1=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    RAMB18_X0Y10         RAMB18E1                     0.000     0.000 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/CLKARDCLK
+    RAMB18_X0Y10         RAMB18E1 (Prop_ramb18e1_CLKARDCLK_DOADO[2])
+                                                      2.454     2.454 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/DOADO[2]
+                         net (fo=2, routed)           1.132     3.586    bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/GenerationGenerator_randomNumbers_V_q0[2]
+    SLICE_X9Y25          LUT4 (Prop_lut4_I3_O)        0.124     3.710 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/grp_fu_311_p2_carry_i_7/O
+                         net (fo=1, routed)           0.000     3.710    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/S[1]
+    SLICE_X9Y25          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     4.260 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry/CO[3]
+                         net (fo=1, routed)           0.000     4.260    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry_n_0
+    SLICE_X9Y26          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.374 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     4.374    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__0_n_0
+    SLICE_X9Y27          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.488 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__1/CO[3]
+                         net (fo=2, routed)           1.490     5.978    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2
+    SLICE_X14Y30         LUT3 (Prop_lut3_I0_O)        0.124     6.102 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231[63]_i_1/O
+                         net (fo=64, routed)          2.318     8.420    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231[63]_i_1_n_0
+    SLICE_X24Y21         FDRE                                         r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231_reg[36]/CE
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB18E1)
+  Destination:            bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231_reg[37]/CE
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        8.420ns  (logic 3.480ns (41.328%)  route 4.940ns (58.672%))
+  Logic Levels:           6  (CARRY4=3 LUT3=1 LUT4=1 RAMB18E1=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    RAMB18_X0Y10         RAMB18E1                     0.000     0.000 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/CLKARDCLK
+    RAMB18_X0Y10         RAMB18E1 (Prop_ramb18e1_CLKARDCLK_DOADO[2])
+                                                      2.454     2.454 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/DOADO[2]
+                         net (fo=2, routed)           1.132     3.586    bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/GenerationGenerator_randomNumbers_V_q0[2]
+    SLICE_X9Y25          LUT4 (Prop_lut4_I3_O)        0.124     3.710 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/grp_fu_311_p2_carry_i_7/O
+                         net (fo=1, routed)           0.000     3.710    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/S[1]
+    SLICE_X9Y25          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     4.260 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry/CO[3]
+                         net (fo=1, routed)           0.000     4.260    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry_n_0
+    SLICE_X9Y26          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.374 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     4.374    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__0_n_0
+    SLICE_X9Y27          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.488 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__1/CO[3]
+                         net (fo=2, routed)           1.490     5.978    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2
+    SLICE_X14Y30         LUT3 (Prop_lut3_I0_O)        0.124     6.102 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231[63]_i_1/O
+                         net (fo=64, routed)          2.318     8.420    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231[63]_i_1_n_0
+    SLICE_X24Y21         FDRE                                         r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231_reg[37]/CE
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB18E1)
+  Destination:            bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_1_reg_276_reg[62]/CE
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        8.419ns  (logic 3.480ns (41.333%)  route 4.939ns (58.667%))
+  Logic Levels:           6  (CARRY4=3 LUT3=1 LUT4=1 RAMB18E1=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    RAMB18_X0Y10         RAMB18E1                     0.000     0.000 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/CLKARDCLK
+    RAMB18_X0Y10         RAMB18E1 (Prop_ramb18e1_CLKARDCLK_DOADO[2])
+                                                      2.454     2.454 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/DOADO[2]
+                         net (fo=2, routed)           1.132     3.586    bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/GenerationGenerator_randomNumbers_V_q0[2]
+    SLICE_X9Y25          LUT4 (Prop_lut4_I3_O)        0.124     3.710 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/grp_fu_311_p2_carry_i_7/O
+                         net (fo=1, routed)           0.000     3.710    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/S[1]
+    SLICE_X9Y25          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     4.260 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry/CO[3]
+                         net (fo=1, routed)           0.000     4.260    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry_n_0
+    SLICE_X9Y26          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.374 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     4.374    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__0_n_0
+    SLICE_X9Y27          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.488 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__1/CO[3]
+                         net (fo=2, routed)           1.338     5.826    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2
+    SLICE_X14Y29         LUT3 (Prop_lut3_I0_O)        0.124     5.950 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_1_reg_276[63]_i_1/O
+                         net (fo=64, routed)          2.470     8.419    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_1_reg_276[63]_i_1_n_0
+    SLICE_X27Y31         FDRE                                         r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_1_reg_276_reg[62]/CE
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB18E1)
+  Destination:            bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_1_reg_276_reg[63]/CE
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        8.419ns  (logic 3.480ns (41.333%)  route 4.939ns (58.667%))
+  Logic Levels:           6  (CARRY4=3 LUT3=1 LUT4=1 RAMB18E1=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    RAMB18_X0Y10         RAMB18E1                     0.000     0.000 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/CLKARDCLK
+    RAMB18_X0Y10         RAMB18E1 (Prop_ramb18e1_CLKARDCLK_DOADO[2])
+                                                      2.454     2.454 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/DOADO[2]
+                         net (fo=2, routed)           1.132     3.586    bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/GenerationGenerator_randomNumbers_V_q0[2]
+    SLICE_X9Y25          LUT4 (Prop_lut4_I3_O)        0.124     3.710 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/grp_fu_311_p2_carry_i_7/O
+                         net (fo=1, routed)           0.000     3.710    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/S[1]
+    SLICE_X9Y25          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     4.260 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry/CO[3]
+                         net (fo=1, routed)           0.000     4.260    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry_n_0
+    SLICE_X9Y26          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.374 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     4.374    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__0_n_0
+    SLICE_X9Y27          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.488 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__1/CO[3]
+                         net (fo=2, routed)           1.338     5.826    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2
+    SLICE_X14Y29         LUT3 (Prop_lut3_I0_O)        0.124     5.950 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_1_reg_276[63]_i_1/O
+                         net (fo=64, routed)          2.470     8.419    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_1_reg_276[63]_i_1_n_0
+    SLICE_X27Y31         FDRE                                         r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_1_reg_276_reg[63]/CE
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB18E1)
+  Destination:            bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231_reg[24]/CE
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        8.323ns  (logic 3.480ns (41.810%)  route 4.843ns (58.190%))
+  Logic Levels:           6  (CARRY4=3 LUT3=1 LUT4=1 RAMB18E1=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    RAMB18_X0Y10         RAMB18E1                     0.000     0.000 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/CLKARDCLK
+    RAMB18_X0Y10         RAMB18E1 (Prop_ramb18e1_CLKARDCLK_DOADO[2])
+                                                      2.454     2.454 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/DOADO[2]
+                         net (fo=2, routed)           1.132     3.586    bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/GenerationGenerator_randomNumbers_V_q0[2]
+    SLICE_X9Y25          LUT4 (Prop_lut4_I3_O)        0.124     3.710 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/grp_fu_311_p2_carry_i_7/O
+                         net (fo=1, routed)           0.000     3.710    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/S[1]
+    SLICE_X9Y25          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     4.260 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry/CO[3]
+                         net (fo=1, routed)           0.000     4.260    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry_n_0
+    SLICE_X9Y26          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.374 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     4.374    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__0_n_0
+    SLICE_X9Y27          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.488 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__1/CO[3]
+                         net (fo=2, routed)           1.490     5.978    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2
+    SLICE_X14Y30         LUT3 (Prop_lut3_I0_O)        0.124     6.102 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231[63]_i_1/O
+                         net (fo=64, routed)          2.221     8.323    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231[63]_i_1_n_0
+    SLICE_X26Y26         FDRE                                         r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231_reg[24]/CE
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB18E1)
+  Destination:            bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231_reg[25]/CE
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        8.323ns  (logic 3.480ns (41.810%)  route 4.843ns (58.190%))
+  Logic Levels:           6  (CARRY4=3 LUT3=1 LUT4=1 RAMB18E1=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    RAMB18_X0Y10         RAMB18E1                     0.000     0.000 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/CLKARDCLK
+    RAMB18_X0Y10         RAMB18E1 (Prop_ramb18e1_CLKARDCLK_DOADO[2])
+                                                      2.454     2.454 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/ram_reg/DOADO[2]
+                         net (fo=2, routed)           1.132     3.586    bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/GenerationGenerator_randomNumbers_V_q0[2]
+    SLICE_X9Y25          LUT4 (Prop_lut4_I3_O)        0.124     3.710 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/GenerationGenerator_randomNumbers_V_U/GenerationGeneratbkb_ram_U/grp_fu_311_p2_carry_i_7/O
+                         net (fo=1, routed)           0.000     3.710    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/S[1]
+    SLICE_X9Y25          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     4.260 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry/CO[3]
+                         net (fo=1, routed)           0.000     4.260    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry_n_0
+    SLICE_X9Y26          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.374 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     4.374    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__0_n_0
+    SLICE_X9Y27          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.488 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2_carry__1/CO[3]
+                         net (fo=2, routed)           1.490     5.978    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/grp_fu_311_p2
+    SLICE_X14Y30         LUT3 (Prop_lut3_I0_O)        0.124     6.102 r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231[63]_i_1/O
+                         net (fo=64, routed)          2.221     8.323    bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231[63]_i_1_n_0
+    SLICE_X26Y26         FDRE                                         r  bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231_reg[25]/CE
+  -------------------------------------------------------------------    -------------------
+
+
+
+

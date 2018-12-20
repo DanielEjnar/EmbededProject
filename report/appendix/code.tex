@@ -93,8 +93,8 @@ SC_MODULE(Stim){
       random->write(rand()*RAND_MAX);
       wait(1, SC_NS);
     }
-    generation_parent1->write(rand() * 2);
-    generation_parent2->write(rand() * 2);
+    generation_parent1->write(0xDEADDEADBEEFBEEF);
+    generation_parent2->write(0x1234567812345678);
     startGenerating->write(true);
     wait(1, SC_MS);
   }

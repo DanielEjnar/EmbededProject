@@ -1,0 +1,98 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Thu Dec 20 14:56:49 2018
+| Host         : Centropy running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file bd_0_wrapper_control_sets_placed.rpt
+| Design       : bd_0_wrapper
+| Device       : xc7z010
+-----------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    30 |
+| Unused register locations in slices containing registers |    31 |
++----------------------------------------------------------+-------+
+
+
+2. Histogram
+------------
+
++--------+--------------+
+| Fanout | Control Sets |
++--------+--------------+
+|      1 |            1 |
+|      2 |            1 |
+|      4 |            1 |
+|      7 |            5 |
+|    16+ |           22 |
++--------+--------------+
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               2 |            2 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              20 |           14 |
+| Yes          | No                    | No                     |             727 |          248 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              92 |           34 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++--------------+----------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+------------------+----------------+
+| Clock Signal |                                                              Enable Signal                                                             |                                                     Set/Reset Signal                                                     | Slice Load Count | Bel Load Count |
++--------------+----------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+------------------+----------------+
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/ap_NS_fsm1                                |                                                                                                                          |                1 |              1 |
+|  aclk        |                                                                                                                                        |                                                                                                                          |                2 |              2 |
+|  aclk        |                                                                                                                                        | bd_0_i/hls_inst/inst/GenerationGenerator_slv0_if_U/FSM_onehot_wstate[0]_i_1_n_0                                          |                2 |              4 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/ap_CS_fsm_state11                         | bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/ap_CS_fsm_state9            |                2 |              7 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/ap_CS_fsm_state10                         |                                                                                                                          |                2 |              7 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/ap_CS_fsm_state7                          |                                                                                                                          |                3 |              7 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/ap_CS_fsm_state8                          | bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/j_reg_242_0                 |                3 |              7 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_slv0_if_U/aw_hs                                                                               |                                                                                                                          |                2 |              7 |
+|  aclk        |                                                                                                                                        | aresetn                                                                                                                  |               12 |             16 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/ap_NS_fsm1                                | bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/p_tmp_1_reg_546_1           |                6 |             23 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/ap_CS_fsm_state5                          | bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/p_tmp_8_reg_502[23]_i_1_n_0 |                6 |             23 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/E[0]                                      |                                                                                                                          |               12 |             24 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/ap_NS_fsm[9]                              |                                                                                                                          |                8 |             24 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_produceRandom_fu_144/Q[0]                                           |                                                                                                                          |                6 |             24 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_produceRandom_fu_144/ap_CS_fsm_state2                               |                                                                                                                          |                8 |             24 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/GenerationGenerator_2_reg_221[23]_i_1_n_0 |                                                                                                                          |               14 |             24 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_slv0_if_U/_mutation_probability[23]_i_1_n_0                                                   |                                                                                                                          |                6 |             24 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_slv0_if_U/_random[23]_i_1_n_0                                                                 |                                                                                                                          |                6 |             24 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/ap_CS_fsm_state5                          |                                                                                                                          |                7 |             25 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_slv0_if_U/_generation_parent1[63]_i_1_n_0                                                     |                                                                                                                          |                9 |             32 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_slv0_if_U/_generation_parent2[31]_i_1_n_0                                                     |                                                                                                                          |               12 |             32 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_slv0_if_U/_generation_parent1[31]_i_1_n_0                                                     |                                                                                                                          |               12 |             32 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_slv0_if_U/_generation_parent2[63]_i_1_n_0                                                     |                                                                                                                          |               14 |             32 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_slv0_if_U/rdata[31]_i_2_n_0                                                                   | bd_0_i/hls_inst/inst/GenerationGenerator_slv0_if_U/rdata[31]_i_1_n_0                                                     |               17 |             32 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/ap_CS_fsm_reg[12]_0[1]                    |                                                                                                                          |               20 |             64 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/ap_CS_fsm_reg[12]_0[2]                    |                                                                                                                          |               20 |             64 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/ap_CS_fsm_state3                          |                                                                                                                          |               17 |             64 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/ap_CS_fsm_state4                          |                                                                                                                          |               20 |             64 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_1_reg_276[63]_i_1_n_0                 |                                                                                                                          |               26 |             64 |
+|  aclk        | bd_0_i/hls_inst/inst/GenerationGenerator_U/grp_GenerationGenerator_generateGeneration_fu_114/v_V_reg_231[63]_i_1_n_0                   |                                                                                                                          |               23 |             64 |
++--------------+----------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+------------------+----------------+
+
+
