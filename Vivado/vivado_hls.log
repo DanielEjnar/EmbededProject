@@ -1,0 +1,26 @@
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/vivado_hls.exe'
+INFO: [HLS 200-10] For user 'cml' on host 'centropy' (Windows NT_amd64 version 6.2) on Thu Dec 20 15:09:46 +0100 2018
+INFO: [HLS 200-10] In directory 'C:/Users/cml/Desktop/EmbededProject/Vivado'
+INFO: [HLS 200-10] Opening project 'C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls'.
+INFO: [HLS 200-10] Opening solution 'C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 20ns.
+WARNING: [HLS 200-40] Cannot find library 'C:/Xilinx/Vivado/2018.3/common/technology/xilinx/null/null.lib'.
+WARNING: [HLS 200-40] Cannot find library 'xilinx/null/null'.
+INFO: [HLS 200-10] Setting target device to 'xc7z010clg400-1'
+INFO: [XFORM 203-1172] Optimizing floating point zeros and discarding its signedness.
+INFO: [XFORM 203-1172] Optimizing floating point zeros and discarding its signedness.
+INFO: [XFORM 203-1173] Reordering floating point operations aggressively.
+INFO: [XFORM 203-1176] Optimizing floating point comparison without checking NaN.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../../GenerationGenerator/main.cpp in debug mode
+   Compiling ../../../../../GenerationGenerator/GenerationGenerator.cpp in debug mode
+   Generating csim.exe
+
+        SystemC 2.3.1-Accellera --- Oct 21 2017 13:39:34
+        Copyright (c) 1996-2014 by all Contributors,
+        ALL RIGHTS RESERVED
+
+Info: (I703) tracing timescale unit set: 1 ns (GenerationGenerator.vcd)
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************

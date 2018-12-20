@@ -38,13 +38,13 @@ reg GenerationGenerator_randomNumberIndex_V_o_ap_vld;
 reg GenerationGenerator_randomNumbers_V_ce0;
 reg GenerationGenerator_randomNumbers_V_we0;
 
-reg   [23:0] val_V_reg_164;
+reg   [23:0] val_V_reg_156;
 (* fsm_encoding = "none" *) reg   [2:0] ap_CS_fsm;
 wire    ap_CS_fsm_state2;
-wire   [63:0] tmp_fu_138_p1;
+wire   [63:0] tmp_fu_130_p1;
 wire    ap_CS_fsm_state3;
-wire   [0:0] tmp_1_fu_143_p2;
-wire   [23:0] tmp_2_fu_149_p2;
+wire   [0:0] tmp_1_fu_135_p2;
+wire   [23:0] tmp_2_fu_141_p2;
 reg   [2:0] ap_NS_fsm;
 
 // power-on initialization
@@ -62,7 +62,7 @@ end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state2)) begin
-        val_V_reg_164 <= random;
+        val_V_reg_156 <= random;
     end
 end
 
@@ -104,20 +104,20 @@ always @ (*) begin
     endcase
 end
 
-assign GenerationGenerator_randomNumberIndex_V_o = ((tmp_1_fu_143_p2[0:0] === 1'b1) ? 24'd0 : tmp_2_fu_149_p2);
+assign GenerationGenerator_randomNumberIndex_V_o = ((tmp_1_fu_135_p2[0:0] === 1'b1) ? 24'd0 : tmp_2_fu_141_p2);
 
-assign GenerationGenerator_randomNumbers_V_address0 = tmp_fu_138_p1;
+assign GenerationGenerator_randomNumbers_V_address0 = tmp_fu_130_p1;
 
-assign GenerationGenerator_randomNumbers_V_d0 = val_V_reg_164;
+assign GenerationGenerator_randomNumbers_V_d0 = val_V_reg_156;
 
 assign ap_CS_fsm_state2 = ap_CS_fsm[32'd1];
 
 assign ap_CS_fsm_state3 = ap_CS_fsm[32'd2];
 
-assign tmp_1_fu_143_p2 = ((GenerationGenerator_randomNumberIndex_V_i == 24'd23) ? 1'b1 : 1'b0);
+assign tmp_1_fu_135_p2 = ((GenerationGenerator_randomNumberIndex_V_i == 24'd23) ? 1'b1 : 1'b0);
 
-assign tmp_2_fu_149_p2 = (GenerationGenerator_randomNumberIndex_V_i + 24'd1);
+assign tmp_2_fu_141_p2 = (GenerationGenerator_randomNumberIndex_V_i + 24'd1);
 
-assign tmp_fu_138_p1 = GenerationGenerator_randomNumberIndex_V_i;
+assign tmp_fu_130_p1 = GenerationGenerator_randomNumberIndex_V_i;
 
 endmodule //GenerationGenerator_produceRandom

@@ -13,7 +13,6 @@ module GenerationGenerator_generateGeneration (
         startGenerating,
         generatingDone,
         generatingDone_ap_vld,
-        generation_parent1,
         generation_parent2,
         generation_child1,
         generation_child1_ap_vld,
@@ -48,7 +47,6 @@ input   ap_rst;
 input   startGenerating;
 output   generatingDone;
 output   generatingDone_ap_vld;
-input  [63:0] generation_parent1;
 input  [63:0] generation_parent2;
 output  [63:0] generation_child1;
 output   generation_child1_ap_vld;
@@ -71,6 +69,7 @@ reg GenerationGenerator_trueRandomIndex_V_o_ap_vld;
 reg[7:0] GenerationGenerator_randomNumbers_V_address0;
 reg GenerationGenerator_randomNumbers_V_ce0;
 
+wire   [63:0] generation_parent1;
 reg   [63:0] val_V_3_reg_492;
 (* fsm_encoding = "none" *) reg   [14:0] ap_CS_fsm;
 wire    ap_CS_fsm_state3;
@@ -216,12 +215,6 @@ always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state5)) begin
         p_tmp_8_reg_502 <= p_tmp_8_fu_354_p3;
         val_V_reg_507 <= mutation_probability;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        val_V_3_reg_492 <= generation_parent1;
     end
 end
 
@@ -437,6 +430,8 @@ assign generation_child1 = v_V_reg_231;
 
 assign generation_child2 = v_V_1_reg_276;
 
+assign generation_parent1 = 64'd0;
+
 assign grp_fu_311_p2 = ((GenerationGenerator_randomNumbers_V_q0 < val_V_reg_507) ? 1'b1 : 1'b0);
 
 assign grp_read_fu_140_p2 = startGenerating;
@@ -488,5 +483,9 @@ assign tmp_7_fu_342_p2 = ((storemerge_i_fu_334_p3 == 24'd23) ? 1'b1 : 1'b0);
 assign tmp_8_fu_348_p2 = (storemerge_i_fu_334_p3 + 24'd1);
 
 assign tmp_s_fu_375_p1 = GenerationGenerator_2_reg_221;
+
+always @ (posedge ap_clk) begin
+    val_V_3_reg_492[63:0] <= 64'b0000000000000000000000000000000000000000000000000000000000000000;
+end
 
 endmodule //GenerationGenerator_generateGeneration
