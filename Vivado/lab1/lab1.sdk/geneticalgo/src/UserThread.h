@@ -26,7 +26,7 @@ public:
 	{
 		std::unique_ptr<Context> context = std::make_unique<Context>();
 		bool running = true;
-		char* str;
+		char str[20];
 		while(running) {
 			std::cout << "Welcome to the menu" << std::endl;
 			std::cout << "Press 1 for SETUP, 2 for RUN, 3 for ABORT" << std::endl;

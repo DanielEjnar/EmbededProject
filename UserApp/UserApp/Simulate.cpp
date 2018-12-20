@@ -6,6 +6,9 @@
 #include "ieee754float.h"
 #include <vector>
 #include "GenerateGeneration.h"
+#include "math.h"
+#include <algorithm>
+#include <vector>
 
 Simulate::Simulate()
 {
@@ -23,25 +26,37 @@ std::unique_ptr<State> Simulate::HandleAction(Context& context,
 		std::cout << "SimDone() called" << std::endl;
 		action.reset();
 		// Assert stopping criterion
-		bool done = true;
-		if (done) { return std::make_unique<Idle>(); }
-		return std::make_unique<GenerateGeneration>();
+		if(IsSimulationDone(context)) {
+			return std::make_unique<Idle>();
+		} else {
+			return std::make_unique<GenerateGeneration>();
+		}
 	}
 	return NULL;
+}
+
+bool Simulate::IsSimulationDone(Context& context)
+{
+	return false;
+	//std::vector<uint32_t> fitArr = context.GetLatestFitness();
+	//std::sort(fitArr.begin(), fitArr.end());
+	//if (fitArr.begin() <= fitArr.end()) {
+	//	return true;
+	//} else return false;
 }
 
 void Simulate::RunSimulation(Context& context)
 {
 	// Get parameters
-	int a = context.GetA();
-	int b = context.GetB();
+	float a = context.GetA();
+	float b = context.GetB();
 
 	// Make initial population if current gen is empty
 	std::vector<uint64_t> chromos = {};
 	auto currentGen = context.GetCurrentGeneration();
 	if(currentGen.empty()) {
-		uint64_t parent1 = rand() * 2;
-		uint64_t parent2 = rand() * 2;
+		uint64_t parent1 = rand();
+		uint64_t parent2 = rand();
 		chromos = { parent1, parent2 };
 	} else {
 		chromos = currentGen;
@@ -51,7 +66,8 @@ void Simulate::RunSimulation(Context& context)
 	// Evaluate fitness of each chromos
 	for (uint64_t c : chromos) {
 		std::cout << "Evaluating: " << c << '\n';
-		float fitness = EvaluateFitness(c, a, b);
+		float fitness = EvaluateFitness(a, b, c);
+		context.AddFitness(fitness);
 		std::cout << "Got fitness: " << fitness << '\n';
 	}
 	chromos.clear();
@@ -64,14 +80,12 @@ float Simulate::EvaluateFitness(float a, float b, uint64_t chromosome)
 	uint32_t x = chromosome>>(CHROMOSOME_WIDTH >> 1);
 	uint32_t y = chromosome;
 
-	// Get float representations paras and coefficients
-	float x_float = uint32ToFloat(x);
-	float y_float = uint32ToFloat(y);
-	float a_float = uint32ToFloat(a);
-	float b_float = uint32ToFloat(b);
+	// Get float representations parameters and coefficients
+	float x_float = *(float*)(&x);
+	float y_float = *(float*)(&y);
 
-	float result = floatToUint32_t((float)(pow((a_float - x_float), 2)
-		+ b_float*pow((y_float - pow(x_float, 2)), 2)));
+	uint32_t result = pow((a - x_float), 2)
+		+ b*pow((y_float - pow(x_float, 2)), 2);
 	return result;
 }
 

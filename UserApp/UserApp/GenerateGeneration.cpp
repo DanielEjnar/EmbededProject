@@ -7,8 +7,6 @@
 #include <ostream>
 #include <iostream>
 
-
-
 GenerateGeneration::GenerateGeneration()
 {
 }
@@ -38,14 +36,19 @@ void GenerateGeneration::MakeGeneration(Context& context)
 	// Get parents chromos
 	std::vector<uint64_t> chromos = context.GetCurrentGeneration();
 
-	uint64_t parent1 = chromos.back();
-	chromos.pop_back();
-	uint64_t parent2 = chromos.back();
-	chromos.pop_back();
+	if(chromos.size() == 2) {
+		uint64_t parent1 = chromos.back();
+		chromos.pop_back();
+		uint64_t parent2 = chromos.back();
+		chromos.pop_back();
+	}
 
-	//Call GenerateGeneration here. Get two children
+	// Get children
+	// Call hardware here
 	uint64_t child1 = rand() * 2;
 	uint64_t child2 = rand() * 2;
+	std::cout << "Made child: " << child1 << "\n" << std::endl;
+	std::cout << "Made child: " << child2 << "\n" << std::endl;
 	context.SetCurrentGeneration({child1, child2});
 	context.HandleInput(std::make_unique<Action>("GEN_CREATED"));
 }
