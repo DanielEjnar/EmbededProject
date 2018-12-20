@@ -59,16 +59,12 @@ The IP was synthesized with the same settings as the GenerationGenerator in the 
 	\label{fig:simperformanceestimates}
 \end{figure}
 \FloatBarrier
-<<<<<<< HEAD
+
 In figure \ref{fig:ggutilizationestimates} we see the utilization estimates of running the Simulator in hardware. The total resource demand exceed those of the platform, the ZyBo board, by quite a significant margin. 
 
 The algorithm need 592 DSP48E's, but only 80 are available, which means that it needs over 7 times as many as are present on the FPGA. Likewise it needs 39988 flip-flops and 22918 lookup tables, but fewer are available. The flip-flops is only over-utilized by 13\% while the lookup-tables exceeds the available ones by 30\%. 
 
 This means that the current implementation will not be runnable on hardware. We could either use a bigger FPGA or reimplement the design to use another floating point encoding.
-=======
-
-In figure \ref{fig:ggutilizationestimates} we see the utilization estimates of running the Simulator in hardware. The total resource demand exceed those of the platform, the ZyBo board, by quite a significant margin. The algorithm need 592 DSP48E's, but only 80 are available, which means that it needs over 7 times as many as are present on the FPGA. Likewise it needs 39988 flip-flops and 22918 lookup tables, but fewer are available. The flip-flops is only over-utilized by 13\% while the lookup-tables exceeds the available ones by 30\%. This means that the current implementation will not be runnable on hardware. We could either use a bigger FPGA or re-implement the design to use another floating point encoding.
->>>>>>> c272dd18363cd2fc98e5cc8fb834cf6cec45232d
 
 \begin{figure}[h!]
 	\centering
@@ -76,12 +72,8 @@ In figure \ref{fig:ggutilizationestimates} we see the utilization estimates of r
 	\caption{Utilization estimation of Simulator}
 	\label{fig:simutilizationestimates}
 \end{figure}
-<<<<<<< HEAD
-Figure \ref{fig:siminterface} shows the generated interfaces. It can be seen that all of the interfaces are as we defined in the SystemC model. These have the bit width as we defined. It should be noted that all except the clk and reset ports will be exported as AXILite memory mapped interfaces. This means that we, if the design would fit on the FPGA, could communicate directly with the IP core from the software.
-=======
 
-Figure \ref{fig:siminterface} shows the generated interfaces. It can be seen, that we have an AXILite memory mapped interface as we expected, and specified by the use of a pragma. This means that we, if the design would fit on the FPGA, could communicate directly with the IP core from the software.
->>>>>>> c272dd18363cd2fc98e5cc8fb834cf6cec45232d
+Figure \ref{fig:siminterface} shows the generated interfaces. It can be seen that all of the interfaces are as we defined in the SystemC model. These have the bit width as we defined. It should be noted that all except the clk and reset ports will be exported as AXILite memory mapped interfaces. This means that we, if the design would fit on the FPGA, could communicate directly with the IP core from the software.
 
 \begin{figure}[h!]
 	\centering
