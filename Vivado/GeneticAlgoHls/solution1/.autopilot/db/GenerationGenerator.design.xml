@@ -25,7 +25,7 @@
 <SummaryOfTimingAnalysis>
 <TargetClockPeriod>20.00</TargetClockPeriod>
 <ClockUncertainty>2.50</ClockUncertainty>
-<EstimatedClockPeriod>10.59</EstimatedClockPeriod>
+<EstimatedClockPeriod>7.474</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <Best-caseLatency>269</Best-caseLatency>
@@ -60,8 +60,8 @@
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<FF>977</FF>
-<LUT>875</LUT>
+<FF>355</FF>
+<LUT>891</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP48E>0</DSP48E>
 </Resources>
@@ -121,17 +121,6 @@
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>generation_parent1</name>
-<Object>generation_parent1</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>ap_none</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
-<Bits>64</Bits>
-<Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
 <name>generation_parent2</name>
@@ -273,7 +262,7 @@
 <SummaryOfTimingAnalysis>
 <TargetClockPeriod>20.00</TargetClockPeriod>
 <ClockUncertainty>2.50</ClockUncertainty>
-<EstimatedClockPeriod>5.30</EstimatedClockPeriod>
+<EstimatedClockPeriod>3.254</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <Best-caseLatency>3</Best-caseLatency>
@@ -294,8 +283,8 @@
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<FF>104</FF>
-<LUT>81</LUT>
+<FF>27</FF>
+<LUT>88</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP48E>0</DSP48E>
 </Resources>
@@ -419,7 +408,7 @@
 <SummaryOfTimingAnalysis>
 <TargetClockPeriod>20.00</TargetClockPeriod>
 <ClockUncertainty>2.50</ClockUncertainty>
-<EstimatedClockPeriod>10.59</EstimatedClockPeriod>
+<EstimatedClockPeriod>7.474</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <Best-caseLatency>0</Best-caseLatency>
@@ -432,8 +421,8 @@
 <AreaEstimates>
 <Resources>
 <BRAM_18K>1</BRAM_18K>
-<FF>1258</FF>
-<LUT>1004</LUT>
+<FF>559</FF>
+<LUT>1027</LUT>
 <DSP48E>0</DSP48E>
 </Resources>
 </AreaEstimates>

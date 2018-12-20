@@ -4,19 +4,19 @@
 <trans_list>
 
 <trans id="45" from="1" to="2">
-<condition id="4">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
 <trans id="46" from="2" to="3">
-<condition id="5">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
 <trans id="47" from="3" to="2">
-<condition id="7">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
@@ -31,13 +31,13 @@
 <operation id="4" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
 <Node id="14" bw="0" op_0_bw="0" op_1_bw="1">
 <![CDATA[
-:0  call void (...)* @_ssdm_op_SpecBitsMap(i1* %clk), !map !4081
+:0  call void (...)* @_ssdm_op_SpecBitsMap(i1* %clk), !map !188
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -46,13 +46,13 @@
 <operation id="5" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
 <Node id="15" bw="0" op_0_bw="0" op_1_bw="1">
 <![CDATA[
-:1  call void (...)* @_ssdm_op_SpecBitsMap(i1* %reset), !map !4085
+:1  call void (...)* @_ssdm_op_SpecBitsMap(i1* %reset), !map !192
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -61,13 +61,13 @@
 <operation id="6" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
 <Node id="16" bw="0" op_0_bw="0" op_1_bw="1">
 <![CDATA[
-:2  call void (...)* @_ssdm_op_SpecBitsMap(i1* %startGenerating), !map !4089
+:2  call void (...)* @_ssdm_op_SpecBitsMap(i1* %startGenerating), !map !196
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -76,13 +76,13 @@
 <operation id="7" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
 <Node id="17" bw="0" op_0_bw="0" op_1_bw="1">
 <![CDATA[
-:3  call void (...)* @_ssdm_op_SpecBitsMap(i1* %generatingDone), !map !4093
+:3  call void (...)* @_ssdm_op_SpecBitsMap(i1* %generatingDone), !map !200
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -91,13 +91,13 @@
 <operation id="8" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
 <Node id="18" bw="0" op_0_bw="0" op_1_bw="64">
 <![CDATA[
-:4  call void (...)* @_ssdm_op_SpecBitsMap(i64* %generation_parent1), !map !4097
+:4  call void (...)* @_ssdm_op_SpecBitsMap(i64* %generation_parent1), !map !204
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -106,13 +106,13 @@
 <operation id="9" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
 <Node id="19" bw="0" op_0_bw="0" op_1_bw="64">
 <![CDATA[
-:5  call void (...)* @_ssdm_op_SpecBitsMap(i64* %generation_parent2), !map !4101
+:5  call void (...)* @_ssdm_op_SpecBitsMap(i64* %generation_parent2), !map !208
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -121,13 +121,13 @@
 <operation id="10" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
 <Node id="20" bw="0" op_0_bw="0" op_1_bw="64">
 <![CDATA[
-:6  call void (...)* @_ssdm_op_SpecBitsMap(i64* %generation_child1), !map !4105
+:6  call void (...)* @_ssdm_op_SpecBitsMap(i64* %generation_child1), !map !212
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -136,13 +136,13 @@
 <operation id="11" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
 <Node id="21" bw="0" op_0_bw="0" op_1_bw="64">
 <![CDATA[
-:7  call void (...)* @_ssdm_op_SpecBitsMap(i64* %generation_child2), !map !4109
+:7  call void (...)* @_ssdm_op_SpecBitsMap(i64* %generation_child2), !map !216
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -151,13 +151,13 @@
 <operation id="12" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
 <Node id="22" bw="0" op_0_bw="0" op_1_bw="24">
 <![CDATA[
-:8  call void (...)* @_ssdm_op_SpecBitsMap(i24* %mutation_probability), !map !4113
+:8  call void (...)* @_ssdm_op_SpecBitsMap(i24* %mutation_probability), !map !220
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -166,13 +166,13 @@
 <operation id="13" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
 <Node id="23" bw="0" op_0_bw="0" op_1_bw="24">
 <![CDATA[
-:9  call void (...)* @_ssdm_op_SpecBitsMap(i24* %random), !map !4117
+:9  call void (...)* @_ssdm_op_SpecBitsMap(i24* %random), !map !224
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -181,13 +181,13 @@
 <operation id="14" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
 <Node id="24" bw="0" op_0_bw="0" op_1_bw="24">
 <![CDATA[
-:10  call void (...)* @_ssdm_op_SpecBitsMap(i24* %GenerationGenerator_randomNumberIndex_V), !map !4121
+:10  call void (...)* @_ssdm_op_SpecBitsMap(i24* %GenerationGenerator_randomNumberIndex_V), !map !228
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -196,13 +196,13 @@
 <operation id="15" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
 <Node id="25" bw="0" op_0_bw="0" op_1_bw="24">
 <![CDATA[
-:11  call void (...)* @_ssdm_op_SpecBitsMap(i24* %GenerationGenerator_trueRandomIndex_V), !map !4125
+:11  call void (...)* @_ssdm_op_SpecBitsMap(i24* %GenerationGenerator_trueRandomIndex_V), !map !232
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -211,13 +211,13 @@
 <operation id="16" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
 <Node id="26" bw="0" op_0_bw="0" op_1_bw="24">
 <![CDATA[
-:12  call void (...)* @_ssdm_op_SpecBitsMap([160 x i24]* %GenerationGenerator_randomNumbers_V), !map !4129
+:12  call void (...)* @_ssdm_op_SpecBitsMap([160 x i24]* %GenerationGenerator_randomNumbers_V), !map !236
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -226,7 +226,7 @@
 <operation id="17" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -241,7 +241,7 @@
 <operation id="18" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -256,7 +256,7 @@
 <operation id="19" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -271,7 +271,7 @@
 <operation id="20" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -286,7 +286,7 @@
 <operation id="21" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -301,7 +301,7 @@
 <operation id="22" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -316,7 +316,7 @@
 <operation id="23" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -331,7 +331,7 @@
 <operation id="24" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -346,7 +346,7 @@
 <operation id="25" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -361,7 +361,7 @@
 <operation id="26" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -376,7 +376,7 @@
 <operation id="27" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -391,7 +391,7 @@
 <operation id="28" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -406,7 +406,7 @@
 <operation id="29" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -421,7 +421,7 @@
 <operation id="30" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -436,7 +436,7 @@
 <operation id="31" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -451,7 +451,7 @@
 <operation id="32" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -466,7 +466,7 @@
 <operation id="33" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="0">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -484,7 +484,7 @@
 <operation id="34" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="1">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -502,7 +502,7 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:0  %val_V = call i24 @_ssdm_op_Read.ap_auto.vola
 <operation id="35" st_id="3" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="2">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -517,7 +517,7 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:1  call void (...)* @_ssdm_op_Wait(i32 1) nounwi
 <operation id="36" st_id="3" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="2">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -532,13 +532,13 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:2  %GenerationGenerator_s = call i24 @_ssdm_op_R
 <operation id="37" st_id="3" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="2">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="48" bw="32" op_0_bw="24">
+<Node id="48" bw="64" op_0_bw="24">
 <![CDATA[
-_ZN7_ap_sc_7sc_core4waitEi.exit:3  %tmp = zext i24 %GenerationGenerator_s to i32
+_ZN7_ap_sc_7sc_core4waitEi.exit:3  %tmp = zext i24 %GenerationGenerator_s to i64
 
 ]]></Node>
 <StgValue><ssdm name="tmp"/></StgValue>
@@ -547,13 +547,13 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:3  %tmp = zext i24 %GenerationGenerator_s to i32
 <operation id="38" st_id="3" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="2">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="49" bw="8" op_0_bw="24" op_1_bw="32" op_2_bw="32">
+<Node id="49" bw="8" op_0_bw="24" op_1_bw="64" op_2_bw="64">
 <![CDATA[
-_ZN7_ap_sc_7sc_core4waitEi.exit:4  %GenerationGenerator_1 = getelementptr [160 x i24]* %GenerationGenerator_randomNumbers_V, i32 0, i32 %tmp
+_ZN7_ap_sc_7sc_core4waitEi.exit:4  %GenerationGenerator_1 = getelementptr [160 x i24]* %GenerationGenerator_randomNumbers_V, i64 0, i64 %tmp
 
 ]]></Node>
 <StgValue><ssdm name="GenerationGenerator_1"/></StgValue>
@@ -562,7 +562,7 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:4  %GenerationGenerator_1 = getelementptr [160 x
 <operation id="39" st_id="3" stage="1" lat="1">
 <core>RAM</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="2">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -577,7 +577,7 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:5  store i24 %val_V, i24* %GenerationGenerator_1
 <operation id="40" st_id="3" stage="1" lat="1">
 <core>Cmp</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="2">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -592,7 +592,7 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:6  %tmp_1 = icmp eq i24 %GenerationGenerator_s, 
 <operation id="41" st_id="3" stage="1" lat="1">
 <core>AddSub</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="2">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -607,7 +607,7 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:7  %tmp_2 = add i24 %GenerationGenerator_s, 1
 <operation id="42" st_id="3" stage="1" lat="1">
 <core>Sel</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="2">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -622,7 +622,7 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:8  %storemerge = select i1 %tmp_1, i24 0, i24 %t
 <operation id="43" st_id="3" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="2">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -637,7 +637,7 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:9  call void @_ssdm_op_Write.ap_auto.i24P(i24* %
 <operation id="44" st_id="3" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="2">
+<condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 

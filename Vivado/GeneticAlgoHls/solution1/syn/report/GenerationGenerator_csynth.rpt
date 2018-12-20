@@ -3,9 +3,9 @@
 ================================================================
 == Vivado HLS Report for 'GenerationGenerator'
 ================================================================
-* Date:           Thu Dec 20 13:11:16 2018
+* Date:           Thu Dec 20 15:06:57 2018
 
-* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
 * Project:        GeneticAlgoHls
 * Solution:       solution1
 * Product family: zynq
@@ -20,7 +20,7 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  20.00|     10.59|        2.50|
+    |ap_clk  |  20.00|     7.474|        2.50|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
@@ -29,7 +29,7 @@
     |  Latency  |  Interval | Pipeline|
     | min | max | min | max |   Type  |
     +-----+-----+-----+-----+---------+
-    |    0|  270|    1|  271|   none  |
+    |    0|  270|    0|  270|   none  |
     +-----+-----+-----+-----+---------+
 
     + Detail: 
@@ -57,16 +57,16 @@
 |DSP              |        -|      -|      -|      -|
 |Expression       |        -|      -|      -|      -|
 |FIFO             |        -|      -|      -|      -|
-|Instance         |        -|      -|   1081|    956|
+|Instance         |        -|      -|    382|    979|
 |Memory           |        1|      -|      0|      0|
 |Multiplexer      |        -|      -|      -|     48|
 |Register         |        -|      -|    177|      -|
 +-----------------+---------+-------+-------+-------+
-|Total            |        1|      0|   1258|   1004|
+|Total            |        1|      0|    559|   1027|
 +-----------------+---------+-------+-------+-------+
 |Available        |      120|     80|  35200|  17600|
 +-----------------+---------+-------+-------+-------+
-|Utilization (%)  |    ~0   |      0|      3|      5|
+|Utilization (%)  |    ~0   |      0|      1|      5|
 +-----------------+---------+-------+-------+-------+
 
 + Detail: 
@@ -74,10 +74,10 @@
     +---------------------------------------------------+----------------------------------------+---------+-------+-----+-----+
     |                      Instance                     |                 Module                 | BRAM_18K| DSP48E|  FF | LUT |
     +---------------------------------------------------+----------------------------------------+---------+-------+-----+-----+
-    |grp_GenerationGenerator_generateGeneration_fu_104  |GenerationGenerator_generateGeneration  |        0|      0|  977|  875|
-    |grp_GenerationGenerator_produceRandom_fu_134       |GenerationGenerator_produceRandom       |        0|      0|  104|   81|
+    |grp_GenerationGenerator_generateGeneration_fu_104  |GenerationGenerator_generateGeneration  |        0|      0|  355|  891|
+    |grp_GenerationGenerator_produceRandom_fu_134       |GenerationGenerator_produceRandom       |        0|      0|   27|   88|
     +---------------------------------------------------+----------------------------------------+---------+-------+-----+-----+
-    |Total                                              |                                        |        0|      0| 1081|  956|
+    |Total                                              |                                        |        0|      0|  382|  979|
     +---------------------------------------------------+----------------------------------------+---------+-------+-----+-----+
 
     * DSP48: 

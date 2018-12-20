@@ -20,36 +20,36 @@
 <SummaryOfTimingAnalysis>
 <TargetClockPeriod>20.00</TargetClockPeriod>
 <ClockUncertainty>2.50</ClockUncertainty>
-<EstimatedClockPeriod>17.25</EstimatedClockPeriod>
+<EstimatedClockPeriod>17.378</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
-<Best-caseLatency>46</Best-caseLatency>
-<Average-caseLatency>67</Average-caseLatency>
-<Worst-caseLatency>95</Worst-caseLatency>
-<PipelineInitiationInterval>46 ~ 95</PipelineInitiationInterval>
+<Best-caseLatency>21</Best-caseLatency>
+<Average-caseLatency>48</Average-caseLatency>
+<Worst-caseLatency>86</Worst-caseLatency>
+<PipelineInitiationInterval>21 ~ 86</PipelineInitiationInterval>
 <PipelineType>none</PipelineType>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <Loop1>
 <Name>Loop 1</Name>
 <TripCount>inf</TripCount>
-<Latency>45 ~ 94</Latency>
+<Latency>20 ~ 85</Latency>
 <IterationLatency>
 <range>
-<min>45</min>
-<max>94</max>
+<min>20</min>
+<max>85</max>
 </range>
 </IterationLatency>
-<PipelineDepth>45 ~ 94</PipelineDepth>
+<PipelineDepth>20 ~ 85</PipelineDepth>
 </Loop1>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
 <BRAM_18K>30</BRAM_18K>
-<DSP48E>592</DSP48E>
-<FF>39955</FF>
-<LUT>22918</LUT>
+<DSP48E>226</DSP48E>
+<FF>12791</FF>
+<LUT>19861</LUT>
 </Resources>
 </AreaEstimates>
 <InterfaceSummary>
@@ -171,22 +171,22 @@
 <SummaryOfTimingAnalysis>
 <TargetClockPeriod>20.00</TargetClockPeriod>
 <ClockUncertainty>2.50</ClockUncertainty>
-<EstimatedClockPeriod>17.25</EstimatedClockPeriod>
+<EstimatedClockPeriod>17.378</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <Best-caseLatency>0</Best-caseLatency>
-<Average-caseLatency>34</Average-caseLatency>
-<Worst-caseLatency>96</Worst-caseLatency>
-<PipelineInitiationInterval>1 ~ 97</PipelineInitiationInterval>
+<Average-caseLatency>25</Average-caseLatency>
+<Worst-caseLatency>87</Worst-caseLatency>
+<PipelineInitiationInterval>1 ~ 88</PipelineInitiationInterval>
 <PipelineType>none</PipelineType>
 </SummaryOfOverallLatency>
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
 <BRAM_18K>30</BRAM_18K>
-<DSP48E>592</DSP48E>
-<FF>39988</FF>
-<LUT>22918</LUT>
+<DSP48E>226</DSP48E>
+<FF>12824</FF>
+<LUT>19861</LUT>
 </Resources>
 </AreaEstimates>
 <InterfaceSummary>

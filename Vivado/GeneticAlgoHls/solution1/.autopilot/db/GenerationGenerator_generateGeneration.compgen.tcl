@@ -29,7 +29,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 0 \
+    id 1 \
     name startGenerating \
     type other \
     dir I \
@@ -44,7 +44,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 1 \
+    id 2 \
     name generatingDone \
     type other \
     dir O \
@@ -53,21 +53,6 @@ eval "cg_default_interface_gen_dc { \
     corename dc_generatingDone \
     op interface \
     ports { generatingDone { O 1 bit } generatingDone_ap_vld { O 1 bit } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 2 \
-    name generation_parent1 \
-    type other \
-    dir I \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_generation_parent1 \
-    op interface \
-    ports { generation_parent1 { I 64 vector } } \
 } "
 }
 

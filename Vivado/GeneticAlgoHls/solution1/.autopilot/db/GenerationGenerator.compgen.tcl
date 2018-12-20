@@ -2,6 +2,7 @@
 
 # Memory (RAM/ROM)  definition:
 set ID 12
+set hasByteEnable 0
 set MemName GenerationGeneratbkb
 set CoreName ap_simcore_mem
 set PortList { 2 3 }
@@ -26,6 +27,7 @@ if {[info proc ap_gen_simcore_mem] == "ap_gen_simcore_mem"} {
     name ${MemName} \
     corename ${CoreName}  \
     op mem \
+    hasByteEnable ${hasByteEnable} \
     reset_level 1 \
     sync_rst true \
     stage_num ${NumOfStage}  \
@@ -61,6 +63,7 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
     name ${MemName} \
     corename ${CoreName}  \
     op mem \
+    hasByteEnable ${hasByteEnable} \
     reset_level 1 \
     sync_rst true \
     stage_num ${NumOfStage}  \

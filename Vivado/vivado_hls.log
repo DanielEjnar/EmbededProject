@@ -1,146 +1,26 @@
-INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado_HLS/2017.2/bin/unwrapped/win64.o/vivado_hls.exe'
-INFO: [HLS 200-10] For user 'cml' on host 'centropy' (Windows NT_amd64 version 6.2) on Thu Dec 20 13:12:54 +0100 2018
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/vivado_hls.exe'
+INFO: [HLS 200-10] For user 'cml' on host 'centropy' (Windows NT_amd64 version 6.2) on Thu Dec 20 15:09:46 +0100 2018
 INFO: [HLS 200-10] In directory 'C:/Users/cml/Desktop/EmbededProject/Vivado'
 INFO: [HLS 200-10] Opening project 'C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls'.
 INFO: [HLS 200-10] Opening solution 'C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1'.
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 20ns.
-WARNING: [HLS 200-40] Cannot find library 'C:/Xilinx/Vivado_HLS/2017.2/common/technology/xilinx/null/null.lib'.
+WARNING: [HLS 200-40] Cannot find library 'C:/Xilinx/Vivado/2018.3/common/technology/xilinx/null/null.lib'.
 WARNING: [HLS 200-40] Cannot find library 'xilinx/null/null'.
 INFO: [HLS 200-10] Setting target device to 'xc7z010clg400-1'
-INFO: [COSIM 212-2] Generating simulation wrapper in SystemC ...
-INFO: [COSIM 212-47] Using Modelsim for RTL simulation.
-   Build using "C:/Xilinx/Vivado_HLS/2017.2/msys/bin/g++.exe"
-   Compiling GenerationGenerator.cpp
-   Compiling GenerationGenerator_generateGeneration.cpp
-   Compiling GenerationGenerator_produceRandom.cpp
-   Compiling main.cpp
-   Generating cosim.sc.exe
-INFO: [COSIM 212-12] Generating RTL test bench ...
-INFO: [COSIM 212-11] Starting SystemC simulation ...
+INFO: [XFORM 203-1172] Optimizing floating point zeros and discarding its signedness.
+INFO: [XFORM 203-1172] Optimizing floating point zeros and discarding its signedness.
+INFO: [XFORM 203-1173] Reordering floating point operations aggressively.
+INFO: [XFORM 203-1176] Optimizing floating point comparison without checking NaN.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../../GenerationGenerator/main.cpp in debug mode
+   Compiling ../../../../../GenerationGenerator/GenerationGenerator.cpp in debug mode
+   Generating csim.exe
 
-             SystemC 2.3.0-ASI --- Jul  4 2013 12:03:34
-        Copyright (c) 1996-2012 by all Contributors,
+        SystemC 2.3.1-Accellera --- Oct 21 2017 13:39:34
+        Copyright (c) 1996-2014 by all Contributors,
         ALL RIGHTS RESERVED
 
-Note: VCD trace timescale unit is set by user to 1.000000e-009 sec.
-INFO: [COSIM 212-323] Starting verilog simulation. 
-INFO: [COSIM 212-15] Starting Modelsim ...
-Reading C:/Modeltech_pe_edu_10.4a/tcl/vsim/pref.tcl
-
-# 10.4a
-
-# do cosim.modelsim.scr
-# 
-#     set fl [open ".exit.err" w]
-#     puts $fl "Elaboration errors in executing modelsim simulator"
-#     close $fl
-#     quit
-# 
-# C:/clibs
-# nt
-# 1
-# C:/clibs/questa/10.4a/nt/lib
-WARNING: There is no IP libs for this version of ModelSim. If you may use cosim with IP, please make sure the IP libs have been pre-compiled.
-# Model Technology ModelSim PE vmap 10.4a Lib Mapping Utility 2015.03 Apr  7 2015
-# vmap -modelsim_quiet work work 
-# Copying C:/Modeltech_pe_edu_10.4a/win32pe_edu/../modelsim.ini to modelsim.ini
-# Modifying modelsim.ini
-# ** Warning: Copied C:/Modeltech_pe_edu_10.4a/win32pe_edu/../modelsim.ini to modelsim.ini.
-#          Updated modelsim.ini.
-# Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
-# Start time: 13:17:23 on Dec 20,2018
-# vlog -sv -work work GenerationGeneratbkb.v 
-# -- Compiling module GenerationGeneratbkb_ram
-# -- Compiling module GenerationGeneratbkb
-# 
-# Top level modules:
-# 	GenerationGeneratbkb
-# End time: 13:17:24 on Dec 20,2018, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
-# Start time: 13:17:24 on Dec 20,2018
-# vlog -sv -work work GenerationGenerator.autotb.v 
-# -- Compiling module AUTOTB_TOP
-# 
-# Top level modules:
-# 	AUTOTB_TOP
-# End time: 13:17:25 on Dec 20,2018, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
-# Start time: 13:17:26 on Dec 20,2018
-# vlog -sv -work work GenerationGenerator.v 
-# -- Compiling module GenerationGenerator
-# 
-# Top level modules:
-# 	GenerationGenerator
-# End time: 13:17:27 on Dec 20,2018, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
-# Start time: 13:17:27 on Dec 20,2018
-# vlog -sv -work work GenerationGenerator_generateGeneration.v 
-# -- Compiling module GenerationGenerator_generateGeneration
-# 
-# Top level modules:
-# 	GenerationGenerator_generateGeneration
-# End time: 13:17:28 on Dec 20,2018, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
-# Start time: 13:17:28 on Dec 20,2018
-# vlog -sv -work work GenerationGenerator_produceRandom.v 
-# -- Compiling module GenerationGenerator_produceRandom
-# 
-# Top level modules:
-# 	GenerationGenerator_produceRandom
-# End time: 13:17:28 on Dec 20,2018, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# //  ModelSim PE Student Edition 10.4a Apr  7 2015 
-# //
-# //  Copyright 1991-2015 Mentor Graphics Corporation
-# //  All Rights Reserved.
-# //
-# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
-# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
-# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
-# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
-# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
-# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
-# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
-# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
-# //
-# // NOT FOR CORPORATE OR PRODUCTION USE.
-# // THE ModelSim PE Student Edition IS NOT A SUPPORTED PRODUCT.
-# // FOR HIGHER EDUCATION PURPOSES ONLY
-# //
-# vsim -c -do "cosim.modelsim.scr" 
-# Start time: 13:17:29 on Dec 20,2018
-# Loading sv_std.std
-# Loading work.AUTOTB_TOP
-# Loading work.GenerationGenerator
-# Loading work.GenerationGeneratbkb
-# Loading work.GenerationGeneratbkb_ram
-# Loading work.GenerationGenerator_generateGeneration
-# Loading work.GenerationGenerator_produceRandom
-# 1
-# 1
-# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "GenerationGenerator.hdltvin.dat" for reading.
-# 
-# No such file or directory. (errno = ENOENT)    : GenerationGenerator.autotb.v(117)
-#    Time: 0 ps  Iteration: 0  Instance: /AUTOTB_TOP
-# Failed to open file "GenerationGenerator.hdltvin.dat"!
-# ERROR: Simulation using HLS TB failed.
-# ** Note: $finish    : GenerationGenerator.autotb.v(122)
-#    Time: 0 ps  Iteration: 0  Instance: /AUTOTB_TOP
-# End time: 13:17:30 on Dec 20,2018, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 1
-ERROR: [COSIM 212-4] *** C/RTL co-simulation finished: FAIL ***
-command 'ap_source' returned error code
-    while executing
-"source C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/cosim.tcl"
-    invoked from within
-"hls::main C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/cosim.tcl"
-    ("uplevel" body line 1)
-    invoked from within
-"uplevel 1 hls::main {*}$args"
-    (procedure "hls_proc" line 5)
-    invoked from within
-"hls_proc $argv"
+Info: (I703) tracing timescale unit set: 1 ns (GenerationGenerator.vcd)
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************

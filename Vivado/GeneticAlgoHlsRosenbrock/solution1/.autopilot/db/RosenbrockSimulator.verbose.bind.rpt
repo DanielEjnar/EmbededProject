@@ -3,9 +3,9 @@
 ================================================================
 == Vivado HLS Report for 'RosenbrockSimulator'
 ================================================================
-* Date:           Thu Dec 20 10:37:44 2018
+* Date:           Thu Dec 20 14:43:47 2018
 
-* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
 * Project:        GeneticAlgoHlsRosenbrock
 * Solution:       solution1
 * Product family: zynq
@@ -20,7 +20,7 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  20.00|     17.25|        2.50|
+    |ap_clk  |  20.00|    17.378|        2.50|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
@@ -29,7 +29,7 @@
     |  Latency  |  Interval | Pipeline|
     | min | max | min | max |   Type  |
     +-----+-----+-----+-----+---------+
-    |    0|   96|    1|   97|   none  |
+    |    0|   87|    0|   87|   none  |
     +-----+-----+-----+-----+---------+
 
     + Detail: 
@@ -38,7 +38,7 @@
         |                                                  |                                        |  Latency  |  Interval | Pipeline|
         |                     Instance                     |                 Module                 | min | max | min | max |   Type  |
         +--------------------------------------------------+----------------------------------------+-----+-----+-----+-----+---------+
-        |grp_RosenbrockSimulator_simulateRosenbrock_fu_88  |RosenbrockSimulator_simulateRosenbrock  |   46|   95|   46|   95|   none  |
+        |grp_RosenbrockSimulator_simulateRosenbrock_fu_88  |RosenbrockSimulator_simulateRosenbrock  |   21|   86|   21|   86|   none  |
         +--------------------------------------------------+----------------------------------------+-----+-----+-----+-----+---------+
 
         * Loop: 
@@ -70,97 +70,46 @@ IsGatedGlobalClock: 0
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states: 2
-* Pipeline: 0
+* Number of FSM states : 2
+* Pipeline : 0
 * Dataflow Pipeline: 0
 
 * FSM state transitions: 
 1 --> 
 	2  / (RosenbrockSimulator_s)
 2 --> 
+
 * FSM state operations: 
 
- <State 1>: 0.00ns
-ST_1: StgValue_3 (22)  [1/1] 0.00ns
-:0  call void (...)* @_ssdm_op_SpecBitsMap(i1* %clk), !map !4043
+State 1 <SV = 0> <Delay = 10.5>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %clk), !map !144"   --->   Operation 3 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %reset), !map !148"   --->   Operation 4 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %startSimulation), !map !152"   --->   Operation 5 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %simulationDone), !map !156"   --->   Operation 6 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %a), !map !160"   --->   Operation 7 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %b), !map !164"   --->   Operation 8 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %chromosome_in), !map !168"   --->   Operation 9 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %fitness), !map !172"   --->   Operation 10 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([20 x i8]* @p_str, [20 x i8]* @p_str) nounwind" [../RosenbrockSimulator/RosenbrockSimulator.h:20]   --->   Operation 11 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%RosenbrockSimulator_s = load i1* @RosenbrockSimulator_ssdm_thread_M_simulateRosenbrock, align 1" [../RosenbrockSimulator/RosenbrockSimulator.h:21]   --->   Operation 12 'load' 'RosenbrockSimulator_s' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "br i1 %RosenbrockSimulator_s, label %1, label %2" [../RosenbrockSimulator/RosenbrockSimulator.h:21]   --->   Operation 13 'br' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecProcessDecl([20 x i8]* @p_str, i32 2, [19 x i8]* @p_str12) nounwind" [../RosenbrockSimulator/RosenbrockSimulator.h:21]   --->   Operation 14 'specprocessdecl' <Predicate = (!RosenbrockSimulator_s)> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecSensitive([19 x i8]* @p_str12, [4 x i8]* @p_str2, i1* %clk, i32 1) nounwind" [../RosenbrockSimulator/RosenbrockSimulator.h:22]   --->   Operation 15 'specsensitive' <Predicate = (!RosenbrockSimulator_s)> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecSensitive([19 x i8]* @p_str12, [6 x i8]* @p_str3, i1* %reset, i32 4) nounwind" [../RosenbrockSimulator/RosenbrockSimulator.h:23]   --->   Operation 16 'specsensitive' <Predicate = (!RosenbrockSimulator_s)> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 0, [7 x i8]* @p_str1, [4 x i8]* @p_str2, i32 0, i32 0, i1* %clk) nounwind" [../RosenbrockSimulator/RosenbrockSimulator.h:24]   --->   Operation 17 'specport' <Predicate = (!RosenbrockSimulator_s)> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 0, [7 x i8]* @p_str1, [6 x i8]* @p_str3, i32 0, i32 0, i1* %reset) nounwind" [../RosenbrockSimulator/RosenbrockSimulator.h:25]   --->   Operation 18 'specport' <Predicate = (!RosenbrockSimulator_s)> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 0, [7 x i8]* @p_str1, [16 x i8]* @p_str4, i32 0, i32 0, i1* %startSimulation) nounwind" [../RosenbrockSimulator/RosenbrockSimulator.h:26]   --->   Operation 19 'specport' <Predicate = (!RosenbrockSimulator_s)> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 1, [7 x i8]* @p_str1, [15 x i8]* @p_str5, i32 0, i32 0, i1* %simulationDone) nounwind" [../RosenbrockSimulator/RosenbrockSimulator.h:27]   --->   Operation 20 'specport' <Predicate = (!RosenbrockSimulator_s)> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 0, [14 x i8]* @p_str6, [2 x i8]* @p_str7, i32 0, i32 0, i32* %a) nounwind" [../RosenbrockSimulator/RosenbrockSimulator.h:28]   --->   Operation 21 'specport' <Predicate = (!RosenbrockSimulator_s)> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 0, [14 x i8]* @p_str6, [2 x i8]* @p_str8, i32 0, i32 0, i32* %b) nounwind" [../RosenbrockSimulator/RosenbrockSimulator.h:29]   --->   Operation 22 'specport' <Predicate = (!RosenbrockSimulator_s)> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 0, [14 x i8]* @p_str9, [14 x i8]* @p_str10, i32 0, i32 0, i64* %chromosome_in) nounwind" [../RosenbrockSimulator/RosenbrockSimulator.h:30]   --->   Operation 23 'specport' <Predicate = (!RosenbrockSimulator_s)> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 1, [14 x i8]* @p_str6, [8 x i8]* @p_str11, i32 0, i32 0, i32* %fitness) nounwind" [../RosenbrockSimulator/RosenbrockSimulator.h:31]   --->   Operation 24 'specport' <Predicate = (!RosenbrockSimulator_s)> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "ret void" [../RosenbrockSimulator/RosenbrockSimulator.h:22]   --->   Operation 25 'ret' <Predicate = (!RosenbrockSimulator_s)> <Delay = 0.00>
+ST_1 : Operation 26 [2/2] (10.5ns)   --->   "call void @"RosenbrockSimulator::simulateRosenbrock"(i1* %clk, i1* %reset, i1* %startSimulation, i1* %simulationDone, i32* %a, i32* %b, i64* %chromosome_in, i32* %fitness)" [../RosenbrockSimulator/RosenbrockSimulator.h:21]   --->   Operation 26 'call' <Predicate = (RosenbrockSimulator_s)> <Delay = 10.5> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
-ST_1: StgValue_4 (23)  [1/1] 0.00ns
-:1  call void (...)* @_ssdm_op_SpecBitsMap(i1* %reset), !map !4047
-
-ST_1: StgValue_5 (24)  [1/1] 0.00ns
-:2  call void (...)* @_ssdm_op_SpecBitsMap(i1* %startSimulation), !map !4051
-
-ST_1: StgValue_6 (25)  [1/1] 0.00ns
-:3  call void (...)* @_ssdm_op_SpecBitsMap(i1* %simulationDone), !map !4055
-
-ST_1: StgValue_7 (26)  [1/1] 0.00ns
-:4  call void (...)* @_ssdm_op_SpecBitsMap(i32* %a), !map !4059
-
-ST_1: StgValue_8 (27)  [1/1] 0.00ns
-:5  call void (...)* @_ssdm_op_SpecBitsMap(i32* %b), !map !4063
-
-ST_1: StgValue_9 (28)  [1/1] 0.00ns
-:6  call void (...)* @_ssdm_op_SpecBitsMap(i64* %chromosome_in), !map !4067
-
-ST_1: StgValue_10 (29)  [1/1] 0.00ns
-:7  call void (...)* @_ssdm_op_SpecBitsMap(i32* %fitness), !map !4071
-
-ST_1: StgValue_11 (30)  [1/1] 0.00ns  loc: ../RosenbrockSimulator/RosenbrockSimulator.h:20
-:8  call void (...)* @_ssdm_op_SpecTopModule([20 x i8]* @p_str, [20 x i8]* @p_str) nounwind
-
-ST_1: RosenbrockSimulator_s (31)  [1/1] 0.00ns  loc: ../RosenbrockSimulator/RosenbrockSimulator.h:21
-:9  %RosenbrockSimulator_s = load i1* @RosenbrockSimulator_ssdm_thread_M_simulateRosenbrock, align 1
-
-ST_1: StgValue_13 (32)  [1/1] 0.00ns  loc: ../RosenbrockSimulator/RosenbrockSimulator.h:21
-:10  br i1 %RosenbrockSimulator_s, label %1, label %2
-
-ST_1: StgValue_14 (34)  [1/1] 0.00ns  loc: ../RosenbrockSimulator/RosenbrockSimulator.h:21
-:0  call void (...)* @_ssdm_op_SpecProcessDecl([20 x i8]* @p_str, i32 2, [19 x i8]* @p_str12) nounwind
-
-ST_1: StgValue_15 (35)  [1/1] 0.00ns  loc: ../RosenbrockSimulator/RosenbrockSimulator.h:22
-:1  call void (...)* @_ssdm_op_SpecSensitive([19 x i8]* @p_str12, [4 x i8]* @p_str2, i1* %clk, i32 1) nounwind
-
-ST_1: StgValue_16 (36)  [1/1] 0.00ns  loc: ../RosenbrockSimulator/RosenbrockSimulator.h:23
-:2  call void (...)* @_ssdm_op_SpecSensitive([19 x i8]* @p_str12, [6 x i8]* @p_str3, i1* %reset, i32 4) nounwind
-
-ST_1: StgValue_17 (37)  [1/1] 0.00ns  loc: ../RosenbrockSimulator/RosenbrockSimulator.h:24
-:3  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 0, [7 x i8]* @p_str1, [4 x i8]* @p_str2, i32 0, i32 0, i1* %clk) nounwind
-
-ST_1: StgValue_18 (38)  [1/1] 0.00ns  loc: ../RosenbrockSimulator/RosenbrockSimulator.h:25
-:4  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 0, [7 x i8]* @p_str1, [6 x i8]* @p_str3, i32 0, i32 0, i1* %reset) nounwind
-
-ST_1: StgValue_19 (39)  [1/1] 0.00ns  loc: ../RosenbrockSimulator/RosenbrockSimulator.h:26
-:5  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 0, [7 x i8]* @p_str1, [16 x i8]* @p_str4, i32 0, i32 0, i1* %startSimulation) nounwind
-
-ST_1: StgValue_20 (40)  [1/1] 0.00ns  loc: ../RosenbrockSimulator/RosenbrockSimulator.h:27
-:6  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 1, [7 x i8]* @p_str1, [15 x i8]* @p_str5, i32 0, i32 0, i1* %simulationDone) nounwind
-
-ST_1: StgValue_21 (41)  [1/1] 0.00ns  loc: ../RosenbrockSimulator/RosenbrockSimulator.h:28
-:7  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 0, [14 x i8]* @p_str6, [2 x i8]* @p_str7, i32 0, i32 0, i32* %a) nounwind
-
-ST_1: StgValue_22 (42)  [1/1] 0.00ns  loc: ../RosenbrockSimulator/RosenbrockSimulator.h:29
-:8  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 0, [14 x i8]* @p_str6, [2 x i8]* @p_str8, i32 0, i32 0, i32* %b) nounwind
-
-ST_1: StgValue_23 (43)  [1/1] 0.00ns  loc: ../RosenbrockSimulator/RosenbrockSimulator.h:30
-:9  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 0, [14 x i8]* @p_str9, [14 x i8]* @p_str10, i32 0, i32 0, i64* %chromosome_in) nounwind
-
-ST_1: StgValue_24 (44)  [1/1] 0.00ns  loc: ../RosenbrockSimulator/RosenbrockSimulator.h:31
-:10  call void (...)* @_ssdm_op_SpecPort([20 x i8]* @p_str, i32 1, [14 x i8]* @p_str6, [8 x i8]* @p_str11, i32 0, i32 0, i32* %fitness) nounwind
-
-ST_1: StgValue_25 (45)  [1/1] 0.00ns  loc: ../RosenbrockSimulator/RosenbrockSimulator.h:22
-:11  ret void
-
-ST_1: StgValue_26 (47)  [2/2] 0.00ns  loc: ../RosenbrockSimulator/RosenbrockSimulator.h:21
-:0  call void @"RosenbrockSimulator::simulateRosenbrock"(i1* %clk, i1* %reset, i1* %startSimulation, i1* %simulationDone, i32* %a, i32* %b, i64* %chromosome_in, i32* %fitness)
-
-
- <State 2>: 9.01ns
-ST_2: StgValue_27 (47)  [1/2] 9.01ns  loc: ../RosenbrockSimulator/RosenbrockSimulator.h:21
-:0  call void @"RosenbrockSimulator::simulateRosenbrock"(i1* %clk, i1* %reset, i1* %startSimulation, i1* %simulationDone, i32* %a, i32* %b, i64* %chromosome_in, i32* %fitness)
-
-ST_2: StgValue_28 (48)  [1/1] 0.00ns
-:1  unreachable
-
+State 2 <SV = 1> <Delay = 6.94>
+ST_2 : Operation 27 [1/2] (6.94ns)   --->   "call void @"RosenbrockSimulator::simulateRosenbrock"(i1* %clk, i1* %reset, i1* %startSimulation, i1* %simulationDone, i32* %a, i32* %b, i64* %chromosome_in, i32* %fitness)" [../RosenbrockSimulator/RosenbrockSimulator.h:21]   --->   Operation 27 'call' <Predicate = true> <Delay = 6.94> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "unreachable"   --->   Operation 28 'unreachable' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -183,18 +132,18 @@ Port [ b]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0
 Port [ chromosome_in]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
 Port [ fitness]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
 Port [ RosenbrockSimulator_ssdm_thread_M_simulateRosenbrock]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=0; extern=1; dir=0; type=0; pingpong=0; private_global=1; linkage=0; visibility=0; IO mode=ap_none:ce=0
-Port [ hls_pow_reduce_an_20]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
-Port [ hls_pow_reduce_an_19]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
-Port [ hls_pow_reduce_an_16]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
-Port [ hls_pow_reduce_an_17]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
-Port [ hls_pow_reduce_an_9]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
-Port [ hls_pow_reduce_an_12]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
-Port [ hls_pow_reduce_an_13]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
-Port [ hls_pow_reduce_an_14]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
-Port [ hls_pow_reduce_an_15]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
-Port [ hls_pow_reduce_an_18]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
-Port [ hls_pow_reduce_an]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
-Port [ hls_pow_reduce_an_21]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ pow_reduce_anonymo_20]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ pow_reduce_anonymo_19]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ pow_reduce_anonymo_16]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ pow_reduce_anonymo_17]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ pow_reduce_anonymo_9]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ pow_reduce_anonymo_12]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ pow_reduce_anonymo_13]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ pow_reduce_anonymo_14]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ pow_reduce_anonymo_15]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ pow_reduce_anonymo_18]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ pow_reduce_anonymo]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[11]; IO mode=ap_memory:ce=0
+Port [ pow_reduce_anonymo_21]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
 ---------------- STG Properties END ------------------
 
 ---------------- Datapath Model BEGIN ----------------
@@ -312,122 +261,122 @@ StgValue_28           (unreachable    ) [ 000]
 </bind>
 </comp>
 
-<comp id="18" class="1000" name="hls_pow_reduce_an_20">
+<comp id="18" class="1000" name="pow_reduce_anonymo_20">
 <pin_list>
 <pin id="19" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="hls_pow_reduce_an_20"/><MemPortTyVec>1 </MemPortTyVec>
+<StgValue><ssdm name="pow_reduce_anonymo_20"/><MemPortTyVec>1 </MemPortTyVec>
 </StgValue>
 </bind>
 </comp>
 
-<comp id="20" class="1000" name="hls_pow_reduce_an_19">
+<comp id="20" class="1000" name="pow_reduce_anonymo_19">
 <pin_list>
 <pin id="21" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="hls_pow_reduce_an_19"/><MemPortTyVec>1 </MemPortTyVec>
+<StgValue><ssdm name="pow_reduce_anonymo_19"/><MemPortTyVec>1 </MemPortTyVec>
 </StgValue>
 </bind>
 </comp>
 
-<comp id="22" class="1000" name="hls_pow_reduce_an_16">
+<comp id="22" class="1000" name="pow_reduce_anonymo_16">
 <pin_list>
 <pin id="23" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="hls_pow_reduce_an_16"/><MemPortTyVec>1 </MemPortTyVec>
+<StgValue><ssdm name="pow_reduce_anonymo_16"/><MemPortTyVec>1 </MemPortTyVec>
 </StgValue>
 </bind>
 </comp>
 
-<comp id="24" class="1000" name="hls_pow_reduce_an_17">
+<comp id="24" class="1000" name="pow_reduce_anonymo_17">
 <pin_list>
 <pin id="25" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="hls_pow_reduce_an_17"/><MemPortTyVec>1 </MemPortTyVec>
+<StgValue><ssdm name="pow_reduce_anonymo_17"/><MemPortTyVec>1 </MemPortTyVec>
 </StgValue>
 </bind>
 </comp>
 
-<comp id="26" class="1000" name="hls_pow_reduce_an_9">
+<comp id="26" class="1000" name="pow_reduce_anonymo_9">
 <pin_list>
 <pin id="27" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="hls_pow_reduce_an_9"/><MemPortTyVec>1 </MemPortTyVec>
+<StgValue><ssdm name="pow_reduce_anonymo_9"/><MemPortTyVec>1 </MemPortTyVec>
 </StgValue>
 </bind>
 </comp>
 
-<comp id="28" class="1000" name="hls_pow_reduce_an_12">
+<comp id="28" class="1000" name="pow_reduce_anonymo_12">
 <pin_list>
 <pin id="29" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="hls_pow_reduce_an_12"/><MemPortTyVec>1 </MemPortTyVec>
+<StgValue><ssdm name="pow_reduce_anonymo_12"/><MemPortTyVec>1 </MemPortTyVec>
 </StgValue>
 </bind>
 </comp>
 
-<comp id="30" class="1000" name="hls_pow_reduce_an_13">
+<comp id="30" class="1000" name="pow_reduce_anonymo_13">
 <pin_list>
 <pin id="31" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="hls_pow_reduce_an_13"/><MemPortTyVec>1 </MemPortTyVec>
+<StgValue><ssdm name="pow_reduce_anonymo_13"/><MemPortTyVec>1 </MemPortTyVec>
 </StgValue>
 </bind>
 </comp>
 
-<comp id="32" class="1000" name="hls_pow_reduce_an_14">
+<comp id="32" class="1000" name="pow_reduce_anonymo_14">
 <pin_list>
 <pin id="33" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="hls_pow_reduce_an_14"/><MemPortTyVec>1 </MemPortTyVec>
+<StgValue><ssdm name="pow_reduce_anonymo_14"/><MemPortTyVec>1 </MemPortTyVec>
 </StgValue>
 </bind>
 </comp>
 
-<comp id="34" class="1000" name="hls_pow_reduce_an_15">
+<comp id="34" class="1000" name="pow_reduce_anonymo_15">
 <pin_list>
 <pin id="35" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="hls_pow_reduce_an_15"/><MemPortTyVec>1 </MemPortTyVec>
+<StgValue><ssdm name="pow_reduce_anonymo_15"/><MemPortTyVec>1 </MemPortTyVec>
 </StgValue>
 </bind>
 </comp>
 
-<comp id="36" class="1000" name="hls_pow_reduce_an_18">
+<comp id="36" class="1000" name="pow_reduce_anonymo_18">
 <pin_list>
 <pin id="37" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="hls_pow_reduce_an_18"/><MemPortTyVec>1 </MemPortTyVec>
+<StgValue><ssdm name="pow_reduce_anonymo_18"/><MemPortTyVec>1 </MemPortTyVec>
 </StgValue>
 </bind>
 </comp>
 
-<comp id="38" class="1000" name="hls_pow_reduce_an">
+<comp id="38" class="1000" name="pow_reduce_anonymo">
 <pin_list>
 <pin id="39" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="hls_pow_reduce_an"/><MemPortTyVec>1 </MemPortTyVec>
+<StgValue><ssdm name="pow_reduce_anonymo"/><MemPortTyVec>1 1 </MemPortTyVec>
 </StgValue>
 </bind>
 </comp>
 
-<comp id="40" class="1000" name="hls_pow_reduce_an_21">
+<comp id="40" class="1000" name="pow_reduce_anonymo_21">
 <pin_list>
 <pin id="41" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="hls_pow_reduce_an_21"/><MemPortTyVec>1 </MemPortTyVec>
+<StgValue><ssdm name="pow_reduce_anonymo_21"/><MemPortTyVec>1 </MemPortTyVec>
 </StgValue>
 </bind>
 </comp>
@@ -743,18 +692,18 @@ StgValue_28           (unreachable    ) [ 000]
 	Port: RosenbrockSimulator::RosenbrockSimulator : b | {1 2 }
 	Port: RosenbrockSimulator::RosenbrockSimulator : chromosome_in | {1 2 }
 	Port: RosenbrockSimulator::RosenbrockSimulator : RosenbrockSimulator_ssdm_thread_M_simulateRosenbrock | {1 }
-	Port: RosenbrockSimulator::RosenbrockSimulator : hls_pow_reduce_an_20 | {1 2 }
-	Port: RosenbrockSimulator::RosenbrockSimulator : hls_pow_reduce_an_19 | {1 2 }
-	Port: RosenbrockSimulator::RosenbrockSimulator : hls_pow_reduce_an_16 | {1 2 }
-	Port: RosenbrockSimulator::RosenbrockSimulator : hls_pow_reduce_an_17 | {1 2 }
-	Port: RosenbrockSimulator::RosenbrockSimulator : hls_pow_reduce_an_9 | {1 2 }
-	Port: RosenbrockSimulator::RosenbrockSimulator : hls_pow_reduce_an_12 | {1 2 }
-	Port: RosenbrockSimulator::RosenbrockSimulator : hls_pow_reduce_an_13 | {1 2 }
-	Port: RosenbrockSimulator::RosenbrockSimulator : hls_pow_reduce_an_14 | {1 2 }
-	Port: RosenbrockSimulator::RosenbrockSimulator : hls_pow_reduce_an_15 | {1 2 }
-	Port: RosenbrockSimulator::RosenbrockSimulator : hls_pow_reduce_an_18 | {1 2 }
-	Port: RosenbrockSimulator::RosenbrockSimulator : hls_pow_reduce_an | {1 2 }
-	Port: RosenbrockSimulator::RosenbrockSimulator : hls_pow_reduce_an_21 | {1 2 }
+	Port: RosenbrockSimulator::RosenbrockSimulator : pow_reduce_anonymo_20 | {1 2 }
+	Port: RosenbrockSimulator::RosenbrockSimulator : pow_reduce_anonymo_19 | {1 2 }
+	Port: RosenbrockSimulator::RosenbrockSimulator : pow_reduce_anonymo_16 | {1 2 }
+	Port: RosenbrockSimulator::RosenbrockSimulator : pow_reduce_anonymo_17 | {1 2 }
+	Port: RosenbrockSimulator::RosenbrockSimulator : pow_reduce_anonymo_9 | {1 2 }
+	Port: RosenbrockSimulator::RosenbrockSimulator : pow_reduce_anonymo_12 | {1 2 }
+	Port: RosenbrockSimulator::RosenbrockSimulator : pow_reduce_anonymo_13 | {1 2 }
+	Port: RosenbrockSimulator::RosenbrockSimulator : pow_reduce_anonymo_14 | {1 2 }
+	Port: RosenbrockSimulator::RosenbrockSimulator : pow_reduce_anonymo_15 | {1 2 }
+	Port: RosenbrockSimulator::RosenbrockSimulator : pow_reduce_anonymo_18 | {1 2 }
+	Port: RosenbrockSimulator::RosenbrockSimulator : pow_reduce_anonymo | {1 2 }
+	Port: RosenbrockSimulator::RosenbrockSimulator : pow_reduce_anonymo_21 | {1 2 }
   - Chain level:
 	State 1
 		StgValue_13 : 1
@@ -769,30 +718,30 @@ StgValue_28           (unreachable    ) [ 000]
 |----------|--------------------------------------------------|---------|---------|---------|---------|
 | Operation|                  Functional Unit                 |  DSP48E |  Delay  |    FF   |   LUT   |
 |----------|--------------------------------------------------|---------|---------|---------|---------|
-|   call   | grp_RosenbrockSimulator_simulateRosenbrock_fu_88 |   592   |  43.791 |  40528  |  22136  |
+|   call   | grp_RosenbrockSimulator_simulateRosenbrock_fu_88 |   226   |  43.249 |  14817  |  18973  |
 |----------|--------------------------------------------------|---------|---------|---------|---------|
-|   Total  |                                                  |   592   |  43.791 |  40528  |  22136  |
+|   Total  |                                                  |   226   |  43.249 |  14817  |  18973  |
 |----------|--------------------------------------------------|---------|---------|---------|---------|
 
 Memories:
-+--------------------+--------+--------+--------+
-|                    |  BRAM  |   FF   |   LUT  |
-+--------------------+--------+--------+--------+
-|  hls_pow_reduce_an |    1   |    0   |    0   |
-|hls_pow_reduce_an_12|    3   |    0   |    0   |
-|hls_pow_reduce_an_13|    3   |    0   |    0   |
-|hls_pow_reduce_an_14|    3   |    0   |    0   |
-|hls_pow_reduce_an_15|    3   |    0   |    0   |
-|hls_pow_reduce_an_16|    3   |    0   |    0   |
-|hls_pow_reduce_an_17|    3   |    0   |    0   |
-|hls_pow_reduce_an_18|    2   |    0   |    0   |
-|hls_pow_reduce_an_19|    4   |    0   |    0   |
-|hls_pow_reduce_an_20|    0   |    6   |    6   |
-|hls_pow_reduce_an_21|    2   |    0   |    0   |
-| hls_pow_reduce_an_9|    3   |    0   |    0   |
-+--------------------+--------+--------+--------+
-|        Total       |   30   |    6   |    6   |
-+--------------------+--------+--------+--------+
++---------------------+--------+--------+--------+
+|                     |  BRAM  |   FF   |   LUT  |
++---------------------+--------+--------+--------+
+|  pow_reduce_anonymo |    1   |    0   |    0   |
+|pow_reduce_anonymo_12|    3   |    0   |    0   |
+|pow_reduce_anonymo_13|    3   |    0   |    0   |
+|pow_reduce_anonymo_14|    3   |    0   |    0   |
+|pow_reduce_anonymo_15|    3   |    0   |    0   |
+|pow_reduce_anonymo_16|    3   |    0   |    0   |
+|pow_reduce_anonymo_17|    3   |    0   |    0   |
+|pow_reduce_anonymo_18|    2   |    0   |    0   |
+|pow_reduce_anonymo_19|    4   |    0   |    0   |
+|pow_reduce_anonymo_20|    0   |    6   |    6   |
+|pow_reduce_anonymo_21|    2   |    0   |    0   |
+| pow_reduce_anonymo_9|    3   |    0   |    0   |
++---------------------+--------+--------+--------+
+|        Total        |   30   |    6   |    6   |
++---------------------+--------+--------+--------+
 
 * Register list:
 N/A
@@ -810,10 +759,10 @@ N/A
 +-----------+--------+--------+--------+--------+--------+
 |           |  BRAM  | DSP48E |  Delay |   FF   |   LUT  |
 +-----------+--------+--------+--------+--------+--------+
-|  Function |    -   |   592  |   43   |  40528 |  22136 |
+|  Function |    -   |   226  |   43   |  14817 |  18973 |
 |   Memory  |   30   |    -   |    -   |    6   |    6   |
 |Multiplexer|    -   |    -   |    -   |    -   |    -   |
 |  Register |    -   |    -   |    -   |    -   |    -   |
 +-----------+--------+--------+--------+--------+--------+
-|   Total   |   30   |   592  |   43   |  40534 |  22142 |
+|   Total   |   30   |   226  |   43   |  14823 |  18979 |
 +-----------+--------+--------+--------+--------+--------+

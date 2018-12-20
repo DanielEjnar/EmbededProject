@@ -1,9 +1,9 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'GenerationGenerator'" level="0">
-<item name = "Date">Thu Dec 20 13:11:16 2018
+<item name = "Date">Thu Dec 20 15:06:57 2018
 </item>
-<item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
+<item name = "Version">2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)</item>
 <item name = "Project">GeneticAlgoHls</item>
 <item name = "Solution">solution1</item>
 <item name = "Product family">zynq</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">20.00, 10.59, 2.50</column>
+<column name="ap_clk">20.00, 7.474, 2.50</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">0, 270, 1, 271, none</column>
+<column name="">0, 270, 0, 270, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -51,20 +51,20 @@
 <column name="DSP">-, -, -, -</column>
 <column name="Expression">-, -, -, -</column>
 <column name="FIFO">-, -, -, -</column>
-<column name="Instance">-, -, 1081, 956</column>
+<column name="Instance">-, -, 382, 979</column>
 <column name="Memory">1, -, 0, 0</column>
 <column name="Multiplexer">-, -, -, 48</column>
 <column name="Register">-, -, 177, -</column>
 <specialColumn name="Available">120, 80, 35200, 17600</specialColumn>
-<specialColumn name="Utilization (%)">~0, 0, 3, 5</specialColumn>
+<specialColumn name="Utilization (%)">~0, 0, 1, 5</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
-<column name="grp_GenerationGenerator_generateGeneration_fu_104">GenerationGenerator_generateGeneration, 0, 0, 977, 875</column>
-<column name="grp_GenerationGenerator_produceRandom_fu_134">GenerationGenerator_produceRandom, 0, 0, 104, 81</column>
+<column name="grp_GenerationGenerator_generateGeneration_fu_104">GenerationGenerator_generateGeneration, 0, 0, 355, 891</column>
+<column name="grp_GenerationGenerator_produceRandom_fu_134">GenerationGenerator_produceRandom, 0, 0, 27, 88</column>
 </table>
 </item>
 <item name = "DSP48"><table name="" hasTotal="0">

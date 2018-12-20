@@ -1,9 +1,9 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'RosenbrockSimulator'" level="0">
-<item name = "Date">Thu Dec 20 10:37:45 2018
+<item name = "Date">Thu Dec 20 14:43:49 2018
 </item>
-<item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
+<item name = "Version">2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)</item>
 <item name = "Project">GeneticAlgoHlsRosenbrock</item>
 <item name = "Solution">solution1</item>
 <item name = "Product family">zynq</item>
@@ -15,21 +15,21 @@
 <section name = "" level="1">
 <item name = "Target clock period (ns)">20.00</item>
 <item name = "Clock uncertainty (ns)">2.50</item>
-<item name = "Estimated clock period (ns)">17.25</item>
+<item name = "Estimated clock period (ns)">17.378</item>
 </section>
 </item>
 <item name = "Latency (clock cycles)">
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">0, 96, 1, 97, none</column>
+<column name="">0, 87, 0, 87, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="grp_RosenbrockSimulator_simulateRosenbrock_fu_88">RosenbrockSimulator_simulateRosenbrock, 46, 95, 46, 95, none</column>
+<column name="grp_RosenbrockSimulator_simulateRosenbrock_fu_88">RosenbrockSimulator_simulateRosenbrock, 21, 86, 21, 86, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -48,19 +48,19 @@
 <column name="DSP">-, -, -, -</column>
 <column name="Expression">-, -, -, -</column>
 <column name="FIFO">-, -, -, -</column>
-<column name="Instance">30, 592, 39955, 22918</column>
+<column name="Instance">30, 226, 12791, 19861</column>
 <column name="Memory">-, -, -, -</column>
 <column name="Multiplexer">-, -, -, -</column>
 <column name="Register">-, -, 33, -</column>
 <specialColumn name="Available">120, 80, 35200, 17600</specialColumn>
-<specialColumn name="Utilization (%)">25, 740, 113, 130</specialColumn>
+<specialColumn name="Utilization (%)">25, 282, 36, 112</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
-<column name="grp_RosenbrockSimulator_simulateRosenbrock_fu_88">RosenbrockSimulator_simulateRosenbrock, 30, 592, 39955, 22918</column>
+<column name="grp_RosenbrockSimulator_simulateRosenbrock_fu_88">RosenbrockSimulator_simulateRosenbrock, 30, 226, 12791, 19861</column>
 </table>
 </item>
 <item name = "DSP48"><table name="" hasTotal="0">
@@ -109,10 +109,10 @@
 </section>
 
 <section name = "Critical Path" level="0">
-<item name = "Max Delay">9.01</item>
+<item name = "Max Delay">10.53</item>
 <item name = "Critical Path Table"><table name="Critical Path Table" hasTotal="0">
 <keys size="15">Name, Operator, Delay, Accumulated Delay, Store Source, Resource, Core, Interface, Type, Port, Array, Scope, Pointer, Callee, Phi Node</keys>
-<column name="../RosenbrockSimulator/RosenbrockSimulator.h:21">call, 9.01, 9.01, -, -, -, -, -, -, -, -, -, RosenbrockSimulator::simulateRosenbrock, -</column>
+<column name="../RosenbrockSimulator/RosenbrockSimulator.h:21">call, 10.53, 10.53, -, -, -, -, -, -, -, -, -, RosenbrockSimulator::simulateRosenbrock, -</column>
 </table>
 </item>
 </section>

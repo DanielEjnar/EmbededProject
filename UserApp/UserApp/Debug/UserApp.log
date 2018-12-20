@@ -2,9 +2,12 @@
   UserApp.cpp
   State.cpp
   Simulate.cpp
-c:\users\cml\desktop\embededproject\userapp\userapp\simulate.cpp(54): warning C4244: 'argument': conversion from 'uint64_t' to 'int', possible loss of data
+c:\users\cml\desktop\embededproject\userapp\userapp\simulate.cpp(54): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\cml\desktop\embededproject\userapp\userapp\simulate.cpp(54): warning C4244: 'argument': conversion from 'uint64_t' to 'float', possible loss of data
 c:\users\cml\desktop\embededproject\userapp\userapp\simulate.cpp(65): warning C4244: 'initializing': conversion from 'uint64_t' to 'uint32_t', possible loss of data
-c:\users\cml\desktop\embededproject\userapp\userapp\simulate.cpp(74): warning C4244: 'initializing': conversion from 'uint32_t' to 'float', possible loss of data
+c:\users\cml\desktop\embededproject\userapp\userapp\simulate.cpp(70): warning C4244: 'argument': conversion from 'float' to 'uint32_t', possible loss of data
+c:\users\cml\desktop\embededproject\userapp\userapp\simulate.cpp(71): warning C4244: 'argument': conversion from 'float' to 'uint32_t', possible loss of data
+c:\users\cml\desktop\embededproject\userapp\userapp\simulate.cpp(73): warning C4244: 'initializing': conversion from 'uint32_t' to 'float', possible loss of data
   Setup.cpp
   Save.cpp
   Optimize.cpp
@@ -13,6 +16,7 @@ c:\users\cml\desktop\embededproject\userapp\userapp\simulate.cpp(74): warning C4
   Idle.cpp
   GenerateGeneration.cpp
   Context.cpp
+c:\users\cml\desktop\embededproject\userapp\userapp\context.cpp(29): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\cml\desktop\embededproject\userapp\userapp\context.cpp(34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   Generating Code...
   UserApp.vcxproj -> C:\Users\cml\Desktop\EmbededProject\UserApp\Debug\UserApp.exe
-  UserApp.vcxproj -> C:\Users\cml\Desktop\EmbededProject\UserApp\Debug\UserApp.pdb (Partial PDB)
