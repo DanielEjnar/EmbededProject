@@ -7,7 +7,7 @@ This section shows and elaborates on the results in performance and utilization 
 
 \subsection{HLS of the GenerationGenerator core}
 
-The IP core was synthesized in C using a VivadoSimulator, a period of 20 and Verilog as the RTL language. Target device is a Zybo model xc7z010clg400-1. We used a SystemC stimuli file to invoke the IP core, which can be found in Appendix A. Figure \ref{fig:ggperformanceestimates} shows the performance estimates of the applied design. We seen that the estimated clock is well within our target of 20 with an uncertainty of 2.50 and the latency lie in range of 270 to 271.
+The IP core was synthesized in C using a VivadoSimulator, a period of 20 and Verilog as the RTL language. Target device is a Zybo model xc7z010clg400-1. We used a SystemC stimuli file to invoke the IP core, which can be found in Appendix A. Figure \ref{fig:ggperformanceestimates} shows the performance estimates of the applied design. We seen that the estimated clock is well within our target of 20 with an uncertainty of 2.50 and the latency lie in range of 0 to 270.
 
 \begin{figure}[h!]
 	\centering
@@ -49,7 +49,7 @@ Figure \ref{fig:generationgeneratortrace} shows the trace output after running a
 
 \subsection{HLS of the Simulator core}
 
-The IP was synthesized with the same settings as the GenerationGenertor in the Vivado HLS tool. We used a SystemC stimuli file to make calls to the IP core, which can be found in Appendix A. Figure \ref{fig:simperformanceestimates} shows performance estimates, with the estimated clock being within the range of the target clock and the latency being from  0 to 96. 
+The IP was synthesized with the same settings as the GenerationGenerator in the Vivado HLS tool. We used a SystemC stimuli file to make calls to the IP core, which can be found in Appendix A. Figure \ref{fig:simperformanceestimates} shows performance estimates, with the estimated clock being within the range of the target clock, though only barely, and the latency being from  0 to 96. 
 
 \begin{figure}[h!]
 	\centering
@@ -58,7 +58,7 @@ The IP was synthesized with the same settings as the GenerationGenertor in the V
 	\label{fig:simperformanceestimates}
 \end{figure}
 \FloatBarrier
-In figure \ref{fig:ggutilizationestimates} we see the utilization estimates of running the simulation in hardware. The total resource demand exceed those of the platform, the Zybo board, by quite a significant margin. The algorithm need 592 DSP48E's, but only 80 are available. Likewise it needs 39988 flip-flops and 22918 lookup tables, but fewer are available. This means that the current implementation will not be runnable on hardware.
+In figure \ref{fig:ggutilizationestimates} we see the utilization estimates of running the Simulator in hardware. The total resource demand exceed those of the platform, the ZyBo board, by quite a significant margin. The algorithm need 592 DSP48E's, but only 80 are available, which means that it needs over 7 times as many as are present on the FPGA. Likewise it needs 39988 flip-flops and 22918 lookup tables, but fewer are available. The flip-flops is only over-utilized by 13\% while the lookup-tables exceeds the available ones by 30\%. This means that the current implementation will not be runnable on hardware. We could either use a bigger FPGA or reimplement the design to use another floating point encoding.
 
 \begin{figure}[h!]
 	\centering
@@ -66,7 +66,7 @@ In figure \ref{fig:ggutilizationestimates} we see the utilization estimates of r
 	\caption{Utilization estimation of Simulator}
 	\label{fig:simutilizationestimates}
 \end{figure}
-Figure \ref{fig:siminterface} shows the generated interface signals with the RTL ports and their respective direction and bit length. 
+Figure \ref{fig:siminterface} shows the generated interfaces. It can be seen, that we have an AXILite memory mapped interface as we expected, and specified by the use of a pragma. This means that we, if the design would fit on the FPGA, could communicate directly with the IP core from the software.
 
 \begin{figure}[h!]
 	\centering
