@@ -207,3 +207,15 @@ void RosenbrockSimulator::simulateRosenbrock(){
 \end{lstlisting}
 
 This module is tested using a test bench in the Vivado HLS IDE. This test bench can be seen in Appendix A.
+
+\subsection{Hardware Block Design}
+
+Lastly we view the Vivado hardware block design in figure \ref{fig:vivadodesign}. This is where we import and connect the different IP cores.
+We have imported the \textbf{GenerationGenerator} RTL IP core from Vivado HLS after synthesis and wired it with an AXI interconnect component, a clock resource from the ZYNQ7 processor and a reset controller.
+
+\begin{figure}[h!]
+	\centering
+	\fbox{\includegraphics[width=0.7\linewidth]{../diagrams/vivadoDesign}}
+	\caption{The block design in Vivado of our IP core, the ZYNQ7 processing system, a AXI interconnect component and a reset controller.}
+	\label{fig:vivadodesign}
+\end{figure}
