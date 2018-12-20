@@ -26,97 +26,110 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 }
 
 
-# Adapter definition:
-set corename slv0
-set opts {
-    {
-        id 0
-        name startGenerating
-        reset_level 1
-        sync_rst true
-        type scalar
-        dir I
-        width 1
-        mode SIG_IN_VLD_OFF:SIG_IN_ACC_OFF
-    }
-    {
-        id 1
-        name generatingDone
-        reset_level 1
-        sync_rst true
-        type scalar
-        dir O
-        width 1
-        mode SIG_OUT_VLD_ON:SIG_OUT_ACC_OFF
-    }
-    {
-        id 2
-        name generation_parent1
-        reset_level 1
-        sync_rst true
-        type scalar
-        dir I
-        width 64
-        mode SIG_IN_VLD_OFF:SIG_IN_ACC_OFF
-    }
-    {
-        id 3
-        name generation_parent2
-        reset_level 1
-        sync_rst true
-        type scalar
-        dir I
-        width 64
-        mode SIG_IN_VLD_OFF:SIG_IN_ACC_OFF
-    }
-    {
-        id 4
-        name generation_child1
-        reset_level 1
-        sync_rst true
-        type scalar
-        dir O
-        width 64
-        mode SIG_OUT_VLD_ON:SIG_OUT_ACC_OFF
-    }
-    {
-        id 5
-        name generation_child2
-        reset_level 1
-        sync_rst true
-        type scalar
-        dir O
-        width 64
-        mode SIG_OUT_VLD_ON:SIG_OUT_ACC_OFF
-    }
-    {
-        id 6
-        name mutation_probability
-        reset_level 1
-        sync_rst true
-        type scalar
-        dir I
-        width 24
-        mode SIG_IN_VLD_OFF:SIG_IN_ACC_OFF
-    }
-}
-set portmap { }
-set metadata { -bus_bundle slv0}
+# Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
-if {[info proc ::AESL_LIB_XILADAPTER::axi_slave_int_gen] == "::AESL_LIB_XILADAPTER::axi_slave_int_gen"} {
-eval "::AESL_LIB_XILADAPTER::axi_slave_int_gen { \
-    corename ${corename} \
+eval "cg_default_interface_gen_dc { \
+    id 0 \
+    name startGenerating \
+    type other \
+    dir I \
     reset_level 1 \
     sync_rst true \
-    opts {${opts}} \
-    portmap {${portmap}} \
-    metadata {${metadata}} \
-}"
-} else {
-puts "@W Can not find gen function '::AESL_LIB_XILADAPTER::axi_slave_int_gen' in the library. Ignored generation of adapter for '${corename}'"
-}
+    corename dc_startGenerating \
+    op interface \
+    ports { startGenerating { I 1 bit } } \
+} "
 }
 
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 1 \
+    name generatingDone \
+    type other \
+    dir O \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_generatingDone \
+    op interface \
+    ports { generatingDone { O 1 bit } generatingDone_ap_vld { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 2 \
+    name generation_parent1 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_generation_parent1 \
+    op interface \
+    ports { generation_parent1 { I 64 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 3 \
+    name generation_parent2 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_generation_parent2 \
+    op interface \
+    ports { generation_parent2 { I 64 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 4 \
+    name generation_child1 \
+    type other \
+    dir O \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_generation_child1 \
+    op interface \
+    ports { generation_child1 { O 64 vector } generation_child1_ap_vld { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 5 \
+    name generation_child2 \
+    type other \
+    dir O \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_generation_child2 \
+    op interface \
+    ports { generation_child2 { O 64 vector } generation_child2_ap_vld { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 6 \
+    name mutation_probability \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_mutation_probability \
+    op interface \
+    ports { mutation_probability { I 24 vector } } \
+} "
+}
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {

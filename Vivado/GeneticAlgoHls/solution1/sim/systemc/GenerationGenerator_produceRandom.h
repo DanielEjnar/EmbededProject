@@ -36,13 +36,13 @@ struct GenerationGenerator_produceRandom : public sc_module {
 
     sc_trace_file* mVcdFile;
 
-    sc_signal< sc_lv<24> > val_V_reg_161;
+    sc_signal< sc_lv<24> > val_V_reg_153;
     sc_signal< sc_lv<3> > ap_CS_fsm;
     sc_signal< sc_logic > ap_CS_fsm_state2;
-    sc_signal< sc_lv<32> > tmp_fu_135_p1;
+    sc_signal< sc_lv<32> > tmp_fu_127_p1;
     sc_signal< sc_logic > ap_CS_fsm_state3;
-    sc_signal< sc_lv<1> > tmp_1_fu_140_p2;
-    sc_signal< sc_lv<24> > tmp_2_fu_146_p2;
+    sc_signal< sc_lv<1> > tmp_1_fu_132_p2;
+    sc_signal< sc_lv<24> > tmp_2_fu_138_p2;
     sc_signal< sc_lv<3> > ap_NS_fsm;
     static const sc_logic ap_const_logic_1;
     static const sc_logic ap_const_logic_0;
@@ -64,9 +64,9 @@ struct GenerationGenerator_produceRandom : public sc_module {
     void thread_GenerationGenerator_randomNumbers_V_we0();
     void thread_ap_CS_fsm_state2();
     void thread_ap_CS_fsm_state3();
-    void thread_tmp_1_fu_140_p2();
-    void thread_tmp_2_fu_146_p2();
-    void thread_tmp_fu_135_p1();
+    void thread_tmp_1_fu_132_p2();
+    void thread_tmp_2_fu_138_p2();
+    void thread_tmp_fu_127_p1();
     void thread_ap_NS_fsm();
 };
 

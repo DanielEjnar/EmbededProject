@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# xsim v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Thu Dec 20 12:20:45 2018
+# Process ID: 6536
+# Current directory: C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/sim/vhdl
+# Command line: xsim.exe -mode tcl -source {xsim.dir/GenerationGenerator/xsim_script.tcl}
+# Log file: C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/sim/vhdl/xsim.log
+# Journal file: C:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls/solution1/sim/vhdl\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/GenerationGenerator/xsim_script.tcl
+source GenerationGenerator.tcl

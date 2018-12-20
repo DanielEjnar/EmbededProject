@@ -16,7 +16,7 @@ The IP core was synthesized in C using a VivadoSimulator, a period of 20 and Ver
 	\label{fig:ggperformanceestimates}
 \end{figure}
 
-Figure \ref{fig:ggutilizationestimates} shows utilization of hardware estimates.
+Figure \ref{fig:ggutilizationestimates} shows utilization of hardware estimates. We see that the demand of resources are well within range of what is available on the Zybo board. 
 
 \begin{figure}[htbp]
 	\centering
@@ -25,7 +25,7 @@ Figure \ref{fig:ggutilizationestimates} shows utilization of hardware estimates.
 	\label{fig:ggutilizationestimates}
 \end{figure}
 
-Figure \ref{fig:gginterface} shows the generated interface signals.
+Figure \ref{fig:gginterface} shows the generated interface signals. These echo the interfaces we defined in the definition of source file. Direction indicate if they are to be read or written to. The bit length stems from the width of a chromosome.
 
 \begin{figure}[htbp]
 	\centering
@@ -63,17 +63,11 @@ In figure \ref{fig:ggutilizationestimates} we see the utilization estimates of r
 	\label{fig:simutilizationestimates}
 \end{figure}
 
-Figure \ref{fig:gginterface} shows the generated interface signals with the RTL ports and their respective
+Figure \ref{fig:siminterface} shows the generated interface signals with the RTL ports and their respective direction and bit length. 
 
 \begin{figure}[htbp]
 	\centering
 	\fbox{\includegraphics[width=1.0\linewidth]{../diagrams/Siminterface}}
 	\caption{X}
 	\label{fig:siminterface}
-\end{figure}
-
-\subsection{User application and performance}
-
-
-
-
+\end{figure}}

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="GenerationGenerator.wdb" id="1">
+         <top_modules>
+            <top_module name="AUTOTB_TOP" />
+            <top_module name="aesl_sim_components" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+   </zoom_setting>
+   <column_width_setting>
+   </column_width_setting>
+   <WVObjectSize size="2" />
+   <wvobject fp_name="group1" type="group">
+      <obj_property name="label">Design Top Signals</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="group2" type="group">
+         <obj_property name="label">C Outputs</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="group3" type="group">
+            <obj_property name="label">generation_child2(wire)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/DUT_INST/generation_child2" type="array">
+               <obj_property name="ElementShortName">generation_child2[63:0]</obj_property>
+               <obj_property name="ObjectShortName">generation_child2[63:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="group5" type="group">
+            <obj_property name="label">generation_child1(wire)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/DUT_INST/generation_child1" type="array">
+               <obj_property name="ElementShortName">generation_child1[63:0]</obj_property>
+               <obj_property name="ObjectShortName">generation_child1[63:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="group7" type="group">
+            <obj_property name="label">generatingDone(wire)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/DUT_INST/generatingDone" type="logic">
+               <obj_property name="ElementShortName">generatingDone</obj_property>
+               <obj_property name="ObjectShortName">generatingDone</obj_property>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group9" type="group">
+         <obj_property name="label">C Inputs</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="group10" type="group">
+            <obj_property name="label">random(wire)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/DUT_INST/random" type="array">
+               <obj_property name="ElementShortName">random[23:0]</obj_property>
+               <obj_property name="ObjectShortName">random[23:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="group12" type="group">
+            <obj_property name="label">mutation_probability(wire)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/DUT_INST/mutation_probability" type="array">
+               <obj_property name="ElementShortName">mutation_probability[23:0]</obj_property>
+               <obj_property name="ObjectShortName">mutation_probability[23:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="group14" type="group">
+            <obj_property name="label">generation_parent2(wire)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/DUT_INST/generation_parent2" type="array">
+               <obj_property name="ElementShortName">generation_parent2[63:0]</obj_property>
+               <obj_property name="ObjectShortName">generation_parent2[63:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="group16" type="group">
+            <obj_property name="label">generation_parent1(wire)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/DUT_INST/generation_parent1" type="array">
+               <obj_property name="ElementShortName">generation_parent1[63:0]</obj_property>
+               <obj_property name="ObjectShortName">generation_parent1[63:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="group18" type="group">
+            <obj_property name="label">startGenerating(wire)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/DUT_INST/startGenerating" type="logic">
+               <obj_property name="ElementShortName">startGenerating</obj_property>
+               <obj_property name="ObjectShortName">startGenerating</obj_property>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group20" type="group">
+         <obj_property name="label">Reset</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/AUTOTB_TOP/DUT_INST/reset" type="logic">
+            <obj_property name="ElementShortName">reset</obj_property>
+            <obj_property name="ObjectShortName">reset</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group22" type="group">
+         <obj_property name="label">Clock</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/AUTOTB_TOP/DUT_INST/clk" type="logic">
+            <obj_property name="ElementShortName">clk</obj_property>
+            <obj_property name="ObjectShortName">clk</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group24" type="group">
+      <obj_property name="label">Test Bench Signals</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="group25" type="group">
+         <obj_property name="label">C Outputs</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="group26" type="group">
+            <obj_property name="label">generation_child2(wire)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/generation_child2" type="array">
+               <obj_property name="ElementShortName">generation_child2[63:0]</obj_property>
+               <obj_property name="ObjectShortName">generation_child2[63:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="group28" type="group">
+            <obj_property name="label">generation_child1(wire)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/generation_child1" type="array">
+               <obj_property name="ElementShortName">generation_child1[63:0]</obj_property>
+               <obj_property name="ObjectShortName">generation_child1[63:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="group30" type="group">
+            <obj_property name="label">generatingDone(wire)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/generatingDone" type="logic">
+               <obj_property name="ElementShortName">generatingDone</obj_property>
+               <obj_property name="ObjectShortName">generatingDone</obj_property>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group32" type="group">
+         <obj_property name="label">C Inputs</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="group33" type="group">
+            <obj_property name="label">random(wire)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/random" type="array">
+               <obj_property name="ElementShortName">random[23:0]</obj_property>
+               <obj_property name="ObjectShortName">random[23:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="group35" type="group">
+            <obj_property name="label">mutation_probability(wire)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/mutation_probability" type="array">
+               <obj_property name="ElementShortName">mutation_probability[23:0]</obj_property>
+               <obj_property name="ObjectShortName">mutation_probability[23:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="group37" type="group">
+            <obj_property name="label">generation_parent2(wire)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/generation_parent2" type="array">
+               <obj_property name="ElementShortName">generation_parent2[63:0]</obj_property>
+               <obj_property name="ObjectShortName">generation_parent2[63:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="group39" type="group">
+            <obj_property name="label">generation_parent1(wire)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/generation_parent1" type="array">
+               <obj_property name="ElementShortName">generation_parent1[63:0]</obj_property>
+               <obj_property name="ObjectShortName">generation_parent1[63:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="group41" type="group">
+            <obj_property name="label">startGenerating(wire)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/startGenerating" type="logic">
+               <obj_property name="ElementShortName">startGenerating</obj_property>
+               <obj_property name="ObjectShortName">startGenerating</obj_property>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+</wave_config>

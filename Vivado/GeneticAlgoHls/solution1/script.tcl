@@ -18,5 +18,5 @@ create_clock -period 20 -name default
 #source "./GeneticAlgoHls/solution1/directives.tcl"
 csim_design -clean
 csynth_design
-cosim_design -setup -tool modelsim
+cosim_design -tool modelsim
 export_design -flow impl -rtl verilog -format ip_catalog

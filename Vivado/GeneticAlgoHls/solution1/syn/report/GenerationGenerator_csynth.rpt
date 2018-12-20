@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'GenerationGenerator'
 ================================================================
-* Date:           Thu Dec 20 11:19:50 2018
+* Date:           Thu Dec 20 13:11:16 2018
 
 * Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        GeneticAlgoHls
@@ -38,8 +38,8 @@
         |                                                   |                                        |  Latency  |  Interval | Pipeline|
         |                      Instance                     |                 Module                 | min | max | min | max |   Type  |
         +---------------------------------------------------+----------------------------------------+-----+-----+-----+-----+---------+
-        |grp_GenerationGenerator_generateGeneration_fu_114  |GenerationGenerator_generateGeneration  |  269|  269|  269|  269|   none  |
-        |grp_GenerationGenerator_produceRandom_fu_144       |GenerationGenerator_produceRandom       |    3|    3|    3|    3|   none  |
+        |grp_GenerationGenerator_generateGeneration_fu_104  |GenerationGenerator_generateGeneration  |  269|  269|  269|  269|   none  |
+        |grp_GenerationGenerator_produceRandom_fu_134       |GenerationGenerator_produceRandom       |    3|    3|    3|    3|   none  |
         +---------------------------------------------------+----------------------------------------+-----+-----+-----+-----+---------+
 
         * Loop: 
@@ -74,8 +74,8 @@
     +---------------------------------------------------+----------------------------------------+---------+-------+-----+-----+
     |                      Instance                     |                 Module                 | BRAM_18K| DSP48E|  FF | LUT |
     +---------------------------------------------------+----------------------------------------+---------+-------+-----+-----+
-    |grp_GenerationGenerator_generateGeneration_fu_114  |GenerationGenerator_generateGeneration  |        0|      0|  977|  875|
-    |grp_GenerationGenerator_produceRandom_fu_144       |GenerationGenerator_produceRandom       |        0|      0|  104|   81|
+    |grp_GenerationGenerator_generateGeneration_fu_104  |GenerationGenerator_generateGeneration  |        0|      0|  977|  875|
+    |grp_GenerationGenerator_produceRandom_fu_134       |GenerationGenerator_produceRandom       |        0|      0|  104|   81|
     +---------------------------------------------------+----------------------------------------+---------+-------+-----+-----+
     |Total                                              |                                        |        0|      0| 1081|  956|
     +---------------------------------------------------+----------------------------------------+---------+-------+-----+-----+

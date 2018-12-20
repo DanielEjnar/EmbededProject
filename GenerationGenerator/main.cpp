@@ -6,6 +6,7 @@
 #include "Stim.h"
 
 #define CLK_PERIODE   20//ns
+
 int sc_main(int argc, char* argv[]) {
 
 	GenerationGenerator GenerationGenerator("GenerationGenerator");

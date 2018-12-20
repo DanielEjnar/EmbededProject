@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'GenerationGenerator'" level="0">
-<item name = "Date">Thu Dec 20 11:19:50 2018
+<item name = "Date">Thu Dec 20 13:11:16 2018
 </item>
 <item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
 <item name = "Project">GeneticAlgoHls</item>
@@ -31,8 +31,8 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="grp_GenerationGenerator_generateGeneration_fu_114">GenerationGenerator_generateGeneration, 269, 269, 269, 269, none</column>
-<column name="grp_GenerationGenerator_produceRandom_fu_144">GenerationGenerator_produceRandom, 3, 3, 3, 3, none</column>
+<column name="grp_GenerationGenerator_generateGeneration_fu_104">GenerationGenerator_generateGeneration, 269, 269, 269, 269, none</column>
+<column name="grp_GenerationGenerator_produceRandom_fu_134">GenerationGenerator_produceRandom, 3, 3, 3, 3, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -63,8 +63,8 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
-<column name="grp_GenerationGenerator_generateGeneration_fu_114">GenerationGenerator_generateGeneration, 0, 0, 977, 875</column>
-<column name="grp_GenerationGenerator_produceRandom_fu_144">GenerationGenerator_produceRandom, 0, 0, 104, 81</column>
+<column name="grp_GenerationGenerator_generateGeneration_fu_104">GenerationGenerator_generateGeneration, 0, 0, 977, 875</column>
+<column name="grp_GenerationGenerator_produceRandom_fu_134">GenerationGenerator_produceRandom, 0, 0, 104, 81</column>
 </table>
 </item>
 <item name = "DSP48"><table name="" hasTotal="0">
