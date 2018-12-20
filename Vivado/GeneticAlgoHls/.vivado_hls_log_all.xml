@@ -2,20 +2,30 @@
 <vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
   <errorLogs>
     <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
       <packageLog/>
+      <csimLog/>
     </logs>
   </errorLogs>
   <warningLogs>
     <logs>
-      <packageLog>
-        <logs message="WARNING: [Timing 38-242] The property HD.CLK_SRC of clock port &quot;aclk&quot; is not set. In out-of-context mode, this prevents timing estimation for clock delay/skew&#xD;&#xA;Resolution: Set the HD.CLK_SRC property of the out-of-context port to the location of the clock buffer instance in the top-level design" projectName="GeneticAlgoHls" solutionName="solution1" date="2018-12-20T14:57:28.835+0100" type="Warning"/>
-        <logs message="WARNING: [Timing 38-313] There are no user specified timing constraints. Timing constraints are needed for proper timing analysis." projectName="GeneticAlgoHls" solutionName="solution1" date="2018-12-20T14:57:26.395+0100" type="Warning"/>
-        <logs message="WARNING: [Power 33-232] No user defined clocks were found in the design!&#xD;&#xA;Resolution: Please specify clocks using create_clock/create_generated_clock for sequential elements. For pure combinatorial circuits, please specify a virtual clock, otherwise the vectorless estimation might be inaccurate" projectName="GeneticAlgoHls" solutionName="solution1" date="2018-12-20T14:57:21.112+0100" type="Warning"/>
-        <logs message="WARNING: [Timing 38-242] The property HD.CLK_SRC of clock port &quot;aclk&quot; is not set. In out-of-context mode, this prevents timing estimation for clock delay/skew&#xD;&#xA;Resolution: Set the HD.CLK_SRC property of the out-of-context port to the location of the clock buffer instance in the top-level design" projectName="GeneticAlgoHls" solutionName="solution1" date="2018-12-20T14:57:21.096+0100" type="Warning"/>
-        <logs message="WARNING: [Route 35-198] Port &quot;S_AXI_SLV0_wdata[25]&quot; does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal &quot;S_AXI_SLV0_wdata[25]&quot;. Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.&#xD;&#xA;Phase 1 Build RT Design | Checksum: 15ae09bfc&#xD;&#xA;&#xD;&#xA;Time (s): cpu = 00:00:21 ; elapsed = 00:00:19 . Memory (MB): peak = 1381.609 ; gain = 0.000&#xD;&#xA;Post Restoration Checksum: NetGraph: 9ed5a6eb NumContArr: bc0af511 Constraints: 0 Timing: 0&#xD;&#xA;&#xD;&#xA;Phase 2 Router Initialization" projectName="GeneticAlgoHls" solutionName="solution1" date="2018-12-20T14:57:16.000+0100" type="Warning"/>
-        <logs message="WARNING: [Route 35-198] Port &quot;S_AXI_SLV0_wdata[24]&quot; does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal &quot;S_AXI_SLV0_wdata[24]&quot;. Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported." projectName="GeneticAlgoHls" solutionName="solution1" date="2018-12-20T14:56:57.085+0100" type="Warning"/>
-        <logs message="WARNING: [Route 35-198] Port &quot;S_AXI_SLV0_wdata[31]&quot; does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal &quot;S_AXI_SLV0_wdata[31]&quot;. Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported." projectName="GeneticAlgoHls" solutionName="solution1" date="2018-12-20T14:56:57.085+0100" type="Warning"/>
-      </packageLog>
+      <synLog>
+        <logs message="WARNING: [HLS 200-41] Resource core 'AXI4LiteS' on port '&amp;startGenerating' is deprecated. Please use the interface directive to specify the AXI interface." projectName="GeneticAlgoHls" solutionName="solution1" date="2018-12-20T15:04:31.256+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-41] Resource core 'AXI4LiteS' on port '&amp;mutation_probability' is deprecated. Please use the interface directive to specify the AXI interface." projectName="GeneticAlgoHls" solutionName="solution1" date="2018-12-20T15:04:31.224+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-41] Resource core 'AXI4LiteS' on port '&amp;generation_parent1' is deprecated. Please use the interface directive to specify the AXI interface." projectName="GeneticAlgoHls" solutionName="solution1" date="2018-12-20T15:04:31.178+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-41] Resource core 'AXI4LiteS' on port '&amp;generation_child2' is deprecated. Please use the interface directive to specify the AXI interface." projectName="GeneticAlgoHls" solutionName="solution1" date="2018-12-20T15:04:31.162+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-41] Resource core 'AXI4LiteS' on port '&amp;generation_child1' is deprecated. Please use the interface directive to specify the AXI interface." projectName="GeneticAlgoHls" solutionName="solution1" date="2018-12-20T15:04:31.146+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-41] Resource core 'AXI4LiteS' on port '&amp;generation_parent2' is deprecated. Please use the interface directive to specify the AXI interface." projectName="GeneticAlgoHls" solutionName="solution1" date="2018-12-20T15:04:31.131+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-41] Resource core 'AXI4LiteS' on port '&amp;random' is deprecated. Please use the interface directive to specify the AXI interface." projectName="GeneticAlgoHls" solutionName="solution1" date="2018-12-20T15:04:31.131+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Cannot find library 'xilinx/null/null'." projectName="GeneticAlgoHls" solutionName="solution1" date="2018-12-20T15:04:08.693+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Cannot find library 'C:/Xilinx/Vivado/2018.3/common/technology/xilinx/null/null.lib'." projectName="GeneticAlgoHls" solutionName="solution1" date="2018-12-20T15:04:08.068+0100" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
     </logs>
   </warningLogs>
 </vivadoHLSLog:LogRoot>

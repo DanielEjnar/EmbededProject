@@ -31,7 +31,8 @@ sc_uint<RANDOM_WIDTH> GenerationGenerator::trueRandom(void) {
 }
 
 void GenerationGenerator::generateGeneration(void) {
-	#pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=generation_parent1
+	#pragma HLS INTERFACE s_axilite port=generation_parent1 bundle=slv0
+
 	#pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=generation_parent2
 	#pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=generation_child1
 	#pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=generation_child2

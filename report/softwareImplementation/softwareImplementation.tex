@@ -5,14 +5,16 @@ This section will briefly explain how we implemented the user application in C++
 \begin{lstlisting}[style=customc++,caption={Main application, where two threads are created and the scheduler started.},label={lst:mainapp}]
 int main()
 {
-//Create threads
-UserThread mUserThread(Thread::PRIORITY_ABOVE_NORMAL, "UserThread");
-RandomThread mRandomhread(Thread::PRIORITY_NORMAL, "RandomThread");
+	//Create threads
+	UserThread mUserThread(Thread::PRIORITY_ABOVE_NORMAL, "UserThread");
+	RandomThread mRandomhread(Thread::PRIORITY_NORMAL, "RandomThread");
 
-/* Start FreeRTOS, the tasks running. */
-vTaskStartScheduler();
-for( ;; );
-return 0;
+	/* Start FreeRTOS, the tasks running. */
+	vTaskStartScheduler();
+	
+	for( ;; );
+	
+	return 0;
 }
 \end{lstlisting}
 

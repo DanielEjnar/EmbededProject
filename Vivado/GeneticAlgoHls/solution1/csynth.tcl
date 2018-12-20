@@ -18,7 +18,4 @@ create_clock -period 20 -name default
 config_compile -no_signed_zeros=0 -unsafe_math_optimizations=0
 config_export -format ip_catalog -rtl verilog
 #source "./GeneticAlgoHls/solution1/directives.tcl"
-csim_design -clean
 csynth_design
-cosim_design -tool modelsim
-export_design -flow impl -rtl verilog -format ip_catalog
