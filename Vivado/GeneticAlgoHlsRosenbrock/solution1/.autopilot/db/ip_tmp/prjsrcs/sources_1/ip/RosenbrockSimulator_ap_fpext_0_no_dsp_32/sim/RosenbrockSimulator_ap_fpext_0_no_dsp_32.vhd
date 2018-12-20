@@ -47,14 +47,14 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: xilinx.com:ip:floating_point:7.1
--- IP Revision: 4
+-- IP Revision: 7
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
-LIBRARY floating_point_v7_1_4;
-USE floating_point_v7_1_4.floating_point_v7_1_4;
+LIBRARY floating_point_v7_1_7;
+USE floating_point_v7_1_7.floating_point_v7_1_7;
 
 ENTITY RosenbrockSimulator_ap_fpext_0_no_dsp_32 IS
   PORT (
@@ -68,7 +68,7 @@ END RosenbrockSimulator_ap_fpext_0_no_dsp_32;
 ARCHITECTURE RosenbrockSimulator_ap_fpext_0_no_dsp_32_arch OF RosenbrockSimulator_ap_fpext_0_no_dsp_32 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF RosenbrockSimulator_ap_fpext_0_no_dsp_32_arch: ARCHITECTURE IS "yes";
-  COMPONENT floating_point_v7_1_4 IS
+  COMPONENT floating_point_v7_1_7 IS
     GENERIC (
       C_XDEVICEFAMILY : STRING;
       C_HAS_ADD : INTEGER;
@@ -171,14 +171,17 @@ ARCHITECTURE RosenbrockSimulator_ap_fpext_0_no_dsp_32_arch OF RosenbrockSimulato
       m_axis_result_tuser : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
       m_axis_result_tlast : OUT STD_LOGIC
     );
-  END COMPONENT floating_point_v7_1_4;
+  END COMPONENT floating_point_v7_1_7;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
-  ATTRIBUTE X_INTERFACE_INFO OF s_axis_a_tvalid: SIGNAL IS "xilinx.com:interface:axis:1.0 S_AXIS_A TVALID";
-  ATTRIBUTE X_INTERFACE_INFO OF s_axis_a_tdata: SIGNAL IS "xilinx.com:interface:axis:1.0 S_AXIS_A TDATA";
-  ATTRIBUTE X_INTERFACE_INFO OF m_axis_result_tvalid: SIGNAL IS "xilinx.com:interface:axis:1.0 M_AXIS_RESULT TVALID";
+  ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_INFO OF m_axis_result_tdata: SIGNAL IS "xilinx.com:interface:axis:1.0 M_AXIS_RESULT TDATA";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF m_axis_result_tvalid: SIGNAL IS "XIL_INTERFACENAME M_AXIS_RESULT, TDATA_NUM_BYTES 8, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF m_axis_result_tvalid: SIGNAL IS "xilinx.com:interface:axis:1.0 M_AXIS_RESULT TVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axis_a_tdata: SIGNAL IS "xilinx.com:interface:axis:1.0 S_AXIS_A TDATA";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF s_axis_a_tvalid: SIGNAL IS "XIL_INTERFACENAME S_AXIS_A, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axis_a_tvalid: SIGNAL IS "xilinx.com:interface:axis:1.0 S_AXIS_A TVALID";
 BEGIN
-  U0 : floating_point_v7_1_4
+  U0 : floating_point_v7_1_7
     GENERIC MAP (
       C_XDEVICEFAMILY => "zynq",
       C_HAS_ADD => 0,

@@ -1,4 +1,5 @@
 set moduleName GenerationGenerator_produceRandom
+set isTaskLevelControl 1
 set isCombinational 0
 set isDatapathOnly 0
 set isPipelined 0
@@ -7,6 +8,7 @@ set FunctionProtocol ap_ctrl_hs
 set isOneStateSeq 0
 set ProfileFlag 0
 set StallSigGenFlag 0
+set isEnableWaveformDebug 1
 set C_modelName {GenerationGenerator::produceRandom}
 set C_modelType { void 0 }
 set C_modelArgList {
@@ -47,12 +49,17 @@ set NewPortList {[
 set RtlHierarchyInfo {[
 	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "",
 		"CDFG" : "GenerationGenerator_produceRandom",
+		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "0", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
-		"Pipeline" : "None", "AlignedPipeline" : "0", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "3", "EstimateLatencyMax" : "3",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
-		"VariableLatency" : "1",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
 		"Port" : [
 			{"Name" : "clk", "Type" : "None", "Direction" : "I"},
 			{"Name" : "reset", "Type" : "None", "Direction" : "I"},

@@ -24,12 +24,6 @@ void Context::HandleInput(std::unique_ptr<Action> action) {
 	}
 }
 
-void Context::SetCurrentState(std::unique_ptr<State> s) {
-	std::unique_ptr<State> oldState = std::move(_currentState);
-	oldState.reset();
-	_currentState = std::move(s);
-}
-
 void Context::SetA(float a)
 {
 	_a = a;

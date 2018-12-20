@@ -1,9 +1,9 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'GenerationGenerator_produceRandom'" level="0">
-<item name = "Date">Thu Dec 20 13:11:11 2018
+<item name = "Date">Thu Dec 20 14:51:02 2018
 </item>
-<item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
+<item name = "Version">2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)</item>
 <item name = "Project">GeneticAlgoHls</item>
 <item name = "Solution">solution1</item>
 <item name = "Product family">zynq</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">20.00, 5.30, 2.50</column>
+<column name="ap_clk">20.00, 3.254, 2.50</column>
 </table>
 </item>
 </section>

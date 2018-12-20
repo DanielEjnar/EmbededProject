@@ -1,9 +1,9 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'GenerationGenerator_produceRandom'" level="0">
-<item name = "Date">Thu Dec 20 13:11:12 2018
+<item name = "Date">Thu Dec 20 14:51:03 2018
 </item>
-<item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
+<item name = "Version">2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)</item>
 <item name = "Project">GeneticAlgoHls</item>
 <item name = "Solution">solution1</item>
 <item name = "Product family">zynq</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">20.00, 5.30, 2.50</column>
+<column name="ap_clk">20.00, 3.254, 2.50</column>
 </table>
 </item>
 </section>
@@ -48,7 +48,7 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
 <column name="DSP">-, -, -, -</column>
-<column name="Expression">-, -, 77, 66</column>
+<column name="Expression">-, -, 0, 73</column>
 <column name="FIFO">-, -, -, -</column>
 <column name="Instance">-, -, -, -</column>
 <column name="Memory">-, -, -, -</column>
@@ -78,8 +78,8 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="tmp_2_fu_138_p2">+, 0, 77, 29, 24, 1</column>
-<column name="tmp_1_fu_132_p2">icmp, 0, 0, 13, 24, 5</column>
+<column name="tmp_2_fu_149_p2">+, 0, 0, 31, 24, 1</column>
+<column name="tmp_1_fu_143_p2">icmp, 0, 0, 18, 24, 5</column>
 <column name="GenerationGenerator_randomNumberIndex_V_o">select, 0, 0, 24, 1, 1</column>
 </table>
 </item>
@@ -91,7 +91,7 @@
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
 <column name="ap_CS_fsm">3, 0, 3, 0</column>
-<column name="val_V_reg_153">24, 0, 24, 0</column>
+<column name="val_V_reg_164">24, 0, 24, 0</column>
 </table>
 </item>
 </section>

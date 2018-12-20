@@ -1,4 +1,5 @@
 set moduleName RosenbrockSimulator
+set isTaskLevelControl 1
 set isCombinational 0
 set isDatapathOnly 0
 set isPipelined 0
@@ -7,6 +8,7 @@ set FunctionProtocol ap_ctrl_hs
 set isOneStateSeq 0
 set ProfileFlag 0
 set StallSigGenFlag 0
+set isEnableWaveformDebug 1
 set C_modelName {RosenbrockSimulator::RosenbrockSimulator}
 set C_modelType { void 0 }
 set C_modelArgList {
@@ -53,12 +55,17 @@ set NewPortList {[
 set RtlHierarchyInfo {[
 	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1"],
 		"CDFG" : "RosenbrockSimulator",
+		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "0", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
-		"Pipeline" : "Dataflow", "AlignedPipeline" : "0", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "1",
+		"Pipeline" : "Dataflow", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "1",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "87",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
-		"VariableLatency" : "1",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
 		"InputProcess" : [],
 		"OutputProcess" : [],
 		"Port" : [
@@ -87,50 +94,55 @@ set RtlHierarchyInfo {[
 				"SubConnect" : [
 					{"ID" : "1", "SubInstance" : "grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Port" : "fitness"}]},
 			{"Name" : "RosenbrockSimulator_ssdm_thread_M_simulateRosenbrock", "Type" : "None", "Direction" : "I"},
-			{"Name" : "hls_pow_reduce_an_20", "Type" : "Memory", "Direction" : "I",
+			{"Name" : "pow_reduce_anonymo_20", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Port" : "hls_pow_reduce_an_20"}]},
-			{"Name" : "hls_pow_reduce_an_19", "Type" : "Memory", "Direction" : "I",
+					{"ID" : "1", "SubInstance" : "grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Port" : "pow_reduce_anonymo_20"}]},
+			{"Name" : "pow_reduce_anonymo_19", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Port" : "hls_pow_reduce_an_19"}]},
-			{"Name" : "hls_pow_reduce_an_16", "Type" : "Memory", "Direction" : "I",
+					{"ID" : "1", "SubInstance" : "grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Port" : "pow_reduce_anonymo_19"}]},
+			{"Name" : "pow_reduce_anonymo_16", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Port" : "hls_pow_reduce_an_16"}]},
-			{"Name" : "hls_pow_reduce_an_17", "Type" : "Memory", "Direction" : "I",
+					{"ID" : "1", "SubInstance" : "grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Port" : "pow_reduce_anonymo_16"}]},
+			{"Name" : "pow_reduce_anonymo_17", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Port" : "hls_pow_reduce_an_17"}]},
-			{"Name" : "hls_pow_reduce_an_9", "Type" : "Memory", "Direction" : "I",
+					{"ID" : "1", "SubInstance" : "grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Port" : "pow_reduce_anonymo_17"}]},
+			{"Name" : "pow_reduce_anonymo_9", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Port" : "hls_pow_reduce_an_9"}]},
-			{"Name" : "hls_pow_reduce_an_12", "Type" : "Memory", "Direction" : "I",
+					{"ID" : "1", "SubInstance" : "grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Port" : "pow_reduce_anonymo_9"}]},
+			{"Name" : "pow_reduce_anonymo_12", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Port" : "hls_pow_reduce_an_12"}]},
-			{"Name" : "hls_pow_reduce_an_13", "Type" : "Memory", "Direction" : "I",
+					{"ID" : "1", "SubInstance" : "grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Port" : "pow_reduce_anonymo_12"}]},
+			{"Name" : "pow_reduce_anonymo_13", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Port" : "hls_pow_reduce_an_13"}]},
-			{"Name" : "hls_pow_reduce_an_14", "Type" : "Memory", "Direction" : "I",
+					{"ID" : "1", "SubInstance" : "grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Port" : "pow_reduce_anonymo_13"}]},
+			{"Name" : "pow_reduce_anonymo_14", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Port" : "hls_pow_reduce_an_14"}]},
-			{"Name" : "hls_pow_reduce_an_15", "Type" : "Memory", "Direction" : "I",
+					{"ID" : "1", "SubInstance" : "grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Port" : "pow_reduce_anonymo_14"}]},
+			{"Name" : "pow_reduce_anonymo_15", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Port" : "hls_pow_reduce_an_15"}]},
-			{"Name" : "hls_pow_reduce_an_18", "Type" : "Memory", "Direction" : "I",
+					{"ID" : "1", "SubInstance" : "grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Port" : "pow_reduce_anonymo_15"}]},
+			{"Name" : "pow_reduce_anonymo_18", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Port" : "hls_pow_reduce_an_18"}]},
-			{"Name" : "hls_pow_reduce_an", "Type" : "Memory", "Direction" : "I",
+					{"ID" : "1", "SubInstance" : "grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Port" : "pow_reduce_anonymo_18"}]},
+			{"Name" : "pow_reduce_anonymo", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Port" : "hls_pow_reduce_an"}]},
-			{"Name" : "hls_pow_reduce_an_21", "Type" : "Memory", "Direction" : "I",
+					{"ID" : "1", "SubInstance" : "grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Port" : "pow_reduce_anonymo"}]},
+			{"Name" : "pow_reduce_anonymo_21", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Port" : "hls_pow_reduce_an_21"}]}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Parent" : "0", "Child" : ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"],
+					{"ID" : "1", "SubInstance" : "grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Port" : "pow_reduce_anonymo_21"}]}]},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88", "Parent" : "0", "Child" : ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22"],
 		"CDFG" : "RosenbrockSimulator_simulateRosenbrock",
+		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "0", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
-		"Pipeline" : "None", "AlignedPipeline" : "0", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "21", "EstimateLatencyMax" : "86",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
-		"VariableLatency" : "1",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
 		"Port" : [
 			{"Name" : "clk", "Type" : "None", "Direction" : "I"},
 			{"Name" : "reset", "Type" : "None", "Direction" : "I"},
@@ -140,37 +152,39 @@ set RtlHierarchyInfo {[
 			{"Name" : "b", "Type" : "None", "Direction" : "I"},
 			{"Name" : "chromosome_in", "Type" : "None", "Direction" : "I"},
 			{"Name" : "fitness", "Type" : "Vld", "Direction" : "O"},
-			{"Name" : "hls_pow_reduce_an_20", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "hls_pow_reduce_an_19", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "hls_pow_reduce_an_16", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "hls_pow_reduce_an_17", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "hls_pow_reduce_an_9", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "hls_pow_reduce_an_12", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "hls_pow_reduce_an_13", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "hls_pow_reduce_an_14", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "hls_pow_reduce_an_15", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "hls_pow_reduce_an_18", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "hls_pow_reduce_an", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "hls_pow_reduce_an_21", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.hls_pow_reduce_an_20_U", "Parent" : "1"},
-	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.hls_pow_reduce_an_19_U", "Parent" : "1"},
-	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.hls_pow_reduce_an_16_U", "Parent" : "1"},
-	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.hls_pow_reduce_an_17_U", "Parent" : "1"},
-	{"ID" : "6", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.hls_pow_reduce_an_9_U", "Parent" : "1"},
-	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.hls_pow_reduce_an_12_U", "Parent" : "1"},
-	{"ID" : "8", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.hls_pow_reduce_an_13_U", "Parent" : "1"},
-	{"ID" : "9", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.hls_pow_reduce_an_14_U", "Parent" : "1"},
-	{"ID" : "10", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.hls_pow_reduce_an_15_U", "Parent" : "1"},
-	{"ID" : "11", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.hls_pow_reduce_an_18_U", "Parent" : "1"},
-	{"ID" : "12", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.hls_pow_reduce_an_U", "Parent" : "1"},
-	{"ID" : "13", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.hls_pow_reduce_an_21_U", "Parent" : "1"},
-	{"ID" : "14", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.RosenbrockSimulatncg_U0", "Parent" : "1"},
-	{"ID" : "15", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.RosenbrockSimulatocq_U1", "Parent" : "1"},
-	{"ID" : "16", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.RosenbrockSimulatpcA_U2", "Parent" : "1"},
-	{"ID" : "17", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.RosenbrockSimulatqcK_U3", "Parent" : "1"},
-	{"ID" : "18", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.RosenbrockSimulatrcU_U4", "Parent" : "1"},
-	{"ID" : "19", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.RosenbrockSimulatrcU_U5", "Parent" : "1"},
-	{"ID" : "20", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.RosenbrockSimulatrcU_U6", "Parent" : "1"}]}
+			{"Name" : "pow_reduce_anonymo_20", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "pow_reduce_anonymo_19", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "pow_reduce_anonymo_16", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "pow_reduce_anonymo_17", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "pow_reduce_anonymo_9", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "pow_reduce_anonymo_12", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "pow_reduce_anonymo_13", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "pow_reduce_anonymo_14", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "pow_reduce_anonymo_15", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "pow_reduce_anonymo_18", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "pow_reduce_anonymo", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "pow_reduce_anonymo_21", "Type" : "Memory", "Direction" : "I"}]},
+	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.pow_reduce_anonymo_20_U", "Parent" : "1"},
+	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.pow_reduce_anonymo_19_U", "Parent" : "1"},
+	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.pow_reduce_anonymo_16_U", "Parent" : "1"},
+	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.pow_reduce_anonymo_17_U", "Parent" : "1"},
+	{"ID" : "6", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.pow_reduce_anonymo_9_U", "Parent" : "1"},
+	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.pow_reduce_anonymo_12_U", "Parent" : "1"},
+	{"ID" : "8", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.pow_reduce_anonymo_13_U", "Parent" : "1"},
+	{"ID" : "9", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.pow_reduce_anonymo_14_U", "Parent" : "1"},
+	{"ID" : "10", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.pow_reduce_anonymo_15_U", "Parent" : "1"},
+	{"ID" : "11", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.pow_reduce_anonymo_18_U", "Parent" : "1"},
+	{"ID" : "12", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.pow_reduce_anonymo_U", "Parent" : "1"},
+	{"ID" : "13", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.pow_reduce_anonymo_21_U", "Parent" : "1"},
+	{"ID" : "14", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.RosenbrockSimulatncg_U1", "Parent" : "1"},
+	{"ID" : "15", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.RosenbrockSimulatocq_U2", "Parent" : "1"},
+	{"ID" : "16", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.RosenbrockSimulatocq_U3", "Parent" : "1"},
+	{"ID" : "17", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.RosenbrockSimulatocq_U4", "Parent" : "1"},
+	{"ID" : "18", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.RosenbrockSimulatpcA_U5", "Parent" : "1"},
+	{"ID" : "19", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.RosenbrockSimulatqcK_U6", "Parent" : "1"},
+	{"ID" : "20", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.RosenbrockSimulatrcU_U7", "Parent" : "1"},
+	{"ID" : "21", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.RosenbrockSimulatrcU_U8", "Parent" : "1"},
+	{"ID" : "22", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RosenbrockSimulator_simulateRosenbrock_fu_88.RosenbrockSimulatrcU_U9", "Parent" : "1"}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -182,20 +196,20 @@ set ArgLastReadFirstWriteLatency {
 		a {Type I LastRead 1 FirstWrite -1}
 		b {Type I LastRead 5 FirstWrite -1}
 		chromosome_in {Type I LastRead 1 FirstWrite -1}
-		fitness {Type O LastRead -1 FirstWrite 94}
+		fitness {Type O LastRead -1 FirstWrite 85}
 		RosenbrockSimulator_ssdm_thread_M_simulateRosenbrock {Type I LastRead -1 FirstWrite -1}
-		hls_pow_reduce_an_20 {Type I LastRead -1 FirstWrite -1}
-		hls_pow_reduce_an_19 {Type I LastRead -1 FirstWrite -1}
-		hls_pow_reduce_an_16 {Type I LastRead -1 FirstWrite -1}
-		hls_pow_reduce_an_17 {Type I LastRead -1 FirstWrite -1}
-		hls_pow_reduce_an_9 {Type I LastRead -1 FirstWrite -1}
-		hls_pow_reduce_an_12 {Type I LastRead -1 FirstWrite -1}
-		hls_pow_reduce_an_13 {Type I LastRead -1 FirstWrite -1}
-		hls_pow_reduce_an_14 {Type I LastRead -1 FirstWrite -1}
-		hls_pow_reduce_an_15 {Type I LastRead -1 FirstWrite -1}
-		hls_pow_reduce_an_18 {Type I LastRead -1 FirstWrite -1}
-		hls_pow_reduce_an {Type I LastRead -1 FirstWrite -1}
-		hls_pow_reduce_an_21 {Type I LastRead -1 FirstWrite -1}}
+		pow_reduce_anonymo_20 {Type I LastRead -1 FirstWrite -1}
+		pow_reduce_anonymo_19 {Type I LastRead -1 FirstWrite -1}
+		pow_reduce_anonymo_16 {Type I LastRead -1 FirstWrite -1}
+		pow_reduce_anonymo_17 {Type I LastRead -1 FirstWrite -1}
+		pow_reduce_anonymo_9 {Type I LastRead -1 FirstWrite -1}
+		pow_reduce_anonymo_12 {Type I LastRead -1 FirstWrite -1}
+		pow_reduce_anonymo_13 {Type I LastRead -1 FirstWrite -1}
+		pow_reduce_anonymo_14 {Type I LastRead -1 FirstWrite -1}
+		pow_reduce_anonymo_15 {Type I LastRead -1 FirstWrite -1}
+		pow_reduce_anonymo_18 {Type I LastRead -1 FirstWrite -1}
+		pow_reduce_anonymo {Type I LastRead -1 FirstWrite -1}
+		pow_reduce_anonymo_21 {Type I LastRead -1 FirstWrite -1}}
 	RosenbrockSimulator_simulateRosenbrock {
 		clk {Type I LastRead -1 FirstWrite -1}
 		reset {Type I LastRead -1 FirstWrite -1}
@@ -204,25 +218,25 @@ set ArgLastReadFirstWriteLatency {
 		a {Type I LastRead 1 FirstWrite -1}
 		b {Type I LastRead 5 FirstWrite -1}
 		chromosome_in {Type I LastRead 1 FirstWrite -1}
-		fitness {Type O LastRead -1 FirstWrite 94}
-		hls_pow_reduce_an_20 {Type I LastRead -1 FirstWrite -1}
-		hls_pow_reduce_an_19 {Type I LastRead -1 FirstWrite -1}
-		hls_pow_reduce_an_16 {Type I LastRead -1 FirstWrite -1}
-		hls_pow_reduce_an_17 {Type I LastRead -1 FirstWrite -1}
-		hls_pow_reduce_an_9 {Type I LastRead -1 FirstWrite -1}
-		hls_pow_reduce_an_12 {Type I LastRead -1 FirstWrite -1}
-		hls_pow_reduce_an_13 {Type I LastRead -1 FirstWrite -1}
-		hls_pow_reduce_an_14 {Type I LastRead -1 FirstWrite -1}
-		hls_pow_reduce_an_15 {Type I LastRead -1 FirstWrite -1}
-		hls_pow_reduce_an_18 {Type I LastRead -1 FirstWrite -1}
-		hls_pow_reduce_an {Type I LastRead -1 FirstWrite -1}
-		hls_pow_reduce_an_21 {Type I LastRead -1 FirstWrite -1}}}
+		fitness {Type O LastRead -1 FirstWrite 85}
+		pow_reduce_anonymo_20 {Type I LastRead -1 FirstWrite -1}
+		pow_reduce_anonymo_19 {Type I LastRead -1 FirstWrite -1}
+		pow_reduce_anonymo_16 {Type I LastRead -1 FirstWrite -1}
+		pow_reduce_anonymo_17 {Type I LastRead -1 FirstWrite -1}
+		pow_reduce_anonymo_9 {Type I LastRead -1 FirstWrite -1}
+		pow_reduce_anonymo_12 {Type I LastRead -1 FirstWrite -1}
+		pow_reduce_anonymo_13 {Type I LastRead -1 FirstWrite -1}
+		pow_reduce_anonymo_14 {Type I LastRead -1 FirstWrite -1}
+		pow_reduce_anonymo_15 {Type I LastRead -1 FirstWrite -1}
+		pow_reduce_anonymo_18 {Type I LastRead -1 FirstWrite -1}
+		pow_reduce_anonymo {Type I LastRead -1 FirstWrite -1}
+		pow_reduce_anonymo_21 {Type I LastRead -1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "0", "Max" : "96"}
-	, {"Name" : "Interval", "Min" : "1", "Max" : "97"}
+	{"Name" : "Latency", "Min" : "0", "Max" : "87"}
+	, {"Name" : "Interval", "Min" : "1", "Max" : "88"}
 ]}
 
 set PipelineEnableSignalInfo {[

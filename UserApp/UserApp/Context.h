@@ -16,7 +16,6 @@ public:
 	Context();
 	~Context();
 	virtual void HandleInput(std::unique_ptr<Action> action);
-	void SetCurrentState(std::unique_ptr<State> s);
 	void SetA(float a);
 	void SetB(float b);
 	int GetA();

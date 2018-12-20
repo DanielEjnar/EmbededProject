@@ -11,7 +11,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 11 \
+    id 12 \
     name GenerationGenerator_randomNumbers_V \
     reset_level 1 \
     sync_rst true \
@@ -26,25 +26,42 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 }
 
 
-# Direct connection:
+# Adapter definition:
+set corename slv0
+set opts {
+    {
+        id 10
+        name random
+        reset_level 1
+        sync_rst true
+        type scalar
+        dir I
+        width 24
+        mode SIG_IN_VLD_OFF:SIG_IN_ACC_OFF
+    }
+}
+set portmap { }
+set metadata { -bus_bundle slv0}
 if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 9 \
-    name random \
-    type other \
-    dir I \
+if {[info proc ::AESL_LIB_XILADAPTER::axi_slave_int_gen] == "::AESL_LIB_XILADAPTER::axi_slave_int_gen"} {
+eval "::AESL_LIB_XILADAPTER::axi_slave_int_gen { \
+    corename ${corename} \
     reset_level 1 \
     sync_rst true \
-    corename dc_random \
-    op interface \
-    ports { random { I 24 vector } } \
-} "
+    opts {${opts}} \
+    portmap {${portmap}} \
+    metadata {${metadata}} \
+}"
+} else {
+puts "@W Can not find gen function '::AESL_LIB_XILADAPTER::axi_slave_int_gen' in the library. Ignored generation of adapter for '${corename}'"
 }
+}
+
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 10 \
+    id 11 \
     name GenerationGenerator_randomNumberIndex_V \
     type other \
     dir IO \

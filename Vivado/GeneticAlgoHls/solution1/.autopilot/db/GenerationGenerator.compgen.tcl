@@ -1,7 +1,8 @@
 # This script segment is generated automatically by AutoPilot
 
 # Memory (RAM/ROM)  definition:
-set ID 12
+set ID 13
+set hasByteEnable 0
 set MemName GenerationGeneratbkb
 set CoreName ap_simcore_mem
 set PortList { 2 3 }
@@ -26,6 +27,7 @@ if {[info proc ap_gen_simcore_mem] == "ap_gen_simcore_mem"} {
     name ${MemName} \
     corename ${CoreName}  \
     op mem \
+    hasByteEnable ${hasByteEnable} \
     reset_level 1 \
     sync_rst true \
     stage_num ${NumOfStage}  \
@@ -61,6 +63,7 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
     name ${MemName} \
     corename ${CoreName}  \
     op mem \
+    hasByteEnable ${hasByteEnable} \
     reset_level 1 \
     sync_rst true \
     stage_num ${NumOfStage}  \
@@ -90,125 +93,107 @@ if {${::AESL::PGuard_autoexp_gen}} {
     AESL_LIB_XILADAPTER::native_axis_begin
 }
 
-# Direct connection:
+# Adapter definition:
+set corename slv0
+set opts {
+    {
+        id 14
+        name startGenerating
+        reset_level 1
+        sync_rst true
+        type scalar
+        dir I
+        width 1
+        mode SIG_IN_VLD_OFF:SIG_IN_ACC_OFF
+    }
+    {
+        id 15
+        name generatingDone
+        reset_level 1
+        sync_rst true
+        type scalar
+        dir O
+        width 1
+        mode SIG_OUT_VLD_OFF:SIG_OUT_ACC_OFF
+    }
+    {
+        id 16
+        name generation_parent1
+        reset_level 1
+        sync_rst true
+        type scalar
+        dir I
+        width 64
+        mode SIG_IN_VLD_OFF:SIG_IN_ACC_OFF
+    }
+    {
+        id 17
+        name generation_parent2
+        reset_level 1
+        sync_rst true
+        type scalar
+        dir I
+        width 64
+        mode SIG_IN_VLD_OFF:SIG_IN_ACC_OFF
+    }
+    {
+        id 18
+        name generation_child1
+        reset_level 1
+        sync_rst true
+        type scalar
+        dir O
+        width 64
+        mode SIG_OUT_VLD_OFF:SIG_OUT_ACC_OFF
+    }
+    {
+        id 19
+        name generation_child2
+        reset_level 1
+        sync_rst true
+        type scalar
+        dir O
+        width 64
+        mode SIG_OUT_VLD_OFF:SIG_OUT_ACC_OFF
+    }
+    {
+        id 20
+        name mutation_probability
+        reset_level 1
+        sync_rst true
+        type scalar
+        dir I
+        width 24
+        mode SIG_IN_VLD_OFF:SIG_IN_ACC_OFF
+    }
+    {
+        id 21
+        name random
+        reset_level 1
+        sync_rst true
+        type scalar
+        dir I
+        width 24
+        mode SIG_IN_VLD_OFF:SIG_IN_ACC_OFF
+    }
+}
+set portmap { }
+set metadata { -bus_bundle slv0}
 if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 13 \
-    name startGenerating \
-    type other \
-    dir I \
+if {[info proc ::AESL_LIB_XILADAPTER::axi_slave_int_gen] == "::AESL_LIB_XILADAPTER::axi_slave_int_gen"} {
+eval "::AESL_LIB_XILADAPTER::axi_slave_int_gen { \
+    corename ${corename} \
     reset_level 1 \
     sync_rst true \
-    corename dc_startGenerating \
-    op interface \
-    ports { startGenerating { I 1 bit } } \
-} "
+    opts {${opts}} \
+    portmap {${portmap}} \
+    metadata {${metadata}} \
+}"
+} else {
+puts "@W Can not find gen function '::AESL_LIB_XILADAPTER::axi_slave_int_gen' in the library. Ignored generation of adapter for '${corename}'"
+}
 }
 
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 14 \
-    name generatingDone \
-    type other \
-    dir O \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_generatingDone \
-    op interface \
-    ports { generatingDone { O 1 bit } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 15 \
-    name generation_parent1 \
-    type other \
-    dir I \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_generation_parent1 \
-    op interface \
-    ports { generation_parent1 { I 64 vector } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 16 \
-    name generation_parent2 \
-    type other \
-    dir I \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_generation_parent2 \
-    op interface \
-    ports { generation_parent2 { I 64 vector } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 17 \
-    name generation_child1 \
-    type other \
-    dir O \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_generation_child1 \
-    op interface \
-    ports { generation_child1 { O 64 vector } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 18 \
-    name generation_child2 \
-    type other \
-    dir O \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_generation_child2 \
-    op interface \
-    ports { generation_child2 { O 64 vector } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 19 \
-    name mutation_probability \
-    type other \
-    dir I \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_mutation_probability \
-    op interface \
-    ports { mutation_probability { I 24 vector } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 20 \
-    name random \
-    type other \
-    dir I \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_random \
-    op interface \
-    ports { random { I 24 vector } } \
-} "
-}
 
 
 # Adapter definition:

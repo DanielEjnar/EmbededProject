@@ -54,7 +54,7 @@ The IP was synthesized with the same settings as the GenerationGenertor in the V
 	\label{fig:simperformanceestimates}
 \end{figure}
 
-In figure \ref{fig:ggutilizationestimates} we see the utilization estimates of running the simulation in hardware. The total resource demand exceed those of the platform, the Zybo board, by quite a significant margin. The algorithm need 592 DSP48E's, but only 80 are available. Likewise it needs 39988 flip-flops and 22918 lookup tables, but fewer are available. This means that the current implementation will not be runnable on hardware.
+In figure \ref{fig:ggutilizationestimates} we see the utilization estimates of running the simulation in hardware. The total resource demand exceed those of the platform, the Zybo board, by quite a significant margin. The algorithm need 592 DSP48E's, but only 80 are available. Likewise it needs 39988 flip-flops and 22918 lookup tables, but fewer are available. This means that the current implementation will not be runnable on hardware, thus we decided not to make the simulator in hardware but in software instead and make it part of the user application.
 
 \begin{figure}[htbp]
 	\centering
@@ -62,6 +62,7 @@ In figure \ref{fig:ggutilizationestimates} we see the utilization estimates of r
 	\caption{X}
 	\label{fig:simutilizationestimates}
 \end{figure}
+
 Figure \ref{fig:siminterface} shows the generated interface signals with the RTL ports and their respective direction and bit length. 
 
 \begin{figure}[htbp]
