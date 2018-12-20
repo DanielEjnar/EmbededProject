@@ -16,7 +16,7 @@ int main()
 }
 \end{lstlisting}
 
-The $UserThread$ is the main point of interest, as it has a virtual function $run()$ executed by FreeRTOS and shown in listing \ref{lst:mainrun}. We chose to omit the $RandomThread$ from this review, however the code can be found in the attached code (src/RandomThread.h). We create a smart pointer to the \textbf{Context} class, as the client interacts solely with the states and data through this. Using a smart pointer improves safety of the application in case of exceptions and it gets deleted automatically when exiting the scope. Given a certain input, we create a pointer of class \textbf{Action} with a sting of what is to be done. This is evaluated by the current state of the application, as seen in the next example.
+The $UserThread$ is the main point of interest, as it has a virtual function $run()$ executed by FreeRTOS and shown in listing \ref{lst:mainrun}. We chose to omit the $RandomThread$ from this review, however the code can be found in the attached code (userapp/RandomThread.h). We create a smart pointer to the \textbf{Context} class, as the client interacts solely with the states and data through this. Using a smart pointer improves safety of the application in case of exceptions and it gets deleted automatically when exiting the scope. Given a certain input, we create a pointer of class \textbf{Action} with a sting of what is to be done. This is evaluated by the current state of the application, as seen in the next example.
 
 \begin{lstlisting}[style=customc++,caption={Main application, where two threads are created with a scheduler.},label={lst:mainrun}]
 {
