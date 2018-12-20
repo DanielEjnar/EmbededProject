@@ -48,7 +48,7 @@
 
 
 // IP VLNV: xilinx.com:hls:GenerationGenerator:1.0
-// IP Revision: 1812191640
+// IP Revision: 1812191717
 
 `timescale 1ns/1ps
 

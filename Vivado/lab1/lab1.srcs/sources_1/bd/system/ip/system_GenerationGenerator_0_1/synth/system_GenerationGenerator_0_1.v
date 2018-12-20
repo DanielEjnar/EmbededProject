@@ -48,11 +48,11 @@
 
 
 // IP VLNV: xilinx.com:hls:GenerationGenerator:1.0
-// IP Revision: 1812191640
+// IP Revision: 1812191717
 
 (* X_CORE_INFO = "generationgenerator_top,Vivado 2017.2" *)
 (* CHECK_LICENSE_TYPE = "system_GenerationGenerator_0_1,generationgenerator_top,{}" *)
-(* CORE_GENERATION_INFO = "system_GenerationGenerator_0_1,generationgenerator_top,{x_ipProduct=Vivado 2017.2,x_ipVendor=xilinx.com,x_ipLibrary=hls,x_ipName=GenerationGenerator,x_ipVersion=1.0,x_ipCoreRevision=1812191640,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S_AXI_SLV0_ADDR_WIDTH=7,C_S_AXI_SLV0_DATA_WIDTH=32}" *)
+(* CORE_GENERATION_INFO = "system_GenerationGenerator_0_1,generationgenerator_top,{x_ipProduct=Vivado 2017.2,x_ipVendor=xilinx.com,x_ipLibrary=hls,x_ipName=GenerationGenerator,x_ipVersion=1.0,x_ipCoreRevision=1812191717,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S_AXI_SLV0_ADDR_WIDTH=7,C_S_AXI_SLV0_DATA_WIDTH=32}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_GenerationGenerator_0_1 (
   s_axi_slv0_AWADDR,

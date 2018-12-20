@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-// Date        : Wed Dec 19 14:25:32 2018
+// Date        : Wed Dec 19 16:47:38 2018
 // Host        : Centropy running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               C:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.srcs/sources_1/bd/system/ip/system_xbar_0/system_xbar_0_sim_netlist.v

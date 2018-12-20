@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-// Date        : Wed Dec 19 16:47:28 2018
+// Date        : Thu Dec 20 08:54:50 2018
 // Host        : Centropy running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
-//               C:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.srcs/sources_1/bd/system/ip/system_GenerationGenerator_0_1/system_GenerationGenerator_0_1_stub.v
+//               C:/Users/cml/Desktop/EmbededProject/Vivado/lab1/lab1.srcs/sources_1/bd/system/ip/system_GenerationGenerator_0_1/system_GenerationGenerator_0_1_stub.v
 // Design      : system_GenerationGenerator_0_1
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z010clg400-1

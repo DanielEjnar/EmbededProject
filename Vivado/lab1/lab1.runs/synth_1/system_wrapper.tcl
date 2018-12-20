@@ -10,35 +10,35 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir C:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.cache/wt [current_project]
-set_property parent.project_path C:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/cml/Desktop/EmbededProject/Vivado/lab1/lab1.cache/wt [current_project]
+set_property parent.project_path C:/Users/cml/Desktop/EmbededProject/Vivado/lab1/lab1.xpr [current_project]
 set_property XPM_LIBRARIES XPM_CDC [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part digilentinc.com:zybo:part0:1.0 [current_project]
 set_property ip_repo_paths c:/Users/cml/Desktop/EmbededProject/Vivado/GeneticAlgoHls [current_project]
-set_property ip_output_repo c:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.cache/ip [current_project]
+set_property ip_output_repo c:/Users/cml/Desktop/EmbededProject/Vivado/lab1/lab1.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_vhdl -library xil_defaultlib C:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.srcs/sources_1/bd/system/hdl/system_wrapper.vhd
-add_files C:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.srcs/sources_1/bd/system/system.bd
-set_property used_in_implementation false [get_files -all c:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.srcs/sources_1/bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.srcs/sources_1/bd/system/ip/system_axi_gpio_0_0/system_axi_gpio_0_0_board.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.srcs/sources_1/bd/system/ip/system_axi_gpio_0_0/system_axi_gpio_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.srcs/sources_1/bd/system/ip/system_axi_gpio_0_0/system_axi_gpio_0_0.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.srcs/sources_1/bd/system/ip/system_rst_ps7_0_100M_0/system_rst_ps7_0_100M_0_board.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.srcs/sources_1/bd/system/ip/system_rst_ps7_0_100M_0/system_rst_ps7_0_100M_0.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.srcs/sources_1/bd/system/ip/system_rst_ps7_0_100M_0/system_rst_ps7_0_100M_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.srcs/sources_1/bd/system/ip/system_axi_gpio_0_1/system_axi_gpio_0_1_board.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.srcs/sources_1/bd/system/ip/system_axi_gpio_0_1/system_axi_gpio_0_1_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.srcs/sources_1/bd/system/ip/system_axi_gpio_0_1/system_axi_gpio_0_1.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.srcs/sources_1/bd/system/ip/system_axi_gpio_0_2/system_axi_gpio_0_2_board.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.srcs/sources_1/bd/system/ip/system_axi_gpio_0_2/system_axi_gpio_0_2_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.srcs/sources_1/bd/system/ip/system_axi_gpio_0_2/system_axi_gpio_0_2.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.srcs/sources_1/bd/system/ip/system_xbar_0/system_xbar_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.srcs/sources_1/bd/system/ip/system_GenerationGenerator_0_1/constraints/GenerationGenerator_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.srcs/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all C:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.srcs/sources_1/bd/system/system_ooc.xdc]
-set_property is_locked true [get_files C:/Users/cml/Downloads/Assignment3_HW/lab1/lab1.srcs/sources_1/bd/system/system.bd]
+read_vhdl -library xil_defaultlib C:/Users/cml/Desktop/EmbededProject/Vivado/lab1/lab1.srcs/sources_1/bd/system/hdl/system_wrapper.vhd
+add_files C:/Users/cml/Desktop/EmbededProject/Vivado/lab1/lab1.srcs/sources_1/bd/system/system.bd
+set_property used_in_implementation false [get_files -all c:/Users/cml/Desktop/EmbededProject/Vivado/lab1/lab1.srcs/sources_1/bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/cml/Desktop/EmbededProject/Vivado/lab1/lab1.srcs/sources_1/bd/system/ip/system_axi_gpio_0_0/system_axi_gpio_0_0_board.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/cml/Desktop/EmbededProject/Vivado/lab1/lab1.srcs/sources_1/bd/system/ip/system_axi_gpio_0_0/system_axi_gpio_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/cml/Desktop/EmbededProject/Vivado/lab1/lab1.srcs/sources_1/bd/system/ip/system_axi_gpio_0_0/system_axi_gpio_0_0.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/cml/Desktop/EmbededProject/Vivado/lab1/lab1.srcs/sources_1/bd/system/ip/system_rst_ps7_0_100M_0/system_rst_ps7_0_100M_0_board.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/cml/Desktop/EmbededProject/Vivado/lab1/lab1.srcs/sources_1/bd/system/ip/system_rst_ps7_0_100M_0/system_rst_ps7_0_100M_0.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/cml/Desktop/EmbededProject/Vivado/lab1/lab1.srcs/sources_1/bd/system/ip/system_rst_ps7_0_100M_0/system_rst_ps7_0_100M_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/cml/Desktop/EmbededProject/Vivado/lab1/lab1.srcs/sources_1/bd/system/ip/system_axi_gpio_0_1/system_axi_gpio_0_1_board.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/cml/Desktop/EmbededProject/Vivado/lab1/lab1.srcs/sources_1/bd/system/ip/system_axi_gpio_0_1/system_axi_gpio_0_1_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/cml/Desktop/EmbededProject/Vivado/lab1/lab1.srcs/sources_1/bd/system/ip/system_axi_gpio_0_1/system_axi_gpio_0_1.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/cml/Desktop/EmbededProject/Vivado/lab1/lab1.srcs/sources_1/bd/system/ip/system_axi_gpio_0_2/system_axi_gpio_0_2_board.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/cml/Desktop/EmbededProject/Vivado/lab1/lab1.srcs/sources_1/bd/system/ip/system_axi_gpio_0_2/system_axi_gpio_0_2_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/cml/Desktop/EmbededProject/Vivado/lab1/lab1.srcs/sources_1/bd/system/ip/system_axi_gpio_0_2/system_axi_gpio_0_2.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/cml/Desktop/EmbededProject/Vivado/lab1/lab1.srcs/sources_1/bd/system/ip/system_xbar_0/system_xbar_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/cml/Desktop/EmbededProject/Vivado/lab1/lab1.srcs/sources_1/bd/system/ip/system_GenerationGenerator_0_1/constraints/GenerationGenerator_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/cml/Desktop/EmbededProject/Vivado/lab1/lab1.srcs/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all C:/Users/cml/Desktop/EmbededProject/Vivado/lab1/lab1.srcs/sources_1/bd/system/system_ooc.xdc]
+set_property is_locked true [get_files C:/Users/cml/Desktop/EmbededProject/Vivado/lab1/lab1.srcs/sources_1/bd/system/system.bd]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

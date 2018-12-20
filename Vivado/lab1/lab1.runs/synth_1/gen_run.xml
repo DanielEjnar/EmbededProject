@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1545234529">
+<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1545292573">
   <File Type="RDS-PROPCONSTRS" Name="system_wrapper_drc_synth.rpt"/>
   <File Type="PA-TCL" Name="system_wrapper.tcl"/>
   <File Type="RDS-RDS" Name="system_wrapper.vds"/>
@@ -45,6 +45,5 @@
   <BlockFileSet Type="BlockSrcs" Name="system_axi_gpio_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="system_rst_ps7_0_100M_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_axi_gpio_0_2"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_auto_pc_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_xbar_0"/>
 </GenRun>
