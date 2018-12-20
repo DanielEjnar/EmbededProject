@@ -1,0 +1,12 @@
+\section{Conclusion}
+In conclusion this project has been of a some success. We have designed and implemented two different IP cores using SystemC - one which generates a new generation of chromosomes and one which simulates the Rosenbrock function. Both of these were verified using a C simulation, but due to tool problems we ere unable to make a C/RTL co-simulation. Even though it was unable to co-simulate both of the modules were able to synthesize and gave the expected interfaces. 
+
+As described in section \ref{sec:results} only one of the IP cores, GenerationGenerator, were able to fit on the FPGA. That our IP core RosenbrockSimulator did not fit on the FPGA shows, that it is troublesome to use floats even though it was only internally in the module. We could have used a different encoding of the floating point numbers, which could use fixed point arithmetics, but we did not have the time to implement it.
+This design with the ZYNQ processor and GenerationGenerator were synthesized to the FPGA and we were able to run software on it.
+
+The software used a concurrent state pattern with a command pattern to change the states. This was implemented with great success and we were able to run the software on the ZyBo board after having some troubles with getting STDIO to go to our terminal.
+
+The software changed through the states as we expected and were able to recognize and react correctly to all of the commands.
+
+
+
