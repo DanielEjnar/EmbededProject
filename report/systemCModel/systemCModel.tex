@@ -1,11 +1,4 @@
 \section{Modeling in SystemC}
-\footnote{\color{red}NOTE: waits in Rosenbrock to reduce resources used}
-
-\begin{framed}
-5. Select the SysML/UML model for your preferred architecture suggestions in 3. Choose a part of the functionality including both hardware and software components to create a model and a test-bench in HLS using SystemC or C-code. Simulate and validate your design model.
-
-Argue for your choice of modeling language and abstraction level of modeling. Use the reports from the HLS tool to evaluate performance of the design. Assess whether the design is able to fulfill your requirements and constraints.
-\end{framed}
 
 This section explains how parts of the genetic algoritm has been modeled in SystemC and exported to hardware using HLS with Vivado. As seen in figure \ref{fig:allocation}, two components from the design can be mapped to hardware, so we constructed a SystemC model for each and tested it in the results, see section \ref{sec:results}. Both designs are made at the RTL abstraction level. This means that the communication between isolated components is abstracted away, i.e. external stimuli is simply modeled as a signal of some type and outputs are registered in a trace file. However the model is clocked, meaning we have a mean of synchronization, that is the modules are approximately timed. The two different modules will be described in the following subsections.
 
