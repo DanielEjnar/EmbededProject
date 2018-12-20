@@ -158,7 +158,7 @@ SC_MODULE(RosenbrockSimulator) {
   sc_out<bool> simulationDone;
   sc_in<sc_uint<32>> a; //actually float
   sc_in<sc_uint<32>> b; //actually float
-  sc_in<sc_uint<CHROMOSOME_WIDTH>> chromosome_in;
+  sc_in<sc_uint<CHR_WIDTH>> chromosome_in;
   sc_out<sc_uint<32>> fitness; //actually float
 
   void simulateRosenbrock(void);
@@ -180,13 +180,13 @@ The function implementation of $simulateRosenbrock()$ is viewed in listing \ref{
 
 void RosenbrockSimulator::simulateRosenbrock(){
   while (true) {
-    sc_uint<CHROMOSOME_WIDTH> notZero = pow(2, CHROMOSOME_WIDTH) - 1;
+    sc_uint<CHR_WIDTH> notZero = pow(2, CHR_WIDTH) - 1;
     while(startSimulation->read()==false){ wait(); }
     simulationDone->write(false);
     
-    sc_uint<CHROMOSOME_WIDTH> tmpChromosome = chromosome_in->read();
-    sc_uint<CHROMOSOME_WIDTH/2 > x = 0, y = 0;
-    x = tmpChromosome >> ( CHROMOSOME_WIDTH >> 1 );
+    sc_uint<CHR_WIDTH> tmpChromosome = chromosome_in->read();
+    sc_uint<CHR_WIDTH/2 > x = 0, y = 0;
+    x = tmpChromosome >> ( CHR_WIDTH >> 1 );
     y = tmpChromosome;
     
     // Convert coefficients to floats
@@ -207,8 +207,3 @@ void RosenbrockSimulator::simulateRosenbrock(){
 \end{lstlisting}
 
 This module is tested using a test bench in the Vivado HLS IDE. This test bench can be seen in Appendix A.
-
-%\section{SystemC Modelling}
-
-%For making the model of the software SystemC is used. SystemC is a C++ framework? for programming a model of logical hardware such as an FPGA. 
-
