@@ -1,10 +1,12 @@
 \section{Results}\label{sec:results}
 
-This section shows and elaborates on the results in performance and utilization of all the designs we purposed in section \ref{sec:archdesign}. This includes a high-level synthesis report of the two IP cores (GenerationGenerator and Simulator) and the user application, that was implemented in C++ and deployed to the ZYBO board with the use of OSAPI threads and FreeRTOS. Overall, our results show that simple fixed-point arithmetic can be accelerated in an hardware FPGA at relative low cost, however more complicated floating point computations are better done in software, as the number of required DSP's and lookup tables rapidly increase in such cases.
+This section shows and elaborates on the results in performance and utilization of all the designs we purposed in section \ref{sec:archdesign}. This includes a high-level synthesis report of the two IP cores (GenerationGenerator and Simulator) and the user application, that was implemented in C++ and deployed to the ZYBO board with the use of OSAPI threads and FreeRTOS. 
+
+Overall, our results show that simple fixed-point arithmetic can be accelerated in an hardware FPGA at relative low cost, however more complicated floating point computations are better done in software, as the number of required DSP's and lookup tables rapidly increase in such cases.
 
 \subsection{HLS of the GenerationGenerator core}
 
-The IP core was synthesized in C using a VivadoSimulator, a period of 20 and Verilog as the RTL language. Target device is a Zybo model xc7z010clg400-1. We used a SystemC stimuli file to invoke the IP core, which can be found in Appendix A. Figure \ref{fig:ggperformanceestimates} shows the performance estimates of the applied design. We seen that the estimated clock is well within our target of 20 with an uncertainty of 2.50 and the latency lie in range of 0 to 270 where the generateGeneration instance should have one with a latency of 269, and the produceRandom should have one with a latency of 3. It was expected that generateGeneration had a lot higher latency than produceRandom because of the high amount of logic inside it.
+The IP core was synthesized in C using a VivadoSimulator, a period of 20 and Verilog as the RTL language. Target device is a Zynq model xc7z010clg400-1. We used a SystemC stimuli file to invoke the IP core, which can be found in the attached code (GenerationGenerator/Stim.h). Figure \ref{fig:ggperformanceestimates} shows the performance estimates of the applied design. We see that the estimated clock is well within our target of 20 with an uncertainty of 2.50 and the latency lie in range of 0 to 270 where the generateGeneration instance should have one with a latency of 269, and the produceRandom should have one with a latency of 3. It was expected that generateGeneration had a lot higher latency than produceRandom because of the high amount of logic inside it.
 
 \begin{figure}[h!]
 	\centering
@@ -35,7 +37,7 @@ It should be noted, that most of these ports (all except clk and reset) are acce
 	\label{fig:gginterface}
 \end{figure}
 
-Figure \ref{fig:generationgeneratortrace} shows the trace output after running a C simulation with a stimuli, which can be found in the attached code. We can seen that the random input data changes continuously, and when the generating core is started, it uses the two parents and a mutation probability to create new children chromosomes and output these. This simulation shows, that the IP core should has the right behaviour. Unfortunately we were not able to run the C/RTL co-simulation  due to a tool issues.
+Figure \ref{fig:generationgeneratortrace} shows the trace output after running a C simulation with a stimuli, which can be found in the attached code (GenerationGenerator/Stim.h). We can seen that the random input data changes continuously, and when the generating core is started, it uses the two parents and a mutation probability to create new children chromosomes and output these. This simulation shows, that the IP core should have the right behavior. Unfortunately we were not able to run the C/RTL co-simulation  due to a tool issues.
 
 \begin{figure}[h!]
 	\centering
@@ -44,6 +46,8 @@ Figure \ref{fig:generationgeneratortrace} shows the trace output after running a
 	\label{fig:generationgeneratortrace}
 \end{figure}
 \FloatBarrier
+
+It should be noted that, while the IP core were able to synthesize, we were unable to communicate correctly with it. We were able to send data to the IP core, but we were unable to read data from it, which might be due to the behavior not being right after synthesis, and due to the tool issues we were unable to verify the synthesized IP core.
 
 \subsection{HLS of the Simulator core}
 
@@ -75,13 +79,13 @@ Figure \ref{fig:siminterface} shows the generated interfaces. It can be seen tha
 \begin{figure}[h!]
 	\centering
 	\fbox{\includegraphics[width=0.7\linewidth]{../diagrams/Siminterface}}
-	\caption{Interfaces of GenerateGeneration}
+	\caption{Interfaces of Simulator}
 	\label{fig:siminterface}
 \end{figure}
 
 \subsection{C++ application}
 
-Listing \ref{lst:userapprun} show the console output of running the user application. We see that we transit through the states, provide some parameters for the Rosenbrock function, evaluate the fitness of the first generation $P(k)$ and generate $P(k+1)$.
+Listing \ref{lst:userapprun} show the console output of running the user application. We see that we transit through the states, provide some parameters for the Rosenbrock function, evaluate the fitness of the first generation $P_{(k)}$ and generate $P_{(k+1)}$.
 
 \begin{lstlisting}[caption=Running the user application.,label={lst:userapprun},frame=single]
 Welcome to the menu
