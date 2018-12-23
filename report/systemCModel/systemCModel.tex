@@ -1,9 +1,9 @@
-\section{Modeling in SystemC}\label{sec:modelsystemc}
+\section{SystemC models}\label{sec:modelsystemc}
 
-This section explains how parts of the genetic algorithm has been modeled in SystemC and exported to hardware using HLS with Vivado. As seen in figure \ref{fig:allocation}, two components from the design can be mapped to hardware, so we build a SystemC model for each and evaluated it in the results, see section \ref{sec:results}. Both designs are made at an algorithmic abstraction level. This means that the communication between isolated components is abstracted away, i.e. external stimuli is simply modeled as a signal of some type and outputs are registered in a trace file. However the model is clocked, meaning we have a mean of synchronization, so the modules are approximately timed. The two different modules will be described in the following subsections.
+This section explains how parts of the genetic algorithm have been modeled in SystemC and exported to hardware using HLS with Vivado. As seen in figure \ref{fig:allocation}, two components from the design can be mapped to hardware, so we build a SystemC model for each and evaluated it in the results, see section \ref{sec:results}. Both designs are made at an algorithmic abstraction level. This means that the communication between isolated components is abstracted away, i.e. external stimuli is simply modeled as a signal of some type and outputs are registered in a trace file. However the model is clocked, meaning we have a mean of synchronization, so the modules are approximately timed. The two different modules will be described in the following subsections.
 
 \subsection{GenerationGenerator}
-The \textbf{GenerationGenerator} is responsible for generating a new generation of chromosomes using the generative algorithm described previously. Using SystemC, the module consists of two SC\_CTREAD's, as it can be seen in listing \ref{lst:generationgenerator_h}. The module has a number of input and output signals, as most are self-explanatory, we will briefly review them here. The two parent inputs for generation $P_{(k)}$ stem from $P_{(k-1)}$, similar the two children of $P_{(k)}$ are parents of $P_{(k+1)}$. A chromosome has length of 64, where 32 bits are reserved for the $x$ coefficient and 32 for the $y$ coefficient of the Rosenbrock function. Mutation probability is a hyper parameter set as stimuli or from the user side. The two indexes for random numbers are used to keep track of the next random number accessed by $trueRandom()$ and created continually by $produceRandom()$.  \emph{CHR\_WIDTH} is the chromosome width.
+The \textbf{GenerationGenerator} is responsible for generating a new generation of chromosomes using the generative algorithm described previously. Using SystemC, the module consists of two SC\_CTREAD's, as it can be seen in listing \ref{lst:generationgenerator_h}. The module has a number of input and output signals, as most are self-explanatory, we will briefly review them here. The two parent inputs for generation $P_{(k)}$ stem from $P_{(k-1)}$, similar the two children of $P_{(k)}$ are parents of $P_{(k+1)}$. A chromosome has length of 64, where 32 bits are reserved for the $x$ coefficient and 32 for the $y$ coefficient of the Rosenbrock function. Mutation probability is a hyper parameter set as stimuli or from the user side. The two indexes for random numbers are used to keep track of the next random number accessed by $trueRandom()$ and created continually by $produceRandom()$.  \emph{CHR\_WIDTH} is the chromosome width. \\
 
 \begin{lstlisting}[style=customc++, caption={GenerationGenerator.h},label={lst:generationgenerator_h}]
 #include <systemc.h>
@@ -40,7 +40,7 @@ SC_MODULE(GenerationGenerator) {
 };
 \end{lstlisting}
 
-The modeling of \textbf{GenerationGenerator} is done in SystemC. Listing \ref{lst:trueandproducerandom_cpp} shows the two functions that produce and return a random number, listing \ref{lst:generationgeneratorpragma_cpp} shows pragmas for the $generateGeneration()$ function and listing \ref{lst:generationgenerator_cpp} shows the actual implementation of the function $generateGeneration()$. Function $produceRandom()$ takes the random numbers from the input and saves them in a circular buffer. These random numbers were supposed to come from a loose audio channel, i.e. true random noise, but due to time constraints it was implemented using pseudo random numbers with the C++ $rand()$ function. Function $trueRandom()$ is used to get the random numbers when needed from the circular buffer.
+The modeling of \textbf{GenerationGenerator} is done in SystemC. Listing \ref{lst:trueandproducerandom_cpp} shows the two functions that produce and return a random number, listing \ref{lst:generationgeneratorpragma_cpp} shows pragmas for the $generateGeneration()$ function and listing \ref{lst:generationgenerator_cpp} shows the actual implementation of the function $generateGeneration()$. Function $produceRandom()$ takes the random numbers from the input and saves them in a circular buffer. These random numbers were supposed to come from a loose audio channel, i.e. true random noise, but due to time constraints it was implemented using pseudo random numbers with the C++ $rand()$ function. Function $trueRandom()$ is used to get the random numbers when needed from the circular buffer. \\
 
 \begin{lstlisting}[style=customc++,caption=The two methods for producing and accessing a random number., label={lst:trueandproducerandom_cpp}]
 void GenerationGenerator::produceRandom(void) {
@@ -67,7 +67,7 @@ sc_uint<RANDOM_WIDTH> GenerationGenerator::trueRandom(void) {
 }
 \end{lstlisting}  
 
-All signals are made available through the AXILite interface by the use of pragmas, e.g. \#pragma HLS resource core=AXI4LiteS metadata="-bus\_bundle slv0" variable=generation\_parent1, also seen in listing \ref{lst:generationgeneratorpragma_cpp}.
+All signals are made available through the AXILite interface by the use of pragmas, e.g. \#pragma HLS resource core=AXI4LiteS metadata="-bus\_bundle slv0" variable=generation\_parent1, also seen in listing \ref{lst:generationgeneratorpragma_cpp}. \\
 
 \begin{lstlisting}[style=customc++,caption=Pragmas defined for the GenerationGenerator function generateGeneration().,label={lst:generationgeneratorpragma_cpp}]
 void GenerationGenerator::generateGeneration(void) {
@@ -79,11 +79,10 @@ void GenerationGenerator::generateGeneration(void) {
   #pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=mutation_probability
   #pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=startGenerating
   #pragma HLS resource core=AXI4LiteS metadata="-bus_bundle slv0" variable=generatingDone
-
   ...
 \end{lstlisting}  
 
-The $generateGeneration()$ functions contains most the logic related to generating generations. It basically implements the generative algorithm as described in theory with two random crossover points. This is done using bit masks which are AND'ed onto the parent chromosomes in the mating pool to produce new children. Each child are then mutated by a stochastic process, where a single bit in the chromosome is flipped if a given random number is lower than a scaled probability of the mutation likelihood.
+The $generateGeneration()$ functions contains most the logic related to generating generations. It basically implements the generative algorithm as described in theory with two random crossover points. This is done using bit masks which are AND'ed onto the parent chromosomes in the mating pool to produce new children. Each child are then mutated by a stochastic process, where a single bit in the chromosome is flipped if a given random number is lower than a scaled probability of the mutation likelihood. \\
 
 \begin{lstlisting}[style=customc++,caption={GenerationGenerator.cpp},label={lst:generationgenerator_cpp}]
 void GenerationGenerator::generateGeneration(void) { 
@@ -138,7 +137,7 @@ void GenerationGenerator::generateGeneration(void) {
 The \textbf{GenerationGenerator} module is tested in a test bench that stimulates function calls to it. It simply wires the stimulation and the module together and makes a .VCD trace file with all the signals over the period of the application execution cycle, which is included in the results. Source code for the test bench can be found in the attached code (GenerationGenerator/main.cpp)
 
 \subsection{Simulator}
-The simulator (also called the RosenbrockSimulator in code) simulates a Rosenbrock function. The definition in SystemC can be found in listing \ref{lst:rosenbrock_h}. Function $simulateRosenbrock()$ evaluates the fitness of a chromosome from $P_{(k)}$. It should be noted that parameters $a$ and $b$ are uint32 type signals but handled as floats in the implementation, as we were not able to successfully pass floats as signals in SystemC. To obtain a floating value for the calculation, we simply make a type conversion using pointers. Signal \emph{chromosome\_in} is passed as input from the user side. The module outputs the actual fitness of the chromosome.
+The simulator (also called the RosenbrockSimulator in code) simulates a Rosenbrock function. The definition in SystemC can be found in listing \ref{lst:rosenbrock_h}. Function $simulateRosenbrock()$ evaluates the fitness of a chromosome from $P_{(k)}$. It should be noted that parameters $a$ and $b$ are uint32 type signals but handled as floats in the implementation, as we were not able to successfully pass floats as signals in SystemC. To obtain a floating value for the calculation, we simply make a type conversion using pointers. Signal \emph{chromosome\_in} is passed as input from the user side. The module outputs the actual fitness of the chromosome. \\
 
 \begin{lstlisting}[style=customc++,caption={RosenbrockSimulator.h},label={lst:rosenbrock_h}]
 #include <systemc.h>
@@ -163,7 +162,7 @@ SC_MODULE(RosenbrockSimulator) {
 };
 \end{lstlisting}
 
-The function implementation of $simulateRosenbrock()$ is seen in listing \ref{lst:rosenbrock_cpp}. This is done using floats as an experiment, however it is not the most efficient thing to use resource-wise, but brings a better accuracy of the fitness value than fixed-point would, as the function we are looking to minimize is non-convex, i.e. multiple locally optimal points. As seen later in results, we discovered there was not enough space for the module on the FPGA regarding DSP's and LUT's. This could have been made differently by using another floating point encoding which could allow for the use of fixed point arithmetics and interpret it as floats later. $uint32ToFloat()$ is a utility function that converts a unsigned integer number to a float by a simple pointer type cast.
+The function implementation of $simulateRosenbrock()$ is seen in listing \ref{lst:rosenbrock_cpp}. This is done using floats as an experiment, however it is not the most efficient thing to use resource-wise, but brings a better accuracy of the fitness value than fixed-point would, as the function we are looking to minimize is non-convex, i.e. multiple locally optimal points. As seen later in results, we discovered there was not enough space for the module on the FPGA regarding DSP's and LUT's. This could have been made differently by using another floating point encoding which could allow for the use of fixed point arithmetics and interpret it as floats later. $uint32ToFloat()$ is a utility function that converts a unsigned integer number to a float by a simple pointer type cast. \\
 
 \begin{lstlisting}[style=customc++,caption={RosenbrockSimulator.cpp},label={lst:rosenbrock_cpp}]
 #include "RosenbrockSimulator.h"
@@ -204,13 +203,11 @@ This module is tested using a test bench in the Vivado HLS IDE. This test bench 
 \subsection{Hardware Block Design}
 
 Lastly we view the Vivado hardware block design in figure \ref{fig:vivadodesign}. This is where we import and connect the different IP cores.
-We have imported the \textbf{GenerationGenerator} RTL IP core from Vivado HLS after synthesis and wired it with an AXI interconnect component, a clock resource from the ZYNQ7 processor and a reset controller.
+We have imported the \textbf{GenerationGenerator} RTL IP core from Vivado HLS after synthesis and wired it with an AXI interconnect component, a clock resource from the ZYNQ7 processor and a reset controller. We were not able to include both IP cores, as the $Simulator$ simply used too many resources. This was discovered during C synthesis.
 
 \begin{figure}[h!]
 	\centering
-	\fbox{\includegraphics[width=0.7\linewidth]{../diagrams/vivadoDesign}}
+	\fbox{\includegraphics[width=0.6\linewidth]{../diagrams/vivadoDesign}}
 	\caption{The block design in Vivado showing the IP core, the ZYNQ7 processing system, a AXI interconnect component and a reset controller.}
 	\label{fig:vivadodesign}
 \end{figure}
-
-We were not able to include both IP cores, as the $Simulator$ simply used too many resources. This was discovered during C synthesis.

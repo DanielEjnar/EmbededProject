@@ -54,7 +54,7 @@ Ideally, the computational generation of a new chromosome set generation $P_{(k)
 	\label{fig:allocation}
 \end{figure}
 
-\subsection{Software design}
+\subsection{User application design}
 
 The user application software is built using the GoF State pattern in a concurrent construct with events invoked by the user and system components for changing states using the GoF Command pattern. We chose to encapsulate logic in states as they easily distinguish functionality and clearly represent transitions from one to another. Figure \ref{fig:statemachine} displays a finite state machine diagram implemented in C++ for the user application, where we use two concurrent states, one for loading random numbers in a continuous flow and the other for the algorithm optimizer, as the generator uses the random numbers to create new chromosomes.
 

@@ -1,6 +1,6 @@
 \section{Results}\label{sec:results}
 
-This section shows and elaborates on the results in performance and utilization of all the designs we purposed in section \ref{sec:archdesign}. This includes a high-level synthesis report of the two IP cores (GenerationGenerator and Simulator) and the user application, that was implemented in C++ and deployed to the ZYBO board with the use of OSAPI threads and FreeRTOS. 
+This section shows and elaborates on the results in performance and utilization of all the designs we purposed in section \ref{sec:archdesign}. This includes a high-level synthesis report of the two IP cores (GenerationGenerator and Simulator) and the user application, that was implemented in C++ and deployed on the ZYBO board with the use of OSAPI threads and FreeRTOS. 
 
 Overall, our results show that simple fixed-point arithmetic can be accelerated in an hardware FPGA at relative low cost, however more complicated floating point computations are better done in software, as the number of required DSP's and lookup tables rapidly increase in such cases.
 
@@ -26,9 +26,7 @@ Figure \ref{fig:ggutilizationestimates} shows utilization of hardware estimates.
 \end{figure}
 \FloatBarrier
 
-Figure \ref{fig:gginterface} shows the generated interface signals. These interfaces are the interfaces, which we specified in the SystemC model. It can be seen that directions are the directions which we specified and the bit width is what we specified in the model.
-
-It should be noted, that most of these ports (all except clk and reset) are accessible through an AXILite interface, which we specified by the use of pragmas. This means, that we are able to communicate with the IP core directly from software through a memory mapped interface.
+Figure \ref{fig:gginterface} shows the generated interface signals. These interfaces are those specified in the SystemC model. It can be seen that directions are the those which we specified and the bit width is what we set in the model. It should be noted that most of these ports (all except clk and reset) are accessible through an AXILite interface, which we specified by the use of pragmas. This means that we are able to communicate with the IP core directly from software through a memory mapped interface.
 
 \begin{figure}[h!]
 	\centering
@@ -37,7 +35,7 @@ It should be noted, that most of these ports (all except clk and reset) are acce
 	\label{fig:gginterface}
 \end{figure}
 
-Figure \ref{fig:generationgeneratortrace} shows the trace output after running a C simulation with a stimuli, which can be found in the attached code (GenerationGenerator/Stim.h). We can seen that the random input data changes continuously, and when the generating core is started, it uses the two parents and a mutation probability to create new children chromosomes and output these. This simulation shows, that the IP core should have the right behavior. Unfortunately we were not able to run the C/RTL co-simulation  due to a tool issues.
+Figure \ref{fig:generationgeneratortrace} shows the trace output after running a C simulation with a stimuli, which can be found in the attached code (GenerationGenerator/Stim.h). We see that the random input data changes continuously, and when the generating core is started, it uses the two parents and a mutation probability to create new children chromosomes and output these. This simulation shows that the IP core perform the right behavior, however unfortunately we were not able to run the C/RTL co-simulation due to tool issues.
 
 \begin{figure}[h!]
 	\centering
@@ -47,7 +45,7 @@ Figure \ref{fig:generationgeneratortrace} shows the trace output after running a
 \end{figure}
 \FloatBarrier
 
-It should be noted that, while the IP core were able to synthesize, we were unable to communicate correctly with it. We were able to send data to the IP core, but we were unable to read data from it, which might be due to the behavior not being right after synthesis, and due to the tool issues we were unable to verify the synthesized IP core.
+It should be noted that while the IP core were able to synthesize, we were unable to communicate correctly with it in Vivado. We were able to send data to the IP core, but we were unable to read data from it, which might be due to the behavior not being right after synthesis, and due to the tool issues we were unable to verify the synthesized IP core.
 
 \subsection{HLS of the Simulator core}
 
@@ -61,11 +59,7 @@ The IP was synthesized with the same settings as the GenerationGenerator in the 
 \end{figure}
 \FloatBarrier
 
-In figure \ref{fig:ggutilizationestimates} we see the utilization estimates of running the Simulator in hardware. The total resource demand exceed those of the platform, the ZyBo board, by quite a significant margin. 
-
-The algorithm need 592 DSP48E's, but only 80 are available, which means that it needs over 7 times as many as are present on the FPGA. Likewise it needs 39988 flip-flops and 22918 lookup tables, but fewer are available. The flip-flops is only over-utilized by 13\% while the lookup-tables exceeds the available ones by 30\%. 
-
-This means that the current implementation will not be runnable on hardware. We could either use a bigger FPGA or reimplement the design to use another floating point encoding.
+In figure \ref{fig:ggutilizationestimates} we see the utilization estimates of running the Simulator in hardware. The total resource demand exceed the capabilities of the platform, the ZyBo board, by quite a significant margin. The algorithm need 592 DSP48E's, but only 80 are available, which means that it needs over 7 times as many as are present on the FPGA. Likewise it needs 39988 flip-flops and 22918 lookup tables, but fewer are available. The flip-flops is only over-utilized by 13\% while the lookup-tables exceeds the available ones by 30\%. This means that the current implementation will not be runnable on hardware. We could either use a bigger FPGA or re-implement the design to use another floating point encoding. Vivado 2018.3 was able to optimize the number of DSP's required (about 300), but it would still exceed what the Zybo board has to offer.
 
 \begin{figure}[h!]
 	\centering
@@ -74,7 +68,7 @@ This means that the current implementation will not be runnable on hardware. We 
 	\label{fig:simutilizationestimates}
 \end{figure}
 
-Figure \ref{fig:siminterface} shows the generated interfaces. It can be seen that all of the interfaces are as we defined in the SystemC model. These have the bit width as we defined. It should be noted that all except the clk and reset ports will be exported as AXILite memory mapped interfaces. This means that we, if the design would fit on the FPGA, could communicate directly with the IP core from the software.
+Figure \ref{fig:siminterface} shows the generated interfaces and we see that all interfaces are as we defined in the SystemC model. These have the bit width as we defined. It should be noted that all except the clk and reset ports will be exported as AXILite memory mapped interfaces. This means that we, if the design would fit on the FPGA, could communicate directly with the IP core from the software.
 
 \begin{figure}[h!]
 	\centering
@@ -89,8 +83,7 @@ Listing \ref{lst:userapprun} show the console output of running the user applica
 
 \begin{lstlisting}[caption=Running the user application.,label={lst:userapprun},frame=single]
 Welcome to the menu
-Press 1 for SETUP, 2 for RUN, 3 for ABORT
-1
+Press 1 for SETUP, 2 for RUN, 3 for ABORT 1
 EnterSetup() called
 Exiting Idle
 Performing setup
@@ -102,8 +95,7 @@ Setup done
 SetupDone() called
 Welcome to Idle
 Welcome to the menu
-Press 1 for SETUP, 2 for RUN, 3 for ABORT
-2
+Press 1 for SETUP, 2 for RUN, 3 for ABORT 2
 Optimize() called
 Exiting Idle
 Welcome to the Simulator
@@ -117,4 +109,3 @@ Welcome to GenerateGeneration
 Made child: 12668
 Made child: 53000
 \end{lstlisting}
-
