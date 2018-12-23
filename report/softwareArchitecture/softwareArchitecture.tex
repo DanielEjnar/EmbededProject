@@ -1,10 +1,10 @@
 \section{Architecture and design}\label{sec:archdesign}
 
-This section describes the architecture and design behind our solution using text and illustrative UML diagrams defined by the methodology. The section will give the reader an overview of which parts of the application are modeled and mapped to hardware, and which are kept purely in software.
+This section describes the architecture and design behind our purposed solution and tests using text and illustrative UML diagrams defined by the methodology. The section will give the reader an overview of which parts of the application are modeled and mapped to hardware, and which are kept purely in software.
 
 \subsection{Architecture of components}
 
-The overall structure of the system can be seen in the block definition diagram (BDD) in figure \ref{fig:bdd}. Here it can be seen that the system mainly consist of three parts: \emph{User Interface}, \emph{GenerationGenerator}, and \emph{Simulator}. Each part has a responsibility within a scope and could potentially be placed in either hardware or software. We will now briefly review these three:
+The overall structure of the system can be seen in the block definition diagram (BDD) in figure \ref{fig:bdd}.The system consists mainly of three parts: \emph{User Interface}, \emph{GenerationGenerator}, and \emph{Simulator}. Each part has a responsibility within a scope and could potentially be placed in either hardware or software, as we will now briefly review these.
 
 \begin{figure}[h!]
 	\centering
@@ -13,11 +13,11 @@ The overall structure of the system can be seen in the block definition diagram 
 	\label{fig:bdd}
 \end{figure}
 
-\emph{User Interface} is what the user sees and interacts with via a console. The software part is responsible for getting the input from the user and send output back, e.g. the start generation of chromosomes, a continuous loop of fitnesses by evaluating future chromosomes and the final one for the function.
+\emph{User Interface} is what the user sees and interacts with via a console. The software part is responsible for getting the input from the user and send output back, e.g. the start generation $P(0)$ of chromosomes, a continuous loop of fitnesses by evaluating future chromosomes and the final one for the function.
 
 \emph{GenerationGenerator} is responsible for generating a new generation of chromosomes using the genetic algorithm by doing crossovers and mutation on the basis of some stochastic probability.
 
-\emph{Simulator} is responsible for calculating the fitness of a chromosomes in a generation using the Rosenbrock function by evaluating it given $x_{i}$ and $y_{i}$. The result is a measure of how close we are to the minimum.
+\emph{Simulator} is responsible for calculating the fitness of a chromosome in a generation using the Rosenbrock function by evaluating it given $x_{i}$ and $y_{i}$. The result is a descending measure of how close we are to the minimum.
 
 The internal connections can be seen in the internal block diagram (IBD) in figure \ref{fig:ibd} and displays a greater level of information about which components are needed to run the algorithm. We see that \emph{GenerationGenerator} consists of two different parts, a generator and an interpreter of the random numbers. The point of the interpreter of the random numbers is, that it buffers the numbers such that there is always an amount of random numbers available.
 
@@ -37,7 +37,7 @@ The functional behavior of the system can be described in a activity diagram, as
 	\label{fig:activity}
 \end{figure}
 
-The implementation has a number of potential allocations. Figure \ref{fig:allocation} shows one of them, as both the GenerationGenerator and Simulator are mapped to hardware. We decide not to allocate the user interface to hardware for simplicity purposes, however other possible allocations exist. We shall explore these options in the design phase using HLS and evaluate on their application in the results:
+The implementation has a number of potential allocations. Figure \ref{fig:allocation} shows one of them, as both the GenerationGenerator and Simulator are mapped to hardware. We decided not to allocate the user interface to hardware for simplicity reasons, however other possible allocations exist. We shall explore these options in the design phase using HLS and evaluate on their application in the results:
 
 \begin{itemize} 
 	\item Both the GenerationGenerator and Simulator are placed in software (a ARM Cortex-A9 processor).
@@ -45,7 +45,7 @@ The implementation has a number of potential allocations. Figure \ref{fig:alloca
 	\item The GenerationGenerator is put in software (ARM Cortext-A9) and the Simulator is put in hardware (FPGA).
 \end{itemize}
 
-Ideally, the computational generation of a new chromosome set (generation $P_{(k)}$) and its simulation should run in real-rime. Therefore it is interesting to look at accelerating these parts using hardware and the FPGA, and thus use the allocation shown in figure \ref{fig:allocation}.
+Ideally, the computational generation of a new chromosome set generation $P_{(k)}$ and its simulation should run in real-rime. Therefore it is interesting to look at accelerating these parts using hardware and the FPGA, and thus use the allocation shown in figure \ref{fig:allocation}.
 
 \begin{figure}[h!]
 	\centering
@@ -55,11 +55,8 @@ Ideally, the computational generation of a new chromosome set (generation $P_{(k
 \end{figure}
 
 \subsection{Software design}
-\begin{framed}
-4. Design the software and apply design patterns that are suitable for your project, and motivate the choice of the used patterns. Use the Two-Part Architecture Model if relevant for the problem. Use the abstract OS package for the ZYBO board
-\end{framed}
 
-The user application software is built using the GoF State pattern in a concurrent construct with events invoked by the user and system components for changing states using the command pattern. We chose to encapsulate logic in states as they easily distinguish functionality and clearly represent transitions from one to another. Figure \ref{fig:statemachine} displays a finite state machine diagram implemented in C++ for the user application, where we use two concurrent states. One is for loading random numbers in a continuous flow and the other is the algorithm optimizer, as the generator uses the random numbers to create new chromosomes.
+The user application software is built using the GoF State pattern in a concurrent construct with events invoked by the user and system components for changing states using the GoF Command pattern. We chose to encapsulate logic in states as they easily distinguish functionality and clearly represent transitions from one to another. Figure \ref{fig:statemachine} displays a finite state machine diagram implemented in C++ for the user application, where we use two concurrent states, one for loading random numbers in a continuous flow and the other for the algorithm optimizer, as the generator uses the random numbers to create new chromosomes.
 
 \begin{figure}[h!]
 	\centering
@@ -68,10 +65,10 @@ The user application software is built using the GoF State pattern in a concurre
 	\label{fig:statemachine}
 \end{figure}
 
-The optimizer state is made up of four different states where one is a nested state with two additional states.
-States transitions are triggered by commands specified as triggers in the diagram and transitions handled by the states. State \textbf{Idle} is a waiting state where the user resides when they enter or when an optimization is done, aborted or when setup has concluded. The \textbf{Save} state is used to save the set generation of chromosomes which have been optimized. This is done using a simple print to the terminal. The \textbf{Setup} state allows the user to set parameters $a$ and $b$ for the Rosenbrock function, which stopping criterion should be met and an initial generation. The \textbf{Optimize} state is a nested state machine where most of the algorithm is computed. It initiates in state \emph{Simulate}, where it calculates the fitness of a generation, then changes to either \textbf{Idle} or \textbf{GenerateGeneration} depending on the stopping criterion. It continues operations inside these until it has stopped or until aborted.
+The state design is made up of four different states where one is a nested state with two additional substates.
+State transitions are triggered by commands specified as triggers in the diagram and transitions handled by the states. State \textbf{Idle} is a waiting state where the user resides when they enter or when an optimization is done, aborted or when setup has concluded. The \textbf{Save} state is used to save the set generation of chromosomes which have been optimized. This is done using a simple print to the terminal. The \textbf{Setup} state allows the user to set parameters $a$ and $b$ for the Rosenbrock function, which stopping criterion should be met and a initial generation. The \textbf{Optimize} state is a nested state machine where most of the algorithm is computed. It starts off in state \emph{Simulate}, where it calculates the fitness of a generation, then changes to either \textbf{Idle} or \textbf{GenerateGeneration} depending on the stopping criterion. The application resides in this nested state until it has been stopped or aborted.
 
-Figure \ref{fig:classdiagram} shows how we implemented the state design in C++ and on the Zybo board. Notice the \textbf{Context} which holds the current state of the program, as well as best generation of chromosomes so far and the latest fitnesses. When the user invokes a command, we create actions of class \textbf{Action} of some specific task and call $HandleInput()$ on the context. It then delegates the concrete action to its current state, which calls $HandleAction()$ derived from the superclass \textbf{State}. Enter and exit methods are made when a state is entered or left.
+Figure \ref{fig:classdiagram} shows how we implemented the state design in C++ and on the Zybo board. Notice the \textbf{Context} which holds the current state of the program, as well as the best generation of chromosomes so far and the latest fitnesses. When the user invokes a command, we create actions of class \textbf{Action} of some specific task and call $HandleInput()$ on the context. It then delegates the concrete action to its current state, which calls $HandleAction()$ derived from the superclass \textbf{State}. Enter and exit functions are called when a state is entered or left.
 
 \begin{figure}[h!]
 	\centering
@@ -80,6 +77,4 @@ Figure \ref{fig:classdiagram} shows how we implemented the state design in C++ a
 	\label{fig:classdiagram}
 \end{figure}
 
-For implementing the concurrency control, a OS abstraction library is used. This is a wrapper for the functions defined in FreeRTOS, as we simply define two threads to control their respective part of the state diagram.
-
-
+For implementing the concurrency control, a OS abstraction library is used. This is a wrapper for the functions defined in FreeRTOS, as we simply define two threads to control their respective part of the state diagram. More details follow in section \ref{sec:userapp}.
