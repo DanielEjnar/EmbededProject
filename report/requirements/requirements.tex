@@ -1,6 +1,6 @@
 \section{Requirements}\label{sec:req}
 
-The following functional and non-functional requirements are stated for this report as they make up the system and architectural design. Focus is on implementing the genetic algorithm using HLS and evaluating its performance before deploying it to actual hardware. These requirements state what is expected of, mostly, the hardware system, but also covers the user application.
+The following functional and nonfunctional requirements are stated for the system and described in this report, as the make up the architectural design and user flow. Focus is on implementing the genetic algorithm using HLS and evaluating its performance before deploying it to actual hardware. These requirements state what is expected of, mostly, the hardware system, but also covers the user application.
 
 \begin{itemize}
 \item The system must be able to generate a new generation using the genetic algorithm.
@@ -11,18 +11,18 @@ The following functional and non-functional requirements are stated for this rep
 \item The user should be able to extract the generation and its fitness from the system.
 \end{itemize}
 
-The non-functional requirements are stated in the form of a use case as described in table \ref{tab:usecase}. It can be seen that the flow of interactions from the user's perspective is rather simple. The user simply asks for a certain Rosenbrock function using a set of parameters to be optimized, and gets a chromosome (bit string) that optimizes it.
+The functional requirements are then used to form a use case in table \ref{tab:usecase}. We see that the flow of interactions from the user's perspective is rather simple. The user simply asks for a certain Rosenbrock function given a set of parameters to be optimized and receives a chromosome back (bit string of a certain length) that optimizes it.
 
 \begin{table}[!htbp]
 \caption{Basic use case for the system.} \label{tab:usecase}
 \begin{tabular}{|l|l|}
 \hline
-\textbf{Goal}          & \begin{tabular}[l]{@{}l@{}}The user has gotten an optimized\\ chromosome\end{tabular}                                                                                                                                                                                                                                                                                                   \\ \hline
+\textbf{Goal}          & \begin{tabular}[l]{@{}l@{}}The user has received an optimized\\ chromosome\end{tabular}                                                                                                                                                                                                                                                                                                   \\ \hline
 \textbf{Initializer}   & The user                                                                                                                                                                                                                                                                                                                                                                                \\ \hline
 \textbf{Actor}         & The user                                                                                                                                                                                                                                                                                                                                                                                \\ \hline
-\textbf{Prerequisits}  & \begin{tabular}[l]{@{}l@{}}The system is turned on and has\\ done its initialization.\end{tabular}                                                                                                                                                                                                                                                                                      \\ \hline
-\textbf{Result}        & \begin{tabular}[l]{@{}l@{}}The user gets an optimized\\ chromosome\end{tabular}                                                                                                                                                                                                                                                                                                         \\ \hline
-\textbf{Main Scenario} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}1. The user runs the setup\\ 2. The user enters the wanted setup parameters.\\ 3. The user starts an optimization.\\ 4. The system performs the optimization.\\ 5. The system generates a new generation.\\ 6. Repeat from step 4 until stopping criterion is met.\\ 7. The user extracts the final chromosome and fitness.\end{tabular}} \\ \hline
+\textbf{Prerequisites}  & \begin{tabular}[l]{@{}l@{}}The system is turned on and has\\ completed its initialization.\end{tabular}                                                                                                                                                                                                                                                                                      \\ \hline
+\textbf{Result}        & \begin{tabular}[l]{@{}l@{}}The user receives an optimized\\ chromosome\end{tabular}                                                                                                                                                                                                                                                                                                         \\ \hline
+\textbf{Main Scenario} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}1. The user runs the setup\\ 2. The user enters two setup parameters, $a$ and $b$.\\ 3. The user starts an optimization.\\ 4. The system performs the optimization.\\ 5. The system generates a new generation.\\ 6. Repeat from step 4 until stopping criterion is met.\\ 7. The user extracts the final chromosome and fitness.\end{tabular}} \\ \hline
 \end{tabular}
 \end{table}
  
