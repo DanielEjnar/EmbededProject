@@ -31,12 +31,12 @@
 }
 \title{Embedded Real Time Systems - Using HLS to model a genetic algorithm}
 \author{Daniel Ejnar Larsen (201406535) and Christian M. Lillelund (201408354)}
-\date{School of Engineering, Aarhus University\\ [\baselineskip] \today}
+\date{Department of Engineering, Aarhus University\\ [\baselineskip] \today}
 
 \begin{document}
 \maketitle
 \begin{abstract}
-High level synthesis (HLS) is an automated design process that models a computational algorithm in software and uses tools to create a hardware implementation in e.g. a field programmable gate array (FPGA). In this report, we use the event-driven SystemC language to model, stimulate and verify a genetic optimization algorithm before accelerating it in an FPGA using Xilinx's Vivado HLS tool to test its feasibility, hardware utilization and find if such algorithm would benefit from acceleration in hardware. We use HLS to design different parts of the algorithm and compare the results in terms of performance and hardware utilization. Moreover a user application for end-users are created using various design patterns and concurrent thread execution on the Zybo ZYNQ SoC Board. We find that HLS is a useful approach to generate such hardware designs, however tool support and model granularity plays an important in the outcome.
+High level synthesis (HLS) is an automated design process that models a computational algorithm in software and uses tools to create a hardware implementation in e.g. a field programmable gate array (FPGA). In this report, we use the event-driven SystemC language to model, simulate and verify a genetic optimization algorithm before accelerating it in an FPGA using Xilinx's Vivado HLS tool to test its feasibility, hardware utilization and find if such algorithm would benefit from acceleration in hardware. We use HLS to design different parts of the algorithm and compare the results in terms of performance and hardware utilization. Moreover a user application for end-users are created using various design patterns and concurrent thread execution on the Zybo ZYNQ SoC Board. We find that HLS is a useful approach to generate such hardware designs, however tool support and model granularity plays an important in the outcome.
 \end{abstract}
 
 \input{introduction/introduction.tex}
